@@ -47,7 +47,7 @@ struct ContentView: View {
                         )
                     }
                     
-                    NavigationLink(destination: BellowsExtension()) {
+                    NavigationLink(destination: Reciprocity()) {
                         NavigationCard(
                             label: "Reciprocity",
                             icon: "moon.circle.fill",

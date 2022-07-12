@@ -23,6 +23,8 @@
 		DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B38287CB75A00EC04D7 /* BellowsExtensionForm.swift */; };
 		DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B3A287CB86100EC04D7 /* PriorityModeToggle.swift */; };
 		DB901B3D287CB99500EC04D7 /* BellowsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */; };
+		DB901B3F287D03E800EC04D7 /* Reciprocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B3E287D03E800EC04D7 /* Reciprocity.swift */; };
+		DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B40287D047600EC04D7 /* CalculateButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		DB901B38287CB75A00EC04D7 /* BellowsExtensionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtensionForm.swift; sourceTree = "<group>"; };
 		DB901B3A287CB86100EC04D7 /* PriorityModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityModeToggle.swift; sourceTree = "<group>"; };
 		DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtension.swift; sourceTree = "<group>"; };
+		DB901B3E287D03E800EC04D7 /* Reciprocity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reciprocity.swift; sourceTree = "<group>"; };
+		DB901B40287D047600EC04D7 /* CalculateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */,
+				DB901B3E287D03E800EC04D7 /* Reciprocity.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				DB901B36287CB6F800EC04D7 /* FormInput.swift */,
 				DB901B38287CB75A00EC04D7 /* BellowsExtensionForm.swift */,
 				DB901B3A287CB86100EC04D7 /* PriorityModeToggle.swift */,
+				DB901B40287D047600EC04D7 /* CalculateButton.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -309,10 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,
+				DB901B3F287D03E800EC04D7 /* Reciprocity.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
 				DB560C39287A6CC700CC891A /* LumenApp.swift in Sources */,
+				DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */,
 				DB901B34287CB68600EC04D7 /* Constants.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,

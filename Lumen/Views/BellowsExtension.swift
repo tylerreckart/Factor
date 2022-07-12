@@ -5,7 +5,6 @@
 //  Created by Tyler Reckart on 7/11/22.
 //
 
-import Foundation
 import SwiftUI
 
 struct CompensationFactorCard: View {
