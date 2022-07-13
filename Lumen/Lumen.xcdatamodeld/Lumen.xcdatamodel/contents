@@ -9,6 +9,8 @@
         <attribute name="focalLength" optional="YES" attributeType="String"/>
         <attribute name="priorityMode" optional="YES" attributeType="String"/>
         <attribute name="shutterSpeed" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="bellowsExtensionData" inverseEntity="Note"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="body" optional="YES" attributeType="String"/>
@@ -17,22 +19,24 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="reciprocityDataId" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="bellowsExtensionData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BellowsExtensionData"/>
-        <relationship name="reciprocityData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReciprocityData"/>
+        <relationship name="bellowsExtensionData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BellowsExtensionData" inverseName="note" inverseEntity="BellowsExtensionData"/>
+        <relationship name="reciprocityData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReciprocityData" inverseName="note" inverseEntity="ReciprocityData"/>
     </entity>
     <entity name="ReciprocityData" representedClassName="ReciprocityData" syncable="YES" codeGenerationType="class">
         <attribute name="adjustedShutterSpeed" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="selectedOption" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReciprocityOption"/>
+        <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="reciprocityData" inverseEntity="Note"/>
+        <relationship name="selectedOption" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReciprocityOption" inverseName="data" inverseEntity="ReciprocityOption"/>
     </entity>
     <entity name="ReciprocityOption" representedClassName="ReciprocityOption" syncable="YES" codeGenerationType="class">
         <attribute name="key" optional="YES" attributeType="String"/>
         <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReciprocityData" inverseName="selectedOption" inverseEntity="ReciprocityData"/>
     </entity>
     <elements>
-        <element name="BellowsExtensionData" positionX="-36" positionY="9" width="128" height="149"/>
+        <element name="BellowsExtensionData" positionX="-36" positionY="9" width="128" height="179"/>
         <element name="Note" positionX="-63" positionY="-18" width="128" height="149"/>
-        <element name="ReciprocityData" positionX="-18" positionY="27" width="128" height="74"/>
-        <element name="ReciprocityOption" positionX="-54" positionY="-9" width="128" height="59"/>
+        <element name="ReciprocityData" positionX="-18" positionY="27" width="128" height="89"/>
+        <element name="ReciprocityOption" positionX="-54" positionY="-9" width="128" height="74"/>
     </elements>
 </model>

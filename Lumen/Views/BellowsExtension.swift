@@ -5,6 +5,7 @@
 //  Created by Tyler Reckart on 7/11/22.
 //
 
+import Foundation
 import SwiftUI
 
 struct CompensationFactorCard: View {
@@ -37,7 +38,15 @@ struct CompensationFactorCard: View {
     }
 }
 
+struct BellowsExtensionHistorySheet: View {
+    var body: some View {
+        Text("History Sheet")
+    }
+}
+
 struct BellowsExtension: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+
     @State private var priority_mode: String = "aperture"
 
     @State private var aperture: String = ""
@@ -50,6 +59,9 @@ struct BellowsExtension: View {
 
     @State private var compensated_aperture: String = ""
     @State private var compensated_shutter: String = ""
+    
+    @State private var showingHistorySheet: Bool = false
+    
 
     var body: some View {
         ScrollView {
@@ -116,10 +128,17 @@ struct BellowsExtension: View {
         .foregroundColor(.white)
         .toolbar {
             HStack {
-                Label("History", systemImage: "clock.arrow.circlepath")
-                Text("History")
+                Button(action: {
+                    self.showingHistorySheet.toggle()
+                }) {
+                    Label("History", systemImage: "clock.arrow.circlepath")
+                    Text("History")
+                }
             }
             .foregroundColor(Color(.systemBlue))
+        }
+        .sheet(isPresented: $showingHistorySheet) {
+            BellowsExtensionHistorySheet()
         }
     }
     
@@ -146,6 +165,36 @@ struct BellowsExtension: View {
                 self.compensated_shutter = "\(shutter_speed_range[shutter_index - (Int(factor) / 2)])"
             }
         }
+        
+        save()
+    }
+    
+    func saveContext() {
+      do {
+        try managedObjectContext.save()
+      } catch {
+        print("Error saving managed object context: \(error)")
+      }
+    }
+    
+    func save() {
+      let newExtensionData = BellowsExtensionData(context: managedObjectContext)
+
+        newExtensionData.priorityMode = self.priority_mode
+
+        newExtensionData.aperture = self.aperture
+        newExtensionData.shutterSpeed = self.shutter_speed
+        newExtensionData.bellowsDraw = self.bellows_draw
+        newExtensionData.focalLength = self.focal_length
+
+        newExtensionData.compensatedAperture = self.compensated_aperture
+        newExtensionData.compensatedShutter = self.compensated_shutter
+
+        newExtensionData.bellowsExtensionFactor = self.extension_factor
+
+        newExtensionData.timestamp = Date()
+
+      saveContext()
     }
     
     private func reset() {

@@ -67,17 +67,17 @@ struct ContentView: View {
                     Text("Dashboard")
                 }
             
-            SpotMeter()
-                .tabItem {
-                    Label("Spot Meter", systemImage: "camera.metering.spot")
-                    Text("Spot Meter")
-                }
-            
-            Settings()
-                .tabItem {
-                    Label("Settings", systemImage: "gearshape")
-                    Text("Settings")
-                }
+//            SpotMeter()
+//                .tabItem {
+//                    Label("Spot Meter", systemImage: "camera.metering.spot")
+//                    Text("Spot Meter")
+//                }
+//            
+//            Settings()
+//                .tabItem {
+//                    Label("Settings", systemImage: "gearshape")
+//                    Text("Settings")
+//                }
         }
     }
 }
