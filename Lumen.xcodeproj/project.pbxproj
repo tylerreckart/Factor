@@ -25,6 +25,9 @@
 		DB901B3D287CB99500EC04D7 /* BellowsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */; };
 		DB901B3F287D03E800EC04D7 /* Reciprocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B3E287D03E800EC04D7 /* Reciprocity.swift */; };
 		DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B40287D047600EC04D7 /* CalculateButton.swift */; };
+		DB901B45287DAA8200EC04D7 /* ReciprocityDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B44287DAA8200EC04D7 /* ReciprocityDropdown.swift */; };
+		DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B48287DBF7300EC04D7 /* Notes.swift */; };
+		DB901B4E287DC13500EC04D7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB901B4D287DC13500EC04D7 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtension.swift; sourceTree = "<group>"; };
 		DB901B3E287D03E800EC04D7 /* Reciprocity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reciprocity.swift; sourceTree = "<group>"; };
 		DB901B40287D047600EC04D7 /* CalculateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateButton.swift; sourceTree = "<group>"; };
+		DB901B44287DAA8200EC04D7 /* ReciprocityDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityDropdown.swift; sourceTree = "<group>"; };
+		DB901B48287DBF7300EC04D7 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		DB901B4D287DC13500EC04D7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB901B4E287DC13500EC04D7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +107,7 @@
 				DB560C4D287A6CCA00CC891A /* LumenTests */,
 				DB560C57287A6CCA00CC891A /* LumenUITests */,
 				DB560C36287A6CC700CC891A /* Products */,
+				DB901B4C287DC13500EC04D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +166,7 @@
 			children = (
 				DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */,
 				DB901B3E287D03E800EC04D7 /* Reciprocity.swift */,
+				DB901B48287DBF7300EC04D7 /* Notes.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,8 +189,17 @@
 				DB901B38287CB75A00EC04D7 /* BellowsExtensionForm.swift */,
 				DB901B3A287CB86100EC04D7 /* PriorityModeToggle.swift */,
 				DB901B40287D047600EC04D7 /* CalculateButton.swift */,
+				DB901B44287DAA8200EC04D7 /* ReciprocityDropdown.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		DB901B4C287DC13500EC04D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB901B4D287DC13500EC04D7 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +345,8 @@
 				DB901B3D287CB99500EC04D7 /* BellowsExtension.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
+				DB901B45287DAA8200EC04D7 /* ReciprocityDropdown.swift in Sources */,
+				DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lumen/Preview Content\"";
@@ -497,12 +518,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2022.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.Lumen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -511,6 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lumen/Preview Content\"";
@@ -526,12 +549,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2022.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.Lumen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

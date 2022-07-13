@@ -7,74 +7,57 @@
 
 import SwiftUI
 
-class ReciprocityValue {
-    var name = ""
-    var p_factor = Float(0)
-    
-    init(name: String, p_factor: Float){
-        self.name = name
-        self.p_factor = p_factor
-    }
-}
-
-struct DropdownOption: Hashable {
-    public static func == (lhs: DropdownOption, rhs: DropdownOption) -> Bool {
-        return lhs.key == rhs.key
-    }
-
-    var key: String
-    var value: Double
-}
-
-struct DropdownOptionElement: View {
-    var key: String
-    var value: Double
-    var onSelect: ((_ key: Double) -> Void)?
+struct ReciprocityCard: View {
+    var label: String
+    var icon: String
+    var result: String
+    var background: Color
+    var foreground: Color = .white
 
     var body: some View {
-        Button(action: {
-            if let onSelect = self.onSelect {
-                onSelect(self.value)
-            }
-        }) {
-            Text(self.key)
+        VStack {
+            Image(systemName: icon)
+                .imageScale(.large)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 1)
+            Text(label)
+                .font(.system(.caption))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.bottom, 1)
+            Spacer()
+            Text(result)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.system(.title, design: .rounded))
         }
-    }
-}
-
-struct Dropdown: View {
-    var options: [DropdownOption]
-    var onSelect: ((_ key: Double) -> Void)?
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            ForEach(self.options, id: \.self) { option in
-                DropdownOptionElement(key: option.key, value: option.value, onSelect: self.onSelect)
-            }
-        }
-
-        .background(Color.red)
+        .foregroundColor(foreground)
+        .frame(height:125, alignment: .topLeading)
+        .padding()
+        .background(background)
+        .cornerRadius(18)
+        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
     }
 }
 
 struct ReciprocityForm: View {
     @Binding var shutter_speed: String
 
-    var onSelect: ((_ key: Double) -> Void)?
+    var onSelect: ((_ key: ReciprocityDropdownOption) -> Void)?
     var calculate: () -> Void
     
     var options = [
-        DropdownOption(key: "SFX", value: 1.43),
-        DropdownOption(key: "Pan F+", value: 1.33),
-        DropdownOption(key: "Delta 100", value: 1.26),
-        DropdownOption(key: "Delta 400", value: 1.41),
-        DropdownOption(key: "Delta 3200", value: 1.33),
-        DropdownOption(key: "FP4+", value: 1.26),
-        DropdownOption(key: "HP5+", value: 1.31),
-        DropdownOption(key: "XP2", value: 1.31),
-        DropdownOption(key: "K100", value: 1.26),
-        DropdownOption(key: "K400", value: 1.30),
+        ReciprocityDropdownOption(key: "SFX", value: 1.43),
+        ReciprocityDropdownOption(key: "Pan F+", value: 1.33),
+        ReciprocityDropdownOption(key: "Delta 100", value: 1.26),
+        ReciprocityDropdownOption(key: "Delta 400", value: 1.41),
+        ReciprocityDropdownOption(key: "Delta 3200", value: 1.33),
+        ReciprocityDropdownOption(key: "FP4+", value: 1.26),
+        ReciprocityDropdownOption(key: "HP5+", value: 1.31),
+        ReciprocityDropdownOption(key: "XP2", value: 1.31),
+        ReciprocityDropdownOption(key: "K100", value: 1.26),
+        ReciprocityDropdownOption(key: "K400", value: 1.30),
     ]
+    
+    @Binding var selected: String
     
     var body: some View {
         VStack {
@@ -84,18 +67,31 @@ struct ReciprocityForm: View {
                 .foregroundColor(.gray)
                 .padding(.top)
             
-            Dropdown(options: options, onSelect: onSelect)
-            FormInput(text: $shutter_speed, placeholder: "Shutter Speed (seconds)")
+            ReciprocityDropdownButton(
+                displayText: $selected,
+                options: options,
+                onSelect: onSelect,
+                selected: $selected
+            )
+                .zIndex(2)
+            
+            FormInput(
+                text: $shutter_speed,
+                placeholder: "Shutter Speed (seconds)"
+            )
                 .padding(.bottom, 4)
+                .zIndex(1)
             CalculateButton(calculate: calculate)
+                .zIndex(1)
         }
     }
 }
 
 struct Reciprocity: View {
     @State private var shutter_speed: String = ""
-    @State private var reciprocity_factor: Double = 0.0
+    @State private var reciprocity_factor: Double = 1.43
     @State private var adjusted_shutter_speed: String = ""
+    @State private var selected: String = "SFX"
 
     var body: some View {
         ScrollView {
@@ -103,31 +99,45 @@ struct Reciprocity: View {
                 ReciprocityForm(
                     shutter_speed: $shutter_speed,
                     onSelect: self.onSelect,
-                    calculate: self.calculate
+                    calculate: self.calculate,
+                    selected: $selected
                 )
             }
-            .padding()
-            .background(.white)
+            .padding([.leading, .trailing, .bottom])
+            .background(.background)
             .cornerRadius(18)
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
             .padding([.leading, .trailing, .bottom])
 
             if !self.adjusted_shutter_speed.isEmpty {
-                Text(adjusted_shutter_speed)
-                    .foregroundColor(.black)
+                ReciprocityCard(
+                    label: "Adjusted shutter speed",
+                    icon: "clock.circle.fill",
+                    result: "\(Int(round(Double(adjusted_shutter_speed) ?? 1))) seconds",
+                    background: Color(.systemPurple)
+                )
+                .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+                .padding([.leading, .trailing, .bottom])
             }
         }
         .background(Color(.systemGray6))
         .navigationTitle("Reciprocity")
         .navigationBarTitleDisplayMode(.large)
-        .foregroundColor(.white)
+        .toolbar {
+            HStack {
+                Label("History", systemImage: "clock.arrow.circlepath")
+                Text("History")
+            }
+            .foregroundColor(Color(.systemBlue))
+        }
     }
     private func calculate() {
         self.adjusted_shutter_speed = "\(pow(Double(self.shutter_speed) ?? 1.0, self.reciprocity_factor))"
     }
     
-    private func onSelect(factor: Double) {
-        self.reciprocity_factor = factor
+    private func onSelect(option: ReciprocityDropdownOption) {
+        self.reciprocity_factor = option.value
+        self.selected = option.key
     }
 }
 

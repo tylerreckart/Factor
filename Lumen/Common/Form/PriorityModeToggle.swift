@@ -48,7 +48,7 @@ struct PriorityModeToggle: View {
                     .frame(maxWidth: .infinity)
                     .background(self.priority_mode == "aperture" ? Color(.systemBlue) : .clear)
                     .cornerRadius(18)
-                    .shadow(color: Color(.systemBlue).opacity(0.25), radius: 6, x: 0, y: 4)
+                    .shadow(color: self.priority_mode == "aperture" ? Color(.systemBlue).opacity(0.25) : .clear, radius: 6, x: 0, y: 4)
 
 
 
@@ -69,7 +69,7 @@ struct PriorityModeToggle: View {
                     .frame(maxWidth: .infinity)
                     .background(self.priority_mode == "shutter" ? Color(.systemBlue) : .clear)
                     .cornerRadius(18)
-                    .shadow(color: Color(.systemBlue).opacity(0.25), radius: 6, x: 0, y: 4)
+                    .shadow(color: self.priority_mode == "shutter" ? Color(.systemBlue).opacity(0.25) : .clear, radius: 6, x: 0, y: 4)
                 }
             }
             }

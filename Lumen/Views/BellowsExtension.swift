@@ -34,7 +34,6 @@ struct CompensationFactorCard: View {
         .padding()
         .background(background)
         .cornerRadius(18)
-        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
     }
 }
 
@@ -74,7 +73,7 @@ struct BellowsExtension: View {
                 )
             }
             .padding()
-            .background(.white)
+            .background(.background)
             .cornerRadius(18)
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
             .padding([.leading, .trailing, .bottom])
@@ -87,6 +86,7 @@ struct BellowsExtension: View {
                         result: extension_factor,
                         background: Color(.systemBlue)
                     )
+                    .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     
                     if (self.priority_mode == "shutter") {
                         CompensationFactorCard(
@@ -95,6 +95,7 @@ struct BellowsExtension: View {
                             result: "f/\(compensated_aperture)",
                             background: Color(.systemGreen)
                         )
+                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
 
                     if (self.priority_mode == "aperture") {
@@ -104,6 +105,7 @@ struct BellowsExtension: View {
                             result: self.compensated_shutter,
                             background: Color(.systemPurple)
                         )
+                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
                 }
                 .padding([.leading, .trailing, .bottom])
@@ -113,6 +115,13 @@ struct BellowsExtension: View {
         .navigationTitle("Bellows Extension")
         .navigationBarTitleDisplayMode(.large)
         .foregroundColor(.white)
+        .toolbar {
+            HStack {
+                Label("History", systemImage: "clock.arrow.circlepath")
+                Text("History")
+            }
+            .foregroundColor(Color(.systemBlue))
+        }
     }
     
     private func calculate() {
