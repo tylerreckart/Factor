@@ -38,19 +38,18 @@ struct CompensationFactorCard: View {
 }
 
 struct BellowsExtension: View {
+    @State private var priority_mode: String = "aperture"
+
     @State private var aperture: String = ""
-    @State private var iso: String = ""
     @State private var shutter_speed: String = ""
     @State private var bellows_draw: String = ""
     @State private var focal_length: String = ""
 
-    @State private var extension_factor: String = ""
     @State private var calculated_factor: Bool = false
+    @State private var extension_factor: String = ""
 
     @State private var compensated_aperture: String = ""
     @State private var compensated_shutter: String = ""
-
-    @State private var priority_mode: String = "aperture"
 
     var body: some View {
         ScrollView {
