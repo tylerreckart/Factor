@@ -27,7 +27,6 @@
 		DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B40287D047600EC04D7 /* CalculateButton.swift */; };
 		DB901B45287DAA8200EC04D7 /* ReciprocityDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B44287DAA8200EC04D7 /* ReciprocityDropdown.swift */; };
 		DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B48287DBF7300EC04D7 /* Notes.swift */; };
-		DB901B4E287DC13500EC04D7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB901B4D287DC13500EC04D7 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,16 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DB560C35287A6CC700CC891A /* Lumen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lumen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB560C35287A6CC700CC891A /* Ansel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ansel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C38287A6CC700CC891A /* LumenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenApp.swift; sourceTree = "<group>"; };
 		DB560C3A287A6CC700CC891A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB560C3C287A6CCA00CC891A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB560C3F287A6CCA00CC891A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB560C41287A6CCA00CC891A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		DB560C44287A6CCA00CC891A /* Lumen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lumen.xcdatamodel; sourceTree = "<group>"; };
-		DB560C4A287A6CCA00CC891A /* LumenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LumenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB560C4A287A6CCA00CC891A /* AnselTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnselTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C4E287A6CCA00CC891A /* LumenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenTests.swift; sourceTree = "<group>"; };
-		DB560C54287A6CCA00CC891A /* LumenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LumenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB560C54287A6CCA00CC891A /* AnselUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnselUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C58287A6CCA00CC891A /* LumenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITests.swift; sourceTree = "<group>"; };
 		DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -79,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB901B4E287DC13500EC04D7 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +101,9 @@
 		DB560C2C287A6CC700CC891A = {
 			isa = PBXGroup;
 			children = (
-				DB560C37287A6CC700CC891A /* Lumen */,
-				DB560C4D287A6CCA00CC891A /* LumenTests */,
-				DB560C57287A6CCA00CC891A /* LumenUITests */,
+				DB560C37287A6CC700CC891A /* Ansel */,
+				DB560C4D287A6CCA00CC891A /* AnselTests */,
+				DB560C57287A6CCA00CC891A /* AnselUITests */,
 				DB560C36287A6CC700CC891A /* Products */,
 				DB901B4C287DC13500EC04D7 /* Frameworks */,
 			);
@@ -114,14 +112,14 @@
 		DB560C36287A6CC700CC891A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB560C35287A6CC700CC891A /* Lumen.app */,
-				DB560C4A287A6CCA00CC891A /* LumenTests.xctest */,
-				DB560C54287A6CCA00CC891A /* LumenUITests.xctest */,
+				DB560C35287A6CC700CC891A /* Ansel.app */,
+				DB560C4A287A6CCA00CC891A /* AnselTests.xctest */,
+				DB560C54287A6CCA00CC891A /* AnselUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB560C37287A6CC700CC891A /* Lumen */ = {
+		DB560C37287A6CC700CC891A /* Ansel */ = {
 			isa = PBXGroup;
 			children = (
 				DB901B2E287CB5F700EC04D7 /* Common */,
@@ -133,7 +131,7 @@
 				DB560C43287A6CCA00CC891A /* Lumen.xcdatamodeld */,
 				DB560C3E287A6CCA00CC891A /* Preview Content */,
 			);
-			path = Lumen;
+			path = Ansel;
 			sourceTree = "<group>";
 		};
 		DB560C3E287A6CCA00CC891A /* Preview Content */ = {
@@ -144,21 +142,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		DB560C4D287A6CCA00CC891A /* LumenTests */ = {
+		DB560C4D287A6CCA00CC891A /* AnselTests */ = {
 			isa = PBXGroup;
 			children = (
 				DB560C4E287A6CCA00CC891A /* LumenTests.swift */,
 			);
-			path = LumenTests;
+			path = AnselTests;
 			sourceTree = "<group>";
 		};
-		DB560C57287A6CCA00CC891A /* LumenUITests */ = {
+		DB560C57287A6CCA00CC891A /* AnselUITests */ = {
 			isa = PBXGroup;
 			children = (
 				DB560C58287A6CCA00CC891A /* LumenUITests.swift */,
 				DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */,
 			);
-			path = LumenUITests;
+			path = AnselUITests;
 			sourceTree = "<group>";
 		};
 		DB901B2D287CB5EE00EC04D7 /* Views */ = {
@@ -205,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB560C34287A6CC700CC891A /* Lumen */ = {
+		DB560C34287A6CC700CC891A /* Ansel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB560C5E287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "Lumen" */;
+			buildConfigurationList = DB560C5E287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "Ansel" */;
 			buildPhases = (
 				DB560C31287A6CC700CC891A /* Sources */,
 				DB560C32287A6CC700CC891A /* Frameworks */,
@@ -217,14 +215,14 @@
 			);
 			dependencies = (
 			);
-			name = Lumen;
+			name = Ansel;
 			productName = Lumen;
-			productReference = DB560C35287A6CC700CC891A /* Lumen.app */;
+			productReference = DB560C35287A6CC700CC891A /* Ansel.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DB560C49287A6CCA00CC891A /* LumenTests */ = {
+		DB560C49287A6CCA00CC891A /* AnselTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB560C61287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "LumenTests" */;
+			buildConfigurationList = DB560C61287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "AnselTests" */;
 			buildPhases = (
 				DB560C46287A6CCA00CC891A /* Sources */,
 				DB560C47287A6CCA00CC891A /* Frameworks */,
@@ -235,14 +233,14 @@
 			dependencies = (
 				DB560C4C287A6CCA00CC891A /* PBXTargetDependency */,
 			);
-			name = LumenTests;
+			name = AnselTests;
 			productName = LumenTests;
-			productReference = DB560C4A287A6CCA00CC891A /* LumenTests.xctest */;
+			productReference = DB560C4A287A6CCA00CC891A /* AnselTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DB560C53287A6CCA00CC891A /* LumenUITests */ = {
+		DB560C53287A6CCA00CC891A /* AnselUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB560C64287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "LumenUITests" */;
+			buildConfigurationList = DB560C64287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "AnselUITests" */;
 			buildPhases = (
 				DB560C50287A6CCA00CC891A /* Sources */,
 				DB560C51287A6CCA00CC891A /* Frameworks */,
@@ -253,9 +251,9 @@
 			dependencies = (
 				DB560C56287A6CCA00CC891A /* PBXTargetDependency */,
 			);
-			name = LumenUITests;
+			name = AnselUITests;
 			productName = LumenUITests;
-			productReference = DB560C54287A6CCA00CC891A /* LumenUITests.xctest */;
+			productReference = DB560C54287A6CCA00CC891A /* AnselUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -281,7 +279,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DB560C30287A6CC700CC891A /* Build configuration list for PBXProject "Lumen" */;
+			buildConfigurationList = DB560C30287A6CC700CC891A /* Build configuration list for PBXProject "Ansel" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -294,9 +292,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB560C34287A6CC700CC891A /* Lumen */,
-				DB560C49287A6CCA00CC891A /* LumenTests */,
-				DB560C53287A6CCA00CC891A /* LumenUITests */,
+				DB560C34287A6CC700CC891A /* Ansel */,
+				DB560C49287A6CCA00CC891A /* AnselTests */,
+				DB560C53287A6CCA00CC891A /* AnselUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -372,12 +370,12 @@
 /* Begin PBXTargetDependency section */
 		DB560C4C287A6CCA00CC891A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DB560C34287A6CC700CC891A /* Lumen */;
+			target = DB560C34287A6CC700CC891A /* Ansel */;
 			targetProxy = DB560C4B287A6CCA00CC891A /* PBXContainerItemProxy */;
 		};
 		DB560C56287A6CCA00CC891A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DB560C34287A6CC700CC891A /* Lumen */;
+			target = DB560C34287A6CC700CC891A /* Ansel */;
 			targetProxy = DB560C55287A6CCA00CC891A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -505,7 +503,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Lumen/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -519,7 +517,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2022.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.Lumen";
+				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.Ansel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -536,7 +534,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Lumen/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -550,7 +548,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2022.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.Lumen";
+				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.Ansel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -575,7 +573,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lumen.app/Lumen";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ansel.app/Ansel";
 			};
 			name = Debug;
 		};
@@ -595,7 +593,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lumen.app/Lumen";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ansel.app/Ansel";
 			};
 			name = Release;
 		};
@@ -638,7 +636,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB560C30287A6CC700CC891A /* Build configuration list for PBXProject "Lumen" */ = {
+		DB560C30287A6CC700CC891A /* Build configuration list for PBXProject "Ansel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB560C5C287A6CCA00CC891A /* Debug */,
@@ -647,7 +645,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB560C5E287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "Lumen" */ = {
+		DB560C5E287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "Ansel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB560C5F287A6CCA00CC891A /* Debug */,
@@ -656,7 +654,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB560C61287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "LumenTests" */ = {
+		DB560C61287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "AnselTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB560C62287A6CCA00CC891A /* Debug */,
@@ -665,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB560C64287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "LumenUITests" */ = {
+		DB560C64287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "AnselUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB560C65287A6CCA00CC891A /* Debug */,

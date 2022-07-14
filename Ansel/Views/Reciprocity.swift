@@ -38,6 +38,30 @@ struct ReciprocityCard: View {
     }
 }
 
+struct ReciprocityHistorySheet: View {
+    @FetchRequest(
+      entity: ReciprocityData.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: true)
+      ]
+    ) var results: FetchedResults<ReciprocityData>
+    
+    func formatDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/d/y hh:mm:ss"
+        return dateFormatter.string(from: date)
+    }
+
+    var body: some View {
+        List {
+            ForEach(results, id: \.self) { r in
+                Text(formatDate(date: r.timestamp!))
+            }
+        }
+        .listStyle(.insetGrouped)
+    }
+}
+
 struct ReciprocityForm: View {
     @Binding var shutter_speed: String
 
@@ -88,10 +112,14 @@ struct ReciprocityForm: View {
 }
 
 struct Reciprocity: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+
     @State private var shutter_speed: String = ""
     @State private var reciprocity_factor: Double = 1.43
     @State private var adjusted_shutter_speed: String = ""
     @State private var selected: String = "SFX"
+    
+    @State private var showingHistorySheet: Bool = false
 
     var body: some View {
         ScrollView {
@@ -125,14 +153,45 @@ struct Reciprocity: View {
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
             HStack {
-                Label("History", systemImage: "clock.arrow.circlepath")
-                Text("History")
+                Button(action: {
+                    self.showingHistorySheet.toggle()
+                }) {
+                    Label("History", systemImage: "clock.arrow.circlepath")
+                    Text("History")
+                }
             }
             .foregroundColor(Color(.systemBlue))
         }
+        .sheet(isPresented: $showingHistorySheet) {
+            ReciprocityHistorySheet()
+        }
     }
+
+    func saveContext() {
+      do {
+        try managedObjectContext.save()
+      } catch {
+        print("Error saving managed object context: \(error)")
+      }
+    }
+    
+    func save() {
+        let newReciprocityData = ReciprocityData(context: managedObjectContext)
+
+        newReciprocityData.adjustedShutterSpeed = self.adjusted_shutter_speed
+        newReciprocityData.timestamp = Date()
+        
+        let optionData = ReciprocityOption(context: managedObjectContext)
+        optionData.key = self.selected
+        optionData.value = self.reciprocity_factor
+        newReciprocityData.selectedOption = optionData
+
+      saveContext()
+    }
+
     private func calculate() {
         self.adjusted_shutter_speed = "\(pow(Double(self.shutter_speed) ?? 1.0, self.reciprocity_factor))"
+        save()
     }
     
     private func onSelect(option: ReciprocityDropdownOption) {

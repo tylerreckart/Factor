@@ -60,12 +60,12 @@ struct NavigationCardFull: View {
 
 struct ContentView: View {
     var body: some View {
-        TabView {
+//        TabView {
             Home()
-                .tabItem {
-                    Label("Dashboard", systemImage: "doc.text.image")
-                    Text("Dashboard")
-                }
+//                .tabItem {
+//                    Label("Dashboard", systemImage: "doc.text.image")
+//                    Text("Dashboard")
+//                }
             
 //            SpotMeter()
 //                .tabItem {
@@ -78,7 +78,7 @@ struct ContentView: View {
 //                    Label("Settings", systemImage: "gearshape")
 //                    Text("Settings")
 //                }
-        }
+//        }
     }
 }
 

@@ -39,8 +39,26 @@ struct CompensationFactorCard: View {
 }
 
 struct BellowsExtensionHistorySheet: View {
+    @FetchRequest(
+      entity: BellowsExtensionData.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \BellowsExtensionData.timestamp, ascending: true)
+      ]
+    ) var results: FetchedResults<BellowsExtensionData>
+    
+    func formatDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/d/y hh:mm:ss"
+        return dateFormatter.string(from: date)
+    }
+
     var body: some View {
-        Text("History Sheet")
+        List {
+            ForEach(results, id: \.self) { r in
+                Text(formatDate(date: r.timestamp!))
+            }
+        }
+        .listStyle(.insetGrouped)
     }
 }
 
