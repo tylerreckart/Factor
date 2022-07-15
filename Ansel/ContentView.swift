@@ -149,6 +149,26 @@ struct Home: View {
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
                     
+                    NavigationLink(destination: EmptyView()) {
+                        NavigationCard(
+                            label: "Filter Compensation",
+                            icon: "moon.circle.fill", // to be replaced with "moonphase.full.moon"
+                            background: Color(.systemGreen)
+                        )
+                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+                    }
+                }
+                
+                HStack {
+                    NavigationLink(destination: EmptyView()) {
+                        NavigationCard(
+                            label: "Exposure Log",
+                            icon: "doc.circle.fill",
+                            background: Color(.systemRed)
+                        )
+                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+                    }
+                    
                     Spacer()
                 }
                 Spacer()
