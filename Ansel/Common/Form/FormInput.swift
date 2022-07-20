@@ -26,7 +26,6 @@ struct FormInput: View {
             .multilineTextAlignment(.leading)
             .padding(.bottom, 4)
             .foregroundColor(.primary)
-            .keyboardType(.numberPad)
     }
 }
 

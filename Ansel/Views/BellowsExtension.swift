@@ -7,6 +7,11 @@
 
 import Foundation
 import SwiftUI
+import UIKit
+
+func logC(val: Double, forBase base: Double) -> Double {
+    return log(val)/log(base)
+}
 
 struct CompensationFactorCard: View {
     var label: String
@@ -165,22 +170,29 @@ struct BellowsExtension: View {
         let focal_length = Int(self.focal_length) ?? 1;
         
         // (Extension/FocalLength) **2
-        let factor = Float(pow(Float(bellows_draw/focal_length), 2))
+        let factor = Double(pow(Float(bellows_draw/focal_length), 2))
+        
+        let f_stop_adjustment = Int(logC(val: factor, forBase: 2.0))
         
         if focal_length > 0 && bellows_draw > 0 {
             self.extension_factor = "\(Int(factor))"
             self.calculated_factor = true
             
             if self.priority_mode == "shutter" {
-                let aperture_compensation = log(factor)/log(2)
-
-                self.compensated_aperture = "\(Int(aperture_compensation * (Float(aperture) ?? 1)!))"
+                
+                self.compensated_aperture = "\(Int(f_stop_adjustment * Int(self.aperture)!))"
             }
             
             if self.priority_mode == "aperture" {
-                let shutter_index = shutter_speed_range.indices.filter { shutter_speed_range[$0] == shutter_speed }[0]
+                let indexed_speed = shutter_speed_range.indices.filter {
+                    shutter_speed_range[$0] == shutter_speed
+                }
 
-                self.compensated_shutter = "\(shutter_speed_range[shutter_index - (Int(factor) / 2)])"
+                if indexed_speed.isEmpty && Int(self.shutter_speed)! >= 1 {
+                    self.compensated_shutter = "\(Int(self.shutter_speed)! * Int(factor))"
+                } else {
+                    self.compensated_shutter = "\(shutter_speed_range[indexed_speed[0] - (Int(factor) / 2)])"
+                }
             }
         }
         

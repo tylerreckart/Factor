@@ -69,16 +69,19 @@ struct ReciprocityForm: View {
     var calculate: () -> Void
     
     var options = [
-        ReciprocityDropdownOption(key: "SFX", value: 1.43),
-        ReciprocityDropdownOption(key: "Pan F+", value: 1.33),
-        ReciprocityDropdownOption(key: "Delta 100", value: 1.26),
-        ReciprocityDropdownOption(key: "Delta 400", value: 1.41),
-        ReciprocityDropdownOption(key: "Delta 3200", value: 1.33),
-        ReciprocityDropdownOption(key: "FP4+", value: 1.26),
-        ReciprocityDropdownOption(key: "HP5+", value: 1.31),
-        ReciprocityDropdownOption(key: "XP2", value: 1.31),
-        ReciprocityDropdownOption(key: "K100", value: 1.26),
-        ReciprocityDropdownOption(key: "K400", value: 1.30),
+        ReciprocityDropdownOption(key: "SFX (>1 Second)", value: 1.43),
+        ReciprocityDropdownOption(key: "Pan F+ (>1 Second)", value: 1.33),
+        ReciprocityDropdownOption(key: "Delta 100 (>1 Second)", value: 1.26),
+        ReciprocityDropdownOption(key: "Delta 400 (>1 Second)", value: 1.41),
+        ReciprocityDropdownOption(key: "Delta 3200 (>1 Second)", value: 1.33),
+        ReciprocityDropdownOption(key: "FP4+ (>1 Second)", value: 1.26),
+        ReciprocityDropdownOption(key: "HP5+ (>1 Second)", value: 1.31),
+        ReciprocityDropdownOption(key: "XP2 (>1 Second)", value: 1.31),
+        ReciprocityDropdownOption(key: "K100 (>1 Second)", value: 1.26),
+        ReciprocityDropdownOption(key: "K400 (>1 Second)", value: 1.30),
+        ReciprocityDropdownOption(key: "Portra 160 (>1 Second)", value: 1.33),
+        ReciprocityDropdownOption(key: "E100 (>10 Seconds)", value: 1.33),
+        ReciprocityDropdownOption(key: "Rollei IR 400 (>1 Seocnd", value: 1.31)
     ]
     
     @Binding var selected: String

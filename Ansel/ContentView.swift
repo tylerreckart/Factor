@@ -26,7 +26,7 @@ struct NavigationCard: View {
                 .foregroundColor(.white)
                 .multilineTextAlignment(.leading)
         }
-        .frame(maxWidth: 143, minHeight: 143, alignment: .topLeading)
+        .frame(maxWidth: .infinity, minHeight: 80, alignment: .topLeading)
         .padding()
         .background(background)
         .cornerRadius(18)
@@ -168,8 +168,7 @@ struct Home: View {
                         )
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
-                    
-                    Spacer()
+    
                 }
                 Spacer()
             }
