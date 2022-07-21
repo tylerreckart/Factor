@@ -18,6 +18,7 @@
 		DB560C4F287A6CCA00CC891A /* LumenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C4E287A6CCA00CC891A /* LumenTests.swift */; };
 		DB560C59287A6CCA00CC891A /* LumenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C58287A6CCA00CC891A /* LumenUITests.swift */; };
 		DB560C5B287A6CCA00CC891A /* LumenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */; };
+		DB70FEF82888660300720D0E /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70FEF72888660300720D0E /* Calculator.swift */; };
 		DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B2F287CB60E00EC04D7 /* Extensions.swift */; };
 		DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B31287CB62700EC04D7 /* Modifiers.swift */; };
 		DB901B34287CB68600EC04D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B33287CB68600EC04D7 /* Constants.swift */; };
@@ -63,6 +64,7 @@
 		DB560C54287A6CCA00CC891A /* AnselUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnselUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C58287A6CCA00CC891A /* LumenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITests.swift; sourceTree = "<group>"; };
 		DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB70FEF72888660300720D0E /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB901B31287CB62700EC04D7 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		DB901B33287CB68600EC04D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				DB901B3E287D03E800EC04D7 /* Reciprocity.swift */,
 				DB901B48287DBF7300EC04D7 /* Notes.swift */,
 				DB4A03812883122000E2B111 /* ExposureCompensation.swift */,
+				DB70FEF72888660300720D0E /* Calculator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				DB901B3F287D03E800EC04D7 /* Reciprocity.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
+				DB70FEF82888660300720D0E /* Calculator.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
 				DB4A03842883125500E2B111 /* ExposureCompensationDropdown.swift in Sources */,
 				DB560C39287A6CC700CC891A /* LumenApp.swift in Sources */,

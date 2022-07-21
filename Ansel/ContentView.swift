@@ -149,11 +149,11 @@ struct Home: View {
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
                     
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: Calculator()) {
                         NavigationCard(
-                            label: "Filter Compensation",
-                            icon: "moon.circle.fill", // to be replaced with "moonphase.full.moon"
-                            background: Color(.systemGreen)
+                            label: "Calculator",
+                            icon: "divide.circle.fill",
+                            background: Color(.systemOrange)
                         )
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
