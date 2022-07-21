@@ -37,7 +37,7 @@ struct CalculatorButton: View {
         .background(self.background)
         .foregroundColor(self.foreground)
         .border(.black, width: 1)
-        .cornerRadius(radius != nil ? 12 : 0, corners: [(radius != nil ? radius! : .allCorners)])
+        .cornerRadius(radius != nil ? 24 : 0, corners: [(radius != nil ? radius! : .allCorners)])
     }
 }
 
@@ -48,10 +48,10 @@ struct CalculatorPad: View {
     
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
-                    CalculatorButton(type: .icon, icon: "camera", background: Color(.systemGray), radius: .topLeft)
-                    CalculatorButton(type: .text, text: "(", background: Color(.systemGray))
-                    CalculatorButton(type: .text, text: ")", background: Color(.systemGray))
-                    CalculatorButton(type: .icon, icon: "star", background: Color(.systemGray), radius: .topRight)
+                    CalculatorButton(type: .icon, icon: "camera", background: Color("systemDark"), radius: .topLeft)
+                    CalculatorButton(type: .text, text: "(", background: Color("systemDark"))
+                    CalculatorButton(type: .text, text: ")", background: Color("systemDark"))
+                    CalculatorButton(type: .icon, icon: "star", background: Color("systemDark"), radius: .topRight)
                 }
                 
                 HStack(spacing: 0) {
