@@ -82,7 +82,7 @@ struct BellowsExtension: View {
             if self.calculated_factor == true {
                 HStack(spacing: 20) {
                     CompensationFactorCard(
-                        label: "Bellows extension factor",
+                        label: "Bellows extension factor (stops)",
                         icon: "arrow.up.left.and.arrow.down.right.circle.fill",
                         result: extension_factor,
                         background: Color(.systemBlue)
@@ -142,7 +142,7 @@ struct BellowsExtension: View {
         let f_stop_adjustment = Int(logC(val: factor, forBase: 2.0))
         
         if focal_length > 0 && bellows_draw > 0 {
-            self.extension_factor = "\(Int(factor))"
+            self.extension_factor = "\(Int((Int(factor) / 2)))"
             self.calculated_factor = true
             
             if self.priority_mode == .shutter {
