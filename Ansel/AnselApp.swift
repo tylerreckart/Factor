@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct LumenApp: App {
+struct AnselApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

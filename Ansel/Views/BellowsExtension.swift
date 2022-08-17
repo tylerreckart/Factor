@@ -1,6 +1,6 @@
 //
 //  BellowsExtension.swift
-//  Lumen
+//  Ansel
 //
 //  Created by Tyler Reckart on 7/11/22.
 //
@@ -8,40 +8,6 @@
 import Foundation
 import SwiftUI
 import UIKit
-
-func logC(val: Double, forBase base: Double) -> Double {
-    return log(val)/log(base)
-}
-
-struct CompensationFactorCard: View {
-    var label: String
-    var icon: String
-    var result: String
-    var background: Color
-    var foreground: Color = .white
-
-    var body: some View {
-        VStack {
-            Image(systemName: icon)
-                .imageScale(.large)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 1)
-            Text(label)
-                .font(.system(.caption))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 1)
-            Spacer()
-            Text(result)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.system(.title, design: .rounded))
-        }
-        .foregroundColor(foreground)
-        .frame(height:125, alignment: .topLeading)
-        .padding()
-        .background(background)
-        .cornerRadius(18)
-    }
-}
 
 struct BellowsExtensionHistorySheet: View {
     @FetchRequest(
@@ -70,10 +36,11 @@ struct BellowsExtensionHistorySheet: View {
 struct BellowsExtension: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
-    @State private var priority_mode: String = "aperture"
+    @State private var priority_mode: PriorityMode = .aperture
 
     @State private var aperture: String = ""
     @State private var shutter_speed: String = ""
+    @State private var fractional_delimiter: Character = "/"
     @State private var bellows_draw: String = ""
     @State private var focal_length: String = ""
 
@@ -122,7 +89,7 @@ struct BellowsExtension: View {
                     )
                     .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     
-                    if (self.priority_mode == "shutter") {
+                    if (self.priority_mode == .shutter) {
                         CompensationFactorCard(
                             label: "Compensated aperture",
                             icon: "f.cursive.circle.fill",
@@ -132,9 +99,9 @@ struct BellowsExtension: View {
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
 
-                    if (self.priority_mode == "aperture") {
+                    if (self.priority_mode == .aperture) {
                         CompensationFactorCard(
-                            label: "Compensated shutter speed",
+                            label: "Compensated shutter speed (seconds)",
                             icon: "clock.circle.fill",
                             result: self.compensated_shutter,
                             background: Color(.systemPurple)
@@ -178,21 +145,49 @@ struct BellowsExtension: View {
             self.extension_factor = "\(Int(factor))"
             self.calculated_factor = true
             
-            if self.priority_mode == "shutter" {
-                
+            if self.priority_mode == .shutter {
                 self.compensated_aperture = "\(Int(f_stop_adjustment * Int(self.aperture)!))"
             }
             
-            if self.priority_mode == "aperture" {
-                let indexed_speed = shutter_speed_range.indices.filter {
-                    shutter_speed_range[$0] == shutter_speed
-                }
+            if self.priority_mode == .aperture {
+                    if self.shutter_speed.contains(fractional_delimiter) {
+                        let arr = self.shutter_speed.split(separator: fractional_delimiter);
 
-                if indexed_speed.isEmpty && Int(self.shutter_speed)! >= 1 {
-                    self.compensated_shutter = "\(Int(self.shutter_speed)! * Int(factor))"
-                } else {
-                    self.compensated_shutter = "\(shutter_speed_range[indexed_speed[0] - (Int(factor) / 2)])"
-                }
+                        let num = Double(arr[0]);
+                        let denom = Double(arr[1]);
+                        
+                        if num == nil || denom == nil {
+                            return
+                        }
+                        
+                        let calculated_shutter: Double = (num! / denom!) * Double(factor);
+                        
+                        self.compensated_shutter = String(calculated_shutter)
+                        
+                        if calculated_shutter > 1 {
+                            self.compensated_shutter = String(Int(calculated_shutter))
+                        } else {
+                            let rational_shutter_speed = Rational(approximating: calculated_shutter)
+                            
+                            if rational_shutter_speed.numerator > 1 {
+                                let factored_denom = Int(rational_shutter_speed.denominator / rational_shutter_speed.numerator)
+                                
+                                if factored_denom > 10 {
+                                    self.compensated_shutter = "1/\(Int(toNearestTen(factored_denom)))"
+                                } else {
+                                    self.compensated_shutter = "1/\(factored_denom)"
+                                }
+                            } else {
+                                self.compensated_shutter = "\(rational_shutter_speed.numerator)/\(rational_shutter_speed.denominator)"
+                            }
+                        }
+                        
+                        if self.compensated_shutter == "1/1" {
+                            self.compensated_shutter = "1"
+                        }
+                    } else if Int(self.shutter_speed)! >= 1 {
+                        self.compensated_shutter = "\(Int(self.shutter_speed)! * Int(factor))"
+                    }
             }
         }
         
@@ -209,9 +204,6 @@ struct BellowsExtension: View {
     
     func save() {
       let newExtensionData = BellowsExtensionData(context: managedObjectContext)
-
-        newExtensionData.priorityMode = self.priority_mode
-
         newExtensionData.aperture = self.aperture
         newExtensionData.shutterSpeed = self.shutter_speed
         newExtensionData.bellowsDraw = self.bellows_draw

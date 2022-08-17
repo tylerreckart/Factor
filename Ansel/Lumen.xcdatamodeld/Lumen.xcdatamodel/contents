@@ -7,7 +7,6 @@
         <attribute name="compensatedAperture" optional="YES" attributeType="String"/>
         <attribute name="compensatedShutter" optional="YES" attributeType="String"/>
         <attribute name="focalLength" optional="YES" attributeType="String"/>
-        <attribute name="priorityMode" optional="YES" attributeType="String"/>
         <attribute name="shutterSpeed" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="bellowsExtensionData" inverseEntity="Note"/>
@@ -31,7 +30,7 @@
         <relationship name="data" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReciprocityData" inverseName="selectedOption" inverseEntity="ReciprocityData"/>
     </entity>
     <elements>
-        <element name="BellowsExtensionData" positionX="-36" positionY="9" width="128" height="179"/>
+        <element name="BellowsExtensionData" positionX="-36" positionY="9" width="128" height="164"/>
         <element name="Note" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="ReciprocityData" positionX="-18" positionY="27" width="128" height="89"/>
         <element name="ReciprocityOption" positionX="-54" positionY="-9" width="128" height="74"/>

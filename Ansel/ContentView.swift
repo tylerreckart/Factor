@@ -1,9 +1,12 @@
 //
 //  ContentView.swift
-//  Lumen
+//  Ansel
 //
 //  Created by Tyler Reckart on 7/9/22.
 //
+
+import SwiftUI
+import CoreData
 
 import SwiftUI
 import CoreData
@@ -60,56 +63,9 @@ struct NavigationCardFull: View {
 
 struct ContentView: View {
     var body: some View {
-//        TabView {
-            Home()
-//                .tabItem {
-//                    Label("Dashboard", systemImage: "doc.text.image")
-//                    Text("Dashboard")
-//                }
-            
-//            SpotMeter()
-//                .tabItem {
-//                    Label("Spot Meter", systemImage: "camera.metering.spot")
-//                    Text("Spot Meter")
-//                }
-//            
-//            Settings()
-//                .tabItem {
-//                    Label("Settings", systemImage: "gearshape")
-//                    Text("Settings")
-//                }
-//        }
+        Home()
     }
 }
-
-struct Settings: View {
-    var body: some View {
-        return NavigationView {
-            VStack {
-                Text("Settings")
-                    .foregroundColor(Color(.systemGreen))
-            }
-            .padding()
-            .navigationTitle("Settings")
-            .background(Color(.blue))
-
-        }
-    }
-}
-
-struct SpotMeter: View {
-    var body: some View {
-        return NavigationView {
-            VStack {
-                Text("Spot Meter View")
-                    .foregroundColor(Color(.systemGreen))
-            }
-            .navigationBarHidden(true)
-            .background(Color(.red))
-        }
-    }
-}
-
 
 struct Home: View {
     var body: some View {
@@ -148,32 +104,12 @@ struct Home: View {
                         )
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
-                    
-                    NavigationLink(destination: Calculator()) {
-                        NavigationCard(
-                            label: "Calculator",
-                            icon: "divide.circle.fill",
-                            background: Color(.systemOrange)
-                        )
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-                    }
                 }
-                
-                HStack {
-                    NavigationLink(destination: EmptyView()) {
-                        NavigationCard(
-                            label: "Exposure Log",
-                            icon: "doc.circle.fill",
-                            background: Color(.systemRed)
-                        )
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-                    }
-    
-                }
+
                 Spacer()
             }
             .padding()
-            .navigationTitle("Home")
+            .navigationTitle("Ansel")
             .background(Color(.systemGray6))
         }
     }

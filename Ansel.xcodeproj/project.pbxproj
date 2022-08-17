@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB4A03822883122000E2B111 /* ExposureCompensation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4A03812883122000E2B111 /* ExposureCompensation.swift */; };
 		DB4A03842883125500E2B111 /* ExposureCompensationDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4A03832883125500E2B111 /* ExposureCompensationDropdown.swift */; };
-		DB560C39287A6CC700CC891A /* LumenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* LumenApp.swift */; };
+		DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* AnselApp.swift */; };
 		DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C3A287A6CC700CC891A /* ContentView.swift */; };
 		DB560C3D287A6CCA00CC891A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB560C3C287A6CCA00CC891A /* Assets.xcassets */; };
 		DB560C40287A6CCA00CC891A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB560C3F287A6CCA00CC891A /* Preview Assets.xcassets */; };
@@ -18,7 +17,6 @@
 		DB560C4F287A6CCA00CC891A /* LumenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C4E287A6CCA00CC891A /* LumenTests.swift */; };
 		DB560C59287A6CCA00CC891A /* LumenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C58287A6CCA00CC891A /* LumenUITests.swift */; };
 		DB560C5B287A6CCA00CC891A /* LumenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */; };
-		DB70FEF82888660300720D0E /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70FEF72888660300720D0E /* Calculator.swift */; };
 		DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B2F287CB60E00EC04D7 /* Extensions.swift */; };
 		DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B31287CB62700EC04D7 /* Modifiers.swift */; };
 		DB901B34287CB68600EC04D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B33287CB68600EC04D7 /* Constants.swift */; };
@@ -28,8 +26,10 @@
 		DB901B3D287CB99500EC04D7 /* BellowsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */; };
 		DB901B3F287D03E800EC04D7 /* Reciprocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B3E287D03E800EC04D7 /* Reciprocity.swift */; };
 		DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B40287D047600EC04D7 /* CalculateButton.swift */; };
-		DB901B45287DAA8200EC04D7 /* ReciprocityDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B44287DAA8200EC04D7 /* ReciprocityDropdown.swift */; };
 		DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B48287DBF7300EC04D7 /* Notes.swift */; };
+		DBB4FA4D28AD4A3B00186039 /* ReciprocityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA4C28AD4A3B00186039 /* ReciprocityCard.swift */; };
+		DBB4FA4F28AD4A7200186039 /* BellowsExtensionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA4E28AD4A7200186039 /* BellowsExtensionCard.swift */; };
+		DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5028AD4A8500186039 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DB4A03812883122000E2B111 /* ExposureCompensation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureCompensation.swift; sourceTree = "<group>"; };
 		DB4A03832883125500E2B111 /* ExposureCompensationDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureCompensationDropdown.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Ansel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ansel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB560C38287A6CC700CC891A /* LumenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenApp.swift; sourceTree = "<group>"; };
+		DB560C38287A6CC700CC891A /* AnselApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnselApp.swift; sourceTree = "<group>"; };
 		DB560C3A287A6CC700CC891A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB560C3C287A6CCA00CC891A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB560C3F287A6CCA00CC891A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -64,7 +63,6 @@
 		DB560C54287A6CCA00CC891A /* AnselUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnselUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C58287A6CCA00CC891A /* LumenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITests.swift; sourceTree = "<group>"; };
 		DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DB70FEF72888660300720D0E /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB901B31287CB62700EC04D7 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		DB901B33287CB68600EC04D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -74,9 +72,11 @@
 		DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtension.swift; sourceTree = "<group>"; };
 		DB901B3E287D03E800EC04D7 /* Reciprocity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reciprocity.swift; sourceTree = "<group>"; };
 		DB901B40287D047600EC04D7 /* CalculateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateButton.swift; sourceTree = "<group>"; };
-		DB901B44287DAA8200EC04D7 /* ReciprocityDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityDropdown.swift; sourceTree = "<group>"; };
 		DB901B48287DBF7300EC04D7 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		DB901B4D287DC13500EC04D7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		DBB4FA4C28AD4A3B00186039 /* ReciprocityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityCard.swift; sourceTree = "<group>"; };
+		DBB4FA4E28AD4A7200186039 /* BellowsExtensionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtensionCard.swift; sourceTree = "<group>"; };
+		DBB4FA5028AD4A8500186039 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 			children = (
 				DB901B2E287CB5F700EC04D7 /* Common */,
 				DB901B2D287CB5EE00EC04D7 /* Views */,
-				DB560C38287A6CC700CC891A /* LumenApp.swift */,
+				DB560C38287A6CC700CC891A /* AnselApp.swift */,
 				DB560C3A287A6CC700CC891A /* ContentView.swift */,
 				DB560C3C287A6CCA00CC891A /* Assets.xcassets */,
 				DB560C41287A6CCA00CC891A /* Persistence.swift */,
@@ -171,8 +171,6 @@
 				DB901B3C287CB99500EC04D7 /* BellowsExtension.swift */,
 				DB901B3E287D03E800EC04D7 /* Reciprocity.swift */,
 				DB901B48287DBF7300EC04D7 /* Notes.swift */,
-				DB4A03812883122000E2B111 /* ExposureCompensation.swift */,
-				DB70FEF72888660300720D0E /* Calculator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +182,7 @@
 				DB901B2F287CB60E00EC04D7 /* Extensions.swift */,
 				DB901B31287CB62700EC04D7 /* Modifiers.swift */,
 				DB901B33287CB68600EC04D7 /* Constants.swift */,
+				DBB4FA5028AD4A8500186039 /* Utils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -195,8 +194,9 @@
 				DB901B38287CB75A00EC04D7 /* BellowsExtensionForm.swift */,
 				DB901B3A287CB86100EC04D7 /* PriorityModeToggle.swift */,
 				DB901B40287D047600EC04D7 /* CalculateButton.swift */,
-				DB901B44287DAA8200EC04D7 /* ReciprocityDropdown.swift */,
 				DB4A03832883125500E2B111 /* ExposureCompensationDropdown.swift */,
+				DBB4FA4C28AD4A3B00186039 /* ReciprocityCard.swift */,
+				DBB4FA4E28AD4A7200186039 /* BellowsExtensionCard.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -339,23 +339,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB4A03822883122000E2B111 /* ExposureCompensation.swift in Sources */,
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,
 				DB901B3F287D03E800EC04D7 /* Reciprocity.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
-				DB70FEF82888660300720D0E /* Calculator.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
 				DB4A03842883125500E2B111 /* ExposureCompensationDropdown.swift in Sources */,
-				DB560C39287A6CC700CC891A /* LumenApp.swift in Sources */,
+				DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */,
+				DBB4FA4D28AD4A3B00186039 /* ReciprocityCard.swift in Sources */,
 				DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */,
+				DBB4FA4F28AD4A7200186039 /* BellowsExtensionCard.swift in Sources */,
 				DB901B34287CB68600EC04D7 /* Constants.swift in Sources */,
+				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
 				DB901B3D287CB99500EC04D7 /* BellowsExtension.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
-				DB901B45287DAA8200EC04D7 /* ReciprocityDropdown.swift in Sources */,
 				DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +524,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,6 +556,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BellowsExtensionForm: View {
-    @Binding var priority_mode: String
+    @Binding var priority_mode: PriorityMode
     @Binding var aperture: String
     @Binding var shutter_speed: String
     @Binding var focal_length: String
@@ -18,18 +18,12 @@ struct BellowsExtensionForm: View {
     
     var body: some View {
         VStack {
-            Text("Parameters")
-                .font(.system(.caption))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.gray)
-                .padding(.top)
-
-            if self.priority_mode == "shutter" {
+            if self.priority_mode == .shutter {
                 FormInput(text: $aperture, placeholder: "Aperture")
                     .padding(.bottom, 4)
             }
             
-            if self.priority_mode == "aperture" {
+            if self.priority_mode == .aperture {
                 FormInput(text: $shutter_speed, placeholder: "Shutter Speed")
                     .padding(.bottom, 4)
             }

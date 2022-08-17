@@ -16,16 +16,11 @@ struct FormInput: View {
     @State private var focused: Bool = false
 
     var body: some View {
-        return TextField("", text: $text, onEditingChanged: { edit in
+        return TextField(placeholder, text: $text, onEditingChanged: { edit in
             self.focused = edit
         })
-            .padding(14)
-            .background(Color(.systemGray6))
-            .cornerRadius(25)
-            .modifier(PlaceholderStyle(text: $text, focused: $focused, placeholder: placeholder))
-            .multilineTextAlignment(.leading)
-            .padding(.bottom, 4)
-            .foregroundColor(.primary)
+        .textFieldStyle(.roundedBorder)
+        .foregroundColor(.black)
     }
 }
 

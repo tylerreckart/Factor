@@ -1,42 +1,11 @@
 //
 //  Reciprocity.swift
-//  Lumen
+//  Ansel
 //
 //  Created by Tyler Reckart on 7/11/22.
 //
 
 import SwiftUI
-
-struct ReciprocityCard: View {
-    var label: String
-    var icon: String
-    var result: String
-    var background: Color
-    var foreground: Color = .white
-
-    var body: some View {
-        VStack {
-            Image(systemName: icon)
-                .imageScale(.large)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 1)
-            Text(label)
-                .font(.system(.caption))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 1)
-            Spacer()
-            Text(result)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.system(.title, design: .rounded))
-        }
-        .foregroundColor(foreground)
-        .frame(height:125, alignment: .topLeading)
-        .padding()
-        .background(background)
-        .cornerRadius(18)
-        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-    }
-}
 
 struct ReciprocityHistorySheet: View {
     @FetchRequest(
@@ -65,7 +34,6 @@ struct ReciprocityHistorySheet: View {
 struct ReciprocityForm: View {
     @Binding var shutter_speed: String
 
-    var onSelect: ((_ key: ReciprocityDropdownOption) -> Void)?
     var calculate: () -> Void
     
     var options = [
@@ -84,7 +52,7 @@ struct ReciprocityForm: View {
         ReciprocityDropdownOption(key: "Rollei IR 400 (>1 Seocnd", value: 1.31)
     ]
     
-    @Binding var selected: String
+    @Binding var selected: ReciprocityDropdownOption
     
     var body: some View {
         VStack {
@@ -94,13 +62,12 @@ struct ReciprocityForm: View {
                 .foregroundColor(.gray)
                 .padding(.top)
             
-            ReciprocityDropdownButton(
-                displayText: $selected,
-                options: options,
-                onSelect: onSelect,
-                selected: $selected
-            )
-                .zIndex(2)
+            Picker("Select a film stock", selection: $selected) {
+                ForEach(options, id: \.self) {
+                    Text($0.key)
+                }
+            }
+            .pickerStyle(.menu)
             
             FormInput(
                 text: $shutter_speed,
@@ -120,7 +87,7 @@ struct Reciprocity: View {
     @State private var shutter_speed: String = ""
     @State private var reciprocity_factor: Double = 1.43
     @State private var adjusted_shutter_speed: String = ""
-    @State private var selected: String = "SFX"
+    @State private var selected: ReciprocityDropdownOption = ReciprocityDropdownOption(key: "SFX (>1 Second)", value: 1.43)
     
     @State private var showingHistorySheet: Bool = false
 
@@ -129,7 +96,6 @@ struct Reciprocity: View {
             VStack {
                 ReciprocityForm(
                     shutter_speed: $shutter_speed,
-                    onSelect: self.onSelect,
                     calculate: self.calculate,
                     selected: $selected
                 )
@@ -185,7 +151,7 @@ struct Reciprocity: View {
         newReciprocityData.timestamp = Date()
         
         let optionData = ReciprocityOption(context: managedObjectContext)
-        optionData.key = self.selected
+        optionData.key = self.selected.key
         optionData.value = self.reciprocity_factor
         newReciprocityData.selectedOption = optionData
 
@@ -193,13 +159,8 @@ struct Reciprocity: View {
     }
 
     private func calculate() {
-        self.adjusted_shutter_speed = "\(pow(Double(self.shutter_speed) ?? 1.0, self.reciprocity_factor))"
+        self.adjusted_shutter_speed = "\(pow(Double(self.shutter_speed) ?? 1.0, self.selected.value))"
         save()
-    }
-    
-    private func onSelect(option: ReciprocityDropdownOption) {
-        self.reciprocity_factor = option.value
-        self.selected = option.key
     }
 }
 
