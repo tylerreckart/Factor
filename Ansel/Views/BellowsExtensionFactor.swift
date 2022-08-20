@@ -52,6 +52,7 @@ struct BellowsExtension: View {
     
     @State private var showingHistorySheet: Bool = false
     
+    @State private var error: Bool = false
 
     var body: some View {
         ScrollView {
@@ -82,7 +83,7 @@ struct BellowsExtension: View {
             if self.calculated_factor == true {
                 HStack(spacing: 20) {
                     CompensationFactorCard(
-                        label: "Bellows extension factor (stops)",
+                        label: "Bellows extension factor",
                         icon: "arrow.up.left.and.arrow.down.right.circle.fill",
                         result: extension_factor,
                         background: Color(.systemBlue)
@@ -114,7 +115,7 @@ struct BellowsExtension: View {
         }
         .background(Color(.systemGray6))
         .navigationTitle("Bellows Extension")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .foregroundColor(.white)
         .toolbar {
             HStack {
@@ -132,64 +133,63 @@ struct BellowsExtension: View {
         }
     }
     
+    private func bellowsExtensionFactor() -> Double {
+        let bellows_draw = Double(self.bellows_draw) ?? 1.0;
+        let focal_length = Double(self.focal_length) ?? 1.0;
+        
+        let ratio = bellows_draw / focal_length
+        
+        return pow(ratio, 2);
+    }
+    
     private func calculate() {
-        let bellows_draw = Int(self.bellows_draw) ?? 1;
-        let focal_length = Int(self.focal_length) ?? 1;
+        let factor = bellowsExtensionFactor()
         
-        // (Extension/FocalLength) **2
-        let factor = Double(pow(Float(bellows_draw/focal_length), 2))
-        
-        let f_stop_adjustment = Int(logC(val: factor, forBase: 2.0))
-        
-        if focal_length > 0 && bellows_draw > 0 {
-            self.extension_factor = "\(Int((Int(factor) / 2)))"
-            self.calculated_factor = true
-            
-            if self.priority_mode == .shutter {
-                self.compensated_aperture = "\(Int(f_stop_adjustment * Int(self.aperture)!))"
-            }
-            
-            if self.priority_mode == .aperture {
-                    if self.shutter_speed.contains(fractional_delimiter) {
-                        let arr = self.shutter_speed.split(separator: fractional_delimiter);
+        if self.priority_mode == .shutter {
+            // Shutter priority mode
+            let adjustment = pow(2, log2(factor))
+            let adjusted_aperture = Double(self.aperture)! * (adjustment / 2)
 
-                        let num = Double(arr[0]);
-                        let denom = Double(arr[1]);
-                        
-                        if num == nil || denom == nil {
-                            return
-                        }
-                        
-                        let calculated_shutter: Double = (num! / denom!) * Double(factor);
-                        
-                        self.compensated_shutter = String(calculated_shutter)
-                        
-                        if calculated_shutter > 1 {
-                            self.compensated_shutter = String(Int(calculated_shutter))
-                        } else {
-                            let rational_shutter_speed = Rational(approximating: calculated_shutter)
-                            
-                            if rational_shutter_speed.numerator > 1 {
-                                let factored_denom = Int(rational_shutter_speed.denominator / rational_shutter_speed.numerator)
-                                
-                                if factored_denom > 10 {
-                                    self.compensated_shutter = "1/\(Int(toNearestTen(factored_denom)))"
-                                } else {
-                                    self.compensated_shutter = "1/\(factored_denom)"
-                                }
-                            } else {
-                                self.compensated_shutter = "\(rational_shutter_speed.numerator)/\(rational_shutter_speed.denominator)"
-                            }
-                        }
-                        
-                        if self.compensated_shutter == "1/1" {
-                            self.compensated_shutter = "1"
-                        }
-                    } else if Int(self.shutter_speed)! >= 1 {
-                        self.compensated_shutter = "\(Int(self.shutter_speed)! * Int(factor))"
+            self.compensated_aperture = "\(Int(closestValue(f_stops, adjusted_aperture)))"
+        } else {
+            // Aperture priority mode
+            if self.shutter_speed.contains(fractional_delimiter) {
+                // 1/x shutter speed
+                let arr = self.shutter_speed.split(separator: fractional_delimiter)
+                
+                let numerator = Double(arr[0])
+                let denominator = Double(arr[1]);
+                
+                // If either the numerator or denominator does not exist,
+                // a proper exposure cannot be calculated. Throw an error.
+                if numerator == nil || denominator == nil {
+                    self.error = true
+                }
+                
+                let factored_numerator = numerator! * factor
+                let factored_denominator = denominator! / factored_numerator
+                let rational_speed = 1 / factored_denominator
+                
+                if rational_speed < 1.0 {
+                    var scaled_denominator = Int(factored_denominator)
+
+                    if factored_denominator > 10 {
+                        scaled_denominator = Int(toNearestTen(Int(factored_denominator)))
                     }
+
+                    self.compensated_shutter = "1/\(scaled_denominator)"
+                } else {
+                    self.compensated_shutter = "\(Int(rational_speed.rounded(.down)))"
+                }
+            } else {
+                let adjusted_shutter: Int = Int(factor * Double(self.shutter_speed)!)
+                
+                self.compensated_shutter = "\(adjusted_shutter)"
             }
         }
+        
+        self.extension_factor = "\(Int(factor))"
+        self.calculated_factor = true
         
         save()
     }
@@ -203,20 +203,17 @@ struct BellowsExtension: View {
     }
     
     func save() {
-      let newExtensionData = BellowsExtensionData(context: managedObjectContext)
+        let newExtensionData = BellowsExtensionData(context: managedObjectContext)
         newExtensionData.aperture = self.aperture
         newExtensionData.shutterSpeed = self.shutter_speed
         newExtensionData.bellowsDraw = self.bellows_draw
         newExtensionData.focalLength = self.focal_length
-
         newExtensionData.compensatedAperture = self.compensated_aperture
         newExtensionData.compensatedShutter = self.compensated_shutter
-
         newExtensionData.bellowsExtensionFactor = self.extension_factor
-
         newExtensionData.timestamp = Date()
 
-      saveContext()
+        saveContext()
     }
     
     private func reset() {

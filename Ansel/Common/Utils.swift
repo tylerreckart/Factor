@@ -37,3 +37,27 @@ struct Rational {
         self.init(numerator: h, denominator: k)
     }
 }
+
+func absoluteValue(_ a: Double, _ b: Double) -> Double {
+    if a > b {
+        return a - b
+    }
+    
+    return b - a
+}
+
+func closestValue(_ arr: [Double], _ el: Double) -> Double {
+    var difference: Double = absoluteValue(arr[0], el)
+    var result: Double = arr[0];
+    var i: Int = 1
+    
+    while i < arr.count {
+        if difference > absoluteValue(arr[i], el) {
+            difference = absoluteValue(arr[i], el)
+            result = arr[i]
+        }
+        i += 1
+    }
+    
+    return result
+}

@@ -56,27 +56,41 @@ struct ReciprocityForm: View {
     
     var body: some View {
         VStack {
-            Text("Parameters")
+            Text("Inputs")
                 .font(.system(.caption))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.gray)
                 .padding(.top)
             
-            Picker("Select a film stock", selection: $selected) {
-                ForEach(options, id: \.self) {
-                    Text($0.key)
-                }
-            }
-            .pickerStyle(.menu)
+            VStack(spacing: -1) {
+                HStack {
+                    Text("Film Stock")
+                        .font(.system(.caption))
+                        .frame(height: 55, alignment: .leading)
+                        .foregroundColor(.gray)
+                        .padding([.leading, .trailing])
+                        .background(Color(.systemGray6))
+                        .border(width: 1, edges: [.trailing], color: Color(.systemGray5))
             
-            FormInput(
-                text: $shutter_speed,
-                placeholder: "Shutter Speed (seconds)"
-            )
-                .padding(.bottom, 4)
-                .zIndex(1)
-            CalculateButton(calculate: calculate)
-                .zIndex(1)
+                    Picker("Select a film stock", selection: $selected) {
+                        ForEach(options, id: \.self) {
+                            Text($0.key)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .frame(maxWidth: .infinity)
+                }
+                .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.topLeft, .topRight])
+                
+                FormInput(
+                    text: $shutter_speed,
+                    placeholder: "Shutter Speed (seconds)"
+                )
+                    .padding(.bottom, 4)
+                    .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
+            }
+
+            CalculateButton(calculate: calculate, isDisabled: self.shutter_speed.count == 0)
         }
     }
 }
@@ -118,7 +132,7 @@ struct Reciprocity: View {
             }
         }
         .background(Color(.systemGray6))
-        .navigationTitle("Reciprocity")
+        .navigationTitle("Reciprocity Factor")
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
             HStack {

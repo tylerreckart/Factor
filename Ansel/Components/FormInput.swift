@@ -19,7 +19,8 @@ struct FormInput: View {
         return TextField(placeholder, text: $text, onEditingChanged: { edit in
             self.focused = edit
         })
-        .textFieldStyle(.roundedBorder)
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .foregroundColor(.black)
     }
 }

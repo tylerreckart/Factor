@@ -1,15 +1,10 @@
 //
 //  Constants.swift
-//  Lumen
+//  Ansel
 //
-//  Created by Tyler Reckart on 7/11/22.
+//  Created by Tyler Reckart on 8/18/22.
 //
 
-struct ReciprocityDropdownOption: Hashable {
-    public static func == (lhs: ReciprocityDropdownOption, rhs: ReciprocityDropdownOption) -> Bool {
-        return lhs.key == rhs.key
-    }
+import Foundation
 
-    var key: String
-    var value: Double
-}
+let f_stops: [Double] = [1.0, 1.1, 1.2, 1.4, 1.6, 1.7, 1.8, 2.0, 2.2, 2.4, 2.5, 2.8, 3.2, 3.3, 3.5, 4, 4.5, 4.8, 5, 5.6, 6.3, 6.7, 7.1, 8.0, 9.0, 9.5, 10.0, 11.0, 13.0, 14.0, 16.0, 18.0, 19.0, 20.0, 22.0, 25.0, 27.0, 29.0, 32.0, 36.0, 38.0, 40.0, 45.0, 51.0, 54.0, 57.0, 64.0]

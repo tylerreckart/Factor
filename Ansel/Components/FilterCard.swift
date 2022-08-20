@@ -1,14 +1,13 @@
 //
-//  BellowsExtensionCard.swift
+//  FilterCard.swift
 //  Ansel
 //
 //  Created by Tyler Reckart on 8/17/22.
 //
 
-import Foundation
 import SwiftUI
 
-struct CompensationFactorCard: View {
+struct FilterCard: View {
     var label: String
     var icon: String
     var result: String
