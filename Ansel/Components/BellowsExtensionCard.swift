@@ -14,7 +14,6 @@ struct CompensationFactorCard: View {
     var background: Color
     var foreground: Color = .white
     
-    @State var xpos: CGFloat = 94
     @State var ypos: CGFloat = 1000
     
     var delay: CGFloat = 0
@@ -40,11 +39,12 @@ struct CompensationFactorCard: View {
             .padding()
             .background(background)
             .cornerRadius(18)
-            .position(x: xpos, y: ypos)
+            .offset(y: ypos)
             .animation(.easeInOut(duration: 0.5 + delay), value: ypos)
+            .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
         }
         .onAppear {
-            ypos = 80 // Trigger the animation to start
+            ypos = 0 // Trigger the animation to start
         }
     }
 }

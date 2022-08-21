@@ -88,7 +88,6 @@ struct BellowsExtension: View {
                         result: extension_factor,
                         background: Color(.systemBlue)
                     )
-                    .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     
                     if (self.priority_mode == .shutter) {
                         CompensationFactorCard(
@@ -98,7 +97,6 @@ struct BellowsExtension: View {
                             background: Color(.systemGreen),
                             delay: 0.1
                         )
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
 
                     if (self.priority_mode == .aperture) {
@@ -109,7 +107,6 @@ struct BellowsExtension: View {
                             background: Color(.systemPurple),
                             delay: 0.1
                         )
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
                 }
                 .padding([.leading, .trailing, .bottom])

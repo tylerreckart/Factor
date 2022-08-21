@@ -41,14 +41,12 @@ struct BellowsExtensionForm: View {
                 if self.priority_mode == .shutter {
                     FormInput(text: $aperture, placeholder: "Aperture")
                         .focused($focusedField, equals: .aperture)
-                        .keyboardType(.numberPad)
                         .addBorder(Color(.systemGray5), width: 1, cornerRadius: 0, corners: [.topLeft, .topRight])
                 }
                 
                 if self.priority_mode == .aperture {
                     FormInput(text: $shutter_speed, placeholder: "Shutter Speed")
                         .focused($focusedField, equals: .shutter)
-                        .keyboardType(.numberPad)
                         .addBorder(Color(.systemGray5), width: 1, cornerRadius: 0, corners: [.topLeft, .topRight])
                 }
                 
