@@ -25,10 +25,10 @@ struct CalculateButton: View {
                 .font(.system(.body))
                 .fontWeight(.bold)
         }
-        .foregroundColor(isDisabled ? Color(.systemGray2) : .white)
+        .foregroundColor(isDisabled ? Color(.systemGray3) : .white)
         .padding(14)
         .frame(maxWidth: .infinity)
-        .background(isDisabled ? Color(.systemGray5) : Color(.systemBlue))
+        .background(isDisabled ? Color(.systemGray6) : Color(.systemBlue))
         .cornerRadius(4)
     }
 }

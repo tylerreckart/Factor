@@ -72,7 +72,7 @@ struct PriorityModeToggle: View {
                 }
             }
             .padding(4)
-            .background(Color(.systemGray5))
+            .background(Color(.systemGray6))
             .cornerRadius(8)
         }
         .padding(.bottom, 10)

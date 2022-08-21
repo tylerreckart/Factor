@@ -95,9 +95,9 @@ extension View {
     }
     
     public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat, corners: UIRectCorner) -> some View where S : ShapeStyle {
-        let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
+        let roundedRect = RoundedRectangle(cornerRadius: 0)
         return clipShape(RoundedCorner(radius: cornerRadius, corners: corners))
-             .overlay(roundedRect.strokeBorder(content, lineWidth: width))
+             .overlay(roundedRect.strokeBorder(content, lineWidth: width).cornerRadius(cornerRadius, corners: corners))
     }
     
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {

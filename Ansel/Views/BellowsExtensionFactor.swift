@@ -95,7 +95,8 @@ struct BellowsExtension: View {
                             label: "Compensated aperture",
                             icon: "f.cursive.circle.fill",
                             result: "f/\(compensated_aperture)",
-                            background: Color(.systemGreen)
+                            background: Color(.systemGreen),
+                            delay: 0.1
                         )
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
@@ -105,7 +106,8 @@ struct BellowsExtension: View {
                             label: "Compensated shutter speed (seconds)",
                             icon: "clock.circle.fill",
                             result: self.compensated_shutter,
-                            background: Color(.systemPurple)
+                            background: Color(.systemPurple),
+                            delay: 0.1
                         )
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
