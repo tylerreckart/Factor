@@ -11,6 +11,7 @@ struct NavigationCard: View {
     var label: String
     var icon: String
     var background: Color
+    var isDisabled: Bool = false
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,21 +19,81 @@ struct NavigationCard: View {
                 .imageScale(.large)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 1)
-                .foregroundColor(.white)
             Text(label)
                 .font(.system(.body))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.white)
                 .multilineTextAlignment(.leading)
         }
         .frame(maxWidth: .infinity, minHeight: 80, alignment: .topLeading)
         .padding()
-        .background(background)
+        .foregroundColor(isDisabled ? Color(.systemGray) : .white)
+        .background(isDisabled ? Color(.systemGray4) : background)
         .cornerRadius(18)
     }
 }
 
+struct NotesCard: View {
+    var isDisabled: Bool = false
+
+    var body: some View {
+        NavigationCard(
+            label: "Notes",
+            icon: "bookmark.circle.fill",
+            background: Color(.systemYellow),
+            isDisabled: isDisabled
+        )
+        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+        .tabItem {
+            Label("Received", systemImage: "tray.and.arrow.down.fill")
+        }
+    }
+}
+
+struct ReciprocityFactorCard: View {
+    var isDisabled: Bool = false
+
+    var body: some View {
+        NavigationCard(
+            label: "Reciprocity Factor",
+            icon: "clock.circle.fill",
+            background: Color(.systemPurple),
+            isDisabled: isDisabled
+        )
+        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+    }
+}
+
+struct BellowsExtensionFactorCard: View {
+    var isDisabled: Bool = false
+
+    var body: some View {
+        NavigationCard(
+            label: "Bellows Extension Factor",
+            icon: "arrow.up.left.and.arrow.down.right.circle.fill",
+            background: Color(.systemBlue),
+            isDisabled: isDisabled
+        )
+        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+    }
+}
+
+struct FilterFactorCard: View {
+    var isDisabled: Bool = false
+
+    var body: some View {
+        NavigationCard(
+            label: "Filter Factor",
+            icon: "moon.circle.fill",
+            background: Color(.systemGreen),
+            isDisabled: isDisabled
+        )
+        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+    }
+}
+
 struct Home: View {
+    @Binding var drawerToggle: Bool
+
     var body: some View {
         return NavigationView {
             VStack {
@@ -44,16 +105,7 @@ struct Home: View {
 
                 HStack {
                     NavigationLink(destination: Notes()) {
-                        NavigationCard(
-                            label: "Notes",
-                            icon: "bookmark.circle.fill",
-                            background: Color(.systemYellow)
-                        )
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-                        .badge(2)
-                        .tabItem {
-                            Label("Received", systemImage: "tray.and.arrow.down.fill")
-                        }
+                        NotesCard()
                     }
                 }
                 
@@ -65,32 +117,17 @@ struct Home: View {
                 
                 HStack {
                     NavigationLink(destination: Reciprocity()) {
-                        NavigationCard(
-                            label: "Reciprocity Factor",
-                            icon: "clock.circle.fill",
-                            background: Color(.systemPurple)
-                        )
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+                        ReciprocityFactorCard()
                     }
 
                     NavigationLink(destination: BellowsExtension()) {
-                        NavigationCard(
-                            label: "Bellows Extension Factor",
-                            icon: "arrow.up.left.and.arrow.down.right.circle.fill",
-                            background: Color(.systemBlue)
-                        )
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+                        BellowsExtensionFactorCard()
                     }
                 }
                 
                 HStack {
                     NavigationLink(destination: FilterFactor()) {
-                        NavigationCard(
-                            label: "Filter Factor",
-                            icon: "moon.circle.fill",
-                            background: Color(.systemGreen)
-                        )
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+                        FilterFactorCard()
                     }
                 }
 
@@ -99,14 +136,38 @@ struct Home: View {
             .padding()
             .navigationTitle("Ansel")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                HStack {
+                    Button(action: {
+                        self.drawerToggle.toggle()
+                    }) {
+                        Label("Edit Dashboard", systemImage: "slider.vertical.3")
+                    }
+                    
+                    Button(action: {
+                        self.drawerToggle.toggle()
+                    }) {
+                        Label("Settings", systemImage: "gearshape")
+                    }
+                }
+                .foregroundColor(Color(.systemBlue))
+            }
             .background(Color(.systemGray6))
         }
     }
 }
 
 struct ContentView: View {
+    @State private var isDrawerOpen: Bool = false
+
     var body: some View {
-        Home()
+        ZStack {
+            Home(drawerToggle: $isDrawerOpen)
+            
+            if isDrawerOpen {
+                Drawer(isOpen: $isDrawerOpen).edgesIgnoringSafeArea(.vertical)
+            }
+        }
     }
 }
 

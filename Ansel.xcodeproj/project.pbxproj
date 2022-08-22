@@ -32,6 +32,7 @@
 		DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5228AD72F700186039 /* FilterFactor.swift */; };
 		DBB4FA5528AD738700186039 /* FilterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5428AD738700186039 /* FilterCard.swift */; };
 		DBB4FA5928AF211800186039 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5828AF211800186039 /* Constants.swift */; };
+		DBB4FA5E28B3DABA00186039 /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5D28B3DABA00186039 /* Drawer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		DBB4FA5428AD738700186039 /* FilterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCard.swift; sourceTree = "<group>"; };
 		DBB4FA5728AD748600186039 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DBB4FA5828AF211800186039 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DBB4FA5D28B3DABA00186039 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				DBB4FA4C28AD4A3B00186039 /* ReciprocityCard.swift */,
 				DBB4FA4E28AD4A7200186039 /* BellowsExtensionCard.swift */,
 				DBB4FA5428AD738700186039 /* FilterCard.swift */,
+				DBB4FA5D28B3DABA00186039 /* Drawer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
+				DBB4FA5E28B3DABA00186039 /* Drawer.swift in Sources */,
 				DB901B3D287CB99500EC04D7 /* BellowsExtensionFactor.swift in Sources */,
 				DBB4FA5528AD738700186039 /* FilterCard.swift in Sources */,
 				DBB4FA5928AF211800186039 /* Constants.swift in Sources */,
