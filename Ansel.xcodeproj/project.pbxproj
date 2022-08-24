@@ -33,6 +33,11 @@
 		DBB4FA5528AD738700186039 /* FilterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5428AD738700186039 /* FilterCard.swift */; };
 		DBB4FA5928AF211800186039 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5828AF211800186039 /* Constants.swift */; };
 		DBB4FA5E28B3DABA00186039 /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5D28B3DABA00186039 /* Drawer.swift */; };
+		DBB4FA6028B561AA00186039 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5F28B561AA00186039 /* SettingsView.swift */; };
+		DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6128B64A2700186039 /* NavigationTile.swift */; };
+		DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6328B64B0000186039 /* Dashboard.swift */; };
+		DBB4FA6628B64BA300186039 /* DashboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6528B64BA300186039 /* DashboardToolbar.swift */; };
+		DBB4FA6828B64C1A00186039 /* TileTrashBin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6728B64C1A00186039 /* TileTrashBin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +89,11 @@
 		DBB4FA5728AD748600186039 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DBB4FA5828AF211800186039 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBB4FA5D28B3DABA00186039 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
+		DBB4FA5F28B561AA00186039 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DBB4FA6128B64A2700186039 /* NavigationTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTile.swift; sourceTree = "<group>"; };
+		DBB4FA6328B64B0000186039 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		DBB4FA6528B64BA300186039 /* DashboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardToolbar.swift; sourceTree = "<group>"; };
+		DBB4FA6728B64C1A00186039 /* TileTrashBin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileTrashBin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +146,12 @@
 		DB560C37287A6CC700CC891A /* Ansel */ = {
 			isa = PBXGroup;
 			children = (
+				DB901B2F287CB60E00EC04D7 /* Extensions.swift */,
+				DB901B31287CB62700EC04D7 /* Modifiers.swift */,
+				DB901B33287CB68600EC04D7 /* DataModels.swift */,
+				DBB4FA5028AD4A8500186039 /* Utils.swift */,
+				DBB4FA5828AF211800186039 /* Constants.swift */,
 				DBB4FA5628AD739A00186039 /* Components */,
-				DB901B2E287CB5F700EC04D7 /* Common */,
 				DB901B2D287CB5EE00EC04D7 /* Views */,
 				DB560C38287A6CC700CC891A /* AnselApp.swift */,
 				DB560C3A287A6CC700CC891A /* ContentView.swift */,
@@ -181,20 +195,10 @@
 				DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */,
 				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
 				DB901B48287DBF7300EC04D7 /* Notes.swift */,
+				DBB4FA5F28B561AA00186039 /* SettingsView.swift */,
+				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		DB901B2E287CB5F700EC04D7 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				DB901B2F287CB60E00EC04D7 /* Extensions.swift */,
-				DB901B31287CB62700EC04D7 /* Modifiers.swift */,
-				DB901B33287CB68600EC04D7 /* DataModels.swift */,
-				DBB4FA5028AD4A8500186039 /* Utils.swift */,
-				DBB4FA5828AF211800186039 /* Constants.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		DB901B4C287DC13500EC04D7 /* Frameworks */ = {
@@ -216,6 +220,9 @@
 				DBB4FA4E28AD4A7200186039 /* BellowsExtensionCard.swift */,
 				DBB4FA5428AD738700186039 /* FilterCard.swift */,
 				DBB4FA5D28B3DABA00186039 /* Drawer.swift */,
+				DBB4FA6128B64A2700186039 /* NavigationTile.swift */,
+				DBB4FA6528B64BA300186039 /* DashboardToolbar.swift */,
+				DBB4FA6728B64C1A00186039 /* TileTrashBin.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -350,15 +357,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */,
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,
 				DB901B3F287D03E800EC04D7 /* ReciprocityFactor.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
+				DBB4FA6828B64C1A00186039 /* TileTrashBin.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
 				DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */,
 				DBB4FA4D28AD4A3B00186039 /* ReciprocityCard.swift in Sources */,
 				DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */,
 				DBB4FA4F28AD4A7200186039 /* BellowsExtensionCard.swift in Sources */,
+				DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */,
 				DB901B34287CB68600EC04D7 /* DataModels.swift in Sources */,
 				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
@@ -368,9 +378,11 @@
 				DBB4FA5528AD738700186039 /* FilterCard.swift in Sources */,
 				DBB4FA5928AF211800186039 /* Constants.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
+				DBB4FA6628B64BA300186039 /* DashboardToolbar.swift in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,
 				DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */,
+				DBB4FA6028B561AA00186039 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

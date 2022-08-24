@@ -17,15 +17,15 @@ struct DrawerContent: View {
             Color.white
             
             ScrollView {
-                HStack {
-                    NotesCard(isDisabled: true, isEditing: $isEditing, isDragging: $isDragging)
-                    ReciprocityFactorCard(isDisabled: true, isEditing: $isEditing, isDragging: $isDragging)
-                }
-                
-                HStack {
-                    BellowsExtensionFactorCard(isDisabled: true, isEditing: $isEditing, isDragging: $isDragging)
-                    FilterFactorCard(isDisabled: true, isEditing: $isEditing, isDragging: $isDragging)
-                }
+//                HStack {
+//                    NotesCard(isDisabled: true, isEditing: $isEditing, isDragging: $isDragging)
+//                    ReciprocityFactorCard(isDisabled: true, isEditing: $isEditing, isDragging: $isDragging)
+//                }
+//                
+//                HStack {
+//                    BellowsExtensionFactorCard(isDisabled: true, isEditing: $isEditing, isDragging: $isDragging)
+//                    FilterFactorCard(isDisabled: true, isEditing: $isEditing, isDragging: $isDragging)
+//                }
             }
             .padding()
         }
@@ -58,13 +58,8 @@ struct Drawer: View {
     
     var body: some View {
         ZStack {
-            VisualEffectView(effect: UIBlurEffect(style: .dark))
-                .opacity(opacity)
-                .blur(radius: 20)
-                .onAppear {
-                    opacity = 0.2
-                }
-                .animation(.easeInOut(duration: animationDuration), value: opacity)
+            Color.black
+                .opacity(0.1)
                 .onTapGesture {
                     dismissDrawer()
                 }

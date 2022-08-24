@@ -47,7 +47,7 @@ struct FilterForm: View {
             
             VStack(spacing: -1) {
                 HStack {
-                    Text("Filter Factor")
+                    Text("F-Stop Reduction")
                         .font(.system(.caption))
                         .frame(height: 55, alignment: .leading)
                         .foregroundColor(.gray)
