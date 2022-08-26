@@ -7,94 +7,6 @@
 
 import SwiftUI
 
-struct ReciprocityHistorySheet: View {
-    @FetchRequest(
-      entity: ReciprocityData.entity(),
-      sortDescriptors: [
-        NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: true)
-      ]
-    ) var results: FetchedResults<ReciprocityData>
-    
-    func formatDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/d/y hh:mm:ss"
-        return dateFormatter.string(from: date)
-    }
-
-    var body: some View {
-        List {
-            ForEach(results, id: \.self) { r in
-                Text(formatDate(date: r.timestamp!))
-            }
-        }
-        .listStyle(.insetGrouped)
-    }
-}
-
-struct ReciprocityForm: View {
-    @Binding var shutter_speed: String
-
-    var calculate: () -> Void
-    
-    var options = [
-        ReciprocityDropdownOption(key: "SFX (>1 Second)", value: 1.43),
-        ReciprocityDropdownOption(key: "Pan F+ (>1 Second)", value: 1.33),
-        ReciprocityDropdownOption(key: "Delta 100 (>1 Second)", value: 1.26),
-        ReciprocityDropdownOption(key: "Delta 400 (>1 Second)", value: 1.41),
-        ReciprocityDropdownOption(key: "Delta 3200 (>1 Second)", value: 1.33),
-        ReciprocityDropdownOption(key: "FP4+ (>1 Second)", value: 1.26),
-        ReciprocityDropdownOption(key: "HP5+ (>1 Second)", value: 1.31),
-        ReciprocityDropdownOption(key: "XP2 (>1 Second)", value: 1.31),
-        ReciprocityDropdownOption(key: "K100 (>1 Second)", value: 1.26),
-        ReciprocityDropdownOption(key: "K400 (>1 Second)", value: 1.30),
-        ReciprocityDropdownOption(key: "Portra 160 (>1 Second)", value: 1.33),
-        ReciprocityDropdownOption(key: "E100 (>10 Seconds)", value: 1.33),
-        ReciprocityDropdownOption(key: "Rollei IR 400 (>1 Seocnd", value: 1.31)
-    ]
-    
-    @Binding var selected: ReciprocityDropdownOption
-    
-    var body: some View {
-        VStack {
-            Text("Inputs")
-                .font(.system(.caption))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.gray)
-                .padding(.top)
-            
-            VStack(spacing: -1) {
-                HStack {
-                    Text("Film Stock")
-                        .font(.system(.caption))
-                        .frame(height: 55, alignment: .leading)
-                        .foregroundColor(.gray)
-                        .padding([.leading, .trailing])
-                        .background(Color(.systemGray6))
-                        .border(width: 1, edges: [.trailing], color: Color(.systemGray5))
-            
-                    Picker("Select a film stock", selection: $selected) {
-                        ForEach(options, id: \.self) {
-                            Text($0.key)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(maxWidth: .infinity)
-                }
-                .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.topLeft, .topRight])
-                
-                FormInput(
-                    text: $shutter_speed,
-                    placeholder: "Shutter Speed (seconds)"
-                )
-                    .padding(.bottom, 4)
-                    .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
-            }
-
-            CalculateButton(calculate: calculate, isDisabled: self.shutter_speed.count == 0)
-        }
-    }
-}
-
 struct Reciprocity: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
@@ -121,7 +33,7 @@ struct Reciprocity: View {
             .padding([.leading, .trailing, .bottom])
 
             if !self.adjusted_shutter_speed.isEmpty {
-                ReciprocityCard(
+                CalculatedResultCard(
                     label: "Adjusted shutter speed",
                     icon: "clock.circle.fill",
                     result: "\(Int(round(Double(adjusted_shutter_speed) ?? 1))) seconds",

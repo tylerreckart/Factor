@@ -88,6 +88,20 @@ struct EdgeBorder: Shape {
         return path
     }
 }
+
+struct Draggable: ViewModifier {
+    let condition: Bool
+    let data: () -> NSItemProvider
+
+    @ViewBuilder
+    func body(content: Content) -> some View {
+        if condition {
+            content.onDrag(data)
+        } else {
+            content
+        }
+    }
+}
     
 extension View {
     public func resignKeyboardOnDragGesture() -> some View {
@@ -106,6 +120,10 @@ extension View {
     
     func border(width: CGFloat, edges: [Edge], color: Color) -> some View {
         overlay(EdgeBorder(width: width, edges: edges).foregroundColor(color))
+    }
+    
+    func drag(if condition: Bool, data: @escaping () -> NSItemProvider) -> some View {
+        self.modifier(Draggable(condition: condition, data: data))
     }
 }
 

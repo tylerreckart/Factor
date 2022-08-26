@@ -1,13 +1,13 @@
 //
-//  BellowsExtensionCard.swift
+//  CalculatedResultCard.swift
 //  Ansel
 //
-//  Created by Tyler Reckart on 8/17/22.
+//  Created by Tyler Reckart on 8/25/22.
 //
 
 import SwiftUI
 
-struct CompensationFactorCard: View {
+struct CalculatedResultCard: View {
     var label: String
     var icon: String
     var result: String
@@ -38,6 +38,7 @@ struct CompensationFactorCard: View {
             .frame(height: 125, alignment: .topLeading)
             .padding()
             .background(background)
+            .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
             .cornerRadius(18)
             .offset(y: ypos)
             .animation(.easeInOut(duration: 0.5 + delay), value: ypos)
@@ -48,3 +49,4 @@ struct CompensationFactorCard: View {
         }
     }
 }
+

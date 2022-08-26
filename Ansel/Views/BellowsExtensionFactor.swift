@@ -9,30 +9,6 @@ import Foundation
 import SwiftUI
 import UIKit
 
-struct BellowsExtensionHistorySheet: View {
-    @FetchRequest(
-      entity: BellowsExtensionData.entity(),
-      sortDescriptors: [
-        NSSortDescriptor(keyPath: \BellowsExtensionData.timestamp, ascending: true)
-      ]
-    ) var results: FetchedResults<BellowsExtensionData>
-    
-    func formatDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/d/y hh:mm:ss"
-        return dateFormatter.string(from: date)
-    }
-
-    var body: some View {
-        List {
-            ForEach(results, id: \.self) { r in
-                Text(formatDate(date: r.timestamp!))
-            }
-        }
-        .listStyle(.insetGrouped)
-    }
-}
-
 struct BellowsExtension: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
@@ -82,7 +58,7 @@ struct BellowsExtension: View {
 
             if self.calculated_factor == true {
                 HStack(spacing: 20) {
-                    CompensationFactorCard(
+                    CalculatedResultCard(
                         label: "Bellows extension factor",
                         icon: "arrow.up.left.and.arrow.down.right.circle.fill",
                         result: extension_factor,
@@ -90,7 +66,7 @@ struct BellowsExtension: View {
                     )
                     
                     if (self.priority_mode == .shutter) {
-                        CompensationFactorCard(
+                        CalculatedResultCard(
                             label: "Compensated aperture",
                             icon: "f.cursive.circle.fill",
                             result: "f/\(compensated_aperture)",
@@ -100,7 +76,7 @@ struct BellowsExtension: View {
                     }
 
                     if (self.priority_mode == .aperture) {
-                        CompensationFactorCard(
+                        CalculatedResultCard(
                             label: "Compensated shutter speed (seconds)",
                             icon: "clock.circle.fill",
                             result: self.compensated_shutter,

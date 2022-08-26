@@ -31,13 +31,13 @@
       "size" : "40x40"
     },
     {
-      "filename" : "ansel_120.png",
+      "filename" : "white_green@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "ansel_180.png",
+      "filename" : "white_green@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -88,7 +88,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "ansel_1024.png",
+      "filename" : "white_green@1x.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"

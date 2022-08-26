@@ -7,71 +7,87 @@
 
 import SwiftUI
 
-struct NavigationTile: View {
-    var tile: DashboardTile
-    var isDisabled: Bool = false
-    
-    @Binding var isEditing: Bool
-    @Binding var isDragging: Bool
-    @Binding var shouldRemoveTile: Bool
-    
-    var onRemove: (_ id: String) -> Void
-    
-    @State private var xpos: CGFloat = 0
-    @State private var ypos: CGFloat = 0
+struct MinusButton: View {
+    var tileId: String
+    var removeTile: (String) -> Void
 
-    var simpleDrag: some Gesture {
-        DragGesture()
-            .onChanged { value in
-                isDragging = true
-                
-                if value.location.y > 500 {
-                    shouldRemoveTile = true
-                }
-                
-                if value.location.y < 500 && shouldRemoveTile == true {
-                    shouldRemoveTile = false
-                }
-
-                xpos = value.translation.width
-                ypos = value.translation.height
-            }
-            .onEnded { value in
-                isDragging = false
-
-                if value.location.y > 500 {
-                    // Remove the tile from the dashboard
-                    onRemove(tile.key)
-                    shouldRemoveTile = false
-                }
-                
-                ypos = 0
-                xpos = 0
-            }
-    }
+    let screenWidth = UIScreen.main.bounds.width
+    
+    @State private var presentAlert: Bool = false
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Image(systemName: tile.icon)
-                .imageScale(.large)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 1)
-            Text(tile.label)
-                .font(.system(.body))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
+        Button(action: {
+            self.presentAlert.toggle()
+        }) {
+            Image(systemName: "minus")
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(Color(.systemGray))
+                .frame(width: 25, height: 25)
+                .background(.ultraThinMaterial)
+                .cornerRadius(.infinity)
+                .shadow(color: Color.black.opacity(0.1), radius: 10, y: 4)
         }
-        .frame(maxWidth: .infinity, minHeight: 80, alignment: .topLeading)
-        .padding()
-        .foregroundColor(isDisabled ? Color(.systemGray) : .white)
-        .background(isDisabled ? Color(.systemGray4) : tile.background)
-        .cornerRadius(18)
-        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-        .rotationEffect(.degrees(isEditing ? 1.25 : 0))
-        .animation(isEditing ? .easeInOut(duration: 0.15).repeatForever(autoreverses: true) : .default, value: isEditing)
-        .offset(x: xpos, y: ypos)
-        .animation(!shouldRemoveTile ? .easeInOut(duration: 0.25) : .default, value: ypos)
-        .gesture(isEditing ? simpleDrag : nil)
+        .offset(x: (screenWidth / 2) - 20, y: -55)
+        .confirmationDialog("Remove Tile", isPresented: $presentAlert) {
+            Button("Remove", role: .destructive) {
+                removeTile(tileId)
+            }
+        } message: {
+            Text("Remove this tile from your dashboard?")
+          }
+    }
+}
+
+struct SimpleTile: View {
+    var tile: DashboardTile
+    var isDisabled: Bool = false
+
+    @Binding var isEditing: Bool
+    
+    @State private var animate: Bool = false
+    
+    var removeTile: (String) -> Void
+
+    var body: some View {
+        ZStack {
+            VStack(alignment: .leading) {
+                Image(systemName: tile.icon)
+                    .imageScale(.large)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 1)
+                Text(tile.label)
+                    .font(.system(.body))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+            }
+            .frame(maxWidth: .infinity, minHeight: 80, alignment: .topLeading)
+            .padding()
+            .foregroundColor(isDisabled ? Color(.systemGray) : .white)
+            .background(isDisabled ? Color(.systemGray4) : tile.background)
+            .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
+            .cornerRadius(18)
+            .contentShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            
+            if isEditing {
+                MinusButton(tileId: tile.id, removeTile: removeTile)
+            } else {
+                EmptyView()
+            }
+        }
+        .onChange(of: isEditing) { newState in
+            if isEditing {
+                animate = true
+            } else {
+                animate = false
+            }
+        }
+        .onAppear {
+            if isEditing {
+                animate = true
+            }
+        }
+        .rotationEffect(.degrees(animate ? 1.25 : 0))
+        .animation(animate ? .easeInOut(duration: 0.2).repeatForever(autoreverses: true) : .default, value: animate)
     }
 }
 
@@ -79,22 +95,18 @@ struct LinkedNavigationTile: View {
     var tile: DashboardTile
     var isDisabled: Bool = false
 
+    @Binding var draggingTile: DashboardTile?
     @Binding var isEditing: Bool
-    @Binding var isDragging: Bool
-    @Binding var shouldRemoveTile: Bool
     
-    var onRemoveTile: (_ id: String) -> Void
+    var removeTile: (String) -> Void
 
     var body: some View {
-        NavigationLink(destination: AnyView(tile.destination)) {
-            NavigationTile(
-                tile: tile,
-                isDisabled: isDisabled,
-                isEditing: $isEditing,
-                isDragging: $isDragging,
-                shouldRemoveTile: $shouldRemoveTile,
-                onRemove: onRemoveTile
-            )
+        if !isEditing {
+            NavigationLink(destination: AnyView(tile.destination)) {
+                SimpleTile(tile: tile, isEditing: $isEditing, removeTile: removeTile)
+            }
+        } else {
+            SimpleTile(tile: tile, isEditing: $isEditing, removeTile: removeTile)
         }
     }
 }

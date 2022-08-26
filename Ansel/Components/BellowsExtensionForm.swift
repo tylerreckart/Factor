@@ -41,13 +41,13 @@ struct BellowsExtensionForm: View {
                 if self.priority_mode == .shutter {
                     FormInput(text: $aperture, placeholder: "Aperture")
                         .focused($focusedField, equals: .aperture)
-                        .addBorder(Color(.systemGray5), width: 1, cornerRadius: 0, corners: [.topLeft, .topRight])
+                        .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.topLeft, .topRight])
                 }
                 
                 if self.priority_mode == .aperture {
                     FormInput(text: $shutter_speed, placeholder: "Shutter Speed")
                         .focused($focusedField, equals: .shutter)
-                        .addBorder(Color(.systemGray5), width: 1, cornerRadius: 0, corners: [.topLeft, .topRight])
+                        .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.topLeft, .topRight])
                 }
                 
                 FormInput(text: $focal_length, placeholder: "Focal Length (mm)")
@@ -60,7 +60,7 @@ struct BellowsExtensionForm: View {
                 FormInput(text: $bellows_draw, placeholder: "Bellows Draw (mm)")
                     .focused($focusedField, equals: .bellows_draw)
                     .keyboardType(.numberPad)
-                    .addBorder(Color(.systemGray5), width: 1, cornerRadius: 0, corners: [.bottomLeft, .bottomRight])
+                    .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
                     .padding(.bottom, 15)
                 
                 CalculateButton(

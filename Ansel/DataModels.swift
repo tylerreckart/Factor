@@ -25,7 +25,11 @@ struct FilterDropdownOption: Hashable {
     var value: Double
 }
 
-struct DashboardTile: Identifiable {
+struct DashboardTile: Identifiable, Equatable {
+    static func ==(lhs: DashboardTile, rhs: DashboardTile) -> Bool {
+        return lhs.id == rhs.id
+    }
+
     var id: String {
         self.key
     }

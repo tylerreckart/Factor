@@ -9,16 +9,13 @@ import SwiftUI
 
 struct DashboardToolbar: View {
     @Binding var isEditing: Bool
-    @Binding var isDragging: Bool
-    @Binding var isDrawerOpen: Bool
-    
-    @State var ypos: CGFloat = 0
+    @Binding var showTileSheet: Bool
     
     var body: some View {
         if isEditing {
             HStack {
                 Button(action: {
-                    isDrawerOpen = true
+                    showTileSheet.toggle()
                 }) {
                     Label("Add Tiles", systemImage: "plus.app")
                 }
@@ -29,17 +26,9 @@ struct DashboardToolbar: View {
                     isEditing = false
                 }) {
                     Label("Done", systemImage: "")
+                        .foregroundColor(Color(.systemBlue))
                 }
             }
-            .offset(y: ypos)
-            .onChange(of: isDragging) { newState in
-                if isDragging {
-                    ypos = 1000
-                } else {
-                    ypos = 0
-                }
-            }
-            .animation(.easeInOut(duration: 0.5), value: ypos)
         }
     }
 }

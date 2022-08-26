@@ -11,9 +11,9 @@ struct Settings: View {
     var body: some View {
         VStack {
             List {
-                Text("A List Item")
-                Text("A Second List Item")
-                Text("A Third List Item")
+                NavigationLink(destination: ThemeSettings()) {
+                    Text("Theme")
+                }
             }
         }
         .navigationTitle("Settings")
