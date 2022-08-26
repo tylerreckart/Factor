@@ -22,7 +22,7 @@
 		DB560C4F287A6CCA00CC891A /* LumenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C4E287A6CCA00CC891A /* LumenTests.swift */; };
 		DB560C59287A6CCA00CC891A /* LumenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C58287A6CCA00CC891A /* LumenUITests.swift */; };
 		DB560C5B287A6CCA00CC891A /* LumenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */; };
-		DB80123228B840AB00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80123128B840AB00AC7EAC /* Theme.swift */; };
+		DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80123128B840AB00AC7EAC /* AppIcon.swift */; };
 		DB80125828B8445600AC7EAC /* daylight@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB80123328B8445500AC7EAC /* daylight@1x.png */; };
 		DB80125928B8445600AC7EAC /* white_pink@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB80123428B8445500AC7EAC /* white_pink@1x.png */; };
 		DB80125A28B8445600AC7EAC /* daylight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB80123528B8445500AC7EAC /* daylight@3x.png */; };
@@ -59,6 +59,7 @@
 		DB80127A28B8445600AC7EAC /* pink@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB80125528B8445500AC7EAC /* pink@3x.png */; };
 		DB80127B28B8445600AC7EAC /* white_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB80125628B8445500AC7EAC /* white_green@3x.png */; };
 		DB80127C28B8445600AC7EAC /* white_pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB80125728B8445500AC7EAC /* white_pink@2x.png */; };
+		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
 		DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B2F287CB60E00EC04D7 /* Extensions.swift */; };
 		DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B31287CB62700EC04D7 /* Modifiers.swift */; };
 		DB901B34287CB68600EC04D7 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B33287CB68600EC04D7 /* DataModels.swift */; };
@@ -114,7 +115,7 @@
 		DB560C54287A6CCA00CC891A /* AnselUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnselUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C58287A6CCA00CC891A /* LumenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITests.swift; sourceTree = "<group>"; };
 		DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DB80123128B840AB00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		DB80123128B840AB00AC7EAC /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		DB80123328B8445500AC7EAC /* daylight@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "daylight@1x.png"; sourceTree = "<group>"; };
 		DB80123428B8445500AC7EAC /* white_pink@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white_pink@1x.png"; sourceTree = "<group>"; };
 		DB80123528B8445500AC7EAC /* daylight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "daylight@3x.png"; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		DB80125528B8445500AC7EAC /* pink@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink@3x.png"; sourceTree = "<group>"; };
 		DB80125628B8445500AC7EAC /* white_green@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white_green@3x.png"; sourceTree = "<group>"; };
 		DB80125728B8445500AC7EAC /* white_pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white_pink@2x.png"; sourceTree = "<group>"; };
+		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB901B31287CB62700EC04D7 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		DB901B33287CB68600EC04D7 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
@@ -311,7 +313,9 @@
 		DB80123028B840A300AC7EAC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				DB80123128B840AB00AC7EAC /* Theme.swift */,
+				DBB4FA5F28B561AA00186039 /* Settings.swift */,
+				DB80123128B840AB00AC7EAC /* AppIcon.swift */,
+				DB80127D28B8532D00AC7EAC /* Theme.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -326,7 +330,6 @@
 				DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */,
 				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
 				DB901B48287DBF7300EC04D7 /* Notes.swift */,
-				DBB4FA5F28B561AA00186039 /* Settings.swift */,
 				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
 				DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */,
 			);
@@ -544,7 +547,8 @@
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
 				DB901B3D287CB99500EC04D7 /* BellowsExtensionFactor.swift in Sources */,
 				DBB4FA5928AF211800186039 /* Constants.swift in Sources */,
-				DB80123228B840AB00AC7EAC /* Theme.swift in Sources */,
+				DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */,
+				DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,

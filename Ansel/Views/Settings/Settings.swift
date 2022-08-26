@@ -11,8 +11,13 @@ struct Settings: View {
     var body: some View {
         VStack {
             List {
-                NavigationLink(destination: ThemeSettings()) {
-                    Text("Theme")
+                Section(header: Text("Customization")) {
+                    NavigationLink(destination: ThemeSettings()) {
+                        Text("Theme")
+                    }
+                    NavigationLink(destination: AppIconSettings()) {
+                        Text("App Icon")
+                    }
                 }
             }
         }
