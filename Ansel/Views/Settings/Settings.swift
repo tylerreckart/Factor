@@ -51,6 +51,9 @@ struct Settings: View {
                 
                 Section {
                     NavigationLink(destination: EmptyView()) {
+                        Text("Terms")
+                    }
+                    NavigationLink(destination: EmptyView()) {
                         Text("Privacy")
                     }
                     NavigationLink(destination: EmptyView()) {

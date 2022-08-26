@@ -6,51 +6,102 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct NewNote: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
-    @State private var title: String = ""
     @State private var noteBody: String = ""
     
+    @State var showReciprocitySheet: Bool = false
+    @State var showFilterSheet: Bool = false
+    @State var showBellowsSheet: Bool = false
+    
+    @State private var selectedImages: [PhotosPickerItem] = []
+    @State private var selectedPhotosData: [Data] = []
+    
     enum FocusField: Hashable {
-      case title
+      case noteBody
     }
 
     @FocusState private var focusedField: FocusField?
-    
-    init() {
-        UITextView.appearance().backgroundColor = .clear
-    }
 
     var body: some View {
         VStack {
             VStack {
-                TextField("Title", text: $title)
+                TextField("Start typing...", text: $noteBody)
                     .zIndex(1)
                     .textFieldStyle(.plain)
-                    .focused($focusedField, equals: .title)
+                    .focused($focusedField, equals: .noteBody)
                     .onAppear {
-                        self.focusedField = .title
+                        self.focusedField = .noteBody
                     }
 
-                TextEditor(text: $noteBody)
-                    .font(.body)
-                    .cornerRadius(6)
+
                 Spacer()
             }
             .toolbar {
-                Button(action: {
-                    save()
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Done")
+                HStack {
+                    Menu {
+                        PhotosPicker(
+                            selection: $selectedImages,
+                            matching: .images
+                        ) {
+                            Label("Add Images", systemImage: "photo")
+                        }
+                        .onChange(of: selectedImages) { newItems in
+                            for newItem in newItems {
+                                Task {
+                                    if let data = try? await newItem.loadTransferable(type:Data.self) {
+                                        selectedPhotosData.append(data)
+                                    }
+                                }
+                            }
+                        }
+
+                        Button(action: {
+                            showReciprocitySheet.toggle()
+                        }) {
+                            Label("Add Reciprocity Data", systemImage: "clock")
+                        }
+                        
+                        Button(action: {
+                            showFilterSheet.toggle()
+                        }) {
+                            Label("Add Filter Data", systemImage: "moon.stars.circle")
+                        }
+
+                        Button(action: {
+                            showBellowsSheet.toggle()
+                        }) {
+                            Label("Add Bellows Data", systemImage: "arrow.up.backward.and.arrow.down.forward.circle")
+                        }
+                    }
+                    label: {
+                        Label("Add Data", systemImage: "ellipsis.circle")
+                    }
+
+                    Button(action: {
+                        save()
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Done")
+                    }
                 }
             }
             .padding([.top, .leading, .trailing])
             .navigationTitle("New Note")
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $showReciprocitySheet) {
+                ReciprocityHistorySheet()
+            }
+            .sheet(isPresented: $showFilterSheet) {
+                FilterHistorySheet()
+            }
+            .sheet(isPresented: $showBellowsSheet) {
+                BellowsExtensionHistorySheet()
+            }
         }
     }
     
@@ -65,7 +116,6 @@ struct NewNote: View {
     func save() {
         let newNote = Note(context: managedObjectContext)
 
-        newNote.title = self.title
         newNote.body = self.noteBody
         newNote.createdAt = Date()
 
@@ -78,10 +128,6 @@ struct NoteView: View {
 
     var body: some View {
         VStack {
-            Text(note.title!)
-                .font(.system(size: 32, weight: .medium))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 2)
             Text(note.body!)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Spacer()
@@ -108,44 +154,44 @@ struct NoteList: View {
 
     var body: some View {
         VStack {
-//            HStack {
-//                HStack {
-//                    Image(systemName: "magnifyingglass")
-//
-//                    TextField("Search", text: $searchText, onEditingChanged: { isEditing in
-//                        self.showCancelButton = true
-//                    }, onCommit: {
-//                        print("onCommit")
-//                    }).foregroundColor(.primary)
-//
-//                    Button(action: {
-//                        self.searchText = ""
-//                    }) {
-//                        Image(systemName: "xmark.circle.fill").opacity(searchText == "" ? 0 : 1)
-//                    }
-//                }
-//                .padding(EdgeInsets(top: 8, leading: 6, bottom: showCancelButton ? 6 : 10, trailing: 6))
-//                .foregroundColor(.secondary)
-//                .background(Color(.secondarySystemBackground))
-//                .cornerRadius(10.0)
-//
-//                if showCancelButton  {
-//                    Button("Cancel") {
-//                        UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-//                        self.searchText = ""
-//                        self.showCancelButton = false
-//                    }
-//                    .foregroundColor(Color(.systemBlue))
-//                }
-//            }
-//            .padding(.horizontal)
+            HStack {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+
+                    TextField("Search", text: $searchText, onEditingChanged: { isEditing in
+                        self.showCancelButton = true
+                    }, onCommit: {
+                        print("onCommit")
+                    }).foregroundColor(.primary)
+
+                    Button(action: {
+                        self.searchText = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill").opacity(searchText == "" ? 0 : 1)
+                    }
+                }
+                .padding(EdgeInsets(top: 8, leading: 6, bottom: showCancelButton ? 6 : 10, trailing: 6))
+                .foregroundColor(.secondary)
+                .background(Color(.secondarySystemBackground))
+                .cornerRadius(10.0)
+
+                if showCancelButton  {
+                    Button("Cancel") {
+                        UIApplication.shared.endEditing(true) // this must be placed before the other commands here
+                        self.searchText = ""
+                        self.showCancelButton = false
+                    }
+                    .foregroundColor(Color(.systemBlue))
+                }
+            }
+            .padding(.horizontal)
     
             List {
                 ForEach(results, id: \.self) { r in
                     NavigationLink(destination: NoteView(note: r)) {
                         VStack {
                             HStack {
-                                Text(r.title!)
+                                Text(r.body!)
                                     .font(.system(.headline).bold())
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 Text(formatDate(date: r.createdAt!))
@@ -181,7 +227,7 @@ struct NoteList: View {
                 NavigationLink(destination: NewNote()) {
                     Label("New Note", systemImage: "square.and.pencil")
                 }
-                .foregroundColor(Color(.systemBlue))
+                .foregroundColor(.accentColor)
             }
         }
     }
@@ -207,7 +253,7 @@ struct Notes: View {
     var body: some View {
         NoteList()
             .navigationTitle("Notes")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

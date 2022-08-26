@@ -14,6 +14,8 @@ enum PriorityMode: String, CaseIterable, Identifiable {
 }
 
 struct PriorityModeToggle: View {
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+
     @Binding var priority_mode: PriorityMode
     @Binding var aperture: String
     @Binding var shutter_speed: String
@@ -24,7 +26,7 @@ struct PriorityModeToggle: View {
     var body: some View {
         VStack {
             Text("Priority Mode")
-                .font(.system(.caption))
+                .font(.system(.caption, design: .rounded))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.gray)
 
@@ -39,16 +41,16 @@ struct PriorityModeToggle: View {
                         }
                     }) {
                         Text("Aperture Priority")
-                            .font(.system(.caption))
+                            .font(.system(.caption, design: .rounded))
                             .fontWeight(.bold)
                     }
                     .foregroundColor(self.priority_mode == .aperture ? .white : Color(hex: 0x434548))
                     .padding(12)
                     .frame(maxWidth: .infinity)
-                    .background(self.priority_mode == .aperture ? Color(.systemBlue) : .clear)
+                    .background(self.priority_mode == .aperture ? userAccentColor : .clear)
                     .overlay(self.priority_mode == .aperture ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom) : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom))
                     .cornerRadius(4)
-                    .shadow(color: Color(.systemBlue).opacity(self.priority_mode == .aperture ? 0.25 : 0), radius: 6, x: 0, y: 4)
+                    .shadow(color: userAccentColor.opacity(self.priority_mode == .aperture ? 0.25 : 0), radius: 6, x: 0, y: 4)
 
 
 
@@ -61,7 +63,7 @@ struct PriorityModeToggle: View {
                         }
                     }) {
                         Text("Shutter Priority")
-                            .font(.system(.caption))
+                            .font(.system(.caption, design: .rounded))
                             .fontWeight(.bold)
                     }
                     .foregroundColor(self.priority_mode == .shutter ? .white : Color(hex: 0x434548))

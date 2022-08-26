@@ -51,11 +51,10 @@ struct Reciprocity: View {
                 Button(action: {
                     self.showingHistorySheet.toggle()
                 }) {
-                    Label("History", systemImage: "clock.arrow.circlepath")
+                    Image(systemName: "clock.arrow.circlepath")
                     Text("History")
                 }
             }
-            .foregroundColor(Color(.systemBlue))
         }
         .sheet(isPresented: $showingHistorySheet) {
             ReciprocityHistorySheet()

@@ -39,6 +39,8 @@ struct MinusButton: View {
 }
 
 struct SimpleTile: View {
+    @AppStorage("overrideDefaultUIColors") var overrideDefaultColors: Bool = false
+
     var tile: DashboardTile
     var isDisabled: Bool = false
 
@@ -63,7 +65,7 @@ struct SimpleTile: View {
             .frame(maxWidth: .infinity, minHeight: 80, alignment: .topLeading)
             .padding()
             .foregroundColor(isDisabled ? Color(.systemGray) : .white)
-            .background(isDisabled ? Color(.systemGray4) : tile.background)
+            .background(overrideDefaultColors ? .accentColor : isDisabled ? Color(.systemGray4) : tile.background)
             .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
             .cornerRadius(18)
             .contentShape(RoundedRectangle(cornerRadius: 18, style: .continuous))

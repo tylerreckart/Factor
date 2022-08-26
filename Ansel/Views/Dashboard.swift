@@ -60,17 +60,24 @@ struct DashboardTileView<Content: View, DashboardTile: Identifiable & Equatable>
         self._draggingTile = draggingTile
     }
     
+    let screenWidth = UIScreen.main.bounds.width
+    
     var body: some View {
         VStack {
             ForEach(tiles) { tile in
                 VStack {
                     content(tile)
+                        .overlay(
+                            draggingTile == tile
+                            ? RoundedRectangle(cornerRadius: 17).fill(.thinMaterial)
+                            : nil
+                        )
                         .onDrag {
                             draggingTile = tile
                             return NSItemProvider(object: "\(tile.id)" as NSString)
                         } preview: {
                             content(tile)
-                                .frame(minWidth: 150, minHeight: 80)
+                                .frame(minWidth: screenWidth - 20, minHeight: 80)
                                 .contentShape(.dragPreview, RoundedRectangle(cornerRadius: 18, style: .continuous))
                         }
                         .onDrop(
@@ -110,51 +117,58 @@ struct Dashboard: View {
         layout.append(tile)
         activeTileIds.append(tile.id)
     }
+    
+    let screenWidth = UIScreen.main.bounds.width
 
     var body: some View {
         return NavigationView {
-            VStack {
-                DashboardTileView(tiles: $layout, draggingTile: $draggingTile) { tile in
-                    LinkedNavigationTile(
-                        tile: tile,
-                        draggingTile: $draggingTile,
-                        isEditing: $isEditing,
-                        removeTile: removeTile
+            ZStack {
+                VStack {
+                    DashboardTileView(tiles: $layout, draggingTile: $draggingTile) { tile in
+                        LinkedNavigationTile(
+                            tile: tile,
+                            draggingTile: $draggingTile,
+                            isEditing: $isEditing,
+                            removeTile: removeTile
+                        )
+                    } moveAction: { from, to in
+                        layout.move(fromOffsets: from, toOffset: to)
+                    }
+                    
+                    Spacer()
+                    
+                    DashboardToolbar(isEditing: $isEditing, showTileSheet: $showTileSheet)
+                }
+                .padding()
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            self.isEditing.toggle()
+                        }) {
+                            Label("Edit Dashboard", systemImage: "slider.horizontal.2.square.on.square")
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: Settings()) {
+                            Label("Settings", systemImage: "gearshape")
+                        }
+                    }
+                }
+                .background(Color(.systemGray6))
+                .sheet(isPresented: $showTileSheet) {
+                    TileSheet(
+                        activeTileIds: $activeTileIds,
+                        addTile: addTile,
+                        showTileSheet: $showTileSheet
                     )
-                } moveAction: { from, to in
-                    layout.move(fromOffsets: from, toOffset: to)
                 }
                 
-                Spacer()
-                
-                DashboardToolbar(isEditing: $isEditing, showTileSheet: $showTileSheet)
-            }
-            .padding()
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        self.isEditing.toggle()
-                    }) {
-                        Label("Edit Dashboard", systemImage: "slider.horizontal.2.square.on.square")
-                    }
-                    .foregroundColor(Color(.systemBlue))
-                }
-
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: Settings()) {
-                        Label("Settings", systemImage: "gearshape")
-                    }
-                    .foregroundColor(Color(.systemBlue))
-                }
-            }
-            .background(Color(.systemGray6))
-            .sheet(isPresented: $showTileSheet) {
-                TileSheet(
-                    activeTileIds: $activeTileIds,
-                    addTile: addTile,
-                    showTileSheet: $showTileSheet
-                )
+                Image("ansel.fill")
+                    .font(.system(size: 22))
+                    .foregroundColor(Color(.systemGray4))
+                    .position(x: screenWidth / 2, y: -22)
             }
         }
     }

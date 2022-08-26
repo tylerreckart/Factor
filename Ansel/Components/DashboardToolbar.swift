@@ -19,15 +19,16 @@ struct DashboardToolbar: View {
                 }) {
                     Label("Add Tiles", systemImage: "plus.app")
                 }
+                .foregroundColor(.accentColor)
                 
                 Spacer()
                 
                 Button(action: {
                     isEditing = false
                 }) {
-                    Label("Done", systemImage: "")
-                        .foregroundColor(Color(.systemBlue))
+                    Text("Done")
                 }
+                .foregroundColor(.accentColor)
             }
         }
     }

@@ -54,7 +54,6 @@ struct BellowsExtensionForm: View {
                     .focused($focusedField, equals: .focal_length)
                     .keyboardType(.numberPad)
                     .border(Color(.systemGray5), width: 1)
-                    .background(.white)
                     .zIndex(2)
 
                 FormInput(text: $bellows_draw, placeholder: "Bellows Draw (mm)")

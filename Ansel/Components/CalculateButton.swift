@@ -28,7 +28,7 @@ struct CalculateButton: View {
         .foregroundColor(isDisabled ? Color(.systemGray3) : .white)
         .padding(14)
         .frame(maxWidth: .infinity)
-        .background(isDisabled ? Color(.systemGray6) : Color(.systemBlue))
+        .background(isDisabled ? Color(.systemGray6) : .accentColor)
         .cornerRadius(4)
     }
 }
