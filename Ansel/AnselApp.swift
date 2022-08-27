@@ -18,7 +18,7 @@ struct AnselApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .preferredColorScheme(useDarkMode == true ? .dark : useDarkMode == false ? .light : nil)
+                .preferredColorScheme(useDarkMode == true ? .dark : nil)
                 .accentColor(userAccentColor)
                 .font(.system(.body, design: .rounded))
         }

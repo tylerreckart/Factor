@@ -50,9 +50,6 @@ struct PriorityModeToggle: View {
                     .background(self.priority_mode == .aperture ? userAccentColor : .clear)
                     .overlay(self.priority_mode == .aperture ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom) : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom))
                     .cornerRadius(4)
-                    .shadow(color: userAccentColor.opacity(self.priority_mode == .aperture ? 0.25 : 0), radius: 6, x: 0, y: 4)
-
-
 
                     Button(action: {
                         self.priority_mode = .shutter
@@ -72,7 +69,6 @@ struct PriorityModeToggle: View {
                     .background(self.priority_mode == .shutter ? userAccentColor : .clear)
                     .overlay(self.priority_mode == .shutter ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom) : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom))
                     .cornerRadius(4)
-                    .shadow(color: Color(.systemBlue).opacity(self.priority_mode == .shutter ? 0.25 : 0), radius: 6, x: 0, y: 4)
                 }
             }
             .padding(4)

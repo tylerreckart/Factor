@@ -160,5 +160,24 @@ extension Color: RawRepresentable {
         }
         
     }
+}
 
+extension Array: RawRepresentable {
+    public init?(rawValue: String) {
+        guard let data = Data(base64Encoded: rawValue),
+              let result = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [Element]
+        else {
+            return nil
+        }
+        self = result
+    }
+
+    public var rawValue: String {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false) as Data
+            return data.base64EncodedString()
+        } catch {
+            return ""
+        }
+    }
 }

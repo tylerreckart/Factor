@@ -100,22 +100,42 @@ struct DashboardTileView<Content: View, DashboardTile: Identifiable & Equatable>
 }
 
 struct Dashboard: View {
-    // TODO: Remove the stateful nature of this layout behavior. Should persist between sessions.
-    @State private var layout: [DashboardTile] = dashboard_tiles
-    @State private var activeTileIds: [String?] = dashboard_tiles.map { $0.id }
+    @AppStorage("dashboard") var dashboard: [String] = dashboard_tiles.map { $0.id }
+
+    @State private var layout: [DashboardTile] = []
+    @State private var activeTileIds: [String?] = []
+
     @State var isEditing: Bool = false
     @State var draggingTile: DashboardTile?
     
     @State var showTileSheet: Bool = false
     
     func removeTile(id: String) -> Void {
-        layout = layout.filter({ $0.id != id })
-        activeTileIds = activeTileIds.filter({ $0 != id })
+        layout = layout.filter { $0.key != id }
+
+        dashboard = layout.map { $0.id }
     }
     
     func addTile(tile: DashboardTile) -> Void {
         layout.append(tile)
-        activeTileIds.append(tile.id)
+
+        dashboard = layout.map { $0.id }
+    }
+    
+    func moveTile(_ from: IndexSet, _ to: Int) -> Void {
+        layout.move(fromOffsets: from, toOffset: to)
+        
+        dashboard = layout.map { $0.id }
+    }
+    
+    func getLayout() -> Void {
+        var tiles: [DashboardTile] = []
+    
+        dashboard.forEach { id in
+            tiles.append(dashboard_tiles.filter({ $0.id == id }).first!)
+        }
+        
+        layout = tiles
     }
     
     let screenWidth = UIScreen.main.bounds.width
@@ -132,7 +152,7 @@ struct Dashboard: View {
                             removeTile: removeTile
                         )
                     } moveAction: { from, to in
-                        layout.move(fromOffsets: from, toOffset: to)
+                        moveTile(from, to)
                     }
                     
                     Spacer()
@@ -148,6 +168,7 @@ struct Dashboard: View {
                         }) {
                             Label("Edit Dashboard", systemImage: "slider.horizontal.2.square.on.square")
                         }
+
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -170,6 +191,9 @@ struct Dashboard: View {
                     .foregroundColor(Color(.systemGray4))
                     .position(x: screenWidth / 2, y: -22)
             }
+        }
+        .onAppear {
+            getLayout()
         }
     }
 }

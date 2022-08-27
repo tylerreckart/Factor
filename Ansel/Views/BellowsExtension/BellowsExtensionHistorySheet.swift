@@ -37,7 +37,11 @@ struct BellowsExtensionHistorySheet: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 15) {
                     ForEach(results) { result in
-                        BellowsDataCard(result: result, isEditing: $isEditing, selectedResults: $selectedResults)
+                        BellowsDataCard(
+                            result: result,
+                            isEditing: $isEditing,
+                            selectedResults: $selectedResults
+                        )
                     }
                 }
             }
