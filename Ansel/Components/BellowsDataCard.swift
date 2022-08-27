@@ -17,7 +17,8 @@ struct BellowsData: View {
                     .font(.caption)
                     .foregroundColor(Color(.systemGray))
                     .padding(10)
-                    .background(Color(.systemGray5))
+                    .frame(minWidth: 180)
+                    .background(Color(.systemGray6))
                     .border(width: 1, edges: [.trailing], color: Color(.systemGray4))
                 
                 Text(result.bellowsExtensionFactor!)
@@ -27,7 +28,7 @@ struct BellowsData: View {
                     .background(.background)
             }
             .frame(maxWidth: .infinity)
-            .border(Color(.systemGray4), width: 1)
+            .cornerRadius(3, corners: [.topLeft, .topRight])
             
             if !result.compensatedAperture!.isEmpty {
                 HStack(spacing: 0) {
@@ -35,8 +36,8 @@ struct BellowsData: View {
                         .font(.caption)
                         .foregroundColor(Color(.systemGray))
                         .padding(10)
-                        .padding(.trailing, 9)
-                        .background(Color(.systemGray5))
+                        .frame(minWidth: 180)
+                        .background(Color(.systemGray6))
                         .border(width: 1, edges: [.trailing], color: Color(.systemGray4))
                     
                     Text("f/\(result.compensatedAperture!)")
@@ -46,15 +47,16 @@ struct BellowsData: View {
                         .background(.background)
                 }
                 .frame(maxWidth: .infinity)
-                .border(Color(.systemGray4), width: 1)
+                .border(width: 1, edges: [.top], color: Color(.systemGray4))
+
             } else {
                 HStack(spacing: 0) {
                     Text("Compensated Shutter")
                         .font(.caption)
                         .foregroundColor(Color(.systemGray))
                         .padding(10)
-                        .padding(.trailing, 17)
-                        .background(Color(.systemGray5))
+                        .frame(minWidth: 180)
+                        .background(Color(.systemGray6))
                         .border(width: 1, edges: [.trailing], color: Color(.systemGray4))
                     
                     Text("\(result.compensatedShutter!) seconds")
@@ -64,7 +66,7 @@ struct BellowsData: View {
                         .background(.background)
                 }
                 .frame(maxWidth: .infinity)
-                .border(Color(.systemGray4), width: 1)
+                .border(width: 1, edges: [.top], color: Color(.systemGray4))
             }
             
             HStack(spacing: 0) {
@@ -75,7 +77,7 @@ struct BellowsData: View {
                             .foregroundColor(Color(.systemGray))
                             .frame(maxWidth: .infinity)
                             .padding(10)
-                            .background(Color(.systemGray5))
+                            .background(Color(.systemGray6))
                             .border(width: 1, edges: [.bottom], color: Color(.systemGray4))
                         Text("f/\(result.aperture!)")
                             .font(.caption)
@@ -90,7 +92,7 @@ struct BellowsData: View {
                             .foregroundColor(Color(.systemGray))
                             .frame(maxWidth: .infinity)
                             .padding(10)
-                            .background(Color(.systemGray5))
+                            .background(Color(.systemGray6))
                             .border(width: 1, edges: [.bottom], color: Color(.systemGray4))
                         Text("\(result.shutterSpeed!) seconds")
                             .font(.caption)
@@ -106,7 +108,7 @@ struct BellowsData: View {
                         .foregroundColor(Color(.systemGray))
                         .frame(maxWidth: .infinity)
                         .padding(10)
-                        .background(Color(.systemGray5))
+                        .background(Color(.systemGray6))
                         .border(width: 1, edges: [.bottom], color: Color(.systemGray4))
                     Text("\(result.focalLength!)mm")
                         .font(.caption)
@@ -122,7 +124,7 @@ struct BellowsData: View {
                         .foregroundColor(Color(.systemGray))
                         .frame(maxWidth: .infinity)
                         .padding(10)
-                        .background(Color(.systemGray5))
+                        .background(Color(.systemGray6))
                         .border(width: 1, edges: [.bottom], color: Color(.systemGray4))
                     Text("\(result.bellowsDraw!)mm")
                         .font(.caption)
@@ -132,8 +134,12 @@ struct BellowsData: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .border(Color(.systemGray4), width: 1)
+            .border(width: 1, edges: [.top], color: Color(.systemGray4))
+            .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
         }
+        .padding(1)
+        .background(Color(.systemGray4))
+        .cornerRadius(4)
     }
 }
 

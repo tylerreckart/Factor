@@ -42,10 +42,11 @@ struct BellowsExtensionHistorySheet: View {
                             isEditing: $isEditing,
                             selectedResults: $selectedResults
                         )
+                        .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
                     }
                 }
+                .padding()
             }
-            .padding([.leading, .trailing])
             .background(Color(.systemGray6))
             .navigationTitle("History")
             .navigationBarTitleDisplayMode(.inline)

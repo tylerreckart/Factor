@@ -20,6 +20,7 @@ struct NoteView: View {
             if note.bellowsData != nil {
                 ForEach(Array(note.bellowsData as! Set<BellowsExtensionData>), id: \.self) { result in
                     BellowsData(result: result)
+                        .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
                 }
             }
             
