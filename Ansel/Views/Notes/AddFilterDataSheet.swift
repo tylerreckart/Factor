@@ -1,35 +1,35 @@
 //
-//  AddBellowsDataSheet.swift
+//  AddFilterDataSheet.swift
 //  Ansel
 //
-//  Created by Tyler Reckart on 8/26/22.
+//  Created by Tyler Reckart on 8/27/22.
 //
 
 import SwiftUI
 
-struct AddBellowsDataSheet: View {
+struct AddFilterDataSheet: View {
     @Environment(\.presentationMode) var presentationMode
 
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
-    var addData: (Set<BellowsExtensionData>) -> Void
+    var addData: (Set<FilterData>) -> Void
 
     @FetchRequest(
-      entity: BellowsExtensionData.entity(),
+      entity: FilterData.entity(),
       sortDescriptors: [
-        NSSortDescriptor(keyPath: \BellowsExtensionData.timestamp, ascending: false)
+        NSSortDescriptor(keyPath: \FilterData.timestamp, ascending: false)
       ]
-    ) var results: FetchedResults<BellowsExtensionData>
+    ) var results: FetchedResults<FilterData>
     
     @State var isEditing: Bool = false
-    @State var selectedResults: Set<BellowsExtensionData> = []
+    @State var selectedResults: Set<FilterData> = []
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 15) {
                     ForEach(results) { result in
-                        BellowsDataCard(result: result, isEditing: $isEditing, selectedResults: $selectedResults)
+                        FilterDataCard(result: result, isEditing: $isEditing, selectedResults: $selectedResults)
                     }
                 }
             }

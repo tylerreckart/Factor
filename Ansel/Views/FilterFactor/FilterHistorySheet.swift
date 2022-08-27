@@ -8,25 +8,86 @@
 import SwiftUI
 
 struct FilterHistorySheet: View {
-    @FetchRequest(
-      entity: ReciprocityData.entity(),
-      sortDescriptors: [
-        NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: true)
-      ]
-    ) var results: FetchedResults<ReciprocityData>
+    @Environment(\.managedObjectContext) var managedObjectContext
     
-    func formatDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/d/y hh:mm:ss"
-        return dateFormatter.string(from: date)
-    }
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
-    var body: some View {
-        List {
-            ForEach(results, id: \.self) { r in
-                Text(formatDate(date: r.timestamp!))
+    @FetchRequest(
+      entity: FilterData.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \FilterData.timestamp, ascending: true)
+      ]
+    ) var results: FetchedResults<FilterData>
+    
+    @State var isEditing: Bool = false
+    @State var selectedResults: Set<FilterData> = []
+    
+    func deleteSelectedResults() -> Void {
+        self.selectedResults.forEach { item in
+            managedObjectContext.delete(item)
+
+            do{
+                try managedObjectContext.save()
+            } catch{
+                print(error)
             }
         }
-        .listStyle(.insetGrouped)
+    }
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 15) {
+                    ForEach(results) { result in
+                        FilterDataCard(
+                            result: result,
+                            isEditing: $isEditing,
+                            selectedResults: $selectedResults
+                        )
+                        .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
+                    }
+                }
+                .padding()
+            }
+            .background(Color(.systemGray6))
+            .navigationTitle("History")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if !isEditing {
+                        Button(action: {
+                            self.isEditing.toggle()
+                        }) {
+                            Image(systemName: "square.and.pencil")
+                            Text("Edit")
+                        }
+                        .foregroundColor(userAccentColor)
+                    } else {
+                        Button(action: {
+                            self.isEditing.toggle()
+                        }) {
+                            Text("Done")
+                        }
+                        .foregroundColor(userAccentColor)
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    if !isEditing {
+                        EmptyView()
+                    } else if isEditing && selectedResults.count > 0 {
+                        Button(action: {
+                            deleteSelectedResults()
+                        }) {
+                            Image(systemName: "trash")
+                            Text("Delete")
+                        }
+                        .foregroundColor(Color(.systemRed))
+                    } else {
+                        EmptyView()
+                    }
+                }
+            }
+        }
     }
 }

@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ReciprocityHistorySheet: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
     @FetchRequest(
       entity: ReciprocityData.entity(),
@@ -48,6 +50,7 @@ struct ReciprocityHistorySheet: View {
                 }
                 .padding()
             }
+            .accentColor(userAccentColor)
             .background(Color(.systemGray6))
             .navigationTitle("History")
             .navigationBarTitleDisplayMode(.inline)
@@ -60,12 +63,14 @@ struct ReciprocityHistorySheet: View {
                             Image(systemName: "square.and.pencil")
                             Text("Edit")
                         }
+                        .foregroundColor(userAccentColor)
                     } else {
                         Button(action: {
                             self.isEditing.toggle()
                         }) {
                             Text("Done")
                         }
+                        .foregroundColor(userAccentColor)
                     }
                 }
                 

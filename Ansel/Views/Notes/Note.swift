@@ -50,7 +50,20 @@ struct NoteView: View {
                         .foregroundColor(Color(.systemGray))
                     ForEach(Array(note.reciprocityData as! Set<ReciprocityData>), id: \.self) { result in
                         ReciprocityFactorData(result: result)
-                            .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
+                            .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
+                    }
+                }
+                .padding(.bottom, 10)
+            }
+            
+            if note.filterData!.count > 0 {
+                VStack(alignment: .leading) {
+                    Text("Filter Factor Calculations")
+                        .font(.system(size: 12))
+                        .foregroundColor(Color(.systemGray))
+                    ForEach(Array(note.filterData as! Set<FilterData>), id: \.self) { result in
+                        FilterFactorData(result: result)
+                            .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
                     }
                 }
                 .padding(.bottom, 10)
@@ -63,7 +76,7 @@ struct NoteView: View {
                         .foregroundColor(Color(.systemGray))
                     ForEach(Array(note.bellowsData as! Set<BellowsExtensionData>), id: \.self) { result in
                         BellowsData(result: result)
-                            .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
+                            .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
                     }
                 }
             }

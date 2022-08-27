@@ -13,10 +13,13 @@ struct FilterFactor: View {
 
     @State private var shutter_speed: String = ""
     @State private var aperture: String = ""
-    @State private var filter_factor: Double = 1.43
-    @State private var compensated_shutter: String = ""
-    @State private var compensated_aperture: String = ""
+
+    @State private var f_stop_reduction: Double = 1
+    @State private var compensated_shutter: Double = 0
+    @State private var compensated_aperture: Double = 0
+
     @State private var selected: FilterDropdownOption = FilterDropdownOption(key: "1", value: 1)
+
     @State private var calculated_factor: Bool = false
     
     @State private var showingHistorySheet: Bool = false
@@ -40,22 +43,22 @@ struct FilterFactor: View {
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
             .padding([.leading, .trailing, .bottom])
 
-            if !self.compensated_shutter.isEmpty {
+            if self.compensated_shutter > 0 {
                 CalculatedResultCard(
                     label: "Adjusted shutter speed (seconds)",
                     icon: "clock.circle.fill",
-                    result: "\(Int(round(Double(compensated_shutter) ?? 1))) seconds",
+                    result: "\(Int(round(compensated_shutter))) seconds",
                     background: Color(.systemPurple)
                 )
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                 .padding([.leading, .trailing, .bottom])
             }
             
-            if !self.compensated_aperture.isEmpty {
+            if self.compensated_aperture > 0 {
                 CalculatedResultCard(
                     label: "Adjusted aperture",
                     icon: "f.cursive.circle.fill",
-                    result: "f/\(Int(round(Double(compensated_aperture) ?? 1)))",
+                    result: "f/\(Int(round(compensated_aperture)))",
                     background: Color(.systemGreen)
                 )
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
@@ -65,8 +68,21 @@ struct FilterFactor: View {
         .background(Color(.systemGray6))
         .navigationTitle("Filter Factor")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            HStack {
+                Button(action: {
+                    self.showingHistorySheet.toggle()
+                }) {
+                    Image(systemName: "clock.arrow.circlepath")
+                    Text("History")
+                }
+            }
+        }
+        .sheet(isPresented: $showingHistorySheet) {
+            FilterHistorySheet()
+        }
     }
-
+    
     func saveContext() {
       do {
         try managedObjectContext.save()
@@ -76,30 +92,40 @@ struct FilterFactor: View {
     }
     
     private func calculate() {
-        let reduction = log2(self.selected.value)
-
         if self.priority_mode == .aperture {
-            let reduction = log2(self.selected.value)
-            let adjustment = pow(2, reduction)
+            let adjustment = pow(2, self.selected.value)
             let adjusted_speed = Double(self.shutter_speed)! * adjustment
 
-            self.compensated_shutter = "\(Int(adjusted_speed))"
+            self.compensated_shutter = adjusted_speed
         }
         
         if self.priority_mode == .shutter {
-            let adjustment = pow(2, reduction)
+            let adjustment = pow(2, self.selected.value)
             let adjusted_aperture = Double(self.aperture)! * (adjustment / 2)
 
-            self.compensated_aperture = "\(Int(closestValue(f_stops, adjusted_aperture)))"
+            self.compensated_aperture = closestValue(f_stops, adjusted_aperture)
         }
         
         self.calculated_factor = true
+        
+        save()
+    }
+
+    func save() {
+        let filterData = FilterData(context: managedObjectContext)
+
+        filterData.fStopReduction = selected.value
+        filterData.compensatedAperture = self.compensated_aperture
+        filterData.compensatedShutterSpeed = self.compensated_shutter
+        filterData.timestamp = Date()
+
+        saveContext()
     }
     
     private func reset() {
         self.calculated_factor = false
-        self.compensated_aperture = ""
-        self.compensated_shutter = ""
+        self.compensated_aperture = 0
+        self.compensated_shutter = 0
     }
 }
 

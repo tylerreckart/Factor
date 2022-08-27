@@ -52,7 +52,7 @@ struct AddReciprocityDataSheet: View {
                         }) {
                             Text("Cancel")
                         }
-                        .foregroundColor(Color(.systemRed))
+                        .foregroundColor(Color(.systemGray))
                     }
                 }
                 

@@ -73,7 +73,7 @@ struct NoteList: View {
                         self.searchText = ""
                         self.showCancelButton = false
                     }
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(Color(.systemGray))
                 }
             }
             .padding(.horizontal)
@@ -147,7 +147,7 @@ struct NoteList: View {
                             }) {
                                 Text("Cancel")
                             }
-                            .foregroundColor(.accentColor)
+                            .foregroundColor(Color(.systemGray))
                         } else {
                             Button(action: {
                                 self.isEditing.toggle()

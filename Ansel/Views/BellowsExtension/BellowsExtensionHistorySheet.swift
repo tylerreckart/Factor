@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BellowsExtensionHistorySheet: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
     @FetchRequest(
       entity: BellowsExtensionData.entity(),
@@ -59,12 +61,14 @@ struct BellowsExtensionHistorySheet: View {
                             Image(systemName: "square.and.pencil")
                             Text("Edit")
                         }
+                        .foregroundColor(userAccentColor)
                     } else {
                         Button(action: {
                             self.isEditing.toggle()
                         }) {
                             Text("Done")
                         }
+                        .foregroundColor(userAccentColor)
                     }
                 }
                 

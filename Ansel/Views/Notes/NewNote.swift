@@ -29,7 +29,7 @@ struct NewNote: View {
     
     @State private var addedBellowsData: Set<BellowsExtensionData> = []
     @State private var addedReciprocityData: Set<ReciprocityData> = []
-    // @State private var addedFilterData: [FilterData] = []
+    @State private var addedFilterData: Set<FilterData> = []
     
     func addBellowsData(data: Set<BellowsExtensionData>) -> Void {
         data.forEach { result in
@@ -42,9 +42,15 @@ struct NewNote: View {
             addedReciprocityData.insert(result)
         }
     }
+    
+    func addFilterData(data: Set<FilterData>) -> Void {
+        data.forEach { result in
+            addedFilterData.insert(result)
+        }
+    }
 
     var body: some View {
-        VStack {
+        ScrollView {
             VStack {
                 TextField("Start typing...", text: $noteBody, axis: .vertical)
                     .zIndex(1)
@@ -60,11 +66,25 @@ struct NewNote: View {
                         Text("Reciprocity Calculations")
                             .font(.system(size: 12))
                             .foregroundColor(Color(.systemGray))
-                        ForEach(Array(addedReciprocityData as Set), id: \.self) { result in
+                        ForEach(Array(addedReciprocityData), id: \.self) { result in
                             ReciprocityFactorData(result: result)
+                                .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
                         }
                     }
                     .padding(.bottom)
+                }
+                
+                if addedFilterData.count > 0 {
+                    VStack(alignment: .leading) {
+                        Text("Filter Factor Calculations")
+                            .font(.system(size: 12))
+                            .foregroundColor(Color(.systemGray))
+                        ForEach(Array(addedFilterData), id: \.self) { result in
+                            FilterFactorData(result: result)
+                                .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
+                        }
+                    }
+                    .padding(.bottom, 10)
                 }
     
                 if addedBellowsData.count > 0 {
@@ -72,8 +92,9 @@ struct NewNote: View {
                         Text("Bellows Extension Calculations")
                             .font(.system(size: 12))
                             .foregroundColor(Color(.systemGray))
-                        ForEach(Array(addedBellowsData as Set), id: \.self) { result in
+                        ForEach(Array(addedBellowsData), id: \.self) { result in
                             BellowsData(result: result)
+                                .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
                         }
                     }
                     .padding(.bottom)
@@ -122,12 +143,22 @@ struct NewNote: View {
                         Label("Add Data", systemImage: "ellipsis.circle")
                     }
 
-                    Button(action: {
-                        save()
-                        presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("Done")
+                    if noteBody.count > 0 {
+                        Button(action: {
+                            save()
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Text("Save")
+                        }
+                    } else {
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Text("Cancel")
+                        }
+                        .foregroundColor(Color(.systemGray))
                     }
+                    
                 }
             }
             .padding([.top, .leading, .trailing])
@@ -137,7 +168,7 @@ struct NewNote: View {
                 AddReciprocityDataSheet(addData: addReciprocityData)
             }
             .sheet(isPresented: $showFilterSheet) {
-                FilterHistorySheet()
+                AddFilterDataSheet(addData: addFilterData)
             }
             .sheet(isPresented: $showBellowsSheet) {
                 AddBellowsDataSheet(addData: addBellowsData)
@@ -165,6 +196,10 @@ struct NewNote: View {
         
         if addedReciprocityData.count > 0 {
             newNote.reciprocityData = addedReciprocityData as NSSet
+        }
+        
+        if addedFilterData.count > 0 {
+            newNote.filterData = addedFilterData as NSSet
         }
 
         saveContext()
