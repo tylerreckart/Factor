@@ -27,13 +27,19 @@ struct NewNote: View {
 
     @FocusState private var focusedField: FocusField?
     
-    @State private var  addedBellowsData: Set<BellowsExtensionData> = []
-    @State private var addedReciprocityData: [ReciprocityData] = []
+    @State private var addedBellowsData: Set<BellowsExtensionData> = []
+    @State private var addedReciprocityData: Set<ReciprocityData> = []
     // @State private var addedFilterData: [FilterData] = []
     
     func addBellowsData(data: Set<BellowsExtensionData>) -> Void {
         data.forEach { result in
             addedBellowsData.insert(result)
+        }
+    }
+    
+    func addReciprocityData(data: Set<ReciprocityData>) -> Void {
+        data.forEach { result in
+            addedReciprocityData.insert(result)
         }
     }
 
@@ -50,6 +56,19 @@ struct NewNote: View {
                     .padding(.bottom, 10)
                 
                 VStack {
+                    Text("Reciprocity Calculations")
+                        .font(.system(size: 12))
+                        .foregroundColor(Color(.systemGray))
+                    ForEach(Array(addedReciprocityData as Set), id: \.self) { result in
+                        ReciprocityFactorData(result: result)
+                    }
+                }
+                .padding(.bottom)
+    
+                VStack {
+                    Text("Bellows Extension Calculations")
+                        .font(.system(size: 12))
+                        .foregroundColor(Color(.systemGray))
                     ForEach(Array(addedBellowsData as Set), id: \.self) { result in
                         BellowsData(result: result)
                     }
@@ -111,7 +130,7 @@ struct NewNote: View {
             .navigationTitle("New Note")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showReciprocitySheet) {
-                ReciprocityHistorySheet()
+                AddReciprocityDataSheet(addData: addReciprocityData)
             }
             .sheet(isPresented: $showFilterSheet) {
                 FilterHistorySheet()
@@ -138,6 +157,10 @@ struct NewNote: View {
 
         if addedBellowsData.count > 0 {
             newNote.bellowsData = addedBellowsData as NSSet
+        }
+        
+        if addedReciprocityData.count > 0 {
+            newNote.reciprocityData = addedReciprocityData as NSSet
         }
 
         saveContext()

@@ -66,6 +66,8 @@
 		DB80128B28BA58CF00AC7EAC /* NewNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128A28BA58CF00AC7EAC /* NewNote.swift */; };
 		DB80128D28BA590900AC7EAC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128C28BA590900AC7EAC /* Note.swift */; };
 		DB80128F28BA593000AC7EAC /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128E28BA593000AC7EAC /* NoteList.swift */; };
+		DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80129028BAB5DD00AC7EAC /* ReciprocityDataCard.swift */; };
+		DB80129328BABD1C00AC7EAC /* AddReciprocityDataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80129228BABD1C00AC7EAC /* AddReciprocityDataSheet.swift */; };
 		DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B2F287CB60E00EC04D7 /* Extensions.swift */; };
 		DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B31287CB62700EC04D7 /* Modifiers.swift */; };
 		DB901B34287CB68600EC04D7 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B33287CB68600EC04D7 /* DataModels.swift */; };
@@ -165,6 +167,8 @@
 		DB80128A28BA58CF00AC7EAC /* NewNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNote.swift; sourceTree = "<group>"; };
 		DB80128C28BA590900AC7EAC /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		DB80128E28BA593000AC7EAC /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
+		DB80129028BAB5DD00AC7EAC /* ReciprocityDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityDataCard.swift; sourceTree = "<group>"; };
+		DB80129228BABD1C00AC7EAC /* AddReciprocityDataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReciprocityDataSheet.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB901B31287CB62700EC04D7 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		DB901B33287CB68600EC04D7 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
@@ -349,6 +353,7 @@
 				DB80128A28BA58CF00AC7EAC /* NewNote.swift */,
 				DB80128C28BA590900AC7EAC /* Note.swift */,
 				DB80128528B9ADB500AC7EAC /* AddBellowsDataSheet.swift */,
+				DB80129228BABD1C00AC7EAC /* AddReciprocityDataSheet.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				DBB4FA6128B64A2700186039 /* NavigationTile.swift */,
 				DB1DBF9628B7E0AA00F2FE07 /* DashboardToolbar.swift */,
 				DB80128128B9A98A00AC7EAC /* BellowsDataCard.swift */,
+				DB80129028BAB5DD00AC7EAC /* ReciprocityDataCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
 				DB80128628B9ADB500AC7EAC /* AddBellowsDataSheet.swift in Sources */,
+				DB80129328BABD1C00AC7EAC /* AddReciprocityDataSheet.swift in Sources */,
 				DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */,
 				DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,
@@ -605,6 +612,7 @@
 				DB901B34287CB68600EC04D7 /* DataModels.swift in Sources */,
 				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
+				DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
 				DB80128D28BA590900AC7EAC /* Note.swift in Sources */,
 				DB80128B28BA58CF00AC7EAC /* NewNote.swift in Sources */,

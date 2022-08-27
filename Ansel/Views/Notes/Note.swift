@@ -27,7 +27,20 @@ struct NoteView: View {
                 .padding(.top, 10)
                 .padding(.bottom, 20)
             
-            if note.bellowsData != nil {
+            if note.reciprocityData!.count > 0 {
+                VStack(alignment: .leading) {
+                    Text("Reciprocity Calculations")
+                        .font(.system(size: 12))
+                        .foregroundColor(Color(.systemGray))
+                    ForEach(Array(note.reciprocityData as! Set<ReciprocityData>), id: \.self) { result in
+                        ReciprocityFactorData(result: result)
+                            .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
+                    }
+                }
+                .padding(.bottom, 10)
+            }
+
+            if note.bellowsData!.count > 0 {
                 VStack(alignment: .leading) {
                     Text("Bellows Extension Calculations")
                         .font(.system(size: 12))
@@ -63,19 +76,19 @@ struct NoteView: View {
                     }
 
                     Button(action: {
-                        var i = 0
+                        self.showReciprocitySheet.toggle()
                     }) {
                         Label("Add Reciprocity Data", systemImage: "clock")
                     }
                     
                     Button(action: {
-                        var i = 0
+                        self.showFilterSheet.toggle()
                     }) {
                         Label("Add Filter Data", systemImage: "moon.stars.circle")
                     }
 
                     Button(action: {
-                        var i = 0
+                        self.showBellowsSheet.toggle()
                     }) {
                         Label("Add Bellows Data", systemImage: "arrow.up.backward.and.arrow.down.forward.circle")
                     }
@@ -84,6 +97,15 @@ struct NoteView: View {
                     Label("Edit", systemImage: "ellipsis.circle")
                 }
             }
+        }
+        .sheet(isPresented: $showReciprocitySheet) {
+            ReciprocityHistorySheet()
+        }
+        .sheet(isPresented: $showFilterSheet) {
+            FilterHistorySheet()
+        }
+        .sheet(isPresented: $showBellowsSheet) {
+            BellowsExtensionHistorySheet()
         }
     }
 }

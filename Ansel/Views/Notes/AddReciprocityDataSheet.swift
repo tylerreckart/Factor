@@ -1,55 +1,41 @@
 //
-//  ReciprocityHistorySheet.swift
+//  AddReciprocityDataSheet.swift
 //  Ansel
 //
-//  Created by Tyler Reckart on 8/25/22.
+//  Created by Tyler Reckart on 8/27/22.
 //
 
 import SwiftUI
 
+struct AddReciprocityDataSheet: View {
+    @Environment(\.presentationMode) var presentationMode
 
-struct ReciprocityHistorySheet: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+
+    var addData: (Set<ReciprocityData>) -> Void
 
     @FetchRequest(
       entity: ReciprocityData.entity(),
       sortDescriptors: [
-        NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: true)
+        NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: false)
       ]
     ) var results: FetchedResults<ReciprocityData>
     
     @State var isEditing: Bool = false
     @State var selectedResults: Set<ReciprocityData> = []
     
-    func deleteSelectedResults() -> Void {
-        self.selectedResults.forEach { item in
-            managedObjectContext.delete(item)
-
-            do{
-                try managedObjectContext.save()
-            } catch{
-                print(error)
-            }
-        }
-    }
-    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 15) {
                     ForEach(results) { result in
-                        ReciprocityDataCard(
-                            result: result,
-                            isEditing: $isEditing,
-                            selectedResults: $selectedResults
-                        )
-                        .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
+                        ReciprocityDataCard(result: result, isEditing: $isEditing, selectedResults: $selectedResults)
                     }
                 }
-                .padding()
             }
+            .padding([.leading, .trailing])
             .background(Color(.systemGray6))
-            .navigationTitle("History")
+            .navigationTitle("Add Bellows Data")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -57,15 +43,16 @@ struct ReciprocityHistorySheet: View {
                         Button(action: {
                             self.isEditing.toggle()
                         }) {
-                            Image(systemName: "square.and.pencil")
-                            Text("Edit")
+                            Text("Select")
+                                .foregroundColor(userAccentColor)
                         }
                     } else {
                         Button(action: {
                             self.isEditing.toggle()
                         }) {
-                            Text("Done")
+                            Text("Cancel")
                         }
+                        .foregroundColor(Color(.systemRed))
                     }
                 }
                 
@@ -74,12 +61,15 @@ struct ReciprocityHistorySheet: View {
                         EmptyView()
                     } else if isEditing && selectedResults.count > 0 {
                         Button(action: {
-                            deleteSelectedResults()
+                            if selectedResults.count > 0 {
+                                addData(selectedResults)
+                            }
+                            
+                            self.presentationMode.wrappedValue.dismiss()
                         }) {
-                            Image(systemName: "trash")
-                            Text("Delete")
+                            Text("Save")
+                                .foregroundColor(userAccentColor)
                         }
-                        .foregroundColor(Color(.systemRed))
                     } else {
                         EmptyView()
                     }

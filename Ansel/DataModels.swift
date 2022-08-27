@@ -39,21 +39,4 @@ struct DashboardTile: Identifiable, Equatable {
     var icon: String
     var background: Color
     var destination: AnyView
-    
-    static func archive(w:DashboardTile) -> Data {
-        var fw = w
-        return Data(bytes: &fw, count: MemoryLayout<DashboardTile>.stride)
-    }
-
-    static func unarchive(d:Data) -> DashboardTile {
-        guard d.count == MemoryLayout<DashboardTile>.stride else {
-            fatalError("BOOM!")
-        }
-
-        var w:DashboardTile?
-        d.withUnsafeBytes({(bytes: UnsafePointer<DashboardTile>)->Void in
-            w = UnsafePointer<DashboardTile>(bytes).pointee
-        })
-        return w!
-    }
 }

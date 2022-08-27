@@ -12,7 +12,7 @@ struct Reciprocity: View {
 
     @State private var shutter_speed: String = ""
     @State private var reciprocity_factor: Double = 1.43
-    @State private var adjusted_shutter_speed: String = ""
+    @State private var adjusted_shutter_speed: Double?
     @State private var selected: ReciprocityDropdownOption = ReciprocityDropdownOption(key: "SFX (>1 Second)", value: 1.43)
     
     @State private var showingHistorySheet: Bool = false
@@ -32,11 +32,11 @@ struct Reciprocity: View {
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
             .padding([.leading, .trailing, .bottom])
 
-            if !self.adjusted_shutter_speed.isEmpty {
+            if adjusted_shutter_speed ?? 0 > 0 {
                 CalculatedResultCard(
                     label: "Adjusted shutter speed",
                     icon: "clock.circle.fill",
-                    result: "\(Int(round(Double(adjusted_shutter_speed) ?? 1))) seconds",
+                    result: "\(Int(round(adjusted_shutter_speed!))) seconds",
                     background: Color(.systemPurple)
                 )
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
@@ -72,7 +72,7 @@ struct Reciprocity: View {
     func save() {
         let newReciprocityData = ReciprocityData(context: managedObjectContext)
 
-        newReciprocityData.adjustedShutterSpeed = self.adjusted_shutter_speed
+        newReciprocityData.adjustedShutterSpeed = self.adjusted_shutter_speed!
         newReciprocityData.timestamp = Date()
         
         let optionData = ReciprocityOption(context: managedObjectContext)
@@ -84,7 +84,7 @@ struct Reciprocity: View {
     }
 
     private func calculate() {
-        self.adjusted_shutter_speed = "\(pow(Double(self.shutter_speed) ?? 1.0, self.selected.value))"
+        self.adjusted_shutter_speed = pow(Double(self.shutter_speed) ?? 1.0, self.selected.value)
         save()
     }
 }

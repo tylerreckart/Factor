@@ -59,19 +59,19 @@ struct AppIconSettings: View {
                 }
                 
                 Section(header: Text("Accent").font(.system(size: 12))) {
-                    ForEach(0 ..< whiteIcons.count) { index in
+                    ForEach(0 ..< 3) { index in
                         AppIcon(icon: whiteIcons[index])
                     }
                 }
                 
                 Section(header: Text("Colorway").font(.system(size: 12))) {
-                    ForEach(0 ..< solidIcons.count) { index in
+                    ForEach(0 ..< 4) { index in
                         AppIcon(icon: solidIcons[index])
                     }
                 }
                 
                 Section(header: Text("Unique").font(.system(size: 12))) {
-                    ForEach(0 ..< graphicIcons.count) { index in
+                    ForEach(0 ..< 3) { index in
                         AppIcon(icon: graphicIcons[index])
                     }
                 }
