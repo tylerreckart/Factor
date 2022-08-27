@@ -344,18 +344,42 @@
 			path = Notes;
 			sourceTree = "<group>";
 		};
+		DB80128728B9B26B00AC7EAC /* Reciprocity */ = {
+			isa = PBXGroup;
+			children = (
+				DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */,
+				DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */,
+			);
+			path = Reciprocity;
+			sourceTree = "<group>";
+		};
+		DB80128828B9B27500AC7EAC /* FilterFactor */ = {
+			isa = PBXGroup;
+			children = (
+				DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */,
+				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
+			);
+			path = FilterFactor;
+			sourceTree = "<group>";
+		};
+		DB80128928B9B28000AC7EAC /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */,
+				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
 		DB901B2D287CB5EE00EC04D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB80128928B9B28000AC7EAC /* Dashboard */,
+				DB80128828B9B27500AC7EAC /* FilterFactor */,
+				DB80128728B9B26B00AC7EAC /* Reciprocity */,
 				DB80128428B9ADA800AC7EAC /* Notes */,
 				DB80128328B9AC5600AC7EAC /* BellowsExtension */,
 				DB80123028B840A300AC7EAC /* Settings */,
-				DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */,
-				DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */,
-				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
-				DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */,
-				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
-				DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
