@@ -40,15 +40,14 @@ struct NewNote: View {
     var body: some View {
         VStack {
             VStack {
-                TextField("Start typing...", text: $noteBody)
+                TextField("Start typing...", text: $noteBody, axis: .vertical)
                     .zIndex(1)
                     .textFieldStyle(.plain)
                     .focused($focusedField, equals: .noteBody)
                     .onAppear {
                         self.focusedField = .noteBody
                     }
-
-                Spacer()
+                    .padding(.bottom, 10)
                 
                 VStack {
                     ForEach(Array(addedBellowsData as Set), id: \.self) { result in
@@ -56,6 +55,8 @@ struct NewNote: View {
                     }
                 }
                 .padding(.bottom)
+                
+                Spacer()
             }
             .toolbar {
                 HStack {

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CalculatedResultCard: View {
+    @AppStorage("overrideDefaultUIColors") var overrideDefaultColors: Bool = false
+
     var label: String
     var icon: String
     var result: String
@@ -37,7 +39,7 @@ struct CalculatedResultCard: View {
             .foregroundColor(foreground)
             .frame(height: 125, alignment: .topLeading)
             .padding()
-            .background(background)
+            .background(overrideDefaultColors ? .accentColor : background)
             .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
             .cornerRadius(18)
             .offset(y: ypos)

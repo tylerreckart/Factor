@@ -346,9 +346,9 @@
 			children = (
 				DB901B48287DBF7300EC04D7 /* Notes.swift */,
 				DB80128E28BA593000AC7EAC /* NoteList.swift */,
+				DB80128A28BA58CF00AC7EAC /* NewNote.swift */,
 				DB80128C28BA590900AC7EAC /* Note.swift */,
 				DB80128528B9ADB500AC7EAC /* AddBellowsDataSheet.swift */,
-				DB80128A28BA58CF00AC7EAC /* NewNote.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";

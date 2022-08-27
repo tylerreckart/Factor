@@ -100,7 +100,7 @@ struct DashboardTileView<Content: View, DashboardTile: Identifiable & Equatable>
 }
 
 struct Dashboard: View {
-    @AppStorage("dashboard") var dashboard: [String] = dashboard_tiles.map { $0.id }
+    @AppStorage("userDashboardLayout") var dashboard: [String] = dashboard_tiles.map { $0.id }
 
     @State private var layout: [DashboardTile] = []
     @State private var activeTileIds: [String?] = []
@@ -179,11 +179,7 @@ struct Dashboard: View {
                 }
                 .background(Color(.systemGray6))
                 .sheet(isPresented: $showTileSheet) {
-                    TileSheet(
-                        activeTileIds: $activeTileIds,
-                        addTile: addTile,
-                        showTileSheet: $showTileSheet
-                    )
+                    TileSheet(addTile: addTile, showTileSheet: $showTileSheet)
                 }
                 
                 Image("ansel.fill")
