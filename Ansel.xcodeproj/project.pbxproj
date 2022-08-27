@@ -62,6 +62,7 @@
 		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
 		DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */; };
 		DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128128B9A98A00AC7EAC /* BellowsDataCard.swift */; };
+		DB80128628B9ADB500AC7EAC /* AddBellowsDataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128528B9ADB500AC7EAC /* AddBellowsDataSheet.swift */; };
 		DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B2F287CB60E00EC04D7 /* Extensions.swift */; };
 		DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B31287CB62700EC04D7 /* Modifiers.swift */; };
 		DB901B34287CB68600EC04D7 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B33287CB68600EC04D7 /* DataModels.swift */; };
@@ -157,6 +158,7 @@
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
 		DB80128128B9A98A00AC7EAC /* BellowsDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsDataCard.swift; sourceTree = "<group>"; };
+		DB80128528B9ADB500AC7EAC /* AddBellowsDataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBellowsDataSheet.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB901B31287CB62700EC04D7 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		DB901B33287CB68600EC04D7 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
@@ -333,16 +335,25 @@
 			path = BellowsExtension;
 			sourceTree = "<group>";
 		};
+		DB80128428B9ADA800AC7EAC /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				DB901B48287DBF7300EC04D7 /* Notes.swift */,
+				DB80128528B9ADB500AC7EAC /* AddBellowsDataSheet.swift */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
 		DB901B2D287CB5EE00EC04D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB80128428B9ADA800AC7EAC /* Notes */,
 				DB80128328B9AC5600AC7EAC /* BellowsExtension */,
 				DB80123028B840A300AC7EAC /* Settings */,
 				DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */,
 				DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */,
 				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
 				DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */,
-				DB901B48287DBF7300EC04D7 /* Notes.swift */,
 				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
 				DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */,
 			);
@@ -548,6 +559,7 @@
 				DB1DBF9B28B7E1AC00F2FE07 /* FilterForm.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
+				DB80128628B9ADB500AC7EAC /* AddBellowsDataSheet.swift in Sources */,
 				DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */,
 				DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,

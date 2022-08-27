@@ -26,6 +26,16 @@ struct NewNote: View {
     }
 
     @FocusState private var focusedField: FocusField?
+    
+    @State private var addedBellowsData: [BellowsExtensionData] = []
+    @State private var addedReciprocityData: [ReciprocityData] = []
+    // @State private var addedFilterData: [FilterData] = []
+    
+    func addBellowsData(data: [BellowsExtensionData]) -> Void {
+        data.forEach { result in
+            addedBellowsData.append(result)
+        }
+    }
 
     var body: some View {
         VStack {
@@ -38,8 +48,14 @@ struct NewNote: View {
                         self.focusedField = .noteBody
                     }
 
-
                 Spacer()
+                
+                VStack {
+                    ForEach(addedBellowsData) { result in
+                        BellowsData(result: result)
+                    }
+                }
+                .padding(.bottom)
             }
             .toolbar {
                 HStack {
@@ -100,7 +116,7 @@ struct NewNote: View {
                 FilterHistorySheet()
             }
             .sheet(isPresented: $showBellowsSheet) {
-                BellowsExtensionHistorySheet()
+                AddBellowsDataSheet(addData: addBellowsData)
             }
         }
     }
