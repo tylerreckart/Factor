@@ -54,23 +54,23 @@ struct AppIconSettings: View {
     var body: some View {
         VStack {
             List {
-                Section(header: Text("Standard")) {
+                Section(header: Text("Standard").font(.system(size: 12))) {
                     AppIcon(icon: "Ansel")
                 }
                 
-                Section(header: Text("Accent")) {
+                Section(header: Text("Accent").font(.system(size: 12))) {
                     ForEach(0 ..< whiteIcons.count) { index in
                         AppIcon(icon: whiteIcons[index])
                     }
                 }
                 
-                Section(header: Text("Colorway")) {
+                Section(header: Text("Colorway").font(.system(size: 12))) {
                     ForEach(0 ..< solidIcons.count) { index in
                         AppIcon(icon: solidIcons[index])
                     }
                 }
                 
-                Section(header: Text("Unique")) {
+                Section(header: Text("Unique").font(.system(size: 12))) {
                     ForEach(0 ..< graphicIcons.count) { index in
                         AppIcon(icon: graphicIcons[index])
                     }

@@ -49,7 +49,7 @@ struct ThemeSettings: View {
                 .toggleStyle(SwitchToggleStyle(tint: userAccentColor))
             }
             
-            Section(header: Text("Accent Color")) {
+            Section(header: Text("Accent Color").font(.system(size: 12))) {
                 AccentColorOption(color: Color(.systemBlue), label: "Levi's")
                 AccentColorOption(color: Color(.systemCyan), label: "StarKist")
                 AccentColorOption(color: Color(.systemMint), label: "Breyers")
