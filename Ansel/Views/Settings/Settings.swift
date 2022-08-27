@@ -24,7 +24,7 @@ struct Settings: View {
                     }
                 }
 
-                Section(header: Text("Customization")) {
+                Section(header: Text("Customization").font(.system(size: 12))) {
                     NavigationLink(destination: ThemeSettings()) {
                         Text("Theme")
                     }
@@ -33,7 +33,7 @@ struct Settings: View {
                     }
                 }
                 
-                Section(header: Text("Feedback")) {
+                Section(header: Text("Feedback").font(.system(size: 12))) {
                     NavigationLink(destination: EmptyView()) {
                         Text("Send Feedback")
                     }

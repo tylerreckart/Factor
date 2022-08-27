@@ -69,7 +69,7 @@ struct PriorityModeToggle: View {
                     .foregroundColor(self.priority_mode == .shutter ? .white : Color(hex: 0x434548))
                     .padding(12)
                     .frame(maxWidth: .infinity)
-                    .background(self.priority_mode == .shutter ? Color(.systemBlue) : .clear)
+                    .background(self.priority_mode == .shutter ? userAccentColor : .clear)
                     .overlay(self.priority_mode == .shutter ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom) : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom))
                     .cornerRadius(4)
                     .shadow(color: Color(.systemBlue).opacity(self.priority_mode == .shutter ? 0.25 : 0), radius: 6, x: 0, y: 4)
