@@ -79,7 +79,7 @@ struct NoteList: View {
             .padding(.horizontal)
     
             List {
-                ForEach(results, id: \.self) { r in
+                ForEach(results.filter { searchText.isEmpty ? true : $0.body!.contains(searchText) }, id: \.self) { r in
                     if !isEditing {
                         let str = r.body!
 
@@ -88,6 +88,7 @@ struct NoteList: View {
                                 Text(formatDate(date: r.createdAt!))
                                     .foregroundColor(.accentColor)
                                     .padding(.bottom, 1)
+                                    .font(.system(size: 14))
                                 
                                 Text(str.count > 80 ? str.prefix(80) + "..." : str)
                                     .foregroundColor(Color(.gray))

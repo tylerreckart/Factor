@@ -37,7 +37,7 @@ struct ThemeSettings: View {
 
     var body: some View {
         List {
-            Section {
+            Section(header: Text("Overrides").font(.system(size: 12))) {
                 Toggle(isOn: $useDarkMode) {
                     Text("Always Use Dark Theme")
                 }
