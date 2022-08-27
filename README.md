@@ -8,5 +8,5 @@ _Ansel is not available on the iOS app store. It is still in the early phases of
 - [ ] Spot meter
 - [ ] Including meter data in notes
 - [ ] Including compensation data in notes
-- [ ] UI customizations (dark/light modes)
+- [x] UI customizations (dark/light modes)
 
