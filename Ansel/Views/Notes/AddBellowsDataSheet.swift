@@ -10,6 +10,8 @@ import SwiftUI
 struct AddBellowsDataSheet: View {
     @Environment(\.presentationMode) var presentationMode
 
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+
     var addData: (Set<BellowsExtensionData>) -> Void
 
     @FetchRequest(
@@ -42,6 +44,7 @@ struct AddBellowsDataSheet: View {
                             self.isEditing.toggle()
                         }) {
                             Text("Select")
+                                .foregroundColor(userAccentColor)
                         }
                     } else {
                         Button(action: {
@@ -65,6 +68,7 @@ struct AddBellowsDataSheet: View {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")
+                                .foregroundColor(userAccentColor)
                         }
                     } else {
                         EmptyView()

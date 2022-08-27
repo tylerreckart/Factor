@@ -138,6 +138,8 @@ struct BellowsData: View {
 }
 
 struct BellowsDataCard: View {
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+
     var result: BellowsExtensionData
 
     @Binding var isEditing: Bool
@@ -148,10 +150,10 @@ struct BellowsDataCard: View {
             HStack {
                 if !selectedResults.contains(where: { $0.timestamp == result.timestamp }) {
                     Image(systemName: "circle")
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(userAccentColor)
                 } else {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(userAccentColor)
                 }
                 
                 Button(action: {

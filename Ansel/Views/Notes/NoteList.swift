@@ -98,7 +98,7 @@ struct NoteList: View {
                             if !selectedNotes.contains(r.id) {
                                 selectedNotes.append(r.id)
                             } else {
-                                selectedNotes = selectedNotes.filter { $0 == r.id }
+                                selectedNotes = selectedNotes.filter { $0 != r.id }
                             }
                         }) {
                             HStack {

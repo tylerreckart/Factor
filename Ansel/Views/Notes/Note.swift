@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NoteView: View {
     var note: Note
+    
+    @State var isEditing: Bool = false
 
     var body: some View {
         VStack {
@@ -25,5 +27,14 @@ struct NoteView: View {
         }
         .padding(.horizontal)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    self.isEditing.toggle()
+                }) {
+                    Text("Edit")
+                }
+            }
+        }
     }
 }
