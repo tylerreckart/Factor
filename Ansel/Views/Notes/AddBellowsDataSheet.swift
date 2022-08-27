@@ -10,7 +10,7 @@ import SwiftUI
 struct AddBellowsDataSheet: View {
     @Environment(\.presentationMode) var presentationMode
 
-    var addData: ([BellowsExtensionData]) -> Void
+    var addData: (Set<BellowsExtensionData>) -> Void
 
     @FetchRequest(
       entity: BellowsExtensionData.entity(),
@@ -20,7 +20,7 @@ struct AddBellowsDataSheet: View {
     ) var results: FetchedResults<BellowsExtensionData>
     
     @State var isEditing: Bool = false
-    @State var selectedResults: [BellowsExtensionData] = []
+    @State var selectedResults: Set<BellowsExtensionData> = []
     
     var body: some View {
         NavigationView {

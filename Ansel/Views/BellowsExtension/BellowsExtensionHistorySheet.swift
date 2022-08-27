@@ -18,7 +18,7 @@ struct BellowsExtensionHistorySheet: View {
     ) var results: FetchedResults<BellowsExtensionData>
     
     @State var isEditing: Bool = false
-    @State var selectedResults: [BellowsExtensionData] = []
+    @State var selectedResults: Set<BellowsExtensionData> = []
     
     func deleteSelectedResults() -> Void {
         self.selectedResults.forEach { item in

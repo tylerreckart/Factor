@@ -141,7 +141,7 @@ struct BellowsDataCard: View {
     var result: BellowsExtensionData
 
     @Binding var isEditing: Bool
-    @Binding var selectedResults: [BellowsExtensionData]
+    @Binding var selectedResults: Set<BellowsExtensionData>
 
     var body: some View {
         if isEditing {
@@ -156,7 +156,7 @@ struct BellowsDataCard: View {
                 
                 Button(action: {
                     if !selectedResults.contains(where: { $0.timestamp == result.timestamp }) {
-                        selectedResults.append(result)
+                        selectedResults.insert(result)
                     } else {
                         selectedResults = selectedResults.filter { $0.timestamp != result.timestamp }
                     }
