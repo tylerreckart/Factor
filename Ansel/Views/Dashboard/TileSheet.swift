@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TileSheet: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.presentationMode) var presentationMode
 
     @AppStorage("userDashboardLayout") var dashboard: [String] = dashboard_tiles.map { $0.id }
 
@@ -22,8 +22,6 @@ struct TileSheet: View {
     func emptyFunc(id: String) -> Void {}
     
     var addTile: (DashboardTile) -> Void
-    
-    @Binding var showTileSheet: Bool
     
     func getActiveTiles() -> Void {
         var tiles: [DashboardTile] = []
@@ -63,7 +61,7 @@ struct TileSheet: View {
 
                             addTile(tileToInsert!)
 
-                            showTileSheet = false
+                            self.presentationMode.wrappedValue.dismiss()
                         }) {
                             SimpleTile(tile: tile, isDisabled: false, isEditing: $isEditing, removeTile: emptyFunc)
                         }
@@ -76,7 +74,7 @@ struct TileSheet: View {
                         .font(.caption)
                         .foregroundColor(Color(.systemGray))
                         
-                        ForEach(activeTiles) { tile in
+                    ForEach(activeTiles) { tile in
                         SimpleTile(tile: tile, isDisabled: true, isEditing: $isEditing, removeTile: emptyFunc)
                     }
                 }

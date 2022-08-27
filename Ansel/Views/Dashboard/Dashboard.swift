@@ -179,7 +179,7 @@ struct Dashboard: View {
                 }
                 .background(Color(.systemGray6))
                 .sheet(isPresented: $showTileSheet) {
-                    TileSheet(addTile: addTile, showTileSheet: $showTileSheet)
+                    TileSheet(addTile: addTile)
                 }
                 
                 Image("ansel.fill")

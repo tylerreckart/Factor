@@ -14,12 +14,35 @@ struct NoteList: View {
     @State private var showCancelButton: Bool = false
     @State private var showNewNoteSheet: Bool = false
     
+    @State private var isEditing: Bool = false
+    
     @FetchRequest(
       entity: Note.entity(),
       sortDescriptors: [
-        NSSortDescriptor(keyPath: \Note.createdAt, ascending: true)
+        NSSortDescriptor(keyPath: \Note.createdAt, ascending: false)
       ]
     ) var results: FetchedResults<Note>
+    
+    @State private var selectedNotes: [ObjectIdentifier] = []
+    
+    func deleteNotes() {
+        selectedNotes.forEach { id in
+            let note = results.filter({ $0.id == id }).first
+            
+            self.managedObjectContext.delete(note!)
+            self.managedObjectContext.refreshAllObjects()
+
+            saveContext()
+        }
+    }
+    
+    func saveContext() {
+      do {
+        try managedObjectContext.save()
+      } catch {
+        print("Error saving managed object context: \(error)")
+      }
+    }
 
     var body: some View {
         VStack {
@@ -50,53 +73,98 @@ struct NoteList: View {
                         self.searchText = ""
                         self.showCancelButton = false
                     }
-                    .foregroundColor(Color(.systemBlue))
+                    .foregroundColor(.accentColor)
                 }
             }
             .padding(.horizontal)
     
             List {
                 ForEach(results, id: \.self) { r in
-                    NavigationLink(destination: NoteView(note: r)) {
-                        VStack {
-                            HStack {
-                                Text(r.body!)
-                                    .font(.system(.headline).bold())
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                    if !isEditing {
+                        let str = r.body!
+
+                        NavigationLink(destination: NoteView(note: r)) {
+                            VStack(alignment: .leading) {
                                 Text(formatDate(date: r.createdAt!))
-                                    .foregroundColor(Color(.systemBlue))
-                            }
-                            .padding(.bottom, 1)
-                            
-                            HStack {
-                                Text(r.body!)
+                                    .foregroundColor(.accentColor)
+                                    .padding(.bottom, 1)
+                                
+                                Text(str.count > 80 ? str.prefix(80) + "..." : str)
                                     .foregroundColor(Color(.gray))
-                                Spacer()
                             }
+                        }
+                    } else {
+                        Button(action: {
+                            if !selectedNotes.contains(r.id) {
+                                selectedNotes.append(r.id)
+                            } else {
+                                selectedNotes = selectedNotes.filter { $0 == r.id }
+                            }
+                        }) {
+                            HStack {
+                                if !selectedNotes.contains(r.id) {
+                                    Image(systemName: "circle")
+                                        .foregroundColor(.accentColor)
+                                } else {
+                                     Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(.accentColor)
+                                }
+                                
+                                VStack(alignment: .leading) {
+                                    let str = r.body!
                             
+                                    Text(formatDate(date: r.createdAt!))
+                                        .foregroundColor(.accentColor)
+                                        .padding(.bottom, 1)
+                                    
+                                    Text(str.count > 80 ? str.prefix(80) + "..." : str)
+                                        .foregroundColor(Color(.gray))
+                                }
+                            }
                         }
-                    }
-                }
-                .onDelete { indexSet in
-                    do{
-                        try indexSet.forEach { i in
-                            self.managedObjectContext.delete(results[i])
-                            self.managedObjectContext.refreshAllObjects()
-                            try self.managedObjectContext.save()
-                        }
-                    }catch{
-                        print(error)
                     }
                 }
                 .padding(.vertical, 4)
             }
-            .resignKeyboardOnDragGesture()
-            .listStyle(.plain)
+            .listStyle(.inset)
             .toolbar {
-                NavigationLink(destination: NewNote()) {
-                    Label("New Note", systemImage: "square.and.pencil")
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if results.count > 0 {
+                        if isEditing && selectedNotes.count > 0 {
+                            Button(action: {
+                                if selectedNotes.count > 0 {
+                                    deleteNotes()
+                                }
+                                
+                                self.isEditing.toggle()
+                            }) {
+                                Text("Delete")
+                            }
+                            .foregroundColor(Color(.systemRed))
+                        } else if isEditing && selectedNotes.count == 0 {
+                            Button(action: {
+                                self.isEditing.toggle()
+                            }) {
+                                Text("Cancel")
+                            }
+                            .foregroundColor(.accentColor)
+                        } else {
+                            Button(action: {
+                                self.isEditing.toggle()
+                            }) {
+                                Text("Edit")
+                            }
+                            .foregroundColor(.accentColor)
+                        }
+                    }
                 }
-                .foregroundColor(.accentColor)
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: NewNote()) {
+                        Label("New Note", systemImage: "square.and.pencil")
+                    }
+                    .foregroundColor(.accentColor)
+                }
             }
         }
     }
