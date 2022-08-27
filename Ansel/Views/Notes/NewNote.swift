@@ -8,6 +8,10 @@
 import SwiftUI
 import PhotosUI
 
+enum FocusField: Hashable {
+  case noteBody
+}
+
 struct NewNote: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -21,10 +25,6 @@ struct NewNote: View {
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedPhotosData: [Data] = []
     
-    enum FocusField: Hashable {
-      case noteBody
-    }
-
     @FocusState private var focusedField: FocusField?
     
     @State private var addedBellowsData: Set<BellowsExtensionData> = []
@@ -55,25 +55,29 @@ struct NewNote: View {
                     }
                     .padding(.bottom, 10)
                 
-                VStack {
-                    Text("Reciprocity Calculations")
-                        .font(.system(size: 12))
-                        .foregroundColor(Color(.systemGray))
-                    ForEach(Array(addedReciprocityData as Set), id: \.self) { result in
-                        ReciprocityFactorData(result: result)
+                if addedReciprocityData.count > 0 {
+                    VStack(alignment: .leading) {
+                        Text("Reciprocity Calculations")
+                            .font(.system(size: 12))
+                            .foregroundColor(Color(.systemGray))
+                        ForEach(Array(addedReciprocityData as Set), id: \.self) { result in
+                            ReciprocityFactorData(result: result)
+                        }
                     }
+                    .padding(.bottom)
                 }
-                .padding(.bottom)
     
-                VStack {
-                    Text("Bellows Extension Calculations")
-                        .font(.system(size: 12))
-                        .foregroundColor(Color(.systemGray))
-                    ForEach(Array(addedBellowsData as Set), id: \.self) { result in
-                        BellowsData(result: result)
+                if addedBellowsData.count > 0 {
+                    VStack(alignment: .leading) {
+                        Text("Bellows Extension Calculations")
+                            .font(.system(size: 12))
+                            .foregroundColor(Color(.systemGray))
+                        ForEach(Array(addedBellowsData as Set), id: \.self) { result in
+                            BellowsData(result: result)
+                        }
                     }
+                    .padding(.bottom)
                 }
-                .padding(.bottom)
                 
                 Spacer()
             }

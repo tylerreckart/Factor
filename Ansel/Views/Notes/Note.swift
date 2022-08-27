@@ -19,13 +19,29 @@ struct NoteView: View {
     
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedPhotosData: [Data] = []
+    
+    @FocusState private var focusedField: FocusField?
+    
+    @State private var editBody: String = ""
 
     var body: some View {
-        VStack {
-            Text(note.body!)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 10)
-                .padding(.bottom, 20)
+        ScrollView {
+            if isEditing {
+                TextField("Start typing...", text: $editBody, axis: .vertical)
+                    .zIndex(1)
+                    .textFieldStyle(.plain)
+                    .focused($focusedField, equals: .noteBody)
+                    .onAppear {
+                        self.focusedField = .noteBody
+                    }
+                    .padding(.top, 10)
+                    .padding(.bottom, 18)
+            } else {
+                Text(note.body!)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 10)
+                    .padding(.bottom, 20)
+            }
             
             if note.reciprocityData!.count > 0 {
                 VStack(alignment: .leading) {
@@ -59,11 +75,17 @@ struct NoteView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
+                    Button(action: {
+                        self.isEditing.toggle()
+                    }) {
+                        Label("Edit Note", systemImage: "pencil")
+                    }
+    
                     PhotosPicker(
                         selection: $selectedImages,
                         matching: .images
                     ) {
-                        Label("Add Images", systemImage: "photo")
+                        Label("Select Images", systemImage: "photo")
                     }
                     .onChange(of: selectedImages) { newItems in
                         for newItem in newItems {
@@ -78,23 +100,33 @@ struct NoteView: View {
                     Button(action: {
                         self.showReciprocitySheet.toggle()
                     }) {
-                        Label("Add Reciprocity Data", systemImage: "clock")
+                        Label("Select Reciprocity Data", systemImage: "clock")
                     }
                     
                     Button(action: {
                         self.showFilterSheet.toggle()
                     }) {
-                        Label("Add Filter Data", systemImage: "moon.stars.circle")
+                        Label("Select Filter Data", systemImage: "moon.stars")
                     }
 
                     Button(action: {
                         self.showBellowsSheet.toggle()
                     }) {
-                        Label("Add Bellows Data", systemImage: "arrow.up.backward.and.arrow.down.forward.circle")
+                        Label("Select Bellows Data", systemImage: "arrow.up.backward.and.arrow.down.forward")
                     }
                 }
                 label: {
                     Label("Edit", systemImage: "ellipsis.circle")
+                }
+            }
+            
+            if isEditing {
+                ToolbarItem {
+                    Button(action: {
+                        self.isEditing.toggle()
+                    }) {
+                        Text("Done")
+                    }
                 }
             }
         }
@@ -106,6 +138,9 @@ struct NoteView: View {
         }
         .sheet(isPresented: $showBellowsSheet) {
             BellowsExtensionHistorySheet()
+        }
+        .onAppear {
+            editBody = note.body!
         }
     }
 }
