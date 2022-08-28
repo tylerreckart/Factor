@@ -8,6 +8,46 @@
 import SwiftUI
 import PhotosUI
 
+struct ImageViewer: View {
+    var image: UIImage
+    
+    let screenWidth = UIScreen.main.bounds.width
+    
+    @State private var scale: CGFloat = 1.0
+    @State private var lastScale: CGFloat = 1.0
+    @State private var viewState = CGSize.zero
+
+    var body: some View {
+        VStack {
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .offset(x: viewState.width, y: viewState.height)
+                .gesture(DragGesture()
+                    .onChanged { val in
+                        self.viewState = val.translation
+                    }
+                )
+                .gesture(MagnificationGesture()
+                    .onChanged { val in
+                        let delta = val / self.lastScale
+                        self.lastScale = val
+                        if delta > 0.94 { // if statement to minimize jitter
+                            let newScale = self.scale * delta
+                            self.scale = newScale
+                        }
+                    }
+                    .onEnded { _ in
+                        self.lastScale = 1.0
+                    }
+                )
+                .scaleEffect(scale)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
 struct NoteView: View {
     var note: Note
     
@@ -64,10 +104,12 @@ struct NoteView: View {
                 ScrollView(.horizontal) {
                     HStack {
                         ForEach(noteImages, id: \.self) { image in
-                            Image(uiImage: image)
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .cornerRadius(8)
+                            NavigationLink(destination: ImageViewer(image: image)) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .cornerRadius(8)
+                            }
                         }
                     }
                 }
@@ -116,64 +158,6 @@ struct NoteView: View {
         }
         .padding(.horizontal)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Menu {
-                    Button(action: {
-                        self.isEditing.toggle()
-                    }) {
-                        Label("Edit Note", systemImage: "pencil")
-                    }
-    
-                    PhotosPicker(
-                        selection: $selectedImages,
-                        matching: .images
-                    ) {
-                        Label("Select Images", systemImage: "photo")
-                    }
-                    .onChange(of: selectedImages) { newItems in
-                        for newItem in newItems {
-                            Task {
-                                if let data = try? await newItem.loadTransferable(type:Data.self) {
-                                    selectedPhotosData.append(data)
-                                }
-                            }
-                        }
-                    }
-
-                    Button(action: {
-                        self.showReciprocitySheet.toggle()
-                    }) {
-                        Label("Select Reciprocity Data", systemImage: "clock")
-                    }
-                    
-                    Button(action: {
-                        self.showFilterSheet.toggle()
-                    }) {
-                        Label("Select Filter Data", systemImage: "moon.stars")
-                    }
-
-                    Button(action: {
-                        self.showBellowsSheet.toggle()
-                    }) {
-                        Label("Select Bellows Data", systemImage: "arrow.up.backward.and.arrow.down.forward")
-                    }
-                }
-                label: {
-                    Label("Edit", systemImage: "ellipsis.circle")
-                }
-            }
-            
-            if isEditing {
-                ToolbarItem {
-                    Button(action: {
-                        self.isEditing.toggle()
-                    }) {
-                        Text("Done")
-                    }
-                }
-            }
-        }
         .sheet(isPresented: $showReciprocitySheet) {
             ReciprocityHistorySheet()
         }

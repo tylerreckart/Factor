@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CalculateButton: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
+
     var calculate: () -> Void
     var isDisabled: Bool = false
     
@@ -28,7 +30,7 @@ struct CalculateButton: View {
                 .padding(14)
                 .frame(maxWidth: .infinity)
                 .background(isDisabled ? Color(.systemGray6) : .accentColor)
-                .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
+                .overlay(LinearGradient(colors: [!useDarkMode && !isDisabled ? .white.opacity(0.2) : .white.opacity(0.05), .clear], startPoint: .top, endPoint: .bottom))
                 .cornerRadius(4)
         }
     }

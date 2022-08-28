@@ -21,7 +21,7 @@ struct FormInput: View {
         })
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundColor(.black)
+        .foregroundColor(.primary)
     }
 }
 
