@@ -21,7 +21,7 @@ struct FilterFactorData: View {
                     .background(Color(.systemGray6))
                     .border(width: 1, edges: [.trailing], color: Color(.systemGray4))
                 
-                Text("\(result.fStopReduction)")
+                Text("\(Int(result.fStopReduction))")
                     .font(.caption)
                     .padding(10)
                     .frame(maxWidth: .infinity)

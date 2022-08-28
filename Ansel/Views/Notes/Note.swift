@@ -23,6 +23,23 @@ struct NoteView: View {
     @FocusState private var focusedField: FocusField?
     
     @State private var editBody: String = ""
+    
+    @State private var noteImages: [UIImage] = []
+    
+    func imagesFromCoreData(object: Data?) -> [UIImage]? {
+        var retVal = [UIImage]()
+
+        guard let object = object else { return nil }
+        if let dataArray = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSArray.self, from: object) {
+            for data in dataArray {
+                if let data = data as? Data, let image = UIImage(data: data) {
+                    retVal.append(image)
+                }
+            }
+        }
+        
+        return retVal
+    }
 
     var body: some View {
         ScrollView {
@@ -41,6 +58,20 @@ struct NoteView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 10)
                     .padding(.bottom, 20)
+            }
+            
+            if noteImages.count > 0 {
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(noteImages, id: \.self) { image in
+                            Image(uiImage: image)
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .cornerRadius(8)
+                        }
+                    }
+                }
+                .padding(.bottom, 10)
             }
             
             if note.reciprocityData!.count > 0 {
@@ -154,6 +185,11 @@ struct NoteView: View {
         }
         .onAppear {
             editBody = note.body!
+            
+            let dataImages = note.images ?? Data()
+            if dataImages.count > 0 {
+                noteImages = imagesFromCoreData(object: dataImages)!
+            }
         }
     }
 }

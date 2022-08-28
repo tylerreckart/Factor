@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import CoreData
 
 enum FocusField: Hashable {
   case noteBody
@@ -23,7 +24,7 @@ struct NewNote: View {
     @State var showBellowsSheet: Bool = false
     
     @State private var selectedImages: [PhotosPickerItem] = []
-    @State private var selectedPhotosData: [Data] = []
+    @State private var selectedPhotosData: Set<UIImage> = []
     
     @FocusState private var focusedField: FocusField?
     
@@ -48,6 +49,18 @@ struct NewNote: View {
             addedFilterData.insert(result)
         }
     }
+    
+    func coreDataObjectFromImages(images: [UIImage]) -> Data? {
+        let dataArray = NSMutableArray()
+        
+        for img in images {
+            if let data = img.pngData() {
+                dataArray.add(data)
+            }
+        }
+        
+        return try? NSKeyedArchiver.archivedData(withRootObject: dataArray, requiringSecureCoding: true)
+    }
 
     var body: some View {
         ScrollView {
@@ -60,6 +73,20 @@ struct NewNote: View {
                         self.focusedField = .noteBody
                     }
                     .padding(.bottom, 10)
+                
+                if selectedPhotosData.count > 0 {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(Array(selectedPhotosData), id: \.self) { image in
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .cornerRadius(8)
+                            }
+                        }
+                    }
+                    .padding(.bottom, 10)
+                }
                 
                 if addedReciprocityData.count > 0 {
                     VStack(alignment: .leading) {
@@ -104,23 +131,24 @@ struct NewNote: View {
             }
             .toolbar {
                 HStack {
-                    Menu {
-                        PhotosPicker(
-                            selection: $selectedImages,
-                            matching: .images
-                        ) {
-                            Label("Add Images", systemImage: "photo")
-                        }
-                        .onChange(of: selectedImages) { newItems in
-                            for newItem in newItems {
-                                Task {
-                                    if let data = try? await newItem.loadTransferable(type:Data.self) {
-                                        selectedPhotosData.append(data)
-                                    }
+                    PhotosPicker(
+                        selection: $selectedImages,
+                        matching: .images
+                    ) {
+                        Label("Add Images", systemImage: "photo")
+                    }
+                    .onChange(of: selectedImages) { newItems in
+                        Task {
+                            selectedImages = []
+                            for value in newItems {
+                                if let imageData = try? await value.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                                    selectedPhotosData.insert(image)
                                 }
                             }
                         }
-
+                    }
+    
+                    Menu {
                         Button(action: {
                             showReciprocitySheet.toggle()
                         }) {
@@ -162,8 +190,6 @@ struct NewNote: View {
                 }
             }
             .padding([.top, .leading, .trailing])
-            .navigationTitle("New Note")
-            .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showReciprocitySheet) {
                 AddReciprocityDataSheet(addData: addReciprocityData)
             }
@@ -200,6 +226,10 @@ struct NewNote: View {
         
         if addedFilterData.count > 0 {
             newNote.filterData = addedFilterData as NSSet
+        }
+        
+        if selectedPhotosData.count > 0 {
+            newNote.images = coreDataObjectFromImages(images: Array(selectedPhotosData))
         }
 
         saveContext()

@@ -21,6 +21,7 @@
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="body" optional="YES" attributeType="String"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="images" optional="YES" attributeType="Binary"/>
         <relationship name="bellowsData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BellowsExtensionData" inverseName="note" inverseEntity="BellowsExtensionData"/>
         <relationship name="filterData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FilterData" inverseName="note" inverseEntity="FilterData"/>
         <relationship name="reciprocityData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReciprocityData" inverseName="note" inverseEntity="ReciprocityData"/>
