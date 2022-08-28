@@ -47,26 +47,40 @@ struct AppIcon: View {
 }
 
 struct AppIconSettings: View {
-    let whiteIcons = ["WhiteCyan", "WhiteRed", "WhitePink"]
-    let solidIcons = ["Green", "Cyan", "Pink", "Red"]
+    let accentIcons = ["Heinz - Light", "Chester - Light", "French's - Light", "Vlasic - Light", "Breyers - Light", "Levi's - Light", "Welch's - Light", "Smucker's - Light", "Pepto - Light"]
+    let formalIcons = ["Black Tie", "White Tie"]
+    let prideIcons = ["Pride - Light", "Pride - Dark"]
+    let colorwayIcons = ["Heinz", "Chester", "French's", "Vlasic", "Breyers", "Levi's", "Welch's", "Smucker's", "Pepto"]
     let graphicIcons = ["Sunrise", "Daylight", "Sunset"]
 
     var body: some View {
         VStack {
             List {
                 Section(header: Text("Standard").font(.system(size: 12))) {
-                    AppIcon(icon: "Ansel")
+                    AppIcon(icon: "AppIcon")
                 }
                 
                 Section(header: Text("Accent").font(.system(size: 12))) {
-                    ForEach(0 ..< 3) { index in
-                        AppIcon(icon: whiteIcons[index])
+                    ForEach(0 ..< accentIcons.count) { index in
+                        AppIcon(icon: accentIcons[index])
+                    }
+                }
+
+                Section(header: Text("Formal").font(.system(size: 12))) {
+                    ForEach(0 ..< formalIcons.count) { index in
+                        AppIcon(icon: formalIcons[index])
+                    }
+                }
+                
+                Section(header: Text("Pride").font(.system(size: 12))) {
+                    ForEach(0 ..< prideIcons.count) { index in
+                        AppIcon(icon: prideIcons[index])
                     }
                 }
                 
                 Section(header: Text("Colorway").font(.system(size: 12))) {
-                    ForEach(0 ..< 4) { index in
-                        AppIcon(icon: solidIcons[index])
+                    ForEach(0 ..< accentIcons.count) { index in
+                        AppIcon(icon: colorwayIcons[index])
                     }
                 }
                 
