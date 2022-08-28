@@ -57,7 +57,7 @@ struct AppIconSettings: View {
         VStack {
             List {
                 Section(header: Text("Standard").font(.system(size: 12))) {
-                    AppIcon(icon: "AppIcon")
+                    AppIcon(icon: "Ansel")
                 }
                 
                 Section(header: Text("Accent").font(.system(size: 12))) {
