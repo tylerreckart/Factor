@@ -12,7 +12,7 @@ struct Settings: View {
         VStack {
             List {
                 Section {
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: Premium()) {
                         VStack(alignment: .leading) {
                             Text("Ansel Premium")
                                 .padding(.bottom, 1)
