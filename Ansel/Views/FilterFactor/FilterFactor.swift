@@ -9,6 +9,13 @@ import SwiftUI
 struct FilterFactor: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    @FetchRequest(
+      entity: FilterData.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \FilterData.timestamp, ascending: true)
+      ]
+    ) var fetchedResults: FetchedResults<FilterData>
+    
     @State private var priority_mode: PriorityMode = .aperture
 
     @State private var shutter_speed: String = ""
@@ -69,12 +76,14 @@ struct FilterFactor: View {
         .navigationTitle("Filter Factor")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            HStack {
-                Button(action: {
-                    self.showingHistorySheet.toggle()
-                }) {
-                    Image(systemName: "clock.arrow.circlepath")
-                    Text("History")
+            if fetchedResults.count > 0 {
+                HStack {
+                    Button(action: {
+                        self.showingHistorySheet.toggle()
+                    }) {
+                        Image(systemName: "clock.arrow.circlepath")
+                        Text("History")
+                    }
                 }
             }
         }

@@ -13,15 +13,43 @@ enum FocusField: Hashable {
   case noteBody
 }
 
+enum DataAlert: Hashable {
+    case bellows
+    case reciprocity
+    case filter
+}
+
 struct NewNote: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @FetchRequest(
+        entity: BellowsExtensionData.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \BellowsExtensionData.timestamp, ascending: true)
+        ]
+    ) var bellowsData: FetchedResults<BellowsExtensionData>
+    
+    @FetchRequest(
+        entity: ReciprocityData.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: true)
+        ]
+    ) var reciprocityData: FetchedResults<ReciprocityData>
+    
+    @FetchRequest(
+        entity: FilterData.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \FilterData.timestamp, ascending: true)
+        ]
+    ) var filterData: FetchedResults<FilterData>
 
     @State private var noteBody: String = ""
     
     @State var showReciprocitySheet: Bool = false
     @State var showFilterSheet: Bool = false
     @State var showBellowsSheet: Bool = false
+    @State var isSaving: Bool = false
     
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedPhotosData: Set<UIImage> = []
@@ -31,6 +59,9 @@ struct NewNote: View {
     @State private var addedBellowsData: Set<BellowsExtensionData> = []
     @State private var addedReciprocityData: Set<ReciprocityData> = []
     @State private var addedFilterData: Set<FilterData> = []
+    
+    @State private var showAlert: Bool = false
+    @State private var alert: DataAlert?
     
     func addBellowsData(data: Set<BellowsExtensionData>) -> Void {
         data.forEach { result in
@@ -113,7 +144,7 @@ struct NewNote: View {
                     }
                     .padding(.bottom, 10)
                 }
-    
+                
                 if addedBellowsData.count > 0 {
                     VStack(alignment: .leading) {
                         Text("Bellows Extension Calculations")
@@ -147,34 +178,49 @@ struct NewNote: View {
                             }
                         }
                     }
-    
+                    
                     Menu {
                         Button(action: {
-                            showReciprocitySheet.toggle()
+                            if reciprocityData.count > 0 {
+                                showReciprocitySheet.toggle()
+                            } else {
+                                showAlert.toggle()
+                                alert = .reciprocity
+                            }
                         }) {
                             Label("Add Reciprocity Data", systemImage: "clock")
                         }
                         
                         Button(action: {
-                            showFilterSheet.toggle()
+                            if filterData.count > 0 {
+                                showFilterSheet.toggle()
+                            } else {
+                                showAlert.toggle()
+                                alert = .filter
+                            }
                         }) {
                             Label("Add Filter Data", systemImage: "moon.stars.circle")
                         }
-
+                        
                         Button(action: {
-                            showBellowsSheet.toggle()
+                            if bellowsData.count > 0 {
+                                showBellowsSheet.toggle()
+                            } else {
+                                showAlert.toggle()
+                                alert = .bellows
+                            }
                         }) {
                             Label("Add Bellows Data", systemImage: "arrow.up.backward.and.arrow.down.forward.circle")
                         }
                     }
-                    label: {
-                        Label("Add Data", systemImage: "ellipsis.circle")
-                    }
-
+                label: {
+                    Label("Add Data", systemImage: "ellipsis.circle")
+                }
+                    
                     if noteBody.count > 0 {
                         Button(action: {
+                            isSaving.toggle()
                             save()
-                            presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("Save")
                         }
@@ -186,10 +232,13 @@ struct NewNote: View {
                         }
                         .foregroundColor(Color(.systemGray))
                     }
-                    
                 }
             }
             .padding([.top, .leading, .trailing])
+            .alert(isPresented: $showAlert) {
+                let str = alert == .filter ? "filter" : alert == .bellows ? "bellows extension" : "reciprocity"
+                return Alert(title: Text("No \(str) data found. Perform calculations and try again."))
+            }
             .sheet(isPresented: $showReciprocitySheet) {
                 AddReciprocityDataSheet(addData: addReciprocityData)
             }
@@ -203,11 +252,12 @@ struct NewNote: View {
     }
     
     func saveContext() {
-      do {
-        try managedObjectContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
+        do {
+            try managedObjectContext.save()
+            presentationMode.wrappedValue.dismiss()
+        } catch {
+            print("Error saving managed object context: \(error)")
+        }
     }
     
     func save() {

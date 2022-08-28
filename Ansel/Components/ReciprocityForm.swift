@@ -7,12 +7,23 @@
 
 import SwiftUI
 
+enum ReciprocityFormField: Hashable {
+    case shutter
+}
+
 struct ReciprocityForm: View {
     @Binding var shutter_speed: String
 
     var calculate: () -> Void
     
     @Binding var selected: ReciprocityDropdownOption
+    
+    @FocusState private var focusedField: ReciprocityFormField?
+    
+    func calculateWithFocus() -> Void {
+        focusedField = nil
+        calculate()
+    }
     
     var body: some View {
         VStack {
@@ -46,11 +57,12 @@ struct ReciprocityForm: View {
                     text: $shutter_speed,
                     placeholder: "Shutter Speed (seconds)"
                 )
+                    .focused($focusedField, equals: .shutter)
                     .padding(.bottom, 4)
                     .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
             }
 
-            CalculateButton(calculate: calculate, isDisabled: self.shutter_speed.count == 0)
+            CalculateButton(calculate: calculateWithFocus, isDisabled: self.shutter_speed.count == 0)
         }
     }
 }

@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum FilterFormField: Hashable {
+    case shutter
+    case aperture
+}
+
 struct FilterForm: View {
     @Binding var priority_mode: PriorityMode
     @Binding var shutter_speed: String
@@ -30,6 +35,13 @@ struct FilterForm: View {
     ]
     
     @Binding var selected: FilterDropdownOption
+    
+    @FocusState private var focusedField: FilterFormField?
+    
+    func calculateWithFocus() -> Void {
+        focusedField = nil
+        calculate()
+    }
     
     var body: some View {
         VStack {
@@ -71,6 +83,7 @@ struct FilterForm: View {
                         text: $shutter_speed,
                         placeholder: "Shutter Speed (seconds)"
                     )
+                    .focused($focusedField, equals: .shutter)
                     .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
                 }
                 
@@ -79,11 +92,12 @@ struct FilterForm: View {
                         text: $aperture,
                         placeholder: "Aperture"
                     )
+                    .focused($focusedField, equals: .aperture)
                     .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
                 }
             }
             
-            CalculateButton(calculate: calculate, isDisabled: self.priority_mode == .aperture ? self.shutter_speed.count == 0 : self.aperture.count == 0)
+            CalculateButton(calculate: calculateWithFocus, isDisabled: self.priority_mode == .aperture ? self.shutter_speed.count == 0 : self.aperture.count == 0)
         }
         .padding(.top)
     }

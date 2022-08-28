@@ -11,6 +11,13 @@ import UIKit
 
 struct BellowsExtension: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(
+      entity: BellowsExtensionData.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \BellowsExtensionData.timestamp, ascending: false)
+      ]
+    ) var fetchedResults: FetchedResults<BellowsExtensionData>
 
     @State private var priority_mode: PriorityMode = .aperture
 
@@ -93,12 +100,14 @@ struct BellowsExtension: View {
         .navigationBarTitleDisplayMode(.inline)
         .foregroundColor(.white)
         .toolbar {
-            HStack {
-                Button(action: {
-                    self.showingHistorySheet.toggle()
-                }) {
-                    Image(systemName: "clock.arrow.circlepath")
-                    Text("History")
+            if fetchedResults.count > 0 {
+                HStack {
+                    Button(action: {
+                        self.showingHistorySheet.toggle()
+                    }) {
+                        Image(systemName: "clock.arrow.circlepath")
+                        Text("History")
+                    }
                 }
             }
         }

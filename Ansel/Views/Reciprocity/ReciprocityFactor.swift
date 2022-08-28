@@ -9,6 +9,13 @@ import SwiftUI
 
 struct Reciprocity: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    
+    @FetchRequest(
+      entity: ReciprocityData.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: true)
+      ]
+    ) var fetchedResults: FetchedResults<ReciprocityData>
 
     @State private var shutter_speed: String = ""
     @State private var reciprocity_factor: Double = 1.43
@@ -47,12 +54,14 @@ struct Reciprocity: View {
         .navigationTitle("Reciprocity Factor")
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
-            HStack {
-                Button(action: {
-                    self.showingHistorySheet.toggle()
-                }) {
-                    Image(systemName: "clock.arrow.circlepath")
-                    Text("History")
+            if fetchedResults.count > 0 {
+                HStack {
+                    Button(action: {
+                        self.showingHistorySheet.toggle()
+                    }) {
+                        Image(systemName: "clock.arrow.circlepath")
+                        Text("History")
+                    }
                 }
             }
         }

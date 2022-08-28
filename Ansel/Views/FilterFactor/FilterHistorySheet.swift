@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FilterHistorySheet: View {
+    @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
@@ -32,59 +33,65 @@ struct FilterHistorySheet: View {
                 print(error)
             }
         }
+        
+        if results.count == 0 {
+            presentationMode.wrappedValue.dismiss()
+        }
     }
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 15) {
-                    ForEach(results) { result in
-                        FilterDataCard(
-                            result: result,
-                            isEditing: $isEditing,
-                            selectedResults: $selectedResults
-                        )
-                        .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
+            if results.count > 0 {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 15) {
+                        ForEach(results) { result in
+                            FilterDataCard(
+                                result: result,
+                                isEditing: $isEditing,
+                                selectedResults: $selectedResults
+                            )
+                            .shadow(color: Color.black.opacity(0.05), radius: 10, y: 8)
+                        }
                     }
+                    .padding()
                 }
-                .padding()
-            }
-            .background(Color(.systemGray6))
-            .navigationTitle("History")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    if !isEditing {
-                        Button(action: {
-                            self.isEditing.toggle()
-                        }) {
-                            Image(systemName: "square.and.pencil")
-                            Text("Edit")
+                .background(Color(.systemGray6))
+                .navigationTitle("History")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        if !isEditing {
+                            Button(action: {
+                                self.isEditing.toggle()
+                            }) {
+                                Image(systemName: "square.and.pencil")
+                                Text("Edit")
+                            }
+                            .foregroundColor(userAccentColor)
+                        } else {
+                            Button(action: {
+                                self.isEditing.toggle()
+                            }) {
+                                Text("Done")
+                            }
+                            .foregroundColor(userAccentColor)
                         }
-                        .foregroundColor(userAccentColor)
-                    } else {
-                        Button(action: {
-                            self.isEditing.toggle()
-                        }) {
-                            Text("Done")
-                        }
-                        .foregroundColor(userAccentColor)
                     }
-                }
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    if !isEditing {
-                        EmptyView()
-                    } else if isEditing && selectedResults.count > 0 {
-                        Button(action: {
-                            deleteSelectedResults()
-                        }) {
-                            Image(systemName: "trash")
-                            Text("Delete")
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        if !isEditing {
+                            EmptyView()
+                        } else if isEditing && selectedResults.count > 0 {
+                            Button(action: {
+                                deleteSelectedResults()
+                            }) {
+                                Image(systemName: "trash")
+                                Text("Delete")
+                            }
+                            .foregroundColor(Color(.systemRed))
+                        } else {
+                            EmptyView()
                         }
-                        .foregroundColor(Color(.systemRed))
-                    } else {
-                        EmptyView()
                     }
                 }
             }

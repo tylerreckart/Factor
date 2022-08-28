@@ -117,6 +117,7 @@ struct NoteList: View {
                                     Text(formatDate(date: r.createdAt!))
                                         .foregroundColor(.accentColor)
                                         .padding(.bottom, 1)
+                                        .font(.system(size: 14))
                                     
                                     Text(str.count > 80 ? str.prefix(80) + "..." : str)
                                         .foregroundColor(Color(.gray))
@@ -172,7 +173,7 @@ struct NoteList: View {
     
     func formatDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/d/y"
+        dateFormatter.dateFormat = "MM/d/y, hh:mm a"
         return dateFormatter.string(from: date)
     }
     
