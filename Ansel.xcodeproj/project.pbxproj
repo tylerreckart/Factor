@@ -24,6 +24,9 @@
 		DB560C4F287A6CCA00CC891A /* LumenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C4E287A6CCA00CC891A /* LumenTests.swift */; };
 		DB560C59287A6CCA00CC891A /* LumenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C58287A6CCA00CC891A /* LumenUITests.swift */; };
 		DB560C5B287A6CCA00CC891A /* LumenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */; };
+		DB5A4A3428BBDAE7006B093B /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3328BBDAE7006B093B /* Privacy.swift */; };
+		DB5A4A3628BBE041006B093B /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3528BBE041006B093B /* About.swift */; };
+		DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3728BBE469006B093B /* Feedback.swift */; };
 		DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80123128B840AB00AC7EAC /* AppIcon.swift */; };
 		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
 		DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */; };
@@ -91,6 +94,10 @@
 		DB560C54287A6CCA00CC891A /* AnselUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnselUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C58287A6CCA00CC891A /* LumenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITests.swift; sourceTree = "<group>"; };
 		DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumenUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DB5A4A3228BBD987006B093B /* Privacy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Privacy.md; sourceTree = "<group>"; };
+		DB5A4A3328BBDAE7006B093B /* Privacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
+		DB5A4A3528BBE041006B093B /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+		DB5A4A3728BBE469006B093B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		DB80123128B840AB00AC7EAC /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
@@ -150,6 +157,7 @@
 		DB560C2C287A6CC700CC891A = {
 			isa = PBXGroup;
 			children = (
+				DB5A4A3228BBD987006B093B /* Privacy.md */,
 				DBB4FA5728AD748600186039 /* README.md */,
 				DB560C37287A6CC700CC891A /* Ansel */,
 				DB560C4D287A6CCA00CC891A /* AnselTests */,
@@ -220,6 +228,9 @@
 				DBB4FA5F28B561AA00186039 /* Settings.swift */,
 				DB80123128B840AB00AC7EAC /* AppIcon.swift */,
 				DB80127D28B8532D00AC7EAC /* Theme.swift */,
+				DB5A4A3328BBDAE7006B093B /* Privacy.swift */,
+				DB5A4A3528BBE041006B093B /* About.swift */,
+				DB5A4A3728BBE469006B093B /* Feedback.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -450,6 +461,7 @@
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,
 				DB80128F28BA593000AC7EAC /* NoteList.swift in Sources */,
 				DB901B3F287D03E800EC04D7 /* ReciprocityFactor.swift in Sources */,
+				DB5A4A3428BBDAE7006B093B /* Privacy.swift in Sources */,
 				DB1DBF9B28B7E1AC00F2FE07 /* FilterForm.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
@@ -459,6 +471,7 @@
 				DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */,
 				DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,
+				DB5A4A3628BBE041006B093B /* About.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
 				DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */,
 				DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */,
@@ -468,6 +481,7 @@
 				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
 				DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */,
+				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
 				DB80128D28BA590900AC7EAC /* Note.swift in Sources */,
 				DB80128B28BA58CF00AC7EAC /* NewNote.swift in Sources */,

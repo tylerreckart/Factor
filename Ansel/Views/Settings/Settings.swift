@@ -34,29 +34,27 @@ struct Settings: View {
                 }
                 
                 Section(header: Text("Feedback").font(.system(size: 12))) {
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: Feedback()) {
                         Text("Send Feedback")
                     }
-                    NavigationLink(destination: EmptyView()) {
-                        VStack(alignment: .leading) {
-                            Text("Please Rate Ansel")
-                                .padding(.bottom, 1)
-                            Text("Thank you for your support")
-                                .font(.system(size: 12))
-                                .textCase(.uppercase)
-                                .foregroundColor(Color(.systemGray))
-                        }
-                    }
+                    // TODO: Insert App Store link for direct rating.
+//                    NavigationLink(destination: EmptyView()) {
+//                        VStack(alignment: .leading) {
+//                            Text("Please Rate Ansel")
+//                                .padding(.bottom, 1)
+//                            Text("Thank you for your support")
+//                                .font(.system(size: 12))
+//                                .textCase(.uppercase)
+//                                .foregroundColor(Color(.systemGray))
+//                        }
+//                    }
                 }
                 
                 Section {
-                    NavigationLink(destination: EmptyView()) {
-                        Text("Terms")
-                    }
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: Privacy()) {
                         Text("Privacy")
                     }
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: About()) {
                         Text("About")
                     }
                 }
