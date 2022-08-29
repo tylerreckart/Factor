@@ -15,7 +15,7 @@ struct Feedback: View {
                     Text("Hi, I'm [Tyler](https://reckart.blog). I run [Haptic Software](https://haptic.software) and develop Ansel without employees or outside funding. The quality and user experience of this app is extremely important to me. Whether you'd like to report issues to me directly or request new features, feedback is always welcome:")
                         .padding(.bottom)
                     
-                    Text("[feedback@haptic.software](mailto:feedback@haptic.software)")
+                    Text("[info@haptic.software](mailto:info@haptic.software)")
                         .padding(.bottom)
                     
                     Text("I try to read every message, but can't respond to them all.")
