@@ -107,6 +107,7 @@ struct NoteView: View {
                             NavigationLink(destination: ImageViewer(image: image)) {
                                 Image(uiImage: image)
                                     .resizable()
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 100, height: 100)
                                     .cornerRadius(8)
                             }

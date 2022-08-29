@@ -29,11 +29,13 @@ struct NoteList: View {
         selectedNotes.forEach { id in
             let note = results.filter({ $0.id == id }).first
             
-            self.managedObjectContext.delete(note!)
-            self.managedObjectContext.refreshAllObjects()
-
-            saveContext()
+            if note != nil {
+                self.managedObjectContext.delete(note!)
+            }
         }
+        
+        self.managedObjectContext.refreshAllObjects()
+        saveContext()
     }
     
     func saveContext() {

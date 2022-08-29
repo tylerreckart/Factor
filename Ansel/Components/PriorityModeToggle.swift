@@ -13,6 +13,49 @@ enum PriorityMode: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
+struct ToggleButton: View {
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+
+    @Binding var aperture: String
+    @Binding var shutter: String
+    @Binding var priorityMode: PriorityMode
+    @Binding var calculated: Bool
+    
+    var label: String
+    var target: PriorityMode
+    var reset: () -> Void
+    
+    var body: some View {
+        Button(action: {
+            priorityMode = target
+            
+            // Reset existing values if toggle is changed after calculation
+            if target == .shutter {
+                aperture = ""
+            } else {
+                shutter = ""
+            }
+
+            if (calculated == true) {
+                reset()
+            }
+        }) {
+            Text(label)
+                .font(.system(.caption, design: .rounded))
+                .fontWeight(.bold)
+        }
+        .foregroundColor(self.priorityMode == target ? .primary : Color(.systemGray))
+        .padding(12)
+        .frame(maxWidth: .infinity)
+        .background(self.priorityMode == target ? userAccentColor : .clear)
+        .overlay(self.priorityMode == target
+                 ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom)
+                 : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom)
+        )
+        .cornerRadius(4)
+    }
+}
+
 struct PriorityModeToggle: View {
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
@@ -32,43 +75,25 @@ struct PriorityModeToggle: View {
 
             VStack {
                 HStack {
-                    Button(action: {
-                        self.priority_mode = .aperture
-                        self.shutter_speed = ""
+                    ToggleButton(
+                        aperture: $aperture,
+                        shutter: $shutter_speed,
+                        priorityMode: $priority_mode,
+                        calculated: $calculated_factor,
+                        label: "Aperture",
+                        target: .aperture,
+                        reset: reset
+                    )
 
-                        if (self.calculated_factor == true) {
-                            reset()
-                        }
-                    }) {
-                        Text("Aperture Priority")
-                            .font(.system(.caption, design: .rounded))
-                            .fontWeight(.bold)
-                    }
-                    .foregroundColor(self.priority_mode == .aperture ? .white : Color(hex: 0x434548))
-                    .padding(12)
-                    .frame(maxWidth: .infinity)
-                    .background(self.priority_mode == .aperture ? userAccentColor : .clear)
-                    .overlay(self.priority_mode == .aperture ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom) : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom))
-                    .cornerRadius(4)
-
-                    Button(action: {
-                        self.priority_mode = .shutter
-                        self.aperture = ""
-
-                        if (self.calculated_factor == true) {
-                            reset()
-                        }
-                    }) {
-                        Text("Shutter Priority")
-                            .font(.system(.caption, design: .rounded))
-                            .fontWeight(.bold)
-                    }
-                    .foregroundColor(self.priority_mode == .shutter ? .white : Color(hex: 0x434548))
-                    .padding(12)
-                    .frame(maxWidth: .infinity)
-                    .background(self.priority_mode == .shutter ? userAccentColor : .clear)
-                    .overlay(self.priority_mode == .shutter ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom) : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom))
-                    .cornerRadius(4)
+                    ToggleButton(
+                        aperture: $aperture,
+                        shutter: $shutter_speed,
+                        priorityMode: $priority_mode,
+                        calculated: $calculated_factor,
+                        label: "Shutter Speed",
+                        target: .shutter,
+                        reset: reset
+                    )
                 }
             }
             .padding(4)

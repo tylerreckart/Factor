@@ -35,7 +35,7 @@ struct AddReciprocityDataSheet: View {
             }
             .padding([.leading, .trailing])
             .background(Color(.systemGray6))
-            .navigationTitle("Add Bellows Data")
+            .navigationTitle("Add Reciprocity Data")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

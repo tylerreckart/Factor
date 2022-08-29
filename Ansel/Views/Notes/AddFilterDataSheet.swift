@@ -35,7 +35,7 @@ struct AddFilterDataSheet: View {
             }
             .padding([.leading, .trailing])
             .background(Color(.systemGray6))
-            .navigationTitle("Add Bellows Data")
+            .navigationTitle("Add Filter Data")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

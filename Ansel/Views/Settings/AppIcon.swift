@@ -38,7 +38,7 @@ struct AppIcon: View {
                 if currentIcon == icon {
                     Spacer()
 
-                    Image(systemName: "check.circle.fill")
+                    Image(systemName: "checkmark.circle.fill")
                         .font(.title)
                 }
             }

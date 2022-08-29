@@ -49,7 +49,6 @@ struct NewNote: View {
     @State var showReciprocitySheet: Bool = false
     @State var showFilterSheet: Bool = false
     @State var showBellowsSheet: Bool = false
-    @State var isSaving: Bool = false
     
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedPhotosData: Set<UIImage> = []
@@ -62,6 +61,10 @@ struct NewNote: View {
     
     @State private var showAlert: Bool = false
     @State private var alert: DataAlert?
+    
+    @State private var isSaving: Bool = false
+    @State private var saved: Bool = false
+    @State private var workItem: DispatchWorkItem?
     
     func addBellowsData(data: Set<BellowsExtensionData>) -> Void {
         data.forEach { result in
@@ -85,7 +88,7 @@ struct NewNote: View {
         let dataArray = NSMutableArray()
         
         for img in images {
-            if let data = img.pngData() {
+            if let data = img.jpegData(compressionQuality: 0.2) {
                 dataArray.add(data)
             }
         }
@@ -111,6 +114,7 @@ struct NewNote: View {
                             ForEach(Array(selectedPhotosData), id: \.self) { image in
                                 Image(uiImage: image)
                                     .resizable()
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 100, height: 100)
                                     .cornerRadius(8)
                             }
@@ -218,11 +222,16 @@ struct NewNote: View {
                 }
                     
                     if noteBody.count > 0 {
-                        Button(action: {
-                            isSaving.toggle()
-                            save()
-                        }) {
-                            Text("Save")
+                        if isSaving {
+                            ProgressView()
+                                .padding(.leading)
+                        } else {
+                            Button(action: {
+                                isSaving.toggle()
+                                save()
+                            }) {
+                                Text("Save")
+                            }
                         }
                     } else {
                         Button(action: {
@@ -254,34 +263,51 @@ struct NewNote: View {
     func saveContext() {
         do {
             try managedObjectContext.save()
-            presentationMode.wrappedValue.dismiss()
+            
+            DispatchQueue.main.sync {
+                self.presentationMode.wrappedValue.dismiss()
+            }
         } catch {
             print("Error saving managed object context: \(error)")
         }
     }
     
     func save() {
+        self.isSaving = true
+    
         let newNote = Note(context: managedObjectContext)
 
         newNote.body = self.noteBody
         newNote.createdAt = Date()
 
-        if addedBellowsData.count > 0 {
-            newNote.bellowsData = addedBellowsData as NSSet
+        
+        self.workItem = DispatchWorkItem {
+            if addedBellowsData.count > 0 {
+                newNote.bellowsData = addedBellowsData as NSSet
+            }
+            
+            if addedReciprocityData.count > 0 {
+                newNote.reciprocityData = addedReciprocityData as NSSet
+            }
+            
+            if addedFilterData.count > 0 {
+                newNote.filterData = addedFilterData as NSSet
+            }
+            
+            if selectedPhotosData.count > 0 {
+                newNote.images = coreDataObjectFromImages(images: Array(selectedPhotosData))
+            }
+            
+            saveContext()
+            
+            //Reset variables on the main thread once finished
+            DispatchQueue.main.async {
+                self.isSaving = false
+            }
         }
         
-        if addedReciprocityData.count > 0 {
-            newNote.reciprocityData = addedReciprocityData as NSSet
+        if(workItem != nil) {
+            DispatchQueue.global().async(execute: workItem!)
         }
-        
-        if addedFilterData.count > 0 {
-            newNote.filterData = addedFilterData as NSSet
-        }
-        
-        if selectedPhotosData.count > 0 {
-            newNote.images = coreDataObjectFromImages(images: Array(selectedPhotosData))
-        }
-
-        saveContext()
     }
 }
