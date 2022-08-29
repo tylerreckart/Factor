@@ -14,6 +14,7 @@ enum PriorityMode: String, CaseIterable, Identifiable {
 }
 
 struct ToggleButton: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
     @Binding var aperture: String
@@ -44,7 +45,11 @@ struct ToggleButton: View {
                 .font(.system(.caption, design: .rounded))
                 .fontWeight(.bold)
         }
-        .foregroundColor(self.priorityMode == target ? .primary : Color(.systemGray))
+        .foregroundColor(
+            self.priorityMode == target
+                ? .white
+                : Color(.systemGray)
+        )
         .padding(12)
         .frame(maxWidth: .infinity)
         .background(self.priorityMode == target ? userAccentColor : .clear)

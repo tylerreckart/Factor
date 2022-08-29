@@ -26,11 +26,19 @@ struct CalculateButton: View {
             Text("Calculate")
                 .font(.system(.body))
                 .fontWeight(.bold)
-                .foregroundColor(isDisabled ? Color(.systemGray3) : .white)
+                .foregroundColor(
+                    !isDisabled ? .white : Color(.systemGray3)
+                )
                 .padding(14)
                 .frame(maxWidth: .infinity)
                 .background(isDisabled ? Color(.systemGray6) : .accentColor)
-                .overlay(LinearGradient(colors: [!useDarkMode && !isDisabled ? .white.opacity(0.2) : .white.opacity(0.05), .clear], startPoint: .top, endPoint: .bottom))
+                .overlay(
+                    LinearGradient(colors: [
+                        !useDarkMode && !isDisabled
+                            ? .white.opacity(0.2)
+                            : .white.opacity(0.05), .clear
+                    ], startPoint: .top, endPoint: .bottom)
+                )
                 .cornerRadius(4)
         }
     }

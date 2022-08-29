@@ -224,7 +224,7 @@ struct NewNote: View {
                     if noteBody.count > 0 {
                         if isSaving {
                             ProgressView()
-                                .padding(.leading)
+                                .padding(.leading, 1)
                         } else {
                             Button(action: {
                                 isSaving.toggle()
