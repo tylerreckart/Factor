@@ -28,6 +28,9 @@
 		DB5A4A3628BBE041006B093B /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3528BBE041006B093B /* About.swift */; };
 		DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3728BBE469006B093B /* Feedback.swift */; };
 		DB5A4A3A28BBE9E3006B093B /* Premium.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3928BBE9E3006B093B /* Premium.swift */; };
+		DB5A4A3C28BD2133006B093B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5A4A3B28BD2133006B093B /* StoreKit.framework */; };
+		DB5A4A4128BD2762006B093B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A4028BD2762006B093B /* Store.swift */; };
+		DB5A4A4328BD29C5006B093B /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB5A4A4228BD29C5006B093B /* Products.plist */; };
 		DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80123128B840AB00AC7EAC /* AppIcon.swift */; };
 		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
 		DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */; };
@@ -100,6 +103,10 @@
 		DB5A4A3528BBE041006B093B /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		DB5A4A3728BBE469006B093B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		DB5A4A3928BBE9E3006B093B /* Premium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Premium.swift; sourceTree = "<group>"; };
+		DB5A4A3B28BD2133006B093B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		DB5A4A3D28BD2668006B093B /* Subscriptions.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Subscriptions.storekit; sourceTree = "<group>"; };
+		DB5A4A4028BD2762006B093B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		DB5A4A4228BD29C5006B093B /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		DB80123128B840AB00AC7EAC /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
@@ -136,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5A4A3C28BD2133006B093B /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +198,9 @@
 				DBB4FA5628AD739A00186039 /* Components */,
 				DB901B2D287CB5EE00EC04D7 /* Views */,
 				DB560C38287A6CC700CC891A /* AnselApp.swift */,
+				DB5A4A4028BD2762006B093B /* Store.swift */,
+				DB5A4A3D28BD2668006B093B /* Subscriptions.storekit */,
+				DB5A4A4228BD29C5006B093B /* Products.plist */,
 				DB560C3A287A6CC700CC891A /* ContentView.swift */,
 				DB560C3C287A6CCA00CC891A /* Assets.xcassets */,
 				DB560C41287A6CCA00CC891A /* Persistence.swift */,
@@ -304,6 +315,7 @@
 		DB901B4C287DC13500EC04D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB5A4A3B28BD2133006B093B /* StoreKit.framework */,
 				DB901B4D287DC13500EC04D7 /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -434,6 +446,7 @@
 			files = (
 				DB560C40287A6CCA00CC891A /* Preview Assets.xcassets in Resources */,
 				DB560C3D287A6CCA00CC891A /* Assets.xcassets in Resources */,
+				DB5A4A4328BD29C5006B093B /* Products.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +510,7 @@
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,
+				DB5A4A4128BD2762006B093B /* Store.swift in Sources */,
 				DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */,
 				DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */,
 				DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */,

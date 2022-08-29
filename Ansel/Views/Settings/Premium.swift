@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct Premium: View {
-    @State private var isPremium: Bool = false
+    @StateObject var store: Store = Store()
 
     var body: some View {
         List {
+            if !store.subscriptions.isEmpty {
+                Text("My shit is here dude")
+            }
             Section(header:
                 VStack(alignment: .leading) {
-                    if isPremium {
+                    if !store.purchasedSubscriptions.isEmpty {
                         Text("Thank you for supporting Ansel as a premium customer.")
                             .padding(.bottom)
                     }
@@ -26,7 +30,7 @@ struct Premium: View {
                 .font(.system(size: 14))
                 .textCase(.none)
             ) {
-                if isPremium {
+                if !store.purchasedSubscriptions.isEmpty {
                     Text("Change or Cancel Subscription")
                 } else {
                     Text("Subscribe for $9.99 per year")
