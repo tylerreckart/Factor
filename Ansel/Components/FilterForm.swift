@@ -20,21 +20,8 @@ struct FilterForm: View {
 
     var calculate: () -> Void
     var reset: () -> Void
-    
-    var options = [
-        FilterDropdownOption(key: "1", value: 1),
-        FilterDropdownOption(key: "2", value: 2),
-        FilterDropdownOption(key: "3", value: 3),
-        FilterDropdownOption(key: "4", value: 4),
-        FilterDropdownOption(key: "5", value: 5),
-        FilterDropdownOption(key: "6", value: 6),
-        FilterDropdownOption(key: "7", value: 7),
-        FilterDropdownOption(key: "8", value: 8),
-        FilterDropdownOption(key: "9", value: 9),
-        FilterDropdownOption(key: "10", value: 10),
-    ]
-    
-    @Binding var selected: FilterDropdownOption
+
+    @Binding var selected: Double
     
     @FocusState private var focusedField: FilterFormField?
     
@@ -52,15 +39,16 @@ struct FilterForm: View {
                 calculated_factor: $calculated_factor,
                 reset: self.reset
             )
+            .padding(.top)
 
             Text("Inputs")
                 .font(.system(.caption))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.gray)
             
-            VStack(spacing: -1) {
+            VStack(spacing: 0) {
                 HStack {
-                    Text("F-Stop Reduction")
+                    Text("Filter Factor")
                         .font(.system(.caption))
                         .frame(height: 55, alignment: .leading)
                         .foregroundColor(.gray)
@@ -68,23 +56,39 @@ struct FilterForm: View {
                         .background(Color(.systemGray6))
                         .border(width: 1, edges: [.trailing], color: Color(.systemGray5))
             
-                    Picker("Select a filter factor", selection: $selected) {
-                        ForEach(options, id: \.self) {
-                            Text($0.key)
+                    HStack {
+                        Spacer()
+                        Menu {
+                            ForEach(1...16, id: \.self) { factor in
+                                Button(action: {
+                                    selected = Double(factor)
+                                }) {
+                                    Text("\(factor)")
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("\(selected.clean)")
+                                Spacer()
+                            }
+                            .foregroundColor(.accentColor)
                         }
                     }
-                    .pickerStyle(.menu)
-                    .frame(maxWidth: .infinity)
+                    .frame(height: 55, alignment: .trailing)
+                    .background(.background)
                 }
-                .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.topLeft, .topRight])
+                .cornerRadius(3, corners: [.topLeft, .topRight])
             
                 if self.priority_mode == .aperture {
                     FormInput(
                         text: $shutter_speed,
                         placeholder: "Shutter Speed (seconds)"
                     )
+                    .background(.background)
                     .focused($focusedField, equals: .shutter)
-                    .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
+                    .border(width: 1, edges: [.top], color: Color(.systemGray5))
+                    .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
                 }
                 
                 if self.priority_mode == .shutter {
@@ -92,13 +96,19 @@ struct FilterForm: View {
                         text: $aperture,
                         placeholder: "Aperture"
                     )
+                    .background(.background)
                     .focused($focusedField, equals: .aperture)
-                    .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
+                    .border(width: 1, edges: [.top], color: Color(.systemGray5))
+                    .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
                 }
             }
+            .padding(1)
+            .background(Color(.systemGray5))
+            .cornerRadius(4)
+        
             
             CalculateButton(calculate: calculateWithFocus, isDisabled: self.priority_mode == .aperture ? self.shutter_speed.count == 0 : self.aperture.count == 0)
+                .padding(.top, 5)
         }
-        .padding(.top)
     }
 }

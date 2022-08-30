@@ -37,35 +37,45 @@ struct BellowsExtensionForm: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.gray)
 
-            VStack(spacing: -1) {
-                if self.priority_mode == .shutter {
-                    FormInput(text: $aperture, placeholder: "Aperture")
-                        .focused($focusedField, equals: .aperture)
-                        .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.topLeft, .topRight])
+            VStack {
+                VStack(spacing: 0) {
+                    if self.priority_mode == .shutter {
+                        FormInput(text: $aperture, placeholder: "Aperture")
+                            .background(.background)
+                            .focused($focusedField, equals: .aperture)
+                            .cornerRadius(3, corners: [.topLeft, .topRight])
+                    }
+                    
+                    if self.priority_mode == .aperture {
+                        FormInput(text: $shutter_speed, placeholder: "Shutter Speed")
+                            .background(.background)
+                            .focused($focusedField, equals: .shutter)
+                            .cornerRadius(3, corners: [.topLeft, .topRight])
+                    }
+                    
+                    FormInput(text: $focal_length, placeholder: "Focal Length (mm)")
+                        .background(.background)
+                        .focused($focusedField, equals: .focal_length)
+                        .keyboardType(.numberPad)
+                        .border(width: 1, edges: [.top], color: Color(.systemGray5))
+                        .zIndex(2)
+                    
+                    FormInput(text: $bellows_draw, placeholder: "Bellows Draw (mm)")
+                        .background(.background)
+                        .focused($focusedField, equals: .bellows_draw)
+                        .keyboardType(.numberPad)
+                        .border(width: 1, edges: [.top], color: Color(.systemGray5))
+                        .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
                 }
-                
-                if self.priority_mode == .aperture {
-                    FormInput(text: $shutter_speed, placeholder: "Shutter Speed")
-                        .focused($focusedField, equals: .shutter)
-                        .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.topLeft, .topRight])
-                }
-                
-                FormInput(text: $focal_length, placeholder: "Focal Length (mm)")
-                    .focused($focusedField, equals: .focal_length)
-                    .keyboardType(.numberPad)
-                    .border(Color(.systemGray5), width: 1)
-                    .zIndex(2)
-
-                FormInput(text: $bellows_draw, placeholder: "Bellows Draw (mm)")
-                    .focused($focusedField, equals: .bellows_draw)
-                    .keyboardType(.numberPad)
-                    .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
-                    .padding(.bottom, 15)
+                .padding(1)
+                .background(Color(.systemGray5))
+                .cornerRadius(4)
                 
                 CalculateButton(
                     calculate: calculateWithFocus,
                     isDisabled: self.priority_mode == .aperture ? (self.shutter_speed.count == 0 || self.focal_length.count == 0 || self.bellows_draw.count == 0) : (self.aperture.count == 0 || self.focal_length.count == 0 || self.bellows_draw.count == 0)
                 )
+                .padding(.top, 5)
             }
         }
     }

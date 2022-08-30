@@ -25,7 +25,7 @@ struct FilterFactor: View {
     @State private var compensated_shutter: Double = 0
     @State private var compensated_aperture: Double = 0
 
-    @State private var selected: FilterDropdownOption = FilterDropdownOption(key: "1", value: 1)
+    @State private var selected: Double = 1
 
     @State private var calculated_factor: Bool = false
     
@@ -54,7 +54,7 @@ struct FilterFactor: View {
                 CalculatedResultCard(
                     label: "Adjusted shutter speed (seconds)",
                     icon: "clock.circle.fill",
-                    result: "\(Int(round(compensated_shutter))) seconds",
+                    result: "\(compensated_shutter.clean) seconds",
                     background: Color(.systemPurple)
                 )
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
@@ -65,7 +65,7 @@ struct FilterFactor: View {
                 CalculatedResultCard(
                     label: "Adjusted aperture",
                     icon: "f.cursive.circle.fill",
-                    result: "f/\(Int(round(compensated_aperture)))",
+                    result: "f/\(compensated_aperture.clean)",
                     background: Color(.systemGreen)
                 )
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
@@ -101,16 +101,16 @@ struct FilterFactor: View {
     }
     
     private func calculate() {
+        let adjustment = pow(2, selected)
+
         if self.priority_mode == .aperture {
-            let adjustment = pow(2, self.selected.value)
-            let adjusted_speed = Double(self.shutter_speed)! * adjustment
+            let adjusted_speed = Double(shutter_speed)! * adjustment
 
             self.compensated_shutter = adjusted_speed
         }
         
         if self.priority_mode == .shutter {
-            let adjustment = pow(2, self.selected.value)
-            let adjusted_aperture = Double(self.aperture)! * (adjustment / 2)
+            let adjusted_aperture = Double(aperture)! * Double(adjustment / 2)
 
             self.compensated_aperture = closestValue(f_stops, adjusted_aperture)
         }
@@ -123,9 +123,9 @@ struct FilterFactor: View {
     func save() {
         let filterData = FilterData(context: managedObjectContext)
 
-        filterData.fStopReduction = selected.value
-        filterData.compensatedAperture = self.compensated_aperture
-        filterData.compensatedShutterSpeed = self.compensated_shutter
+        filterData.fStopReduction = selected
+        filterData.compensatedAperture = compensated_aperture
+        filterData.compensatedShutterSpeed = compensated_shutter
         filterData.timestamp = Date()
 
         saveContext()

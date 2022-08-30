@@ -133,7 +133,7 @@ struct BellowsExtension: View {
             let adjustment = pow(2, log2(factor))
             let adjusted_aperture = Double(self.aperture)! * (adjustment / 2)
 
-            self.compensated_aperture = "\(Int(closestValue(f_stops, adjusted_aperture)))"
+            self.compensated_aperture = "\(closestValue(f_stops, adjusted_aperture).clean)"
         } else {
             // Aperture priority mode
             if self.shutter_speed.contains(fractional_delimiter) {
