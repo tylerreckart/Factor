@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1267C028BE360E00D08D9F /* NotesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1267BF28BE360E00D08D9F /* NotesWidget.swift */; };
+		DB12682328BE43D200D08D9F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1267C628BE364900D08D9F /* WidgetKit.framework */; };
+		DB12682428BE43D200D08D9F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1267C828BE364900D08D9F /* SwiftUI.framework */; };
+		DB12682728BE43D200D08D9F /* AnselWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12682628BE43D200D08D9F /* AnselWidgets.swift */; };
+		DB12682928BE43D300D08D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB12682828BE43D300D08D9F /* Assets.xcassets */; };
+		DB12682D28BE43D300D08D9F /* AnselWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DB12682228BE43D200D08D9F /* AnselWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB1DBF9728B7E0AA00F2FE07 /* DashboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9628B7E0AA00F2FE07 /* DashboardToolbar.swift */; };
 		DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9828B7E18000F2FE07 /* ReciprocityForm.swift */; };
 		DB1DBF9B28B7E1AC00F2FE07 /* FilterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */; };
@@ -61,6 +67,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DB12682B28BE43D300D08D9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB560C2D287A6CC700CC891A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB12682128BE43D200D08D9F;
+			remoteInfo = AnselWidgetsExtension;
+		};
 		DB560C4B287A6CCA00CC891A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB560C2D287A6CC700CC891A /* Project object */;
@@ -77,7 +90,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DB1267D928BE364A00D08D9F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DB12682D28BE43D300D08D9F /* AnselWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		DB1267BF28BE360E00D08D9F /* NotesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesWidget.swift; sourceTree = "<group>"; };
+		DB1267C628BE364900D08D9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DB1267C828BE364900D08D9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		DB12680928BE3D3C00D08D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DB12682228BE43D200D08D9F /* AnselWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnselWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB12682628BE43D200D08D9F /* AnselWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnselWidgets.swift; sourceTree = "<group>"; };
+		DB12682828BE43D300D08D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB12682A28BE43D300D08D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB1DBF9628B7E0AA00F2FE07 /* DashboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardToolbar.swift; sourceTree = "<group>"; };
 		DB1DBF9828B7E18000F2FE07 /* ReciprocityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityForm.swift; sourceTree = "<group>"; };
 		DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterForm.swift; sourceTree = "<group>"; };
@@ -140,6 +175,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DB12681F28BE43D200D08D9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB12682428BE43D200D08D9F /* SwiftUI.framework in Frameworks */,
+				DB12682328BE43D200D08D9F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB560C32287A6CC700CC891A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,6 +209,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB1267BE28BE360000D08D9F /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				DB1267BF28BE360E00D08D9F /* NotesWidget.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		DB12682528BE43D200D08D9F /* AnselWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				DB12682628BE43D200D08D9F /* AnselWidgets.swift */,
+				DB12682828BE43D300D08D9F /* Assets.xcassets */,
+				DB12682A28BE43D300D08D9F /* Info.plist */,
+			);
+			path = AnselWidgets;
+			sourceTree = "<group>";
+		};
 		DB560C2C287A6CC700CC891A = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +236,7 @@
 				DB560C37287A6CC700CC891A /* Ansel */,
 				DB560C4D287A6CCA00CC891A /* AnselTests */,
 				DB560C57287A6CCA00CC891A /* AnselUITests */,
+				DB12682528BE43D200D08D9F /* AnselWidgets */,
 				DB560C36287A6CC700CC891A /* Products */,
 				DB901B4C287DC13500EC04D7 /* Frameworks */,
 			);
@@ -185,6 +248,7 @@
 				DB560C35287A6CC700CC891A /* Ansel.app */,
 				DB560C4A287A6CCA00CC891A /* AnselTests.xctest */,
 				DB560C54287A6CCA00CC891A /* AnselUITests.xctest */,
+				DB12682228BE43D200D08D9F /* AnselWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +256,8 @@
 		DB560C37287A6CC700CC891A /* Ansel */ = {
 			isa = PBXGroup;
 			children = (
+				DB12680928BE3D3C00D08D9F /* Info.plist */,
+				DB1267BE28BE360000D08D9F /* Widgets */,
 				DB901B2F287CB60E00EC04D7 /* Extensions.swift */,
 				DB901B31287CB62700EC04D7 /* Modifiers.swift */,
 				DB901B33287CB68600EC04D7 /* DataModels.swift */,
@@ -319,6 +385,8 @@
 			children = (
 				DB5A4A3B28BD2133006B093B /* StoreKit.framework */,
 				DB901B4D287DC13500EC04D7 /* CloudKit.framework */,
+				DB1267C628BE364900D08D9F /* WidgetKit.framework */,
+				DB1267C828BE364900D08D9F /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -345,6 +413,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DB12682128BE43D200D08D9F /* AnselWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB12682E28BE43D300D08D9F /* Build configuration list for PBXNativeTarget "AnselWidgetsExtension" */;
+			buildPhases = (
+				DB12681E28BE43D200D08D9F /* Sources */,
+				DB12681F28BE43D200D08D9F /* Frameworks */,
+				DB12682028BE43D200D08D9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnselWidgetsExtension;
+			productName = AnselWidgetsExtension;
+			productReference = DB12682228BE43D200D08D9F /* AnselWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DB560C34287A6CC700CC891A /* Ansel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB560C5E287A6CCA00CC891A /* Build configuration list for PBXNativeTarget "Ansel" */;
@@ -352,10 +437,12 @@
 				DB560C31287A6CC700CC891A /* Sources */,
 				DB560C32287A6CC700CC891A /* Frameworks */,
 				DB560C33287A6CC700CC891A /* Resources */,
+				DB1267D928BE364A00D08D9F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DB12682C28BE43D300D08D9F /* PBXTargetDependency */,
 			);
 			name = Ansel;
 			productName = Lumen;
@@ -405,9 +492,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					DB12682128BE43D200D08D9F = {
+						CreatedOnToolsVersion = 14.0;
+					};
 					DB560C34287A6CC700CC891A = {
 						CreatedOnToolsVersion = 13.3;
 					};
@@ -437,11 +527,20 @@
 				DB560C34287A6CC700CC891A /* Ansel */,
 				DB560C49287A6CCA00CC891A /* AnselTests */,
 				DB560C53287A6CCA00CC891A /* AnselUITests */,
+				DB12682128BE43D200D08D9F /* AnselWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DB12682028BE43D200D08D9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB12682928BE43D300D08D9F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB560C33287A6CC700CC891A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -469,6 +568,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DB12681E28BE43D200D08D9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB12682728BE43D200D08D9F /* AnselWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB560C31287A6CC700CC891A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -500,6 +607,7 @@
 				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
 				DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */,
+				DB1267C028BE360E00D08D9F /* NotesWidget.swift in Sources */,
 				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
 				DB80128D28BA590900AC7EAC /* Note.swift in Sources */,
@@ -540,6 +648,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DB12682C28BE43D300D08D9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB12682128BE43D200D08D9F /* AnselWidgetsExtension */;
+			targetProxy = DB12682B28BE43D300D08D9F /* PBXContainerItemProxy */;
+		};
 		DB560C4C287A6CCA00CC891A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DB560C34287A6CC700CC891A /* Ansel */;
@@ -553,11 +666,69 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		DB12682F28BE43D300D08D9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78FCYG6ZD9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnselWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AnselWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.AnselWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB12683028BE43D300D08D9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78FCYG6ZD9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AnselWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AnselWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.AnselWidgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DB560C5C287A6CCA00CC891A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "WhitePink WhiteRed WhiteCyan Sunrise Sunset Daylight Beta Pink Red Cyan";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "Six Colors";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = default;
@@ -621,7 +792,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "WhitePink WhiteRed WhiteCyan Sunrise Sunset Daylight Beta Pink Red Cyan";
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "Six Colors";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				ASSETCATALOG_COMPILER_STANDALONE_ICON_BEHAVIOR = default;
@@ -678,16 +849,18 @@
 		DB560C5F287A6CCA00CC891A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ansel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ansel;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -716,16 +889,18 @@
 		DB560C60287A6CCA00CC891A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ansel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ansel;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -830,6 +1005,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DB12682E28BE43D300D08D9F /* Build configuration list for PBXNativeTarget "AnselWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB12682F28BE43D300D08D9F /* Debug */,
+				DB12683028BE43D300D08D9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DB560C30287A6CC700CC891A /* Build configuration list for PBXProject "Ansel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

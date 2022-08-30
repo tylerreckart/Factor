@@ -21,6 +21,11 @@ struct AnselApp: App {
                 .preferredColorScheme(useDarkMode == true ? .dark : nil)
                 .accentColor(userAccentColor)
                 .font(.system(.body, design: .rounded))
+                .onOpenURL(perform: { url in
+                    print(url)
+                    let i = url
+                    let j = 0
+                })
         }
     }
 }
