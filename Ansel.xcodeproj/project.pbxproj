@@ -66,6 +66,7 @@
 		DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6128B64A2700186039 /* NavigationTile.swift */; };
 		DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6328B64B0000186039 /* Dashboard.swift */; };
 		DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */; };
+		DBE2816A28BEC3040074FD72 /* Lenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2816928BEC3040074FD72 /* Lenses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,7 @@
 		DBB4FA6128B64A2700186039 /* NavigationTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTile.swift; sourceTree = "<group>"; };
 		DBB4FA6328B64B0000186039 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedResultCard.swift; sourceTree = "<group>"; };
+		DBE2816928BEC3040074FD72 /* Lenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lenses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 				DB5A4A3928BBE9E3006B093B /* Premium.swift */,
 				DB5CB97828BE600A00DB1AED /* FilmOptions.swift */,
 				DB6ED6A428BEAA1200F4CE85 /* Cameras.swift */,
+				DBE2816928BEC3040074FD72 /* Lenses.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */,
+				DBE2816A28BEC3040074FD72 /* Lenses.swift in Sources */,
 				DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */,
 				DB1DBF9728B7E0AA00F2FE07 /* DashboardToolbar.swift in Sources */,
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,

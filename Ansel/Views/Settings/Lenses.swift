@@ -1,5 +1,5 @@
 //
-//  Cameras.swift
+//  Lenss.swift
 //  Ansel
 //
 //  Created by Tyler Reckart on 8/30/22.
@@ -7,30 +7,29 @@
 
 import SwiftUI
 
-struct CameraView: View {
+struct LensView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
     
-    var camera: Camera?
-    var delete: (Camera) -> Void
+    var lens: Lens?
+    var delete: (Lens) -> Void
 
     @State private var manufacturer: String = ""
-    @State private var model: String = ""
+    @State private var focalLength: String = ""
+    @State private var maximumAperture: Double = 2.8
     @State private var notes: String = ""
-    @State private var digital: Bool = false
-    @State private var bulbMode: Bool = false
     
+    @State private var showApertureMenu: Bool = false
     @State private var presentAlert: Bool = false
     
     func save() -> Void {
-        let target = camera ?? Camera(context: managedObjectContext)
+        let target = lens ?? Lens(context: managedObjectContext)
 
         target.manufacturer = manufacturer
-        target.model = model
-        target.digital = digital
-        target.bulbMode = bulbMode
+        target.focalLength = Int32(focalLength)!
+        target.maximumAperture = maximumAperture
         
         if notes.count > 0 {
             target.notes = notes
@@ -53,25 +52,50 @@ struct CameraView: View {
         List {
             Section {
                 TextField("Manufacturer e.g Leica", text: $manufacturer)
-                TextField("Model e.g M-10", text: $model)
+                TextField("Focal Length", text: $focalLength)
                 TextField("Notes", text: $notes)
             }
             
             Section {
-                Toggle("Digital", isOn: $digital)
-                    .toggleStyle(SwitchToggleStyle(tint: userAccentColor))
-                Toggle("Bulb Mode", isOn: $bulbMode)
-                    .toggleStyle(SwitchToggleStyle(tint: userAccentColor))
+                Button(action: {
+                    showApertureMenu.toggle()
+                }) {
+                    HStack {
+                        Text("Maximum Aperture")
+                            .foregroundColor(.primary)
+                        Spacer()
+                        Text("\(maximumAperture.clean)")
+                            .foregroundColor(Color(.systemGray))
+                            .padding(.trailing, 1)
+                        
+                        if !showApertureMenu {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.accentColor)
+                        } else {
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.accentColor)
+                        }
+                    }
+                }
+                
+                if showApertureMenu {
+                    Picker("Maximum Aperture", selection: $maximumAperture) {
+                        ForEach(f_stops, id: \.self) { opt in
+                            Text("\(opt.clean)")
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                }
             }
             
-            if camera != nil {
+            if lens != nil {
                 Section {
                     Button(action: {
                         presentAlert.toggle()
                     }) {
                         HStack {
                             Spacer()
-                            Text("Delete Camera")
+                            Text("Delete Lens")
                             Spacer()
                         }
                     }
@@ -79,28 +103,27 @@ struct CameraView: View {
                 }
             }
         }
-        .confirmationDialog("Delete Camera?", isPresented: $presentAlert) {
+        .confirmationDialog("Delete Lens?", isPresented: $presentAlert) {
             Button("Delete", role: .destructive) {
-                delete(camera!)
+                delete(lens!)
                 saveContext()
             }
         } message: {
             Text("Delete this camera? This action cannot be undone.")
           }
         .onAppear {
-            if camera != nil && camera?.manufacturer != nil && camera?.model != nil {
-                manufacturer = camera!.manufacturer!
-                model = camera!.model!
-                notes = camera!.notes ?? ""
-                digital = camera!.digital
-                bulbMode = camera!.bulbMode
+            if lens != nil && lens?.manufacturer != nil && lens?.focalLength != nil {
+                manufacturer = lens!.manufacturer!
+                focalLength = String(lens!.focalLength)
+                notes = lens!.notes ?? ""
+                maximumAperture = lens!.maximumAperture
             }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if (
                     manufacturer.count > 0 &&
-                    model.count > 0
+                    focalLength.count > 0
                 ) {
                     Button(action: {
                         save()
@@ -117,15 +140,15 @@ struct CameraView: View {
     }
 }
 
-struct AddCameraSheet: View {
+struct AddLensSheet: View {
     @Environment(\.presentationMode) var presentationMode
 
-    func emptyFunc(_ camera: Camera) -> Void {}
+    func emptyFunc(_ camera: Lens) -> Void {}
 
     var body: some View {
         NavigationView {
-            CameraView(delete: emptyFunc)
-                .navigationTitle("Add Camera")
+            LensView(delete: emptyFunc)
+                .navigationTitle("Add Lens")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -141,19 +164,19 @@ struct AddCameraSheet: View {
     }
 }
 
-struct Cameras: View {
+struct Lenses: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @FetchRequest(
-      entity: Camera.entity(),
+      entity: Lens.entity(),
       sortDescriptors: [
-        NSSortDescriptor(keyPath: \Camera.manufacturer, ascending: true)
+        NSSortDescriptor(keyPath: \Lens.manufacturer, ascending: true)
       ]
-    ) var fetchedResults: FetchedResults<Camera>
+    ) var fetchedResults: FetchedResults<Lens>
     
-    @State private var showAddCameraSheet: Bool = false
+    @State private var showAddLensSheet: Bool = false
     
-    func deleteCamera(camera: Camera) -> Void {
+    func deleteLens(camera: Lens) -> Void {
         managedObjectContext.delete(camera)
     }
 
@@ -162,7 +185,7 @@ struct Cameras: View {
             if fetchedResults.isEmpty {
                 VStack {
                     Spacer()
-                    Text("Add a camera to get started")
+                    Text("Add a lens to get started")
                         .foregroundColor(Color(.systemGray))
                     Spacer()
                 }
@@ -171,13 +194,13 @@ struct Cameras: View {
             } else {
                 List {
                     ForEach(fetchedResults, id: \.self) { result in
-                        NavigationLink(destination: CameraView(camera: result, delete: deleteCamera)) {
+                        NavigationLink(destination: LensView(lens: result, delete: deleteLens)) {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(result.manufacturer!)
                                         .font(.caption)
                                         .foregroundColor(Color(.systemGray))
-                                    Text(result.model!)
+                                    Text("\(result.focalLength)mm f/\(result.maximumAperture.clean)")
                                 }
                                 .padding([.top, .bottom], 1)
                             }
@@ -186,20 +209,20 @@ struct Cameras: View {
                 }
             }
         }
-        .navigationTitle("Cameras")
+        .navigationTitle("Lenses")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    showAddCameraSheet.toggle()
+                    showAddLensSheet.toggle()
                 }) {
                     Image(systemName: "plus")
                 }
                 .foregroundColor(.accentColor)
             }
         }
-        .sheet(isPresented: $showAddCameraSheet) {
-            AddCameraSheet()
+        .sheet(isPresented: $showAddLensSheet) {
+            AddLensSheet()
         }
     }
 }

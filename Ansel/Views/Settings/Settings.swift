@@ -18,6 +18,9 @@ struct Settings: View {
                     NavigationLink(destination: Cameras()) {
                         Text("Cameras")
                     }
+                    NavigationLink(destination: Lenses()) {
+                        Text("Lenses")
+                    }
                 }
 
                 Section(header: Text("Customization").font(.system(size: 12))) {
