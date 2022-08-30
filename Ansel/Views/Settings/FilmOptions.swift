@@ -53,13 +53,13 @@ struct EmulsionView: View {
     }
     
     func saveContext() {
-      do {
-        try managedObjectContext.save()
+        do {
+            try managedObjectContext.save()
 
-          presentationMode.wrappedValue.dismiss()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
+            presentationMode.wrappedValue.dismiss()
+        } catch {
+            print("Error saving managed object context: \(error)")
+        }
     }
 
     var body: some View {

@@ -1,0 +1,64 @@
+{
+  "identifier" : "073AC9C2",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "1642230521",
+    "_developerTeamID" : "78FCYG6ZD9",
+    "_lastSynchronizedDate" : 683486163.20121002
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21013599",
+      "localizations" : [
+
+      ],
+      "name" : "Premium Subscription",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "1642363939",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Annual premium subscription",
+              "displayName" : "Ansel Premium",
+              "locale" : "en_CA"
+            },
+            {
+              "description" : "Annual premium subscription",
+              "displayName" : "Ansel Premium",
+              "locale" : "en_GB"
+            },
+            {
+              "description" : "Annual premium subscription",
+              "displayName" : "Ansel Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "subscription.premium",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Ansel Premium (Annual)",
+          "subscriptionGroupID" : "21013599",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

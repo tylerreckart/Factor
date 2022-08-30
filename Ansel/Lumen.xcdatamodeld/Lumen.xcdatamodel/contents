@@ -11,6 +11,13 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="bellowsData" inverseEntity="Note"/>
     </entity>
+    <entity name="Camera" representedClassName="Camera" syncable="YES" codeGenerationType="class">
+        <attribute name="bulbMode" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="digital" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="manufacturer" attributeType="String" defaultValueString=""/>
+        <attribute name="model" attributeType="String" defaultValueString=""/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Emulsion" representedClassName="Emulsion" syncable="YES" codeGenerationType="class">
         <attribute name="iso" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="manufacturer" attributeType="String" defaultValueString=""/>

@@ -38,6 +38,7 @@
 		DB5A4A4328BD29C5006B093B /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB5A4A4228BD29C5006B093B /* Products.plist */; };
 		DB5CB97928BE600A00DB1AED /* FilmOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CB97828BE600A00DB1AED /* FilmOptions.swift */; };
 		DB5CB97C28BE618800DB1AED /* FilmStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CB97B28BE618800DB1AED /* FilmStock.swift */; };
+		DB6ED6A528BEAA1200F4CE85 /* Cameras.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6ED6A428BEAA1200F4CE85 /* Cameras.swift */; };
 		DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80123128B840AB00AC7EAC /* AppIcon.swift */; };
 		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
 		DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */; };
@@ -145,6 +146,7 @@
 		DB5CB97628BE49C000DB1AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB5CB97828BE600A00DB1AED /* FilmOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmOptions.swift; sourceTree = "<group>"; };
 		DB5CB97B28BE618800DB1AED /* FilmStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStock.swift; sourceTree = "<group>"; };
+		DB6ED6A428BEAA1200F4CE85 /* Cameras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cameras.swift; sourceTree = "<group>"; };
 		DB80123128B840AB00AC7EAC /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				DB5A4A3728BBE469006B093B /* Feedback.swift */,
 				DB5A4A3928BBE9E3006B093B /* Premium.swift */,
 				DB5CB97828BE600A00DB1AED /* FilmOptions.swift */,
+				DB6ED6A428BEAA1200F4CE85 /* Cameras.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				DB901B34287CB68600EC04D7 /* DataModels.swift in Sources */,
 				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
+				DB6ED6A528BEAA1200F4CE85 /* Cameras.swift in Sources */,
 				DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */,
 				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
@@ -860,7 +864,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
@@ -878,7 +882,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2022.0.2;
+				MARKETING_VERSION = 2022.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -901,7 +905,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
@@ -919,7 +923,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2022.0.2;
+				MARKETING_VERSION = 2022.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
