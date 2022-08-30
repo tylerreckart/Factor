@@ -46,9 +46,12 @@ struct NewNote: View {
 
     @State private var noteBody: String = ""
     
-    @State var showReciprocitySheet: Bool = false
-    @State var showFilterSheet: Bool = false
-    @State var showBellowsSheet: Bool = false
+    @State private var showReciprocitySheet: Bool = false
+    @State private var showFilterSheet: Bool = false
+    @State private var showBellowsSheet: Bool = false
+    @State private var showCameraSheet: Bool = false
+    @State private var showLensSheet: Bool = false
+    @State private var showFilmSheet: Bool = false
     
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedPhotosData: Set<UIImage> = []
@@ -58,6 +61,9 @@ struct NewNote: View {
     @State private var addedBellowsData: Set<BellowsExtensionData> = []
     @State private var addedReciprocityData: Set<ReciprocityData> = []
     @State private var addedFilterData: Set<FilterData> = []
+    @State private var addedCameraData: Camera?
+    @State private var addedLensData: Lens?
+    @State private var addedFilmData: Emulsion?
     
     @State private var showAlert: Bool = false
     @State private var alert: DataAlert?
@@ -84,6 +90,18 @@ struct NewNote: View {
         }
     }
     
+    func addCameraData(camera: Camera) -> Void {
+        addedCameraData = camera
+    }
+    
+    func addLensData(lens: Lens) -> Void {
+        addedLensData = lens
+    }
+    
+    func addFilmData(emulsion: Emulsion) -> Void {
+        addedFilmData = emulsion
+    }
+    
     func coreDataObjectFromImages(images: [UIImage]) -> Data? {
         let dataArray = NSMutableArray()
         
@@ -98,7 +116,7 @@ struct NewNote: View {
 
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 TextField("Start typing...", text: $noteBody, axis: .vertical)
                     .zIndex(1)
                     .textFieldStyle(.plain)
@@ -122,6 +140,73 @@ struct NewNote: View {
                     }
                     .padding(.bottom, 10)
                 }
+                
+                VStack(alignment: .leading) {
+                    if addedCameraData != nil {
+                        ZStack {
+                            HStack(spacing: 2) {
+                                Image(systemName: "camera")
+                                Text(addedCameraData!.manufacturer!)
+                                Text(addedCameraData!.model!)
+                            }
+                            .font(.caption)
+                            .foregroundColor(.accentColor)
+                        }
+                        .padding([.top, .bottom], 8)
+                        .padding([.leading, .trailing], 12)
+                        .background(Color.accentColor.opacity(0.05))
+                        .cornerRadius(.infinity)
+                    }
+                    
+                    if addedCameraData != nil && addedCameraData!.digital == false && addedFilmData == nil {
+                        Button(action: {
+                            showFilmSheet.toggle()
+                        }) {
+                            ZStack {
+                                Text("Add Film?")
+                                    .font(.caption)
+                                    .foregroundColor(Color(.systemGray))
+                            }
+                            .padding([.top, .bottom], 8)
+                            .padding([.leading, .trailing], 12)
+                            .background(Color(.systemGray).opacity(0.05))
+                            .cornerRadius(.infinity)
+                        }
+                    }
+                    
+                    if addedFilmData != nil {
+                        ZStack {
+                            HStack(spacing: 2) {
+                                Image(systemName: "film")
+                                Text(addedFilmData!.manufacturer!)
+                                Text(addedFilmData!.name!)
+                            }
+                            .font(.caption)
+                            .foregroundColor(.accentColor)
+                        }
+                        .padding([.top, .bottom], 8)
+                        .padding([.leading, .trailing], 12)
+                        .background(Color.accentColor.opacity(0.05))
+                        .cornerRadius(.infinity)
+                    }
+                    
+                    if addedLensData != nil {
+                        ZStack {
+                            HStack(spacing: 2) {
+                                Image(systemName: "camera.aperture")
+                                Text(addedLensData!.manufacturer!)
+                                Text("\(addedLensData!.focalLength)mm f/\(addedLensData!.maximumAperture.clean)")
+                            }
+                            .font(.caption)
+                            .foregroundColor(.accentColor)
+                        }
+                        .padding([.top, .bottom], 8)
+                        .padding([.leading, .trailing], 12)
+                        .background(Color.accentColor.opacity(0.05))
+                        .cornerRadius(.infinity)
+                    }
+                }
+                .padding(.bottom, 10)
                 
                 if addedReciprocityData.count > 0 {
                     VStack(alignment: .leading) {
@@ -184,6 +269,24 @@ struct NewNote: View {
                     }
                     
                     Menu {
+                        Button(action: {
+                            showCameraSheet.toggle()
+                        }) {
+                            Label("Add Camera", systemImage: "camera")
+                        }
+
+                        Button(action: {
+                            showLensSheet.toggle()
+                        }) {
+                            Label("Add Lens", systemImage: "camera.aperture")
+                        }
+
+                        Button(action: {
+                            showFilmSheet.toggle()
+                        }) {
+                            Label("Add Film", systemImage: "film")
+                        }
+
                         Button(action: {
                             if reciprocityData.count > 0 {
                                 showReciprocitySheet.toggle()
@@ -256,6 +359,15 @@ struct NewNote: View {
             .sheet(isPresented: $showBellowsSheet) {
                 AddBellowsDataSheet(addData: addBellowsData)
             }
+            .sheet(isPresented: $showCameraSheet) {
+                AddCameraDataSheet(addData: addCameraData)
+            }
+            .sheet(isPresented: $showLensSheet) {
+                AddLensDataSheet(addData: addLensData)
+            }
+            .sheet(isPresented: $showFilmSheet) {
+                AddFilmDataSheet(addData: addFilmData)
+            }
         }
     }
     
@@ -295,6 +407,18 @@ struct NewNote: View {
             
             if selectedPhotosData.count > 0 {
                 newNote.images = coreDataObjectFromImages(images: Array(selectedPhotosData))
+            }
+            
+            if addedCameraData != nil {
+                newNote.camera = addedCameraData
+            }
+            
+            if addedLensData != nil {
+                newNote.lens = addedLensData
+            }
+            
+            if addedFilmData != nil {
+                newNote.emulsion = addedFilmData
             }
             
             saveContext()

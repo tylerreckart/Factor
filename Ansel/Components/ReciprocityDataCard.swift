@@ -67,6 +67,7 @@ struct ReciprocityFactorData: View {
             }
             .frame(maxWidth: .infinity)
             .border(width: 1, edges: [.top], color: Color(.systemGray4))
+            .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
         }
         .padding(1)
         .background(Color(.systemGray4))

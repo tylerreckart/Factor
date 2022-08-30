@@ -18,6 +18,9 @@
 		DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */; };
 		DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */; };
 		DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */; };
+		DB33C6E228BEC8D600C0E2DF /* AddCameraDataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB33C6E128BEC8D600C0E2DF /* AddCameraDataSheet.swift */; };
+		DB33C6E428BEC90F00C0E2DF /* AddLensDataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB33C6E328BEC90F00C0E2DF /* AddLensDataSheet.swift */; };
+		DB33C6E728BEC93D00C0E2DF /* AddFilmDataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB33C6E628BEC93D00C0E2DF /* AddFilmDataSheet.swift */; };
 		DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */; };
 		DB3C5DE528BADDA3003852FA /* AddFilterDataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C5DE428BADDA3003852FA /* AddFilterDataSheet.swift */; };
 		DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* AnselApp.swift */; };
@@ -120,6 +123,9 @@
 		DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtensionHistorySheet.swift; sourceTree = "<group>"; };
 		DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityHistorySheet.swift; sourceTree = "<group>"; };
 		DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileSheet.swift; sourceTree = "<group>"; };
+		DB33C6E128BEC8D600C0E2DF /* AddCameraDataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCameraDataSheet.swift; sourceTree = "<group>"; };
+		DB33C6E328BEC90F00C0E2DF /* AddLensDataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLensDataSheet.swift; sourceTree = "<group>"; };
+		DB33C6E628BEC93D00C0E2DF /* AddFilmDataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFilmDataSheet.swift; sourceTree = "<group>"; };
 		DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataCard.swift; sourceTree = "<group>"; };
 		DB3C5DE428BADDA3003852FA /* AddFilterDataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFilterDataSheet.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Ansel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ansel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +229,19 @@
 				DB12682A28BE43D300D08D9F /* Info.plist */,
 			);
 			path = AnselWidgets;
+			sourceTree = "<group>";
+		};
+		DB33C6E528BEC91D00C0E2DF /* DataSheets */ = {
+			isa = PBXGroup;
+			children = (
+				DB80128528B9ADB500AC7EAC /* AddBellowsDataSheet.swift */,
+				DB80129228BABD1C00AC7EAC /* AddReciprocityDataSheet.swift */,
+				DB3C5DE428BADDA3003852FA /* AddFilterDataSheet.swift */,
+				DB33C6E128BEC8D600C0E2DF /* AddCameraDataSheet.swift */,
+				DB33C6E328BEC90F00C0E2DF /* AddLensDataSheet.swift */,
+				DB33C6E628BEC93D00C0E2DF /* AddFilmDataSheet.swift */,
+			);
+			path = DataSheets;
 			sourceTree = "<group>";
 		};
 		DB560C2C287A6CC700CC891A = {
@@ -338,13 +357,11 @@
 		DB80128428B9ADA800AC7EAC /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				DB33C6E528BEC91D00C0E2DF /* DataSheets */,
 				DB901B48287DBF7300EC04D7 /* Notes.swift */,
 				DB80128E28BA593000AC7EAC /* NoteList.swift */,
 				DB80128A28BA58CF00AC7EAC /* NewNote.swift */,
 				DB80128C28BA590900AC7EAC /* Note.swift */,
-				DB80128528B9ADB500AC7EAC /* AddBellowsDataSheet.swift */,
-				DB80129228BABD1C00AC7EAC /* AddReciprocityDataSheet.swift */,
-				DB3C5DE428BADDA3003852FA /* AddFilterDataSheet.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -592,6 +609,7 @@
 				DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */,
 				DBE2816A28BEC3040074FD72 /* Lenses.swift in Sources */,
 				DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */,
+				DB33C6E728BEC93D00C0E2DF /* AddFilmDataSheet.swift in Sources */,
 				DB1DBF9728B7E0AA00F2FE07 /* DashboardToolbar.swift in Sources */,
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,
 				DB80128F28BA593000AC7EAC /* NoteList.swift in Sources */,
@@ -631,8 +649,10 @@
 				DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
+				DB33C6E228BEC8D600C0E2DF /* AddCameraDataSheet.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,
 				DB5A4A4128BD2762006B093B /* Store.swift in Sources */,
+				DB33C6E428BEC90F00C0E2DF /* AddLensDataSheet.swift in Sources */,
 				DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */,
 				DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */,
 				DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */,

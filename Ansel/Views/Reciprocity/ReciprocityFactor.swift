@@ -65,11 +65,11 @@ struct Reciprocity: View {
     }
 
     func saveContext() {
-      do {
-        try managedObjectContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error saving managed object context: \(error)")
+        }
     }
     
     func save() {
@@ -79,11 +79,11 @@ struct Reciprocity: View {
         newReciprocityData.timestamp = Date()
         
         let optionData = ReciprocityOption(context: managedObjectContext)
-        optionData.key = self.selected!.name
-        optionData.value = self.reciprocity_factor
+        optionData.key = selected!.name
+        optionData.value = selected!.pFactor
         newReciprocityData.selectedOption = optionData
 
-      saveContext()
+        saveContext()
     }
 
     private func calculate() {
