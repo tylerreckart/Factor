@@ -46,11 +46,9 @@ struct AppIcon: View {
 }
 
 struct AppIconSettings: View {
-    let accentIcons: [String?] = []
-    let formalIcons: [String?] = []
-    let prideIcons: [String?] = ["Six Colors"]
-    let colorwayIcons: [String?] = []
-    let graphicIcons: [String?] = []
+    let prideIcons: [String?] = ["Pride"]
+    let colorwayIcons: [String?] = ["Opposite Day", "Midnight", "Under The Radar", "Phantom", "Sixty Four", "Golden Flashes", "Smoky Mountains", "Jack O'Lantern"]
+    let graphicIcons: [String?] = ["Sunrise", "Daylight", "Sunset"]
     
     @State private var currentIcon: String = ""
 
@@ -59,31 +57,19 @@ struct AppIconSettings: View {
     var body: some View {
         VStack {
             List {
-//                Section(header: Text("Standard").font(.system(size: 12))) {
-//                    AppIcon(icon: "Ansel", currentIcon: $currentIcon)
-//                }
-                
-                Section(header: Text("Accent").font(.system(size: 12))) {
-                    ForEach(0 ..< accentIcons.count) { index in
-                        AppIcon(icon: accentIcons[index]!, currentIcon: $currentIcon)
-                    }
-                }
-
-                Section(header: Text("Formal").font(.system(size: 12))) {
-                    ForEach(0 ..< formalIcons.count) { index in
-                        AppIcon(icon: formalIcons[index]!, currentIcon: $currentIcon)
-                    }
-                }
-                
-                Section(header: Text("Pride").font(.system(size: 12))) {
-                    ForEach(0 ..< prideIcons.count) { index in
-                        AppIcon(icon: prideIcons[index]!, currentIcon: $currentIcon)
-                    }
+                Section(header: Text("Standard").font(.system(size: 12))) {
+                    AppIcon(icon: "Ansel", currentIcon: $currentIcon)
                 }
                 
                 Section(header: Text("Colorway").font(.system(size: 12))) {
-                    ForEach(0 ..< accentIcons.count) { index in
+                    ForEach(0 ..< colorwayIcons.count) { index in
                         AppIcon(icon: colorwayIcons[index]!, currentIcon: $currentIcon)
+                    }
+                }
+
+                Section(header: Text("Pride").font(.system(size: 12))) {
+                    ForEach(0 ..< prideIcons.count) { index in
+                        AppIcon(icon: prideIcons[index]!, currentIcon: $currentIcon)
                     }
                 }
                 

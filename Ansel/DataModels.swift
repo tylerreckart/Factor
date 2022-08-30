@@ -26,7 +26,7 @@ struct FilterDropdownOption: Hashable {
 }
 
 struct DashboardTile: Identifiable, Equatable {
-    static func ==(lhs: DashboardTile, rhs: DashboardTile) -> Bool {
+    static func == (lhs: DashboardTile, rhs: DashboardTile) -> Bool {
         return lhs.id == rhs.id
     }
 

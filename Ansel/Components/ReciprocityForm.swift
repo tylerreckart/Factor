@@ -12,11 +12,20 @@ enum ReciprocityFormField: Hashable {
 }
 
 struct ReciprocityForm: View {
+    @FetchRequest(
+      entity: Emulsion.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \Emulsion.manufacturer, ascending: true)
+      ]
+    ) var emulsions: FetchedResults<Emulsion>
+
     @Binding var shutter_speed: String
 
     var calculate: () -> Void
     
-    @Binding var selected: ReciprocityDropdownOption
+    @Binding var selected: Emulsion?
+
+    @State private var showEmulsionPicker: Bool = false
     
     @FocusState private var focusedField: ReciprocityFormField?
     
@@ -34,33 +43,63 @@ struct ReciprocityForm: View {
                 .padding(.top)
             
             VStack(spacing: -1) {
-                HStack {
-                    Text("Film Stock")
-                        .font(.system(.caption))
-                        .frame(height: 55, alignment: .leading)
-                        .foregroundColor(.gray)
-                        .padding([.leading, .trailing])
-                        .background(Color(.systemGray6))
-                        .border(width: 1, edges: [.trailing], color: Color(.systemGray5))
-            
-                    Picker("Select a film stock", selection: $selected) {
-                        ForEach(reciprocity_options, id: \.self) {
-                            Text($0.key)
+                VStack {
+                    HStack {
+                        Text("Film Stock")
+                            .font(.system(.caption))
+                            .frame(height: 55, alignment: .leading)
+                            .foregroundColor(.gray)
+                            .padding([.leading, .trailing])
+                            .background(Color(.systemGray6))
+                            .border(width: 1, edges: [.trailing], color: Color(.systemGray5))
+                        
+                        Button(action: {
+                            showEmulsionPicker.toggle()
+                        }) {
+                            HStack {
+                                Spacer()
+                                Menu {
+                                    ForEach(emulsions, id: \.self) { emulsion in
+                                        Button(action: {
+                                            selected = emulsion
+                                        }) {
+                                            Text(emulsion.name!)
+                                        }
+                                    }
+                                } label: {
+                                    if selected == nil {
+                                        Spacer()
+                                        Text("Select an Emulsion")
+                                            .foregroundColor(.accentColor)
+                                        Spacer()
+                                    } else {
+                                        let option = selected!
+                                        
+                                        HStack {
+                                            Spacer()
+                                            Text("\(option.manufacturer!) \(option.name!)")
+                                            Spacer()
+                                        }
+                                        .foregroundColor(.accentColor)
+                                    }
+                                }
+                            }
+                            .frame(height: 55, alignment: .trailing)
+                            .background(.background)
                         }
                     }
-                    .pickerStyle(.menu)
-                    .frame(maxWidth: .infinity)
                 }
-                .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.topLeft, .topRight])
+                .cornerRadius(3, corners: [.topLeft, .topRight])
                 
-                FormInput(
-                    text: $shutter_speed,
-                    placeholder: "Shutter Speed (seconds)"
-                )
+                FormInput(text: $shutter_speed, placeholder: "Shutter Speed (seconds)")
+                    .background(.background)
+                    .border(width: 1, edges: [.top], color: Color(.systemGray5))
                     .focused($focusedField, equals: .shutter)
-                    .padding(.bottom, 4)
-                    .addBorder(Color(.systemGray5), width: 1, cornerRadius: 4, corners: [.bottomLeft, .bottomRight])
+                    .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
             }
+            .padding(1)
+            .background(Color(.systemGray5))
+            .cornerRadius(4)
 
             CalculateButton(calculate: calculateWithFocus, isDisabled: self.shutter_speed.count == 0)
         }

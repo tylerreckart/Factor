@@ -23,6 +23,15 @@ struct Settings: View {
 //                        }
 //                    }
 //                }
+                
+                Section {
+                    NavigationLink(destination: FilmStocks()) {
+                        Text("Film Stocks")
+                    }
+                    NavigationLink(destination: EmptyView()) {
+                        Text("Cameras")
+                    }
+                }
 
                 Section(header: Text("Customization").font(.system(size: 12))) {
                     NavigationLink(destination: ThemeSettings()) {

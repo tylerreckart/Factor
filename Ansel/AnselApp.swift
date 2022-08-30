@@ -1,6 +1,6 @@
 //
-//  LumenApp.swift
-//  Lumen
+//  AnselApp.swift
+//  Ansel
 //
 //  Created by Tyler Reckart on 7/9/22.
 //
@@ -21,11 +21,6 @@ struct AnselApp: App {
                 .preferredColorScheme(useDarkMode == true ? .dark : nil)
                 .accentColor(userAccentColor)
                 .font(.system(.body, design: .rounded))
-                .onOpenURL(perform: { url in
-                    print(url)
-                    let i = url
-                    let j = 0
-                })
         }
     }
 }

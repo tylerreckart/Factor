@@ -20,24 +20,18 @@ struct Reciprocity: View {
     @State private var shutter_speed: String = ""
     @State private var reciprocity_factor: Double = 1.43
     @State private var adjusted_shutter_speed: Double?
-    @State private var selected: ReciprocityDropdownOption = ReciprocityDropdownOption(key: "SFX (>1 Second)", value: 1.43)
+    @State private var selected: Emulsion?
     
     @State private var showingHistorySheet: Bool = false
 
     var body: some View {
         ScrollView {
-            VStack {
-                ReciprocityForm(
-                    shutter_speed: $shutter_speed,
-                    calculate: self.calculate,
-                    selected: $selected
-                )
-            }
-            .padding([.leading, .trailing, .bottom])
-            .background(.background)
-            .cornerRadius(18)
-            .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-            .padding([.leading, .trailing, .bottom])
+            ReciprocityForm(shutter_speed: $shutter_speed, calculate: calculate, selected: $selected)
+                .padding([.leading, .trailing, .bottom])
+                .background(.background)
+                .cornerRadius(18)
+                .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
+                .padding([.leading, .trailing, .bottom])
 
             if adjusted_shutter_speed ?? 0 > 0 {
                 CalculatedResultCard(
@@ -85,7 +79,7 @@ struct Reciprocity: View {
         newReciprocityData.timestamp = Date()
         
         let optionData = ReciprocityOption(context: managedObjectContext)
-        optionData.key = self.selected.key
+        optionData.key = self.selected!.name
         optionData.value = self.reciprocity_factor
         newReciprocityData.selectedOption = optionData
 
@@ -93,7 +87,16 @@ struct Reciprocity: View {
     }
 
     private func calculate() {
-        self.adjusted_shutter_speed = pow(Double(self.shutter_speed) ?? 1.0, self.selected.value)
+        let threshold = selected!.threshold
+        let speedInt = Int(shutter_speed)
+        
+        if threshold < speedInt! {
+            adjusted_shutter_speed = pow(
+                Double(shutter_speed)!, selected!.pFactor
+            )
+        } else {
+            adjusted_shutter_speed = Double(shutter_speed)
+        }
         save()
     }
 }

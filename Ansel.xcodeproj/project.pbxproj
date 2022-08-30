@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB1267C028BE360E00D08D9F /* NotesWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1267BF28BE360E00D08D9F /* NotesWidget.swift */; };
 		DB12682328BE43D200D08D9F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1267C628BE364900D08D9F /* WidgetKit.framework */; };
 		DB12682428BE43D200D08D9F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1267C828BE364900D08D9F /* SwiftUI.framework */; };
 		DB12682728BE43D200D08D9F /* AnselWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12682628BE43D200D08D9F /* AnselWidgets.swift */; };
@@ -37,6 +36,8 @@
 		DB5A4A3C28BD2133006B093B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5A4A3B28BD2133006B093B /* StoreKit.framework */; };
 		DB5A4A4128BD2762006B093B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A4028BD2762006B093B /* Store.swift */; };
 		DB5A4A4328BD29C5006B093B /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB5A4A4228BD29C5006B093B /* Products.plist */; };
+		DB5CB97928BE600A00DB1AED /* FilmOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CB97828BE600A00DB1AED /* FilmOptions.swift */; };
+		DB5CB97C28BE618800DB1AED /* FilmStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CB97B28BE618800DB1AED /* FilmStock.swift */; };
 		DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80123128B840AB00AC7EAC /* AppIcon.swift */; };
 		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
 		DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */; };
@@ -105,7 +106,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DB1267BF28BE360E00D08D9F /* NotesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesWidget.swift; sourceTree = "<group>"; };
 		DB1267C628BE364900D08D9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DB1267C828BE364900D08D9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DB12682228BE43D200D08D9F /* AnselWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnselWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +143,8 @@
 		DB5A4A4228BD29C5006B093B /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		DB5A4A4428BD3372006B093B /* Terms.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Terms.md; sourceTree = "<group>"; };
 		DB5CB97628BE49C000DB1AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB5CB97828BE600A00DB1AED /* FilmOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmOptions.swift; sourceTree = "<group>"; };
+		DB5CB97B28BE618800DB1AED /* FilmStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStock.swift; sourceTree = "<group>"; };
 		DB80123128B840AB00AC7EAC /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
@@ -209,14 +211,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DB1267BE28BE360000D08D9F /* Widgets */ = {
-			isa = PBXGroup;
-			children = (
-				DB1267BF28BE360E00D08D9F /* NotesWidget.swift */,
-			);
-			path = Widgets;
-			sourceTree = "<group>";
-		};
 		DB12682528BE43D200D08D9F /* AnselWidgets */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +250,7 @@
 		DB560C37287A6CC700CC891A /* Ansel */ = {
 			isa = PBXGroup;
 			children = (
-				DB1267BE28BE360000D08D9F /* Widgets */,
+				DB5CB97A28BE617A00DB1AED /* Models */,
 				DB901B2F287CB60E00EC04D7 /* Extensions.swift */,
 				DB901B31287CB62700EC04D7 /* Modifiers.swift */,
 				DB901B33287CB68600EC04D7 /* DataModels.swift */,
@@ -303,6 +297,14 @@
 			path = AnselUITests;
 			sourceTree = "<group>";
 		};
+		DB5CB97A28BE617A00DB1AED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB5CB97B28BE618800DB1AED /* FilmStock.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DB80123028B840A300AC7EAC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +315,7 @@
 				DB5A4A3528BBE041006B093B /* About.swift */,
 				DB5A4A3728BBE469006B093B /* Feedback.swift */,
 				DB5A4A3928BBE9E3006B093B /* Premium.swift */,
+				DB5CB97828BE600A00DB1AED /* FilmOptions.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -607,13 +610,14 @@
 				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
 				DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */,
-				DB1267C028BE360E00D08D9F /* NotesWidget.swift in Sources */,
 				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
 				DB80128D28BA590900AC7EAC /* Note.swift in Sources */,
 				DB80128B28BA58CF00AC7EAC /* NewNote.swift in Sources */,
+				DB5CB97928BE600A00DB1AED /* FilmOptions.swift in Sources */,
 				DB901B3D287CB99500EC04D7 /* BellowsExtensionFactor.swift in Sources */,
 				DBB4FA5928AF211800186039 /* Constants.swift in Sources */,
+				DB5CB97C28BE618800DB1AED /* FilmStock.swift in Sources */,
 				DB3C5DE528BADDA3003852FA /* AddFilterDataSheet.swift in Sources */,
 				DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */,
 				DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */,
@@ -850,6 +854,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -890,6 +895,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;

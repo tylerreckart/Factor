@@ -17,7 +17,7 @@ struct ReciprocityHistorySheet: View {
     @FetchRequest(
       entity: ReciprocityData.entity(),
       sortDescriptors: [
-        NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: true)
+        NSSortDescriptor(keyPath: \ReciprocityData.timestamp, ascending: false)
       ]
     ) var results: FetchedResults<ReciprocityData>
     

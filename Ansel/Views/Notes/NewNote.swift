@@ -216,10 +216,9 @@ struct NewNote: View {
                         }) {
                             Label("Add Bellows Data", systemImage: "arrow.up.backward.and.arrow.down.forward.circle")
                         }
+                    } label: {
+                        Label("Add Data", systemImage: "ellipsis.circle")
                     }
-                label: {
-                    Label("Add Data", systemImage: "ellipsis.circle")
-                }
                     
                     if noteBody.count > 0 {
                         if isSaving {
