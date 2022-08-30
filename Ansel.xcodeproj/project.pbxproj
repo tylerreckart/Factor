@@ -108,7 +108,6 @@
 		DB1267BF28BE360E00D08D9F /* NotesWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesWidget.swift; sourceTree = "<group>"; };
 		DB1267C628BE364900D08D9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DB1267C828BE364900D08D9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		DB12680928BE3D3C00D08D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DB12682228BE43D200D08D9F /* AnselWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnselWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB12682628BE43D200D08D9F /* AnselWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnselWidgets.swift; sourceTree = "<group>"; };
 		DB12682828BE43D300D08D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +142,7 @@
 		DB5A4A4028BD2762006B093B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DB5A4A4228BD29C5006B093B /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		DB5A4A4428BD3372006B093B /* Terms.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Terms.md; sourceTree = "<group>"; };
+		DB5CB97628BE49C000DB1AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB80123128B840AB00AC7EAC /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
@@ -256,7 +256,6 @@
 		DB560C37287A6CC700CC891A /* Ansel */ = {
 			isa = PBXGroup;
 			children = (
-				DB12680928BE3D3C00D08D9F /* Info.plist */,
 				DB1267BE28BE360000D08D9F /* Widgets */,
 				DB901B2F287CB60E00EC04D7 /* Extensions.swift */,
 				DB901B31287CB62700EC04D7 /* Modifiers.swift */,
@@ -274,6 +273,7 @@
 				DB560C41287A6CCA00CC891A /* Persistence.swift */,
 				DB560C43287A6CCA00CC891A /* Lumen.xcdatamodeld */,
 				DB560C3E287A6CCA00CC891A /* Preview Content */,
+				DB5CB97628BE49C000DB1AED /* Info.plist */,
 			);
 			path = Ansel;
 			sourceTree = "<group>";
@@ -859,8 +859,8 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Ansel/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = /Users/tylerreckart/dev/Ansel/Ansel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ansel;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -899,8 +899,8 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Ansel/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = /Users/tylerreckart/dev/Ansel/Ansel/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ansel;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
