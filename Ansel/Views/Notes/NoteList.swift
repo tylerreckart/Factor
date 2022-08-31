@@ -218,7 +218,7 @@ struct NoteList: View {
                 Spacer()
                 HStack(alignment: .center) {
                     Spacer()
-                    Text("\(results.count) Notes")
+                    Text("\(results.count) \(results.count == 1 ? "Note" : "Notes")")
                         .font(.caption)
                         .foregroundColor(.primary)
                         .padding(.top, 5)
