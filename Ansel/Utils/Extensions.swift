@@ -18,6 +18,12 @@ extension Color {
     }
 }
 
+extension Date {
+    var month: Int {
+        return Calendar.current.component(.month, from: self)
+    }
+}
+
 // MARK: - UIApplication extension for resgning keyboard on pressing the cancel buttion of the search bar
 extension UIApplication {
     /// Resigns the keyboard.

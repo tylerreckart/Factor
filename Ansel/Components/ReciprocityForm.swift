@@ -102,6 +102,7 @@ struct ReciprocityForm: View {
             .cornerRadius(4)
 
             CalculateButton(calculate: calculateWithFocus, isDisabled: self.shutter_speed.count == 0)
+                .padding(.top, 5)
         }
     }
 }
