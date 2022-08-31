@@ -103,11 +103,44 @@ struct LinkedNavigationTile: View {
     @Binding var isEditing: Bool
     
     var removeTile: (String) -> Void
+    
+    var url: String
+    
+    @State private var shouldNavigate: Bool = false
+    
+    var changeNavState: Bool = false
+    
+    init(
+        tile: DashboardTile,
+        isDisabled: Bool,
+        draggingTile: Binding<DashboardTile?>,
+        isEditing: Binding<Bool>,
+        removeTile: @escaping (String) -> Void,
+        url: String,
+        shouldNavigate: Bool
+    ) {
+        self.tile = tile
+        self.isDisabled = isDisabled
+        self._draggingTile = draggingTile
+        self._isEditing = isEditing
+        self.removeTile = removeTile
+        self.url = url
+        self.shouldNavigate = shouldNavigate
+        
+        if url == tile.url {
+            changeNavState = true
+        } else {
+            self.shouldNavigate = shouldNavigate
+        }
+    }
 
     var body: some View {
         if !isEditing {
-            NavigationLink(destination: AnyView(tile.destination)) {
+            NavigationLink(destination: AnyView(tile.destination), isActive: $shouldNavigate) {
                 SimpleTile(tile: tile, isEditing: $isEditing, removeTile: removeTile)
+            }
+            .onChange(of: changeNavState) { newState in
+                shouldNavigate = newState
             }
         } else {
             SimpleTile(tile: tile, isEditing: $isEditing, removeTile: removeTile)

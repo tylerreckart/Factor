@@ -39,4 +39,5 @@ struct DashboardTile: Identifiable, Equatable {
     var icon: String
     var background: Color
     var destination: AnyView
+    var url: String
 }

@@ -100,6 +100,8 @@ struct DashboardTileView<Content: View, DashboardTile: Identifiable & Equatable>
 }
 
 struct Dashboard: View {
+    var url: String?
+
     @AppStorage("userDashboardLayout") var dashboard: [String] = dashboard_tiles.map { $0.id }
 
     @State private var layout: [DashboardTile] = []
@@ -147,9 +149,12 @@ struct Dashboard: View {
                     DashboardTileView(tiles: $layout, draggingTile: $draggingTile) { tile in
                         LinkedNavigationTile(
                             tile: tile,
+                            isDisabled: false,
                             draggingTile: $draggingTile,
                             isEditing: $isEditing,
-                            removeTile: removeTile
+                            removeTile: removeTile,
+                            url: url ?? "",
+                            shouldNavigate: false
                         )
                     } moveAction: { from, to in
                         moveTile(from, to)

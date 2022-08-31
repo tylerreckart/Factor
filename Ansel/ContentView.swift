@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var url: String?
+
     var body: some View {
-        Dashboard()
+        Dashboard(url: url)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

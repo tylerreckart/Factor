@@ -44,7 +44,7 @@ struct AnselWidgetEntryView : View {
     let image: String
     let label: String
     let background: Color
-    let url: URL
+    let url: String
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -64,7 +64,7 @@ struct AnselWidgetEntryView : View {
         .foregroundColor(.white)
         .background(background)
         .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
-        .widgetURL(url)
+        .widgetURL(URL(string: url))
     }
 }
 
@@ -78,7 +78,7 @@ struct NotesWidget: Widget {
                 image: "bookmark.circle.fill",
                 label: "Notes",
                 background: Color(.systemYellow),
-                url: URL(string: "ansel:notes")!
+                url: "Ansel://notes"
             )
         }
         .configurationDisplayName("Ansel Notebook")
@@ -97,7 +97,7 @@ struct ReciprocityWidget: Widget {
                 image: "moon.stars.circle.fill",
                 label: "Reciprocity",
                 background: Color(.systemPurple),
-                url: URL(string: "ansel:reciprocity")!
+                url: "Ansel://reciprocityFactor"
             )
         }
         .configurationDisplayName("Recirprocity Factor")
@@ -116,7 +116,7 @@ struct FilterWidget: Widget {
                 image: "cloud.circle.fill",
                 label: "Filter Factor",
                 background: Color(.systemGreen),
-                url: URL(string: "ansel:filterfactor")!
+                url: "Ansel://filterFactor"
             )
         }
         .configurationDisplayName("Filter Factor")
@@ -135,7 +135,7 @@ struct BellowsWidget: Widget {
                 image: "arrow.up.backward.and.arrow.down.forward.circle.fill",
                 label: "Bellows Extension Factor",
                 background: Color(.systemBlue),
-                url: URL(string: "ansel:bellowsfactor")!
+                url: "Ansel://bellowsExtension"
             )
         }
         .configurationDisplayName("Bellows Extension Factor")

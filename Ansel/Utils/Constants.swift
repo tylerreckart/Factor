@@ -31,27 +31,34 @@ let dashboard_tiles = [
         label: "Notes",
         icon: "bookmark.circle.fill",
         background: Color(.systemYellow),
-        destination: AnyView(Notes())
+        destination: AnyView(Notes()),
+        url: "Ansel://notes"
     ),
     DashboardTile(
         key: "reciprocity_factor",
         label: "Reciprocity Factor",
         icon: "moon.stars.circle.fill",
         background: Color(.systemPurple),
-        destination: AnyView(Reciprocity())
+        destination: AnyView(Reciprocity()),
+        url: "Ansel://reciprocityFactor"
+
     ),
     DashboardTile(
         key: "bellows_extension_factor",
         label: "Bellows Extension Factor",
         icon: "arrow.up.backward.and.arrow.down.forward.circle.fill",
         background: Color(.systemBlue),
-        destination: AnyView(BellowsExtension())
+        destination: AnyView(BellowsExtension()),
+        url: "Ansel://bellowsExtension"
+
     ),
     DashboardTile(
         key: "filter_factor",
         label: "Filter Factor",
         icon: "cloud.circle.fill",
         background: Color(.systemGreen),
-        destination: AnyView(FilterFactor())
+        destination: AnyView(FilterFactor()),
+        url: "Ansel://filterFactor"
+
     ),
 ]

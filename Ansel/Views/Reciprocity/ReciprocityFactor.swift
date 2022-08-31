@@ -46,7 +46,7 @@ struct Reciprocity: View {
         }
         .background(Color(.systemGray6))
         .navigationTitle("Reciprocity Factor")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             if fetchedResults.count > 0 {
                 HStack {

@@ -26,7 +26,6 @@
 		DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* AnselApp.swift */; };
 		DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C3A287A6CC700CC891A /* ContentView.swift */; };
 		DB560C3D287A6CCA00CC891A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB560C3C287A6CCA00CC891A /* Assets.xcassets */; };
-		DB560C40287A6CCA00CC891A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB560C3F287A6CCA00CC891A /* Preview Assets.xcassets */; };
 		DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C41287A6CCA00CC891A /* Persistence.swift */; };
 		DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB560C43287A6CCA00CC891A /* Lumen.xcdatamodeld */; };
 		DB560C4F287A6CCA00CC891A /* LumenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C4E287A6CCA00CC891A /* LumenTests.swift */; };
@@ -132,7 +131,6 @@
 		DB560C38287A6CC700CC891A /* AnselApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnselApp.swift; sourceTree = "<group>"; };
 		DB560C3A287A6CC700CC891A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB560C3C287A6CCA00CC891A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DB560C3F287A6CCA00CC891A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB560C41287A6CCA00CC891A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		DB560C44287A6CCA00CC891A /* Lumen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lumen.xcdatamodel; sourceTree = "<group>"; };
 		DB560C4A287A6CCA00CC891A /* AnselTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnselTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +242,18 @@
 			path = DataSheets;
 			sourceTree = "<group>";
 		};
+		DB513DE428BEFA6800235E9D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DB901B2F287CB60E00EC04D7 /* Extensions.swift */,
+				DB901B31287CB62700EC04D7 /* Modifiers.swift */,
+				DB901B33287CB68600EC04D7 /* DataModels.swift */,
+				DBB4FA5028AD4A8500186039 /* Utils.swift */,
+				DBB4FA5828AF211800186039 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		DB560C2C287A6CC700CC891A = {
 			isa = PBXGroup;
 			children = (
@@ -273,34 +283,21 @@
 		DB560C37287A6CC700CC891A /* Ansel */ = {
 			isa = PBXGroup;
 			children = (
+				DB513DE428BEFA6800235E9D /* Utils */,
 				DB5CB97A28BE617A00DB1AED /* Models */,
-				DB901B2F287CB60E00EC04D7 /* Extensions.swift */,
-				DB901B31287CB62700EC04D7 /* Modifiers.swift */,
-				DB901B33287CB68600EC04D7 /* DataModels.swift */,
-				DBB4FA5028AD4A8500186039 /* Utils.swift */,
-				DBB4FA5828AF211800186039 /* Constants.swift */,
 				DBB4FA5628AD739A00186039 /* Components */,
 				DB901B2D287CB5EE00EC04D7 /* Views */,
 				DB560C38287A6CC700CC891A /* AnselApp.swift */,
+				DB560C3A287A6CC700CC891A /* ContentView.swift */,
+				DB560C41287A6CCA00CC891A /* Persistence.swift */,
 				DB5A4A4028BD2762006B093B /* Store.swift */,
 				DB5A4A3D28BD2668006B093B /* Subscriptions.storekit */,
 				DB5A4A4228BD29C5006B093B /* Products.plist */,
-				DB560C3A287A6CC700CC891A /* ContentView.swift */,
-				DB560C3C287A6CCA00CC891A /* Assets.xcassets */,
-				DB560C41287A6CCA00CC891A /* Persistence.swift */,
-				DB560C43287A6CCA00CC891A /* Lumen.xcdatamodeld */,
-				DB560C3E287A6CCA00CC891A /* Preview Content */,
 				DB5CB97628BE49C000DB1AED /* Info.plist */,
+				DB560C43287A6CCA00CC891A /* Lumen.xcdatamodeld */,
+				DB560C3C287A6CCA00CC891A /* Assets.xcassets */,
 			);
 			path = Ansel;
-			sourceTree = "<group>";
-		};
-		DB560C3E287A6CCA00CC891A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				DB560C3F287A6CCA00CC891A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		DB560C4D287A6CCA00CC891A /* AnselTests */ = {
@@ -571,7 +568,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB560C40287A6CCA00CC891A /* Preview Assets.xcassets in Resources */,
 				DB560C3D287A6CCA00CC891A /* Assets.xcassets in Resources */,
 				DB5A4A4328BD29C5006B093B /* Products.plist in Resources */,
 			);
