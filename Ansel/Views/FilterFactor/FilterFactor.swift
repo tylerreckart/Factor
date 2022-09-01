@@ -110,7 +110,7 @@ struct FilterFactor: View {
         }
         
         if self.priority_mode == .shutter {
-            let adjusted_aperture = Double(aperture)! * Double(adjustment / 2)
+            let adjusted_aperture = Double(aperture)! * adjustment
 
             self.compensated_aperture = closestValue(f_stops, adjusted_aperture)
         }

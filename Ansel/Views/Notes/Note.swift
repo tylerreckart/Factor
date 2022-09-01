@@ -7,18 +7,163 @@
 
 import SwiftUI
 import PhotosUI
+import UIKit
+
+struct ZoomableScrollView<Content: View>: UIViewRepresentable {
+    private var content: Content
+
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+
+    func makeUIView(context: Context) -> UIScrollView {
+        // set up the UIScrollView
+        let scrollView = UIScrollView()
+        scrollView.delegate = context.coordinator
+        scrollView.maximumZoomScale = 20
+        scrollView.minimumZoomScale = 1
+        scrollView.bouncesZoom = true
+
+        // create a UIHostingController to hold our SwiftUI content
+        let hostedView = context.coordinator.hostingController.view!
+        hostedView.translatesAutoresizingMaskIntoConstraints = true
+        hostedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        hostedView.frame = scrollView.bounds
+        scrollView.addSubview(hostedView)
+
+        return scrollView
+    }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(hostingController: UIHostingController(rootView: self.content))
+    }
+
+    func updateUIView(_ uiView: UIScrollView, context: Context) {
+        // update the hosting controller's SwiftUI content
+        context.coordinator.hostingController.rootView = self.content
+        assert(context.coordinator.hostingController.view.superview == uiView)
+    }
+
+    class Coordinator: NSObject, UIScrollViewDelegate {
+        var hostingController: UIHostingController<Content>
+
+        init(hostingController: UIHostingController<Content>) {
+            self.hostingController = hostingController
+        }
+
+        func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+            return hostingController.view
+        }
+    }
+}
 
 struct ImageViewer: View {
     var image: UIImage
+    
+    @State private var currentAmount = 0.0
+    @State private var finalAmount = 1.0
+    @State private var viewState = CGSize.zero
 
     var body: some View {
-        VStack {
+        ZoomableScrollView {
             Image(uiImage: image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .edgesIgnoringSafeArea(.bottom)
+    }
+}
+
+struct ReciprocityNoteCard: View {
+    var note: Note
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Reciprocity Calculations")
+                .font(.system(size: 12))
+                .foregroundColor(Color(.systemGray))
+            ForEach(Array(note.reciprocityData as! Set<ReciprocityData>), id: \.self) { result in
+                ReciprocityFactorData(result: result)
+                    .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
+            }
+        }
+        .padding(.bottom, 10)
+    }
+}
+
+struct FilterNoteCard: View {
+    var note: Note
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Filter Factor Calculations")
+                .font(.system(size: 12))
+                .foregroundColor(Color(.systemGray))
+            ForEach(Array(note.filterData as! Set<FilterData>), id: \.self) { result in
+                FilterFactorData(result: result)
+                    .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
+            }
+        }
+        .padding(.bottom, 10)
+    }
+}
+
+struct BellowsNoteCard: View {
+    var note: Note
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Bellows Extension Calculations")
+                .font(.system(size: 12))
+                .foregroundColor(Color(.systemGray))
+            ForEach(Array(note.bellowsData as! Set<BellowsExtensionData>), id: \.self) { result in
+                BellowsData(result: result)
+                    .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
+            }
+        }
+    }
+}
+
+struct Gear: View {
+    var note: Note
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            if note.camera != nil {
+                HStack(spacing: 2) {
+                    Image(systemName: "camera")
+                        .frame(width: 20)
+                    Text(note.camera!.manufacturer!)
+                    Text(note.camera!.model!)
+                }
+                .font(.caption)
+                .foregroundColor(.accentColor)
+            }
+            
+            if note.lens != nil {
+                HStack(spacing: 2) {
+                    Image(systemName: "camera.aperture")
+                        .frame(width: 20)
+                    Text(note.lens!.manufacturer!)
+                    Text("\(note.lens!.focalLength)mm f/\(note.lens!.maximumAperture.clean)")
+                }
+                .font(.caption)
+                .foregroundColor(.accentColor)
+            }
+            
+            if note.emulsion != nil {
+                HStack(spacing: 2) {
+                    Image(systemName: "film")
+                        .frame(width: 20)
+                    Text(note.emulsion!.manufacturer!)
+                    Text(note.emulsion!.name!)
+                }
+                .font(.caption)
+                .foregroundColor(.accentColor)
+            }
+        }
+        .padding(.bottom, 10)
     }
 }
 
@@ -76,112 +221,32 @@ struct NoteView: View {
                 }
                 
                 if noteImages.count > 0 {
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(noteImages, id: \.self) { image in
-                                NavigationLink(destination: ImageViewer(image: image)) {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 100, height: 100)
-                                        .cornerRadius(8)
-                                }
+                    VStack {
+                        ForEach(noteImages, id: \.self) { image in
+                            NavigationLink(destination: ImageViewer(image: image)) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(8)
                             }
+                            .padding(.bottom)
                         }
                     }
-                    .padding(.bottom, 10)
                 }
                 
-                VStack(alignment: .leading) {
-                    if note.camera != nil {
-                        ZStack {
-                            HStack(spacing: 2) {
-                                Image(systemName: "camera")
-                                Text(note.camera!.manufacturer!)
-                                Text(note.camera!.model!)
-                            }
-                            .font(.caption)
-                            .foregroundColor(.accentColor)
-                        }
-                        .padding([.top, .bottom], 8)
-                        .padding([.leading, .trailing], 12)
-                        .background(Color.accentColor.opacity(0.05))
-                        .cornerRadius(.infinity)
-                    }
-                    
-                    if note.emulsion != nil {
-                        ZStack {
-                            HStack(spacing: 2) {
-                                Image(systemName: "film")
-                                Text(note.emulsion!.manufacturer!)
-                                Text(note.emulsion!.name!)
-                            }
-                            .font(.caption)
-                            .foregroundColor(.accentColor)
-                        }
-                        .padding([.top, .bottom], 8)
-                        .padding([.leading, .trailing], 12)
-                        .background(Color.accentColor.opacity(0.05))
-                        .cornerRadius(.infinity)
-                    }
-                    
-                    if note.lens != nil {
-                        ZStack {
-                            HStack(spacing: 2) {
-                                Image(systemName: "camera.aperture")
-                                Text(note.lens!.manufacturer!)
-                                Text("\(note.lens!.focalLength)mm f/\(note.lens!.maximumAperture.clean)")
-                            }
-                            .font(.caption)
-                            .foregroundColor(.accentColor)
-                        }
-                        .padding([.top, .bottom], 8)
-                        .padding([.leading, .trailing], 12)
-                        .background(Color.accentColor.opacity(0.05))
-                        .cornerRadius(.infinity)
-                    }
-                }
-                .padding(.bottom, 10)
+                Gear(note: note)
                 
                 if note.reciprocityData!.count > 0 {
-                    VStack(alignment: .leading) {
-                        Text("Reciprocity Calculations")
-                            .font(.system(size: 12))
-                            .foregroundColor(Color(.systemGray))
-                        ForEach(Array(note.reciprocityData as! Set<ReciprocityData>), id: \.self) { result in
-                            ReciprocityFactorData(result: result)
-                                .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
-                        }
-                    }
-                    .padding(.bottom, 10)
+                    ReciprocityNoteCard(note: note)
                 }
                 
                 if note.filterData!.count > 0 {
-                    VStack(alignment: .leading) {
-                        Text("Filter Factor Calculations")
-                            .font(.system(size: 12))
-                            .foregroundColor(Color(.systemGray))
-                        ForEach(Array(note.filterData as! Set<FilterData>), id: \.self) { result in
-                            FilterFactorData(result: result)
-                                .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
-                        }
-                    }
-                    .padding(.bottom, 10)
+                    FilterNoteCard(note: note)
                 }
                 
                 if note.bellowsData!.count > 0 {
-                    VStack(alignment: .leading) {
-                        Text("Bellows Extension Calculations")
-                            .font(.system(size: 12))
-                            .foregroundColor(Color(.systemGray))
-                        ForEach(Array(note.bellowsData as! Set<BellowsExtensionData>), id: \.self) { result in
-                            BellowsData(result: result)
-                                .shadow(color: Color.black.opacity(0.025), radius: 10, y: 8)
-                        }
-                    }
+                    BellowsNoteCard(note: note)
                 }
-                
-                Spacer()
             }
             .padding(.horizontal)
             .navigationBarTitleDisplayMode(.inline)

@@ -20,6 +20,191 @@ enum DataAlert: Hashable {
 }
 
 struct NewNote: View {
+    @State private var showGearSheet: Bool = false
+    @State private var showDataSheet: Bool = false
+    
+    @State private var selectedImages: [PhotosPickerItem] = []
+    @State private var selectedPhotosData: Set<UIImage> = []
+    
+    @State private var addedBellowsData: Set<BellowsExtensionData> = []
+    @State private var addedReciprocityData: Set<ReciprocityData> = []
+    @State private var addedFilterData: Set<FilterData> = []
+
+    @State private var addedCameraData: [Camera] = []
+    @State private var addedLensData: [Lens] = []
+    @State private var addedFilmData: [Emulsion] = []
+
+    var body: some View {
+        VStack {
+            ScrollView {
+                Notepad()
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    if addedCameraData.count > 0 {
+                        ForEach(addedCameraData, id: \.self) { camera in
+                            HStack(spacing: 2) {
+                                Image(systemName: "camera")
+                                    .frame(width: 20)
+                                Text(camera.manufacturer!)
+                                Text(camera.model!)
+                                
+                                Spacer()
+                            }
+                            .font(.caption)
+                            .foregroundColor(.accentColor)
+                        }
+                    }
+                    
+                    if addedLensData.count > 0 {
+                        ForEach(addedLensData, id: \.self) { lens in
+                            HStack(spacing: 2) {
+                                Image(systemName: "camera.aperture")
+                                    .frame(width: 20)
+                                Text(lens.manufacturer!)
+                                Text("\(lens.focalLength)mm f/\(lens.maximumAperture.clean)")
+                                
+                                Spacer()
+                            }
+                            .font(.caption)
+                            .foregroundColor(.accentColor)
+                        }
+                    }
+                    
+                    if addedFilmData.count > 0 {
+                        ForEach(addedFilmData, id: \.self) { emulsion in
+                            HStack(spacing: 2) {
+                                Image(systemName: "film")
+                                    .frame(width: 20)
+                                Text(emulsion.manufacturer!)
+                                Text(emulsion.name!)
+                                
+                                Spacer()
+                            }
+                            .font(.caption)
+                            .foregroundColor(.accentColor)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .padding([.leading, .trailing])
+                .padding(.bottom, 10)
+                
+                if selectedPhotosData.count > 0 {
+                    VStack {
+                        ForEach(Array(selectedPhotosData), id: \.self) { image in
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(8)
+                                .padding(.bottom)
+                        }
+                    }
+                    .padding([.leading, .trailing])
+                }
+            }
+            .padding(.bottom, -10)
+
+            if selectedImages.count == 0 {
+                Spacer()
+            }
+            
+            HStack {
+                PhotosPicker(
+                    selection: $selectedImages,
+                    matching: .images
+                ) {
+                    Image(systemName: "photo")
+                }
+                .onChange(of: selectedImages) { newItems in
+                    Task {
+                        selectedImages = []
+                        for value in newItems {
+                            if let imageData = try? await value.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
+                                selectedPhotosData.insert(image)
+                            }
+                        }
+                    }
+                }
+                Spacer()
+                Image(systemName: "camera")
+                Spacer()
+                Button(action: {
+                    showGearSheet.toggle()
+                }) {
+                    Image(systemName: "backpack")
+                }
+                Spacer()
+                Button(action: {
+                    showDataSheet.toggle()
+                }) {
+                    Image(systemName: "ellipsis.circle")
+                }.popover(
+                    isPresented: $showDataSheet,
+                    arrowEdge: .bottom
+                ) { Text("Popover") }
+            }
+            .frame(maxWidth: .infinity)
+            .padding([.top, .bottom], 15)
+            .padding([.leading, .trailing], 30)
+            .background(Color(.systemGray6))
+        }
+        .sheet(isPresented: $showGearSheet) {
+            GearSheet(save: saveGear)
+        }
+    }
+    
+    func addBellowsData(data: Set<BellowsExtensionData>) -> Void {
+        data.forEach { result in
+            addedBellowsData.insert(result)
+        }
+    }
+    
+    func addReciprocityData(data: Set<ReciprocityData>) -> Void {
+        data.forEach { result in
+            addedReciprocityData.insert(result)
+        }
+    }
+    
+    func addFilterData(data: Set<FilterData>) -> Void {
+        data.forEach { result in
+            addedFilterData.insert(result)
+        }
+    }
+    
+    func addCameraData(cameras: [Camera]) -> Void {
+        cameras.forEach { camera in
+            addedCameraData.append(camera)
+        }
+    }
+    
+    func addLensData(lenses: [Lens]) -> Void {
+        lenses.forEach { lens in
+            addedLensData.append(lens)
+        }
+    }
+    
+    func addFilmData(emulsions: [Emulsion]) -> Void {
+        emulsions.forEach { emulsion in
+            addedFilmData.append(emulsion)
+        }
+    }
+    
+    func saveGear(cameras: [Camera], lenses: [Lens], emulsions: [Emulsion]) -> Void {
+        if cameras.count > 0 {
+            addCameraData(cameras: cameras)
+        }
+        
+        if lenses.count > 0 {
+            addLensData(lenses: lenses)
+        }
+        
+        if emulsions.count > 0 {
+            addFilmData(emulsions: emulsions)
+        }
+    }
+}
+
+struct Notepad: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -90,18 +275,6 @@ struct NewNote: View {
         }
     }
     
-    func addCameraData(camera: Camera) -> Void {
-        addedCameraData = camera
-    }
-    
-    func addLensData(lens: Lens) -> Void {
-        addedLensData = lens
-    }
-    
-    func addFilmData(emulsion: Emulsion) -> Void {
-        addedFilmData = emulsion
-    }
-    
     func coreDataObjectFromImages(images: [UIImage]) -> Data? {
         let dataArray = NSMutableArray()
         
@@ -140,74 +313,7 @@ struct NewNote: View {
                     }
                     .padding(.bottom, 10)
                 }
-                
-                VStack(alignment: .leading) {
-                    if addedCameraData != nil {
-                        ZStack {
-                            HStack(spacing: 2) {
-                                Image(systemName: "camera")
-                                Text(addedCameraData!.manufacturer!)
-                                Text(addedCameraData!.model!)
-                            }
-                            .font(.caption)
-                            .foregroundColor(.accentColor)
-                        }
-                        .padding([.top, .bottom], 8)
-                        .padding([.leading, .trailing], 12)
-                        .background(Color.accentColor.opacity(0.05))
-                        .cornerRadius(.infinity)
-                    }
-                    
-                    if addedCameraData != nil && addedCameraData!.digital == false && addedFilmData == nil {
-                        Button(action: {
-                            showFilmSheet.toggle()
-                        }) {
-                            ZStack {
-                                Text("Add Film?")
-                                    .font(.caption)
-                                    .foregroundColor(Color(.systemGray))
-                            }
-                            .padding([.top, .bottom], 8)
-                            .padding([.leading, .trailing], 12)
-                            .background(Color(.systemGray).opacity(0.05))
-                            .cornerRadius(.infinity)
-                        }
-                    }
-                    
-                    if addedFilmData != nil {
-                        ZStack {
-                            HStack(spacing: 2) {
-                                Image(systemName: "film")
-                                Text(addedFilmData!.manufacturer!)
-                                Text(addedFilmData!.name!)
-                            }
-                            .font(.caption)
-                            .foregroundColor(.accentColor)
-                        }
-                        .padding([.top, .bottom], 8)
-                        .padding([.leading, .trailing], 12)
-                        .background(Color.accentColor.opacity(0.05))
-                        .cornerRadius(.infinity)
-                    }
-                    
-                    if addedLensData != nil {
-                        ZStack {
-                            HStack(spacing: 2) {
-                                Image(systemName: "camera.aperture")
-                                Text(addedLensData!.manufacturer!)
-                                Text("\(addedLensData!.focalLength)mm f/\(addedLensData!.maximumAperture.clean)")
-                            }
-                            .font(.caption)
-                            .foregroundColor(.accentColor)
-                        }
-                        .padding([.top, .bottom], 8)
-                        .padding([.leading, .trailing], 12)
-                        .background(Color.accentColor.opacity(0.05))
-                        .cornerRadius(.infinity)
-                    }
-                }
-                .padding(.bottom, 10)
-                
+
                 if addedReciprocityData.count > 0 {
                     VStack(alignment: .leading) {
                         Text("Reciprocity Calculations")
@@ -246,104 +352,6 @@ struct NewNote: View {
                     }
                     .padding(.bottom)
                 }
-                
-                Spacer()
-            }
-            .toolbar {
-                HStack {
-                    PhotosPicker(
-                        selection: $selectedImages,
-                        matching: .images
-                    ) {
-                        Label("Add Images", systemImage: "photo")
-                    }
-                    .onChange(of: selectedImages) { newItems in
-                        Task {
-                            selectedImages = []
-                            for value in newItems {
-                                if let imageData = try? await value.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
-                                    selectedPhotosData.insert(image)
-                                }
-                            }
-                        }
-                    }
-                    
-                    Menu {
-                        Button(action: {
-                            showCameraSheet.toggle()
-                        }) {
-                            Label("Add Camera", systemImage: "camera")
-                        }
-
-                        Button(action: {
-                            showLensSheet.toggle()
-                        }) {
-                            Label("Add Lens", systemImage: "camera.aperture")
-                        }
-
-                        Button(action: {
-                            showFilmSheet.toggle()
-                        }) {
-                            Label("Add Film", systemImage: "film")
-                        }
-
-                        Button(action: {
-                            if reciprocityData.count > 0 {
-                                showReciprocitySheet.toggle()
-                            } else {
-                                showAlert.toggle()
-                                alert = .reciprocity
-                            }
-                        }) {
-                            Label("Add Reciprocity Data", systemImage: "clock")
-                        }
-                        
-                        Button(action: {
-                            if filterData.count > 0 {
-                                showFilterSheet.toggle()
-                            } else {
-                                showAlert.toggle()
-                                alert = .filter
-                            }
-                        }) {
-                            Label("Add Filter Data", systemImage: "moon.stars.circle")
-                        }
-                        
-                        Button(action: {
-                            if bellowsData.count > 0 {
-                                showBellowsSheet.toggle()
-                            } else {
-                                showAlert.toggle()
-                                alert = .bellows
-                            }
-                        }) {
-                            Label("Add Bellows Data", systemImage: "arrow.up.backward.and.arrow.down.forward.circle")
-                        }
-                    } label: {
-                        Label("Add Data", systemImage: "ellipsis.circle")
-                    }
-                    
-                    if noteBody.count > 0 {
-                        if isSaving {
-                            ProgressView()
-                                .padding(.leading, 1)
-                        } else {
-                            Button(action: {
-                                isSaving.toggle()
-                                save()
-                            }) {
-                                Text("Save")
-                            }
-                        }
-                    } else {
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("Cancel")
-                        }
-                        .foregroundColor(Color(.systemGray))
-                    }
-                }
             }
             .padding([.top, .leading, .trailing])
             .alert(isPresented: $showAlert) {
@@ -359,14 +367,10 @@ struct NewNote: View {
             .sheet(isPresented: $showBellowsSheet) {
                 AddBellowsDataSheet(addData: addBellowsData)
             }
-            .sheet(isPresented: $showCameraSheet) {
-                AddCameraDataSheet(addData: addCameraData)
-            }
-            .sheet(isPresented: $showLensSheet) {
-                AddLensDataSheet(addData: addLensData)
-            }
-            .sheet(isPresented: $showFilmSheet) {
-                AddFilmDataSheet(addData: addFilmData)
+            .onDisappear {
+                if noteBody.count > 0 {
+                    save()
+                }
             }
         }
     }

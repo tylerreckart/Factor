@@ -62,3 +62,12 @@ let dashboard_tiles = [
 
     ),
 ]
+
+//    DashboardTile(
+//        key: "spot_meter",
+//        label: "Spot Meter",
+//        icon: "camera.circle.fill",
+//        background: Color(.systemRed),
+//        destination: AnyView(SpotMeter()),
+//        url: "Ansel://spotMeter"
+//    ),

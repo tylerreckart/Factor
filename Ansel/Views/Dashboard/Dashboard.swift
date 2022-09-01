@@ -146,25 +146,29 @@ struct Dashboard: View {
         return NavigationView {
             ZStack {
                 VStack {
-                    DashboardTileView(tiles: $layout, draggingTile: $draggingTile) { tile in
-                        LinkedNavigationTile(
-                            tile: tile,
-                            isDisabled: false,
-                            draggingTile: $draggingTile,
-                            isEditing: $isEditing,
-                            removeTile: removeTile,
-                            url: url ?? "",
-                            shouldNavigate: false
-                        )
-                    } moveAction: { from, to in
-                        moveTile(from, to)
+                    ScrollView {
+                        DashboardTileView(tiles: $layout, draggingTile: $draggingTile) { tile in
+                            LinkedNavigationTile(
+                                tile: tile,
+                                isDisabled: false,
+                                draggingTile: $draggingTile,
+                                isEditing: $isEditing,
+                                removeTile: removeTile,
+                                url: url ?? "",
+                                shouldNavigate: false
+                            )
+                        } moveAction: { from, to in
+                            moveTile(from, to)
+                        }
+                        .padding()
+                        .padding(.top, 10)
                     }
                     
                     Spacer()
                     
                     DashboardToolbar(isEditing: $isEditing, showTileSheet: $showTileSheet)
+                        .padding()
                 }
-                .padding()
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -187,10 +191,18 @@ struct Dashboard: View {
                     TileSheet(addTile: addTile)
                 }
                 
-                Image("ansel.fill")
-                    .font(.system(size: 22))
-                    .foregroundColor(Color(.systemGray4))
-                    .position(x: screenWidth / 2, y: -22)
+                ZStack {
+                    Color(.clear)
+                        .frame(maxHeight: 115)
+                        .background(.ultraThickMaterial)
+                        .border(width: 1, edges: [.bottom], color: Color(.systemGray5))
+                        .position(x: screenWidth / 2, y: -50)
+
+                    Image("ansel.fill")
+                        .font(.system(size: 22))
+                        .foregroundColor(Color(.systemGray4))
+                        .position(x: screenWidth / 2, y: -22)
+                }
             }
         }
         .onAppear {

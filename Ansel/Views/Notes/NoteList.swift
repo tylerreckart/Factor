@@ -60,41 +60,12 @@ struct NoteListItem: View {
     }
 
     var body: some View {
-        if !isEditing {
-            let str = note.body!
-            
-            NavigationLink(destination: NoteView(note: note)) {
-                VStack(alignment: .leading) {
-                    Text(str.count > 80 ? str.prefix(80) + "..." : str)
-                        .foregroundColor(.primary)
-                        .padding(.bottom, 1)
-                    
-                    Text(formatDate(date: note.createdAt!))
-                        .foregroundColor(Color(.systemGray))
-                        .font(.system(size: 14))
-                    
-                }
-            }
-        } else {
-            Button(action: {
-                if !selectedNotes.contains(note.id) {
-                    selectedNotes.append(note.id)
-                } else {
-                    selectedNotes = selectedNotes.filter { $0 != note.id }
-                }
-            }) {
-                HStack {
-                    if !selectedNotes.contains(note.id) {
-                        Image(systemName: "circle")
-                            .foregroundColor(.accentColor)
-                    } else {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.accentColor)
-                    }
-                    
+        if note.body != nil {
+            if !isEditing {
+                let str = note.body!
+                
+                NavigationLink(destination: NoteView(note: note)) {
                     VStack(alignment: .leading) {
-                        let str = note.body!
-                        
                         Text(str.count > 80 ? str.prefix(80) + "..." : str)
                             .foregroundColor(.primary)
                             .padding(.bottom, 1)
@@ -102,6 +73,37 @@ struct NoteListItem: View {
                         Text(formatDate(date: note.createdAt!))
                             .foregroundColor(Color(.systemGray))
                             .font(.system(size: 14))
+                        
+                    }
+                }
+            } else {
+                Button(action: {
+                    if !selectedNotes.contains(note.id) {
+                        selectedNotes.append(note.id)
+                    } else {
+                        selectedNotes = selectedNotes.filter { $0 != note.id }
+                    }
+                }) {
+                    HStack {
+                        if !selectedNotes.contains(note.id) {
+                            Image(systemName: "circle")
+                                .foregroundColor(.accentColor)
+                        } else {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.accentColor)
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            let str = note.body!
+                            
+                            Text(str.count > 80 ? str.prefix(80) + "..." : str)
+                                .foregroundColor(.primary)
+                                .padding(.bottom, 1)
+                            
+                            Text(formatDate(date: note.createdAt!))
+                                .foregroundColor(Color(.systemGray))
+                                .font(.system(size: 14))
+                        }
                     }
                 }
             }
@@ -192,44 +194,60 @@ struct NoteList: View {
             VStack {
                 SearchBar(searchText: $searchText)
                 
-                List {
-                    ForEach(groupByMonth(notes: results), id: \.self) { group in
-                        let month = group.isEmpty ? "" : getMonth(date: group[0].createdAt!)
-                        
-                        Section(header:
-                                    Text(month)
-                            .textCase(.none)
-                            .font(.system(size: 18))
-                            .fontWeight(.bold)
-                            .foregroundColor(.primary)
-                        ) {
-                            ForEach(filterBySearchText(notes: group), id: \.self) { r in
-                                NoteListItem(note: r, isEditing: $isEditing, selectedNotes: $selectedNotes)
+                if results.count > 0 {
+                    List {
+                        ForEach(groupByMonth(notes: results), id: \.self) { group in
+                            let month = group.isEmpty ? "" : getMonth(date: group[0].createdAt!)
+                            
+                            Section(header:
+                                        Text(month)
+                                .textCase(.none)
+                                .font(.system(size: 18, design: .rounded))
+                                .fontWeight(.bold)
+                                .foregroundColor(.primary)
+                            ) {
+                                ForEach(filterBySearchText(notes: group), id: \.self) { r in
+                                    NoteListItem(note: r, isEditing: $isEditing, selectedNotes: $selectedNotes)
+                                }
                             }
                         }
+                        .listStyle(.insetGrouped)
+                        .padding(.vertical, 4)
                     }
-                    .listStyle(.insetGrouped)
-                    .padding(.vertical, 4)
+                    .border(width: 1, edges: [.top], color: Color(.systemGray5))
+                } else {
+                    VStack(alignment: .center) {
+                        Spacer()
+                        Text("Add a note to get started")
+                            .foregroundColor(Color(.systemGray))
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.systemGray6))
+                    .border(width: 1, edges: [.top], color: Color(.systemGray5))
+                    .offset(y: 10)
                 }
-                .border(width: 1, edges: [.top], color: Color(.systemGray5))
             }
             
             VStack {
                 Spacer()
                 HStack(alignment: .center) {
                     Spacer()
-                    Text("\(results.count) \(results.count == 1 ? "Note" : "Notes")")
-                        .font(.caption)
-                        .foregroundColor(.primary)
-                        .padding(.top, 5)
-                    Spacer()
+                    if results.count > 0 {
+                        Text("\(results.count) \(results.count == 1 ? "Note" : "Notes")")
+                            .font(.caption)
+                            .foregroundColor(.primary)
+                            .padding(.top, 5)
+                        Spacer()
+                    }
 
                     NavigationLink(destination: NewNote()) {
                         Image(systemName: "square.and.pencil")
+                            .font(.system(size: 20))
                     }
                 }
                 .padding()
-                .background(.thinMaterial)
+                .background(.ultraThickMaterial)
                 .border(width: 1, edges: [.top], color: Color(.systemGray5))
             }
         }
