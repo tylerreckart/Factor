@@ -81,10 +81,6 @@ struct NoteView: View {
     
     @State var isEditing: Bool = false
     
-    @State var showReciprocitySheet: Bool = false
-    @State var showFilterSheet: Bool = false
-    @State var showBellowsSheet: Bool = false
-    
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedPhotosData: [Data] = []
     
@@ -116,6 +112,7 @@ struct NoteView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 10)
                     .padding(.bottom, 20)
+                    .padding(.horizontal)
                 
                 VStack(alignment: .leading, spacing: 10) {
                     if note.camera!.count > 0 {
@@ -148,6 +145,7 @@ struct NoteView: View {
                         }
                     }
                 }
+                .padding(.horizontal)
                 .padding(.bottom, 10)
                 
                 if noteImages.count > 0 {
@@ -162,19 +160,53 @@ struct NoteView: View {
                             .padding(.bottom)
                         }
                     }
+                    .padding(.horizontal)
+                }
+                
+                if note.reciprocityData!.count > 0 {
+                    VStack(alignment: .leading) {
+                        Text("Reciprocity Data")
+                            .font(.caption)
+                            .foregroundColor(Color(.systemGray))
+                            .padding(.leading, 10)
+
+                        ForEach(Array(note.reciprocityData! as! Set<ReciprocityData>), id: \.self) { data in
+                            ReciprocityFactorData(result: data)
+                        }
+                    }
+                    .padding([.leading, .trailing])
+                }
+                
+                if note.filterData!.count > 0 {
+                    VStack(alignment: .leading) {
+                        Text("Filter Factor Data")
+                            .font(.caption)
+                            .foregroundColor(Color(.systemGray))
+                            .padding(.leading, 10)
+
+                        ForEach(Array(note.filterData! as! Set<FilterData>), id: \.self) { data in
+                            FilterFactorData(result: data)
+                        }
+                    }
+                    .padding([.leading, .trailing])
+                }
+                
+                if note.bellowsData!.count > 0 {
+                    VStack(alignment: .leading) {
+                        Text("Bellows Extension Data")
+                            .font(.caption)
+                            .foregroundColor(Color(.systemGray))
+                            .padding(.leading, 10)
+                        
+                        ForEach(Array(note.bellowsData! as! Set<BellowsExtensionData>), id: \.self) { data in
+                            BellowsData(result: data)
+                                .padding(.bottom, 10)
+                        }
+                    }
+                    .padding([.leading, .trailing])
                 }
             }
-            .padding(.horizontal)
             .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $showReciprocitySheet) {
-                ReciprocityHistorySheet()
-            }
-            .sheet(isPresented: $showFilterSheet) {
-                FilterHistorySheet()
-            }
-            .sheet(isPresented: $showBellowsSheet) {
-                BellowsExtensionHistorySheet()
-            }
             .onAppear {
                 editBody = note.body!
                 

@@ -24,6 +24,8 @@ struct SearchBar: View {
                 }).foregroundColor(.primary)
             }
             .foregroundColor(.secondary)
+            .padding(10)
+            .background(Color(.systemGray5))
             .cornerRadius(10.0)
 
             if showCancelButton  {
@@ -35,6 +37,9 @@ struct SearchBar: View {
                 .foregroundColor(.accentColor)
             }
         }
+        .padding(.horizontal)
+        .padding(.bottom, 10)
+        .background(.thickMaterial)
     }
 }
 
@@ -146,8 +151,7 @@ struct NoteList: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @State private var searchText = ""
-    @State private var showNewNoteSheet: Bool = false
-    
+    @State private var localResults: [Note] = []
     @State private var isEditing: Bool = false
     
     @FetchRequest(
@@ -183,11 +187,11 @@ struct NoteList: View {
     var body: some View {
         ZStack {
             VStack {
+                SearchBar(searchText: $searchText)
 
-                if results.count > 0 {
-                    List {
-                        SearchBar(searchText: $searchText)
-                        ForEach(groupByMonth(notes: results), id: \.self) { group in
+                List {
+                    if results.count > 0 {
+                        ForEach(filterBySearchText(notes: results), id: \.self) { group in
                             let month = group.isEmpty ? "" : getMonth(date: group[0].createdAt!)
                             
                             Section(header:
@@ -197,7 +201,7 @@ struct NoteList: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.primary)
                             ) {
-                                ForEach(filterBySearchText(notes: group), id: \.self) { r in
+                                ForEach(group, id: \.self) { r in
                                     NoteListItem(note: r, isEditing: $isEditing, selectedNotes: $selectedNotes)
                                 }
                             }
@@ -205,18 +209,9 @@ struct NoteList: View {
                         .listStyle(.insetGrouped)
                         .padding(.vertical, 4)
                     }
-
-                } else {
-                    VStack(alignment: .center) {
-                        Spacer()
-                        Text("Add a note to get started")
-                            .foregroundColor(Color(.systemGray))
-                        Spacer()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background(Color(.systemGray6))
-                    .offset(y: 10)
                 }
+                .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
+                .padding(.top, -10)
             }
             
             VStack {
@@ -228,10 +223,11 @@ struct NoteList: View {
                             .font(.caption)
                             .foregroundColor(.primary)
                             .padding(.top, 5)
+                            .padding(.leading, 20)
                         Spacer()
                     }
 
-                    NavigationLink(destination: NewNote()) {
+                    NavigationLink(destination: Notepad()) {
                         Image(systemName: "square.and.pencil")
                             .font(.system(size: 20))
                     }
@@ -267,7 +263,7 @@ struct NoteList: View {
         }
     }
     
-    func groupByMonth(notes: FetchedResults<Note>) -> [[Note]] {
+    func groupByMonth(notes: [Note]) -> [[Note]] {
         var result: [[Note]] = []
         
         (1...12).forEach { month in
@@ -286,8 +282,14 @@ struct NoteList: View {
         return result
     }
     
-    func filterBySearchText(notes: [Note]) -> [Note] {
-        return results.filter { searchText.isEmpty ? true : $0.body!.contains(searchText) }
+    func filterBySearchText(notes: FetchedResults<Note>) -> [[Note]] {
+        var filteredNotes: [Note] = []
+
+        filteredNotes = notes.filter {
+            searchText.isEmpty ? true : $0.body!.contains(searchText)
+        }
+
+        return groupByMonth(notes: filteredNotes).reversed()
     }
     
     private func deleteNote(note: Note){

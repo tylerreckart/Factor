@@ -1,5 +1,5 @@
 //
-//  NewNote.swift
+//  Notepad.swift
 //  Ansel
 //
 //  Created by Tyler Reckart on 8/27/22.
@@ -19,65 +19,7 @@ enum DataAlert: Hashable {
     case filter
 }
 
-struct CameraData: View {
-    @Binding var addedCameraData: Set<Camera>
-    @Binding var addedLensData: Set<Lens>
-    @Binding var addedFilmData: Set<Emulsion>
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            if addedCameraData.count > 0 {
-                ForEach(Array(addedCameraData), id: \.self) { camera in
-                    HStack(spacing: 2) {
-                        Image(systemName: "camera")
-                            .frame(width: 20)
-                        Text(camera.manufacturer!)
-                        Text(camera.model!)
-                        
-                        Spacer()
-                    }
-                    .font(.caption)
-                    .foregroundColor(.accentColor)
-                }
-            }
-            
-            if addedLensData.count > 0 {
-                ForEach(Array(addedLensData), id: \.self) { lens in
-                    HStack(spacing: 2) {
-                        Image(systemName: "camera.aperture")
-                            .frame(width: 20)
-                        Text(lens.manufacturer!)
-                        Text("\(lens.focalLength)mm f/\(lens.maximumAperture.clean)")
-                        
-                        Spacer()
-                    }
-                    .font(.caption)
-                    .foregroundColor(.accentColor)
-                }
-            }
-            
-            if addedFilmData.count > 0 {
-                ForEach(Array(addedFilmData), id: \.self) { emulsion in
-                    HStack(spacing: 2) {
-                        Image(systemName: "film")
-                            .frame(width: 20)
-                        Text(emulsion.manufacturer!)
-                        Text(emulsion.name!)
-                        
-                        Spacer()
-                    }
-                    .font(.caption)
-                    .foregroundColor(.accentColor)
-                }
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .padding([.leading, .trailing])
-        .padding(.bottom, 10)
-    }
-}
-
-struct NewNote: View {
+struct Notepad: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -133,6 +75,12 @@ struct NewNote: View {
                     }
                     .padding([.leading, .trailing])
                 }
+                
+                CalculationData(
+                    reciprocityData: $addedReciprocityData,
+                    filterData: $addedFilterData,
+                    bellowsData: $addedBellowsData
+                )
             }
             .padding(.bottom, -10)
 
@@ -140,48 +88,18 @@ struct NewNote: View {
                 Spacer()
             }
             
-            HStack {
-                PhotosPicker(
-                    selection: $selectedImages,
-                    matching: .images
-                ) {
-                    Image(systemName: "photo")
-                }
-                .onChange(of: selectedImages) { newItems in
-                    Task {
-                        selectedImages = []
-                        for value in newItems {
-                            if let imageData = try? await value.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
-                                selectedPhotosData.insert(image)
-                            }
-                        }
-                    }
-                }
-                
-                Spacer()
-
-                Button(action: {
-                    showGearSheet.toggle()
-                }) {
-                    Image(systemName: "backpack")
-                }
-                
-                Spacer()
-
-                Button(action: {
-                    showDataSheet.toggle()
-                }) {
-                    Image(systemName: "chart.pie")
-                }
-            }
-            .foregroundColor(.primary)
-            .frame(maxWidth: .infinity)
-            .padding([.top, .bottom], 15)
-            .padding([.leading, .trailing], 30)
-            .background(Color(.systemGray6))
+            NotepadToolbar(
+                showGearSheet: $showGearSheet,
+                showDataSheet: $showDataSheet,
+                selectedImages: $selectedImages,
+                selectedPhotosData: $selectedPhotosData
+            )
         }
         .sheet(isPresented: $showGearSheet) {
             GearSheet(save: saveGear)
+        }
+        .sheet(isPresented: $showDataSheet) {
+            DataSheet(save: saveData)
         }
         .onDisappear {
             if noteBody.count > 0 {
@@ -190,19 +108,19 @@ struct NewNote: View {
         }
     }
     
-    func addBellowsData(data: Set<BellowsExtensionData>) -> Void {
+    func addBellowsData(data: [BellowsExtensionData]) -> Void {
         data.forEach { result in
             addedBellowsData.insert(result)
         }
     }
     
-    func addReciprocityData(data: Set<ReciprocityData>) -> Void {
+    func addReciprocityData(data: [ReciprocityData]) -> Void {
         data.forEach { result in
             addedReciprocityData.insert(result)
         }
     }
     
-    func addFilterData(data: Set<FilterData>) -> Void {
+    func addFilterData(data: [FilterData]) -> Void {
         data.forEach { result in
             addedFilterData.insert(result)
         }
@@ -239,6 +157,21 @@ struct NewNote: View {
             addFilmData(emulsions: emulsions)
         }
     }
+    
+    func saveData(reciprocityData: [ReciprocityData], filterData: [FilterData], bellowsData: [BellowsExtensionData]) -> Void {
+        if reciprocityData.count > 0 {
+            addReciprocityData(data: reciprocityData)
+        }
+        
+        if filterData.count > 0 {
+            addFilterData(data: filterData)
+        }
+        
+        if bellowsData.count > 0 {
+            addBellowsData(data: bellowsData)
+        }
+    }
+
     func coreDataObjectFromImages(images: [UIImage]) -> Data? {
         let dataArray = NSMutableArray()
         
