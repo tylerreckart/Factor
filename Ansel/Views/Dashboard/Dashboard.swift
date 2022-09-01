@@ -195,7 +195,7 @@ struct Dashboard: View {
                     Color(.clear)
                         .frame(maxHeight: 115)
                         .background(.ultraThickMaterial)
-                        .border(width: 1, edges: [.bottom], color: Color(.systemGray5))
+                        .border(width: 0.5, edges: [.bottom], color: Color(.systemGray4))
                         .position(x: screenWidth / 2, y: -50)
 
                     Image("ansel.fill")

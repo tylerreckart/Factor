@@ -9,72 +9,6 @@ import SwiftUI
 import PhotosUI
 import UIKit
 
-struct ZoomableScrollView<Content: View>: UIViewRepresentable {
-    private var content: Content
-
-    init(@ViewBuilder content: () -> Content) {
-        self.content = content()
-    }
-
-    func makeUIView(context: Context) -> UIScrollView {
-        // set up the UIScrollView
-        let scrollView = UIScrollView()
-        scrollView.delegate = context.coordinator
-        scrollView.maximumZoomScale = 20
-        scrollView.minimumZoomScale = 1
-        scrollView.bouncesZoom = true
-
-        // create a UIHostingController to hold our SwiftUI content
-        let hostedView = context.coordinator.hostingController.view!
-        hostedView.translatesAutoresizingMaskIntoConstraints = true
-        hostedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        hostedView.frame = scrollView.bounds
-        scrollView.addSubview(hostedView)
-
-        return scrollView
-    }
-
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(hostingController: UIHostingController(rootView: self.content))
-    }
-
-    func updateUIView(_ uiView: UIScrollView, context: Context) {
-        // update the hosting controller's SwiftUI content
-        context.coordinator.hostingController.rootView = self.content
-        assert(context.coordinator.hostingController.view.superview == uiView)
-    }
-
-    class Coordinator: NSObject, UIScrollViewDelegate {
-        var hostingController: UIHostingController<Content>
-
-        init(hostingController: UIHostingController<Content>) {
-            self.hostingController = hostingController
-        }
-
-        func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-            return hostingController.view
-        }
-    }
-}
-
-struct ImageViewer: View {
-    var image: UIImage
-    
-    @State private var currentAmount = 0.0
-    @State private var finalAmount = 1.0
-    @State private var viewState = CGSize.zero
-
-    var body: some View {
-        ZoomableScrollView {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .edgesIgnoringSafeArea(.bottom)
-    }
-}
-
 struct ReciprocityNoteCard: View {
     var note: Note
 
@@ -125,45 +59,20 @@ struct BellowsNoteCard: View {
     }
 }
 
-struct Gear: View {
-    var note: Note
+struct GearItem: View {
+    var image: String
+    var primary: String
+    var secondary: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            if note.camera != nil {
-                HStack(spacing: 2) {
-                    Image(systemName: "camera")
-                        .frame(width: 20)
-                    Text(note.camera!.manufacturer!)
-                    Text(note.camera!.model!)
-                }
-                .font(.caption)
-                .foregroundColor(.accentColor)
-            }
-            
-            if note.lens != nil {
-                HStack(spacing: 2) {
-                    Image(systemName: "camera.aperture")
-                        .frame(width: 20)
-                    Text(note.lens!.manufacturer!)
-                    Text("\(note.lens!.focalLength)mm f/\(note.lens!.maximumAperture.clean)")
-                }
-                .font(.caption)
-                .foregroundColor(.accentColor)
-            }
-            
-            if note.emulsion != nil {
-                HStack(spacing: 2) {
-                    Image(systemName: "film")
-                        .frame(width: 20)
-                    Text(note.emulsion!.manufacturer!)
-                    Text(note.emulsion!.name!)
-                }
-                .font(.caption)
-                .foregroundColor(.accentColor)
-            }
+        HStack(spacing: 2) {
+            Image(systemName: image)
+                .frame(width: 20)
+            Text(primary)
+            Text(secondary)
         }
-        .padding(.bottom, 10)
+        .font(.caption)
+        .foregroundColor(.accentColor)
     }
 }
 
@@ -203,22 +112,43 @@ struct NoteView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                if isEditing {
-                    TextField("Start typing...", text: $editBody, axis: .vertical)
-                        .zIndex(1)
-                        .textFieldStyle(.plain)
-                        .focused($focusedField, equals: .noteBody)
-                        .onAppear {
-                            self.focusedField = .noteBody
+                Text(note.body!)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 10)
+                    .padding(.bottom, 20)
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    if note.camera!.count > 0 {
+                        ForEach(Array(note.camera as! Set<Camera>), id: \.self) { camera in
+                            GearItem(
+                                image: "camera",
+                                primary: camera.manufacturer!,
+                                secondary: camera.model!
+                            )
                         }
-                        .padding(.top, 10)
-                        .padding(.bottom, 18)
-                } else {
-                    Text(note.body!)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.top, 10)
-                        .padding(.bottom, 20)
+                    }
+
+                    if note.lens!.count > 0 {
+                        ForEach(Array(note.lens as! Set<Lens>), id: \.self) { lens in
+                            GearItem(
+                                image: "camera.aperture",
+                                primary: lens.manufacturer!,
+                                secondary: "\(lens.focalLength)mm f/\(lens.maximumAperture.clean)"
+                            )
+                        }
+                    }
+
+                    if note.emulsion!.count > 0 {
+                        ForEach(Array(note.emulsion as! Set<Emulsion>), id: \.self) { emulsion in
+                            GearItem(
+                                image: "film",
+                                primary: emulsion.manufacturer!,
+                                secondary: emulsion.name!
+                            )
+                        }
+                    }
                 }
+                .padding(.bottom, 10)
                 
                 if noteImages.count > 0 {
                     VStack {
@@ -232,20 +162,6 @@ struct NoteView: View {
                             .padding(.bottom)
                         }
                     }
-                }
-                
-                Gear(note: note)
-                
-                if note.reciprocityData!.count > 0 {
-                    ReciprocityNoteCard(note: note)
-                }
-                
-                if note.filterData!.count > 0 {
-                    FilterNoteCard(note: note)
-                }
-                
-                if note.bellowsData!.count > 0 {
-                    BellowsNoteCard(note: note)
                 }
             }
             .padding(.horizontal)
@@ -263,6 +179,7 @@ struct NoteView: View {
                 editBody = note.body!
                 
                 let dataImages = note.images ?? Data()
+
                 if dataImages.count > 0 {
                     noteImages = imagesFromCoreData(object: dataImages)!
                 }

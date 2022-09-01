@@ -22,28 +22,19 @@ struct SearchBar: View {
                 }, onCommit: {
                     print("onCommit")
                 }).foregroundColor(.primary)
-
-                Button(action: {
-                    self.searchText = ""
-                }) {
-                    Image(systemName: "xmark.circle.fill").opacity(searchText == "" ? 0 : 1)
-                }
             }
-            .padding(EdgeInsets(top: 8, leading: 6, bottom: showCancelButton ? 6 : 10, trailing: 6))
             .foregroundColor(.secondary)
-            .background(Color(.secondarySystemBackground))
             .cornerRadius(10.0)
 
             if showCancelButton  {
                 Button("Cancel") {
-                    UIApplication.shared.endEditing(true) // this must be placed before the other commands here
+                    UIApplication.shared.endEditing(true)
                     searchText = ""
                     showCancelButton = false
                 }
-                .foregroundColor(Color(.systemGray))
+                .foregroundColor(.accentColor)
             }
         }
-        .padding(.horizontal)
     }
 }
 
@@ -192,17 +183,17 @@ struct NoteList: View {
     var body: some View {
         ZStack {
             VStack {
-                SearchBar(searchText: $searchText)
-                
+
                 if results.count > 0 {
                     List {
+                        SearchBar(searchText: $searchText)
                         ForEach(groupByMonth(notes: results), id: \.self) { group in
                             let month = group.isEmpty ? "" : getMonth(date: group[0].createdAt!)
                             
                             Section(header:
                                         Text(month)
                                 .textCase(.none)
-                                .font(.system(size: 18, design: .rounded))
+                                .font(.system(size: 18))
                                 .fontWeight(.bold)
                                 .foregroundColor(.primary)
                             ) {
@@ -214,7 +205,7 @@ struct NoteList: View {
                         .listStyle(.insetGrouped)
                         .padding(.vertical, 4)
                     }
-                    .border(width: 1, edges: [.top], color: Color(.systemGray5))
+
                 } else {
                     VStack(alignment: .center) {
                         Spacer()
@@ -224,7 +215,6 @@ struct NoteList: View {
                     }
                     .frame(maxWidth: .infinity)
                     .background(Color(.systemGray6))
-                    .border(width: 1, edges: [.top], color: Color(.systemGray5))
                     .offset(y: 10)
                 }
             }
@@ -248,7 +238,7 @@ struct NoteList: View {
                 }
                 .padding()
                 .background(.ultraThickMaterial)
-                .border(width: 1, edges: [.top], color: Color(.systemGray5))
+                .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
             }
         }
         .toolbar {

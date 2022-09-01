@@ -47,10 +47,10 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="images" optional="YES" attributeType="Binary"/>
         <relationship name="bellowsData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BellowsExtensionData" inverseName="note" inverseEntity="BellowsExtensionData"/>
-        <relationship name="camera" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Camera" inverseName="note" inverseEntity="Camera"/>
-        <relationship name="emulsion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Emulsion" inverseName="note" inverseEntity="Emulsion"/>
+        <relationship name="camera" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Camera" inverseName="note" inverseEntity="Camera"/>
+        <relationship name="emulsion" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emulsion" inverseName="note" inverseEntity="Emulsion"/>
         <relationship name="filterData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FilterData" inverseName="note" inverseEntity="FilterData"/>
-        <relationship name="lens" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lens" inverseName="note" inverseEntity="Lens"/>
+        <relationship name="lens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lens" inverseName="note" inverseEntity="Lens"/>
         <relationship name="reciprocityData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReciprocityData" inverseName="note" inverseEntity="ReciprocityData"/>
     </entity>
     <entity name="ReciprocityData" representedClassName="ReciprocityData" syncable="YES" codeGenerationType="class">
