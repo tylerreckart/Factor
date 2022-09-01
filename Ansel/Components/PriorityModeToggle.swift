@@ -42,7 +42,7 @@ struct ToggleButton: View {
             }
         }) {
             Text(label)
-                .font(.system(.caption, design: .rounded))
+                .font(.system(.caption))
                 .fontWeight(.bold)
         }
         .foregroundColor(
@@ -74,7 +74,7 @@ struct PriorityModeToggle: View {
     var body: some View {
         VStack {
             Text("Priority Mode")
-                .font(.system(.caption, design: .rounded))
+                .font(.system(.caption))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.gray)
 

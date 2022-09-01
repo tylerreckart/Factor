@@ -34,7 +34,7 @@ struct CalculatedResultCard: View {
                 Spacer()
                 Text(result)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(.title, design: .rounded))
+                    .font(.system(.title))
             }
             .foregroundColor(foreground)
             .frame(height: 125, alignment: .topLeading)

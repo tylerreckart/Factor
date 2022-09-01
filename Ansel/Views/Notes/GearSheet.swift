@@ -10,6 +10,8 @@ import SwiftUI
 struct GearSheet: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+    
     var save: ([Camera], [Lens], [Emulsion]) -> Void
 
     @FetchRequest(
@@ -65,6 +67,7 @@ struct GearSheet: View {
                                         Spacer()
                                         Image(systemName: "checkmark.circle.fill")
                                             .font(.title)
+                                            .foregroundColor(userAccentColor)
                                     }
                                 }
                             }
@@ -92,6 +95,7 @@ struct GearSheet: View {
                                         Spacer()
                                         Image(systemName: "checkmark.circle.fill")
                                             .font(.title)
+                                            .foregroundColor(userAccentColor)
                                     }
                                 }
                             }
@@ -119,6 +123,7 @@ struct GearSheet: View {
                                         Spacer()
                                         Image(systemName: "checkmark.circle.fill")
                                             .font(.title)
+                                            .foregroundColor(userAccentColor)
                                     }
                                 }
                             }
@@ -135,6 +140,7 @@ struct GearSheet: View {
                     }) {
                         Text("Cancel")
                     }
+                    .foregroundColor(userAccentColor)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -144,6 +150,7 @@ struct GearSheet: View {
                         }) {
                             Text("Add")
                                 .fontWeight(.bold)
+                                .foregroundColor(userAccentColor)
                         }
                     } else {
                         Text("Add")

@@ -22,11 +22,9 @@ struct AnselApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .preferredColorScheme(useDarkMode == true ? .dark : nil)
                 .accentColor(userAccentColor)
-                .font(.system(.body, design: .rounded))
                 .onOpenURL { incoming in
                     guard incoming.scheme == "Ansel" else { return }
                     url = incoming.absoluteString
-                    print(url)
                 }
         }
     }

@@ -157,22 +157,24 @@ struct NewNote: View {
                         }
                     }
                 }
+                
                 Spacer()
-                Image(systemName: "camera")
-                Spacer()
+
                 Button(action: {
                     showGearSheet.toggle()
                 }) {
                     Image(systemName: "backpack")
                 }
+                
                 Spacer()
 
                 Button(action: {
                     showDataSheet.toggle()
                 }) {
-                    Image(systemName: "ellipsis.circle")
+                    Image(systemName: "chart.pie")
                 }
             }
+            .foregroundColor(.primary)
             .frame(maxWidth: .infinity)
             .padding([.top, .bottom], 15)
             .padding([.leading, .trailing], 30)
