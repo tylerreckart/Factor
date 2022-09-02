@@ -19,6 +19,7 @@
 		DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */; };
 		DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */; };
 		DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */; };
+		DB3EB2B628C247060017A468 /* LocalLens.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EB2B528C247060017A468 /* LocalLens.swift */; };
 		DB513DE728BF97B800235E9D /* SpotMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB513DE628BF97B800235E9D /* SpotMeter.swift */; };
 		DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* AnselApp.swift */; };
 		DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C3A287A6CC700CC891A /* ContentView.swift */; };
@@ -124,6 +125,7 @@
 		DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityHistorySheet.swift; sourceTree = "<group>"; };
 		DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileSheet.swift; sourceTree = "<group>"; };
 		DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataCard.swift; sourceTree = "<group>"; };
+		DB3EB2B528C247060017A468 /* LocalLens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLens.swift; sourceTree = "<group>"; };
 		DB513DE628BF97B800235E9D /* SpotMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMeter.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Ansel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ansel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C38287A6CC700CC891A /* AnselApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnselApp.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5CB97B28BE618800DB1AED /* FilmStock.swift */,
+				DB3EB2B528C247060017A468 /* LocalLens.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
 				DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */,
 				DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */,
+				DB3EB2B628C247060017A468 /* LocalLens.swift in Sources */,
 				DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */,
 				DB93A9A128C19A3400BD7D5C /* Subscription.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,

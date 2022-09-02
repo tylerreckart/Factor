@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+enum ValidationError: LocalizedError {
+    case NaN
+
+    var errorDescription: String? {
+        switch self {
+        case .NaN:
+            return "Validation Error"
+        }
+    }
+}
+
 struct LensView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -23,18 +34,60 @@ struct LensView: View {
     
     @State private var showApertureMenu: Bool = false
     @State private var presentAlert: Bool = false
+    @State private var presentError: Bool = false
     
-    func save() -> Void {
-        let target = lens ?? Lens(context: managedObjectContext)
-
-        target.manufacturer = manufacturer
-        target.focalLength = Int32(focalLength)!
-        target.maximumAperture = maximumAperture
+    func convertToInt32(_ str: String) throws -> Int32? {
+        let asInt = Int32(str)
         
-        if notes.count > 0 {
-            target.notes = notes
+        if asInt != nil {
+            return asInt
+        } else {
+            throw ValidationError.NaN
         }
+    }
+    
+    func validate() -> LocalLens? {
+        var target = LocalLens()
+        
+        do {
+            target.manufacturer = manufacturer
+            target.maximumAperture = maximumAperture
 
+            if notes.count > 0 {
+                target.notes = notes
+            }
+    
+            if focalLength.contains("mm") {
+                let arr = focalLength.split(separator: "mm")
+                let asInt = try convertToInt32(String(arr[0]))
+                target.focalLength = asInt!
+            } else {
+                let asInt = try convertToInt32(focalLength)
+                target.focalLength = asInt!
+            }
+            
+            return target
+        } catch {
+            presentError = true
+        }
+        
+        return nil
+    }
+    
+    func save(target: LocalLens) -> Void {
+        let newLens = lens ?? Lens(context: managedObjectContext)
+        
+        newLens.manufacturer = target.manufacturer
+        newLens.maximumAperture = maximumAperture
+        if focalLength.contains("mm") {
+            let arr = focalLength.split(separator: "mm")
+            newLens.focalLength = Int32(String(arr[0]))!
+        } else {
+            let asInt = Int32(focalLength)!
+            newLens.focalLength = asInt
+        }
+        newLens.notes = target.notes ?? ""
+        
         saveContext()
     }
     
@@ -52,7 +105,7 @@ struct LensView: View {
         List {
             Section {
                 TextField("Manufacturer e.g Leica", text: $manufacturer)
-                TextField("Focal Length", text: $focalLength)
+                TextField("Focal Length (mm)", text: $focalLength)
                 TextField("Notes", text: $notes)
             }
             
@@ -103,13 +156,22 @@ struct LensView: View {
                 }
             }
         }
+        .alert(isPresented: $presentError, error: ValidationError.NaN) {_ in
+            Button(action: {
+                presentError = false
+            }) {
+                Text("Ok")
+            }
+        } message: { error in
+            Text("Unable to process focal length. Please try again.")
+        }
         .confirmationDialog("Delete Lens?", isPresented: $presentAlert) {
             Button("Delete", role: .destructive) {
                 delete(lens!)
                 saveContext()
             }
         } message: {
-            Text("Delete this camera? This action cannot be undone.")
+            Text("Delete this lens? This action cannot be undone.")
           }
         .onAppear {
             if lens != nil && lens?.manufacturer != nil && lens?.focalLength != nil {
@@ -120,13 +182,26 @@ struct LensView: View {
             }
         }
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Cancel")
+                        .foregroundColor(Color(.systemGray))
+                }
+            }
+
             ToolbarItem(placement: .navigationBarTrailing) {
                 if (
                     manufacturer.count > 0 &&
                     focalLength.count > 0
                 ) {
                     Button(action: {
-                        save()
+                        let obj = validate()
+
+                        if obj != nil {
+                            save(target: obj!)
+                        }
                     }) {
                         Text("Save")
                     }
@@ -150,16 +225,6 @@ struct AddLensSheet: View {
             LensView(delete: emptyFunc)
                 .navigationTitle("Add Lens")
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("Cancel")
-                                .foregroundColor(Color(.systemGray))
-                        }
-                    }
-                }
         }
     }
 }
@@ -176,8 +241,8 @@ struct Lenses: View {
     
     @State private var showAddLensSheet: Bool = false
     
-    func deleteLens(camera: Lens) -> Void {
-        managedObjectContext.delete(camera)
+    func deleteLens(lens: Lens) -> Void {
+        managedObjectContext.delete(lens)
     }
 
     var body: some View {
