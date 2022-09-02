@@ -22,6 +22,12 @@ struct Settings: View {
                         Text("Lenses")
                     }
                 }
+                
+                Section {
+                    NavigationLink(destination: Subscription()) {
+                        Text("Ansel Premium")
+                    }
+                }
 
                 Section(header: Text("Customization").font(.system(size: 12))) {
                     NavigationLink(destination: ThemeSettings()) {
@@ -36,17 +42,6 @@ struct Settings: View {
                     NavigationLink(destination: Feedback()) {
                         Text("Send Feedback")
                     }
-                    // TODO: Insert App Store link for direct rating.
-//                    NavigationLink(destination: EmptyView()) {
-//                        VStack(alignment: .leading) {
-//                            Text("Please Rate Ansel")
-//                                .padding(.bottom, 1)
-//                            Text("Thank you for your support")
-//                                .font(.system(size: 12))
-//                                .textCase(.uppercase)
-//                                .foregroundColor(Color(.systemGray))
-//                        }
-//                    }
                 }
                 
                 Section {

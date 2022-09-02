@@ -2,7 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>subscription.premium</key>
-	<string>Premium Subscription (Annual)</string>
+	<key>premium.monthly</key>
+	<string>Ansel Premium (Monthly)</string>
+	<key>premium.annual</key>
+	<string>Ansel Premium (Annual)</string>
 </dict>
 </plist>
