@@ -10,16 +10,16 @@ import SwiftUI
 enum BellowsExtensionFormField: Hashable {
     case aperture
     case shutter
-    case focal_length
-    case bellows_draw
+    case focalLength
+    case bellowsDraw
 }
 
 struct BellowsExtensionForm: View {
-    @Binding var priority_mode: PriorityMode
+    @Binding var priorityMode: PriorityMode
     @Binding var aperture: String
-    @Binding var shutter_speed: String
-    @Binding var focal_length: String
-    @Binding var bellows_draw: String
+    @Binding var shutterSpeed: String
+    @Binding var focalLength: String
+    @Binding var bellowsDraw: String
 
     var calculate: () -> Void
     
@@ -39,30 +39,30 @@ struct BellowsExtensionForm: View {
 
             VStack {
                 VStack(spacing: 0) {
-                    if self.priority_mode == .shutter {
+                    if self.priorityMode == .shutter {
                         FormInput(text: $aperture, placeholder: "Aperture")
                             .background(.background)
                             .focused($focusedField, equals: .aperture)
                             .cornerRadius(3, corners: [.topLeft, .topRight])
                     }
                     
-                    if self.priority_mode == .aperture {
-                        FormInput(text: $shutter_speed, placeholder: "Shutter Speed")
+                    if self.priorityMode == .aperture {
+                        FormInput(text: $shutterSpeed, placeholder: "Shutter Speed")
                             .background(.background)
                             .focused($focusedField, equals: .shutter)
                             .cornerRadius(3, corners: [.topLeft, .topRight])
                     }
                     
-                    FormInput(text: $focal_length, placeholder: "Focal Length (mm)")
+                    FormInput(text: $focalLength, placeholder: "Focal Length (mm)")
                         .background(.background)
-                        .focused($focusedField, equals: .focal_length)
+                        .focused($focusedField, equals: .focalLength)
                         .keyboardType(.numberPad)
                         .border(width: 1, edges: [.top], color: Color(.systemGray5))
                         .zIndex(2)
                     
-                    FormInput(text: $bellows_draw, placeholder: "Bellows Draw (mm)")
+                    FormInput(text: $bellowsDraw, placeholder: "Bellows Draw (mm)")
                         .background(.background)
-                        .focused($focusedField, equals: .bellows_draw)
+                        .focused($focusedField, equals: .bellowsDraw)
                         .keyboardType(.numberPad)
                         .border(width: 1, edges: [.top], color: Color(.systemGray5))
                         .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
@@ -73,7 +73,7 @@ struct BellowsExtensionForm: View {
                 
                 CalculateButton(
                     calculate: calculateWithFocus,
-                    isDisabled: self.priority_mode == .aperture ? (self.shutter_speed.count == 0 || self.focal_length.count == 0 || self.bellows_draw.count == 0) : (self.aperture.count == 0 || self.focal_length.count == 0 || self.bellows_draw.count == 0)
+                    isDisabled: self.priorityMode == .aperture ? (self.shutterSpeed.count == 0 || self.focalLength.count == 0 || self.bellowsDraw.count == 0) : (self.aperture.count == 0 || self.focalLength.count == 0 || self.bellowsDraw.count == 0)
                 )
                 .padding(.top, 5)
             }

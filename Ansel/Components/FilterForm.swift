@@ -13,10 +13,10 @@ enum FilterFormField: Hashable {
 }
 
 struct FilterForm: View {
-    @Binding var priority_mode: PriorityMode
-    @Binding var shutter_speed: String
+    @Binding var priorityMode: PriorityMode
+    @Binding var shutterSpeed: String
     @Binding var aperture: String
-    @Binding var calculated_factor: Bool
+    @Binding var calculatedFactor: Bool
 
     var calculate: () -> Void
     var reset: () -> Void
@@ -33,10 +33,10 @@ struct FilterForm: View {
     var body: some View {
         VStack {
             PriorityModeToggle(
-                priority_mode: $priority_mode,
+                priorityMode: $priorityMode,
                 aperture: $aperture,
-                shutter_speed:$shutter_speed,
-                calculated_factor: $calculated_factor,
+                shutterSpeed:$shutterSpeed,
+                calculatedFactor: $calculatedFactor,
                 reset: self.reset
             )
             .padding(.top)
@@ -80,9 +80,9 @@ struct FilterForm: View {
                 }
                 .cornerRadius(3, corners: [.topLeft, .topRight])
             
-                if self.priority_mode == .aperture {
+                if self.priorityMode == .aperture {
                     FormInput(
-                        text: $shutter_speed,
+                        text: $shutterSpeed,
                         placeholder: "Shutter Speed (seconds)"
                     )
                     .background(.background)
@@ -91,7 +91,7 @@ struct FilterForm: View {
                     .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
                 }
                 
-                if self.priority_mode == .shutter {
+                if self.priorityMode == .shutter {
                     FormInput(
                         text: $aperture,
                         placeholder: "Aperture"
@@ -107,7 +107,7 @@ struct FilterForm: View {
             .cornerRadius(4)
         
             
-            CalculateButton(calculate: calculateWithFocus, isDisabled: self.priority_mode == .aperture ? self.shutter_speed.count == 0 : self.aperture.count == 0)
+            CalculateButton(calculate: calculateWithFocus, isDisabled: self.priorityMode == .aperture ? self.shutterSpeed.count == 0 : self.aperture.count == 0)
                 .padding(.top, 5)
         }
     }

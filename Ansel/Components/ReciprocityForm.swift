@@ -19,7 +19,7 @@ struct ReciprocityForm: View {
       ]
     ) var emulsions: FetchedResults<Emulsion>
 
-    @Binding var shutter_speed: String
+    @Binding var shutterSpeed: String
 
     var calculate: () -> Void
     
@@ -91,7 +91,7 @@ struct ReciprocityForm: View {
                 }
                 .cornerRadius(3, corners: [.topLeft, .topRight])
                 
-                FormInput(text: $shutter_speed, placeholder: "Shutter Speed (seconds)")
+                FormInput(text: $shutterSpeed, placeholder: "Shutter Speed (seconds)")
                     .background(.background)
                     .border(width: 1, edges: [.top], color: Color(.systemGray5))
                     .focused($focusedField, equals: .shutter)
@@ -101,7 +101,7 @@ struct ReciprocityForm: View {
             .background(Color(.systemGray5))
             .cornerRadius(4)
 
-            CalculateButton(calculate: calculateWithFocus, isDisabled: self.shutter_speed.count == 0)
+            CalculateButton(calculate: calculateWithFocus, isDisabled: self.shutterSpeed.count == 0)
                 .padding(.top, 5)
         }
     }

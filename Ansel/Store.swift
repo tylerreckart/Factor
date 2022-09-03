@@ -83,7 +83,8 @@ class Store: ObservableObject {
     @MainActor
     func requestProducts() async {
         do {
-            let products = try await Product.products(for: productIdToString.keys)
+            let keys = ["com.ansel.premium.annual"]
+            let products = try await Product.products(for: keys)
             subscriptions = products
         } catch {
             print("Failed product request from the App Store server: \(error)")

@@ -16,31 +16,29 @@ struct FilterFactor: View {
       ]
     ) var fetchedResults: FetchedResults<FilterData>
     
-    @State private var priority_mode: PriorityMode = .aperture
+    @State private var priorityMode: PriorityMode = .aperture
 
-    @State private var shutter_speed: String = ""
+    @State private var shutterSpeed: String = ""
     @State private var aperture: String = ""
-
-    @State private var f_stop_reduction: Double = 1
-    @State private var compensated_shutter: Double = 0
-    @State private var compensated_aperture: Double = 0
-
+    @State private var fStopReduction: Double = 1
+    @State private var compensatedShutter: Double = 0
+    @State private var compensatedAperture: Double = 0
     @State private var selected: Double = 1
-
-    @State private var calculated_factor: Bool = false
-    
+    @State private var calculatedFactor: Bool = false
     @State private var showingHistorySheet: Bool = false
+    
+    @State private var presentError: Bool = false
 
     var body: some View {
         ScrollView {
             VStack {
                 FilterForm(
-                    priority_mode: $priority_mode,
-                    shutter_speed: $shutter_speed,
+                    priorityMode: $priorityMode,
+                    shutterSpeed: $shutterSpeed,
                     aperture: $aperture,
-                    calculated_factor: $calculated_factor,
-                    calculate: self.calculate,
-                    reset: self.reset,
+                    calculatedFactor: $calculatedFactor,
+                    calculate: calculate,
+                    reset: reset,
                     selected: $selected
                 )
             }
@@ -50,22 +48,22 @@ struct FilterFactor: View {
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
             .padding([.leading, .trailing, .bottom])
 
-            if self.compensated_shutter > 0 {
+            if compensatedShutter > 0 {
                 CalculatedResultCard(
                     label: "Adjusted shutter speed (seconds)",
                     icon: "clock.circle.fill",
-                    result: "\(compensated_shutter.clean) seconds",
+                    result: "\(compensatedShutter.clean) seconds",
                     background: Color(.systemPurple)
                 )
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                 .padding([.leading, .trailing, .bottom])
             }
             
-            if self.compensated_aperture > 0 {
+            if compensatedAperture > 0 {
                 CalculatedResultCard(
                     label: "Adjusted aperture",
                     icon: "f.cursive.circle.fill",
-                    result: "f/\(compensated_aperture.clean)",
+                    result: "f/\(compensatedAperture.clean)",
                     background: Color(.systemGreen)
                 )
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
@@ -75,11 +73,20 @@ struct FilterFactor: View {
         .background(Color(.systemGray6))
         .navigationTitle("Filter Factor")
         .navigationBarTitleDisplayMode(.inline)
+        .alert(isPresented: $presentError, error: ValidationError.NaN) {_ in
+            Button(action: {
+                presentError = false
+            }) {
+                Text("Ok")
+            }
+        } message: { error in
+            Text("Unable to process inputs. Please try again.")
+        }
         .toolbar {
             if fetchedResults.count > 0 {
                 HStack {
                     Button(action: {
-                        self.showingHistorySheet.toggle()
+                        showingHistorySheet.toggle()
                     }) {
                         Image(systemName: "clock.arrow.circlepath")
                         Text("History")
@@ -103,43 +110,43 @@ struct FilterFactor: View {
     private func calculate() {
         let adjustment = pow(2, selected)
 
-        if self.priority_mode == .aperture {
-            let adjusted_speed = Double(shutter_speed)! * adjustment
-
-            self.compensated_shutter = adjusted_speed
+        do {
+            if priorityMode == .aperture {
+                let asDouble = try convertToDouble(shutterSpeed)!
+                let adjusted_speed = asDouble * adjustment
+                
+                compensatedShutter = adjusted_speed
+            }
+            
+            if priorityMode == .shutter {
+                let asDouble = try convertToDouble(aperture)!
+                let adjusted_aperture = asDouble * adjustment
+                
+                compensatedAperture = closestValue(f_stops, adjusted_aperture)
+            }
+            
+            calculatedFactor = true
+            
+            save()
+        } catch {
+            presentError = true
         }
-        
-        if self.priority_mode == .shutter {
-            let adjusted_aperture = Double(aperture)! * adjustment
-
-            self.compensated_aperture = closestValue(f_stops, adjusted_aperture)
-        }
-        
-        self.calculated_factor = true
-        
-        save()
     }
 
     func save() {
         let filterData = FilterData(context: managedObjectContext)
 
         filterData.fStopReduction = selected
-        filterData.compensatedAperture = compensated_aperture
-        filterData.compensatedShutterSpeed = compensated_shutter
+        filterData.compensatedAperture = compensatedAperture
+        filterData.compensatedShutterSpeed = compensatedShutter
         filterData.timestamp = Date()
 
         saveContext()
     }
     
     private func reset() {
-        self.calculated_factor = false
-        self.compensated_aperture = 0
-        self.compensated_shutter = 0
-    }
-}
-
-struct Filter_Previews: PreviewProvider {
-    static var previews: some View {
-        FilterFactor()
+        calculatedFactor = false
+        compensatedAperture = 0
+        compensatedShutter = 0
     }
 }

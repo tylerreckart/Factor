@@ -23,11 +23,11 @@ struct Settings: View {
                     }
                 }
                 
-                Section {
-                    NavigationLink(destination: Subscription()) {
-                        Text("Ansel Premium")
-                    }
-                }
+//                Section {
+//                    NavigationLink(destination: Subscription()) {
+//                        Text("Ansel Premium")
+//                    }
+//                }
 
                 Section(header: Text("Customization").font(.system(size: 12))) {
                     NavigationLink(destination: ThemeSettings()) {

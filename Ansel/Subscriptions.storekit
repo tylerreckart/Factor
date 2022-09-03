@@ -1,5 +1,5 @@
 {
-  "identifier" : "073AC9C2",
+  "identifier" : "18750B7B",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -9,7 +9,7 @@
   "settings" : {
     "_applicationInternalID" : "1642230521",
     "_developerTeamID" : "78FCYG6ZD9",
-    "_lastSynchronizedDate" : 683486163.20121002
+    "_lastSynchronizedDate" : 683868963.08640695
   },
   "subscriptionGroups" : [
     {
@@ -29,28 +29,43 @@
           "displayPrice" : "9.99",
           "familyShareable" : false,
           "groupNumber" : 1,
-          "internalID" : "1642363939",
+          "internalID" : "1643060698",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Annual premium subscription",
-              "displayName" : "Ansel Premium",
-              "locale" : "en_CA"
-            },
-            {
-              "description" : "Annual premium subscription",
-              "displayName" : "Ansel Premium",
-              "locale" : "en_GB"
-            },
-            {
-              "description" : "Annual premium subscription",
-              "displayName" : "Ansel Premium",
+              "description" : "Yearly subscription for premium features",
+              "displayName" : "Ansel Premium (Annual)",
               "locale" : "en_US"
             }
           ],
-          "productID" : "subscription.premium",
+          "productID" : "premium.annual",
           "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "Ansel Premium (Annual)",
+          "subscriptionGroupID" : "21013599",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "1643060556",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Monthly subscription for premium features",
+              "displayName" : "Ansel Premium (Monthly)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "premium.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Ansel Premium (Monthly)",
           "subscriptionGroupID" : "21013599",
           "type" : "RecurringSubscription"
         }

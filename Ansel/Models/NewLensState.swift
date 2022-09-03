@@ -1,5 +1,5 @@
 //
-//  Lenses.swift
+//  NewLensState.swift
 //  Ansel
 //
 //  Created by Tyler Reckart on 9/2/22.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct LocalLens: Identifiable, Equatable {
-    static func == (lhs: LocalLens, rhs: LocalLens) -> Bool {
+struct NewLensState: Identifiable, Equatable {
+    static func == (lhs: NewLensState, rhs: NewLensState) -> Bool {
         return lhs.id == rhs.id
     }
     

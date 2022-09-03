@@ -64,10 +64,10 @@ struct ToggleButton: View {
 struct PriorityModeToggle: View {
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
-    @Binding var priority_mode: PriorityMode
+    @Binding var priorityMode: PriorityMode
     @Binding var aperture: String
-    @Binding var shutter_speed: String
-    @Binding var calculated_factor: Bool
+    @Binding var shutterSpeed: String
+    @Binding var calculatedFactor: Bool
 
     var reset: () -> Void
 
@@ -82,9 +82,9 @@ struct PriorityModeToggle: View {
                 HStack {
                     ToggleButton(
                         aperture: $aperture,
-                        shutter: $shutter_speed,
-                        priorityMode: $priority_mode,
-                        calculated: $calculated_factor,
+                        shutter: $shutterSpeed,
+                        priorityMode: $priorityMode,
+                        calculated: $calculatedFactor,
                         label: "Aperture",
                         target: .aperture,
                         reset: reset
@@ -92,9 +92,9 @@ struct PriorityModeToggle: View {
 
                     ToggleButton(
                         aperture: $aperture,
-                        shutter: $shutter_speed,
-                        priorityMode: $priority_mode,
-                        calculated: $calculated_factor,
+                        shutter: $shutterSpeed,
+                        priorityMode: $priorityMode,
+                        calculated: $calculatedFactor,
                         label: "Shutter Speed",
                         target: .shutter,
                         reset: reset

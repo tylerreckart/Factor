@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-enum ValidationError: LocalizedError {
-    case NaN
-
-    var errorDescription: String? {
-        switch self {
-        case .NaN:
-            return "Validation Error"
-        }
-    }
-}
-
 struct LensView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -36,18 +25,8 @@ struct LensView: View {
     @State private var presentAlert: Bool = false
     @State private var presentError: Bool = false
     
-    func convertToInt32(_ str: String) throws -> Int32? {
-        let asInt = Int32(str)
-        
-        if asInt != nil {
-            return asInt
-        } else {
-            throw ValidationError.NaN
-        }
-    }
-    
-    func validate() -> LocalLens? {
-        var target = LocalLens()
+    func validate() -> NewLensState? {
+        var target = NewLensState()
         
         do {
             target.manufacturer = manufacturer
@@ -74,7 +53,7 @@ struct LensView: View {
         return nil
     }
     
-    func save(target: LocalLens) -> Void {
+    func save(target: NewLensState) -> Void {
         let newLens = lens ?? Lens(context: managedObjectContext)
         
         newLens.manufacturer = target.manufacturer

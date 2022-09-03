@@ -17,27 +17,33 @@ struct Reciprocity: View {
       ]
     ) var fetchedResults: FetchedResults<ReciprocityData>
 
-    @State private var shutter_speed: String = ""
+    @State private var shutterSpeed: String = ""
     @State private var reciprocity_factor: Double = 1.43
-    @State private var adjusted_shutter_speed: Double?
+    @State private var adjustedShutterSpeed: Double?
     @State private var selected: Emulsion?
     
     @State private var showingHistorySheet: Bool = false
+    
+    @State private var presentError: Bool = false
 
     var body: some View {
         ScrollView {
-            ReciprocityForm(shutter_speed: $shutter_speed, calculate: calculate, selected: $selected)
+            ReciprocityForm(
+                shutterSpeed: $shutterSpeed,
+                calculate: calculate,
+                selected: $selected
+            )
                 .padding([.leading, .trailing, .bottom])
                 .background(.background)
                 .cornerRadius(18)
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                 .padding([.leading, .trailing, .bottom])
 
-            if adjusted_shutter_speed ?? 0 > 0 {
+            if adjustedShutterSpeed ?? 0 > 0 {
                 CalculatedResultCard(
                     label: "Adjusted shutter speed",
                     icon: "clock.circle.fill",
-                    result: "\(Int(round(adjusted_shutter_speed!))) seconds",
+                    result: "\(Int(round(adjustedShutterSpeed!))) seconds",
                     background: Color(.systemPurple)
                 )
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
@@ -47,6 +53,15 @@ struct Reciprocity: View {
         .background(Color(.systemGray6))
         .navigationTitle("Reciprocity Factor")
         .navigationBarTitleDisplayMode(.inline)
+        .alert(isPresented: $presentError, error: ValidationError.NaN) {_ in
+            Button(action: {
+                presentError = false
+            }) {
+                Text("Ok")
+            }
+        } message: { error in
+            Text("Unable to process inputs. Please try again.")
+        }
         .toolbar {
             if fetchedResults.count > 0 {
                 HStack {
@@ -75,7 +90,7 @@ struct Reciprocity: View {
     func save() {
         let newReciprocityData = ReciprocityData(context: managedObjectContext)
 
-        newReciprocityData.adjustedShutterSpeed = self.adjusted_shutter_speed!
+        newReciprocityData.adjustedShutterSpeed = self.adjustedShutterSpeed!
         newReciprocityData.timestamp = Date()
         
         let optionData = ReciprocityOption(context: managedObjectContext)
@@ -86,23 +101,27 @@ struct Reciprocity: View {
         saveContext()
     }
 
-    private func calculate() {
-        let threshold = selected!.threshold
-        let speedInt = Int(shutter_speed)
-        
-        if threshold < speedInt! {
-            adjusted_shutter_speed = pow(
-                Double(shutter_speed)!, selected!.pFactor
-            )
-        } else {
-            adjusted_shutter_speed = Double(shutter_speed)
-        }
-        save()
-    }
-}
+    private func calculate() -> Void {
+        let threshold: Int32? = selected?.threshold ?? nil
 
-struct Reciprocity_Previews: PreviewProvider {
-    static var previews: some View {
-        Reciprocity()
+        if threshold != nil {
+            do {
+                let thresholdDouble = try convertToDouble(String(selected!.threshold))!
+                let asDouble = try convertToDouble(shutterSpeed)!
+                
+                if thresholdDouble < asDouble {
+                    adjustedShutterSpeed = pow(asDouble, selected!.pFactor)
+                } else {
+                    adjustedShutterSpeed = Double(shutterSpeed)
+                }
+                save()
+            } catch {
+                presentError = true
+                return
+            }
+        } else {
+            presentError = true
+            return
+        }
     }
 }

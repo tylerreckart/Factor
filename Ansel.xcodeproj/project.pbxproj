@@ -18,8 +18,10 @@
 		DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */; };
 		DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */; };
 		DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */; };
+		DB1E63E128C37DC300FFDC67 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E028C37DC300FFDC67 /* Validation.swift */; };
+		DB1E63E728C3814300FFDC67 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E628C3814300FFDC67 /* Math.swift */; };
 		DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */; };
-		DB3EB2B628C247060017A468 /* LocalLens.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EB2B528C247060017A468 /* LocalLens.swift */; };
+		DB3EB2B628C247060017A468 /* NewLensState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EB2B528C247060017A468 /* NewLensState.swift */; };
 		DB513DE728BF97B800235E9D /* SpotMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB513DE628BF97B800235E9D /* SpotMeter.swift */; };
 		DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* AnselApp.swift */; };
 		DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C3A287A6CC700CC891A /* ContentView.swift */; };
@@ -124,8 +126,10 @@
 		DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtensionHistorySheet.swift; sourceTree = "<group>"; };
 		DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityHistorySheet.swift; sourceTree = "<group>"; };
 		DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileSheet.swift; sourceTree = "<group>"; };
+		DB1E63E028C37DC300FFDC67 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		DB1E63E628C3814300FFDC67 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataCard.swift; sourceTree = "<group>"; };
-		DB3EB2B528C247060017A468 /* LocalLens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLens.swift; sourceTree = "<group>"; };
+		DB3EB2B528C247060017A468 /* NewLensState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLensState.swift; sourceTree = "<group>"; };
 		DB513DE628BF97B800235E9D /* SpotMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMeter.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Ansel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ansel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C38287A6CC700CC891A /* AnselApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnselApp.swift; sourceTree = "<group>"; };
@@ -233,6 +237,49 @@
 			path = AnselWidgets;
 			sourceTree = "<group>";
 		};
+		DB1E63E228C37DF300FFDC67 /* Gear */ = {
+			isa = PBXGroup;
+			children = (
+				DB1E63E528C37E0B00FFDC67 /* Emulsions */,
+				DB1E63E428C37DFB00FFDC67 /* Cameras */,
+				DB1E63E328C37DF700FFDC67 /* Lenses */,
+			);
+			path = Gear;
+			sourceTree = "<group>";
+		};
+		DB1E63E328C37DF700FFDC67 /* Lenses */ = {
+			isa = PBXGroup;
+			children = (
+				DBE2816928BEC3040074FD72 /* Lenses.swift */,
+			);
+			path = Lenses;
+			sourceTree = "<group>";
+		};
+		DB1E63E428C37DFB00FFDC67 /* Cameras */ = {
+			isa = PBXGroup;
+			children = (
+				DB6ED6A428BEAA1200F4CE85 /* Cameras.swift */,
+			);
+			path = Cameras;
+			sourceTree = "<group>";
+		};
+		DB1E63E528C37E0B00FFDC67 /* Emulsions */ = {
+			isa = PBXGroup;
+			children = (
+				DB5CB97828BE600A00DB1AED /* FilmOptions.swift */,
+			);
+			path = Emulsions;
+			sourceTree = "<group>";
+		};
+		DB1E63E828C38C1B00FFDC67 /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+				DB80127D28B8532D00AC7EAC /* Theme.swift */,
+				DB80123128B840AB00AC7EAC /* AppIcon.swift */,
+			);
+			path = Customization;
+			sourceTree = "<group>";
+		};
 		DB513DE428BEFA6800235E9D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +288,8 @@
 				DB901B33287CB68600EC04D7 /* DataModels.swift */,
 				DBB4FA5028AD4A8500186039 /* Utils.swift */,
 				DBB4FA5828AF211800186039 /* Constants.swift */,
+				DB1E63E028C37DC300FFDC67 /* Validation.swift */,
+				DB1E63E628C3814300FFDC67 /* Math.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -320,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5CB97B28BE618800DB1AED /* FilmStock.swift */,
-				DB3EB2B528C247060017A468 /* LocalLens.swift */,
+				DB3EB2B528C247060017A468 /* NewLensState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,15 +377,12 @@
 		DB80123028B840A300AC7EAC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DB1E63E828C38C1B00FFDC67 /* Customization */,
+				DB1E63E228C37DF300FFDC67 /* Gear */,
 				DBB4FA5F28B561AA00186039 /* Settings.swift */,
-				DB80123128B840AB00AC7EAC /* AppIcon.swift */,
-				DB80127D28B8532D00AC7EAC /* Theme.swift */,
 				DB5A4A3328BBDAE7006B093B /* Privacy.swift */,
 				DB5A4A3528BBE041006B093B /* About.swift */,
 				DB5A4A3728BBE469006B093B /* Feedback.swift */,
-				DB5CB97828BE600A00DB1AED /* FilmOptions.swift */,
-				DB6ED6A428BEAA1200F4CE85 /* Cameras.swift */,
-				DBE2816928BEC3040074FD72 /* Lenses.swift */,
 				DB93A9A028C19A3400BD7D5C /* Subscription.swift */,
 			);
 			path = Settings;
@@ -612,6 +658,7 @@
 				DBE2816A28BEC3040074FD72 /* Lenses.swift in Sources */,
 				DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */,
 				DB1DBF9728B7E0AA00F2FE07 /* DashboardToolbar.swift in Sources */,
+				DB1E63E128C37DC300FFDC67 /* Validation.swift in Sources */,
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,
 				DB80128F28BA593000AC7EAC /* NoteList.swift in Sources */,
 				DB901B3F287D03E800EC04D7 /* ReciprocityFactor.swift in Sources */,
@@ -622,7 +669,7 @@
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
 				DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */,
 				DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */,
-				DB3EB2B628C247060017A468 /* LocalLens.swift in Sources */,
+				DB3EB2B628C247060017A468 /* NewLensState.swift in Sources */,
 				DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */,
 				DB93A9A128C19A3400BD7D5C /* Subscription.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,
@@ -631,6 +678,7 @@
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
 				DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */,
 				DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */,
+				DB1E63E728C3814300FFDC67 /* Math.swift in Sources */,
 				DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */,
 				DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */,
 				DB6157A328C0E7D800D485C3 /* CalculationData.swift in Sources */,
@@ -722,12 +770,12 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.AnselWidgets";
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.iOS.AnselWidgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -751,12 +799,12 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.AnselWidgets";
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.iOS.AnselWidgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -910,7 +958,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2022.0.5;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -951,8 +999,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2022.0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -975,7 +1023,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.LumenTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.AnselTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -995,7 +1043,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.LumenTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.AnselTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1013,7 +1061,7 @@
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.LumenUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.AnselUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1031,7 +1079,7 @@
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tyler-Reckart.LumenUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.AnselUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
