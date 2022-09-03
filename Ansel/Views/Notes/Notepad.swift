@@ -22,6 +22,8 @@ enum DataAlert: Hashable {
 struct Notepad: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var note: Note?
 
     @State private var showGearSheet: Bool = false
     @State private var showDataSheet: Bool = false
@@ -100,6 +102,16 @@ struct Notepad: View {
         }
         .sheet(isPresented: $showDataSheet) {
             DataSheet(save: saveData)
+        }
+        .onAppear {
+            if note != nil {
+                noteBody = note!.body!
+                focusedField = nil
+                
+                if note!.images != nil {
+                    selectedPhotosData = imagesFromCoreData(object: note!.images)!
+                }
+            }
         }
         .onDisappear {
             if noteBody.count > 0 {
@@ -184,6 +196,21 @@ struct Notepad: View {
         return try? NSKeyedArchiver.archivedData(withRootObject: dataArray, requiringSecureCoding: true)
     }
     
+    func imagesFromCoreData(object: Data?) -> Set<UIImage>? {
+        var retVal = Set<UIImage>()
+
+        guard let object = object else { return nil }
+        if let dataArray = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSArray.self, from: object) {
+            for data in dataArray {
+                if let data = data as? Data, let image = UIImage(data: data) {
+                    retVal.insert(image)
+                }
+            }
+        }
+        
+        return retVal
+    }
+    
     func saveContext() {
         do {
             try managedObjectContext.save()
@@ -199,10 +226,13 @@ struct Notepad: View {
     func save() {
         isSaving = true
     
-        let newNote = Note(context: managedObjectContext)
+        let newNote = note ?? Note(context: managedObjectContext)
 
         newNote.body = noteBody
-        newNote.createdAt = Date()
+        
+        if note == nil {
+            newNote.createdAt = Date()
+        }
 
         
         self.workItem = DispatchWorkItem {
@@ -238,7 +268,7 @@ struct Notepad: View {
             
             //Reset variables on the main thread once finished
             DispatchQueue.main.async {
-                self.isSaving = false
+                isSaving = false
             }
         }
         

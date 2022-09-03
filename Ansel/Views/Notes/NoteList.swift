@@ -60,7 +60,7 @@ struct NoteListItem: View {
             if !isEditing {
                 let str = note.body!
                 
-                NavigationLink(destination: NoteView(note: note)) {
+                NavigationLink(destination: Notepad(note: note)) {
                     VStack(alignment: .leading) {
                         Text(str.count > 80 ? str.prefix(80) + "..." : str)
                             .foregroundColor(.primary)
@@ -188,9 +188,22 @@ struct NoteList: View {
         ZStack {
             VStack {
                 SearchBar(searchText: $searchText)
+                
+                if results.count == 0 {
+                    VStack {
+                        Spacer()
+                        Text("Add your first note to get started")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color(.systemGray))
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.systemGray6))
+                    .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
+                }
 
-                List {
-                    if results.count > 0 {
+                if results.count > 0 {
+                    List {
                         ForEach(filterBySearchText(notes: results), id: \.self) { group in
                             let month = group.isEmpty ? "" : getMonth(date: group[0].createdAt!)
                             
@@ -209,9 +222,10 @@ struct NoteList: View {
                         .listStyle(.insetGrouped)
                         .padding(.vertical, 4)
                     }
+                    .background(Color(.systemGray6))
+                    .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
+                    .padding(.top, -10)
                 }
-                .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
-                .padding(.top, -10)
             }
             
             VStack {
