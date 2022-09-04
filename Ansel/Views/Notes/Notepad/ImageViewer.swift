@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 import SwiftUI
 
+struct VisualEffectView: UIViewRepresentable {
+    var effect: UIVisualEffect?
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
+}
+
 struct ZoomableScrollView<Content: View>: UIViewRepresentable {
     private var content: Content
 
@@ -59,18 +65,22 @@ struct ZoomableScrollView<Content: View>: UIViewRepresentable {
 
 struct ImageViewer: View {
     var image: UIImage
-    
-    @State private var currentAmount = 0.0
-    @State private var finalAmount = 1.0
-    @State private var viewState = CGSize.zero
+    var dismiss: () -> Void
 
     var body: some View {
-        ZoomableScrollView {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+        VStack {
+            ZoomableScrollView(
+                content: {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+            )
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .edgesIgnoringSafeArea(.bottom)
+        .onTapGesture {
+            dismiss()
+        }
+        .edgesIgnoringSafeArea(.all)
+        .navigationBarHidden(true)
     }
 }

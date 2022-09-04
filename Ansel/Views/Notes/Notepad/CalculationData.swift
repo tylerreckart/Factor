@@ -25,7 +25,7 @@ struct CalculationData: View {
                         ReciprocityFactorData(result: data)
                     }
                 }
-                .padding([.leading, .trailing])
+                .padding([.leading, .trailing, .bottom])
             }
             
             if filterData.count > 0 {
@@ -39,7 +39,7 @@ struct CalculationData: View {
                         FilterFactorData(result: data)
                     }
                 }
-                .padding([.leading, .trailing])
+                .padding([.leading, .trailing, .bottom])
             }
             
             if bellowsData.count > 0 {
@@ -54,7 +54,7 @@ struct CalculationData: View {
                             .padding(.bottom, 10)
                     }
                 }
-                .padding([.leading, .trailing])
+                .padding([.leading, .trailing, .bottom])
             }
         }
         .padding(.bottom, 20)

@@ -44,7 +44,11 @@ struct Notepad: View {
     @State private var addedFilmData: Set<Emulsion> = []
     
     @State private var isSaving: Bool = false
+
     @State private var workItem: DispatchWorkItem?
+    
+    @State private var showOverlay: Bool = false
+    @State private var overlayImage: UIImage?
 
     var body: some View {
         VStack {
@@ -53,9 +57,6 @@ struct Notepad: View {
                     .zIndex(1)
                     .textFieldStyle(.plain)
                     .focused($focusedField, equals: .noteBody)
-                    .onAppear {
-                        self.focusedField = .noteBody
-                    }
                     .padding([.leading, .trailing, .top])
                     .padding(.bottom, 10)
                 
@@ -68,11 +69,16 @@ struct Notepad: View {
                 if selectedPhotosData.count > 0 {
                     VStack {
                         ForEach(Array(selectedPhotosData), id: \.self) { image in
-                            Image(uiImage: image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .cornerRadius(8)
-                                .padding(.bottom)
+                            Button(action: {
+                                showOverlay = true
+                                overlayImage = image
+                            }) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(8)
+                                    .padding(.bottom)
+                            }
                         }
                     }
                     .padding([.leading, .trailing])
@@ -103,6 +109,9 @@ struct Notepad: View {
         .sheet(isPresented: $showDataSheet) {
             DataSheet(save: saveData)
         }
+        .overlay(
+            showOverlay ? ImageViewer(image: overlayImage!, dismiss: dismissOverlay) : nil
+        )
         .onAppear {
             if note != nil {
                 noteBody = note!.body!
@@ -111,6 +120,32 @@ struct Notepad: View {
                 if note!.images != nil {
                     selectedPhotosData = imagesFromCoreData(object: note!.images)!
                 }
+                
+                if note!.reciprocityData != nil {
+                    addedReciprocityData = note!.reciprocityData as! Set<ReciprocityData>
+                }
+                
+                if note!.bellowsData != nil {
+                    addedBellowsData = note!.bellowsData as! Set<BellowsExtensionData>
+                }
+                
+                if note!.filterData != nil {
+                    addedFilterData = note!.filterData as! Set<FilterData>
+                }
+                
+                if note!.camera != nil {
+                    addedCameraData = note!.camera as! Set<Camera>
+                }
+                
+                if note!.lens != nil {
+                    addedLensData = note!.lens as! Set<Lens>
+                }
+                
+                if note!.emulsion != nil {
+                    addedFilmData = note!.emulsion as! Set<Emulsion>
+                }
+            } else {
+                focusedField = .noteBody
             }
         }
         .onDisappear {
@@ -118,6 +153,11 @@ struct Notepad: View {
                 save()
             }
         }
+    }
+    
+    func dismissOverlay() -> Void {
+        showOverlay = false
+        overlayImage = nil
     }
     
     func addBellowsData(data: [BellowsExtensionData]) -> Void {

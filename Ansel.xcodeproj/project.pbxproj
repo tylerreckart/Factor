@@ -21,6 +21,7 @@
 		DB1E63E128C37DC300FFDC67 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E028C37DC300FFDC67 /* Validation.swift */; };
 		DB1E63E728C3814300FFDC67 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E628C3814300FFDC67 /* Math.swift */; };
 		DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */; };
+		DB3E7C1528C4304800518182 /* NewNoteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3E7C1428C4304800518182 /* NewNoteState.swift */; };
 		DB3EB2B628C247060017A468 /* NewLensState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EB2B528C247060017A468 /* NewLensState.swift */; };
 		DB513DE728BF97B800235E9D /* SpotMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB513DE628BF97B800235E9D /* SpotMeter.swift */; };
 		DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* AnselApp.swift */; };
@@ -51,7 +52,6 @@
 		DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */; };
 		DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128128B9A98A00AC7EAC /* BellowsDataCard.swift */; };
 		DB80128B28BA58CF00AC7EAC /* Notepad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128A28BA58CF00AC7EAC /* Notepad.swift */; };
-		DB80128D28BA590900AC7EAC /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128C28BA590900AC7EAC /* Note.swift */; };
 		DB80128F28BA593000AC7EAC /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128E28BA593000AC7EAC /* NoteList.swift */; };
 		DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80129028BAB5DD00AC7EAC /* ReciprocityDataCard.swift */; };
 		DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B2F287CB60E00EC04D7 /* Extensions.swift */; };
@@ -129,6 +129,7 @@
 		DB1E63E028C37DC300FFDC67 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		DB1E63E628C3814300FFDC67 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataCard.swift; sourceTree = "<group>"; };
+		DB3E7C1428C4304800518182 /* NewNoteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteState.swift; sourceTree = "<group>"; };
 		DB3EB2B528C247060017A468 /* NewLensState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLensState.swift; sourceTree = "<group>"; };
 		DB513DE628BF97B800235E9D /* SpotMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMeter.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Ansel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ansel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,7 +166,6 @@
 		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
 		DB80128128B9A98A00AC7EAC /* BellowsDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsDataCard.swift; sourceTree = "<group>"; };
 		DB80128A28BA58CF00AC7EAC /* Notepad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notepad.swift; sourceTree = "<group>"; };
-		DB80128C28BA590900AC7EAC /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		DB80128E28BA593000AC7EAC /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
 		DB80129028BAB5DD00AC7EAC /* ReciprocityDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityDataCard.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -280,6 +280,20 @@
 			path = Customization;
 			sourceTree = "<group>";
 		};
+		DB3E7C1628C43CA500518182 /* Notepad */ = {
+			isa = PBXGroup;
+			children = (
+				DB80128A28BA58CF00AC7EAC /* Notepad.swift */,
+				DB61579E28C0E12F00D485C3 /* NotepadToolbar.swift */,
+				DB61579C28C0E10A00D485C3 /* CameraData.swift */,
+				DB6157A228C0E7D800D485C3 /* CalculationData.swift */,
+				DB6157A028C0E16E00D485C3 /* DataSheet.swift */,
+				DB61579828C04C6200D485C3 /* GearSheet.swift */,
+				DB61579A28C0527800D485C3 /* ImageViewer.swift */,
+			);
+			path = Notepad;
+			sourceTree = "<group>";
+		};
 		DB513DE428BEFA6800235E9D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +384,7 @@
 			children = (
 				DB5CB97B28BE618800DB1AED /* FilmStock.swift */,
 				DB3EB2B528C247060017A468 /* NewLensState.swift */,
+				DB3E7C1428C4304800518182 /* NewNoteState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,16 +415,9 @@
 		DB80128428B9ADA800AC7EAC /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				DB3E7C1628C43CA500518182 /* Notepad */,
 				DB901B48287DBF7300EC04D7 /* Notes.swift */,
 				DB80128E28BA593000AC7EAC /* NoteList.swift */,
-				DB80128A28BA58CF00AC7EAC /* Notepad.swift */,
-				DB80128C28BA590900AC7EAC /* Note.swift */,
-				DB61579828C04C6200D485C3 /* GearSheet.swift */,
-				DB61579A28C0527800D485C3 /* ImageViewer.swift */,
-				DB61579C28C0E10A00D485C3 /* CameraData.swift */,
-				DB61579E28C0E12F00D485C3 /* NotepadToolbar.swift */,
-				DB6157A028C0E16E00D485C3 /* DataSheet.swift */,
-				DB6157A228C0E7D800D485C3 /* CalculationData.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -691,7 +699,6 @@
 				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
 				DB61579B28C0527800D485C3 /* ImageViewer.swift in Sources */,
-				DB80128D28BA590900AC7EAC /* Note.swift in Sources */,
 				DB513DE728BF97B800235E9D /* SpotMeter.swift in Sources */,
 				DB80128B28BA58CF00AC7EAC /* Notepad.swift in Sources */,
 				DB5CB97928BE600A00DB1AED /* FilmOptions.swift in Sources */,
@@ -700,6 +707,7 @@
 				DB5CB97C28BE618800DB1AED /* FilmStock.swift in Sources */,
 				DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */,
 				DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */,
+				DB3E7C1528C4304800518182 /* NewNoteState.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,
