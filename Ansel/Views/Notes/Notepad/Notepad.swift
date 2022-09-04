@@ -19,6 +19,39 @@ enum DataAlert: Hashable {
     case filter
 }
 
+struct DeleteButton: View {
+    var image: UIImage
+    var remove: (UIImage) -> Void
+    var title: String
+    var message: String
+
+    let screenWidth = UIScreen.main.bounds.width
+    
+    @State private var presentAlert: Bool = false
+
+    var body: some View {
+        Button(action: {
+            self.presentAlert.toggle()
+        }) {
+            Image(systemName: "minus")
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(Color(.systemGray))
+                .frame(width: 25, height: 25)
+                .background(.ultraThinMaterial)
+                .cornerRadius(.infinity)
+                .shadow(color: Color.black.opacity(0.1), radius: 10, y: 4)
+        }
+        .offset(x: (screenWidth / 2) - 20, y: -10)
+        .confirmationDialog(title, isPresented: $presentAlert) {
+            Button(title, role: .destructive) {
+                remove(image)
+            }
+        } message: {
+            Text(message)
+          }
+    }
+}
+
 struct Notepad: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -43,6 +76,8 @@ struct Notepad: View {
     @State private var addedLensData: Set<Lens> = []
     @State private var addedFilmData: Set<Emulsion> = []
     
+    @State private var isEditing: Bool = false
+    @State private var animate: Bool = false
     @State private var isSaving: Bool = false
 
     @State private var workItem: DispatchWorkItem?
@@ -69,15 +104,29 @@ struct Notepad: View {
                 if selectedPhotosData.count > 0 {
                     VStack {
                         ForEach(Array(selectedPhotosData), id: \.self) { image in
-                            Button(action: {
-                                showOverlay = true
-                                overlayImage = image
-                            }) {
+                            if !isEditing {
+                                Button(action: {
+                                    showOverlay = true
+                                    overlayImage = image
+                                }) {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .cornerRadius(8)
+                                            .padding(.bottom)
+                                }
+                            } else {
                                 Image(uiImage: image)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .cornerRadius(8)
                                     .padding(.bottom)
+                                    .overlay(DeleteButton(
+                                        image: image,
+                                        remove: removeImage,
+                                        title: "Remove Image",
+                                        message: "Remove this image?\n It can be added again from the photo picker."
+                                    ), alignment: .top)
                             }
                         }
                     }
@@ -153,11 +202,25 @@ struct Notepad: View {
                 save()
             }
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Image(systemName: "square.and.arrow.up")
+                Button(action: {
+                    isEditing.toggle()
+                }) {
+                    Text("Edit")
+                }
+            }
+        }
     }
     
     func dismissOverlay() -> Void {
         showOverlay = false
         overlayImage = nil
+    }
+    
+    func removeImage(image: UIImage) -> Void {
+        selectedPhotosData.remove(image)
     }
     
     func addBellowsData(data: [BellowsExtensionData]) -> Void {
