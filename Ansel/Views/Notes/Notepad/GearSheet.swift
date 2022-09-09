@@ -12,7 +12,9 @@ struct GearSheet: View {
     
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
     
-    var save: ([Camera], [Lens], [Emulsion]) -> Void
+    @Binding var addedCameraData: Set<Camera>
+    @Binding var addedFilmData: Set<Emulsion>
+    @Binding var addedLensData: Set<Lens>
 
     @FetchRequest(
       entity: Camera.entity(),
@@ -38,11 +40,6 @@ struct GearSheet: View {
     @State private var selectedCameras: [Camera] = []
     @State private var selectedLenses: [Lens] = []
     @State private var selectedEmulsions: [Emulsion] = []
-    
-    func saveState() {
-        save(selectedCameras, selectedLenses, selectedEmulsions)
-        presentationMode.wrappedValue.dismiss()
-    }
 
     var body: some View {
         NavigationView {
@@ -133,33 +130,39 @@ struct GearSheet: View {
             }
             .navigationTitle("Add Gear")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("Cancel")
-                    }
-                    .foregroundColor(userAccentColor)
+            .onAppear {
+                addedCameraData.forEach { camera in
+                    selectedCameras.append(camera)
                 }
                 
+                addedLensData.forEach { lens in
+                    selectedLenses.append(lens)
+                }
+                
+                addedFilmData.forEach { emulsion in
+                    selectedEmulsions.append(emulsion)
+                }
+            }
+            .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if selectedCameras.count > 0 || selectedLenses.count > 0 || selectedEmulsions.count > 0 {
-                        Button(action: {
-                            saveState()
-                        }) {
-                            Text("Add")
-                                .fontWeight(.bold)
-                                .foregroundColor(userAccentColor)
-                        }
-                    } else {
-                        Text("Add")
+                    Button(action: {
+                        save()
+                    }) {
+                        Text("Save")
                             .fontWeight(.bold)
-                            .foregroundColor(Color(.systemGray))
+                            .foregroundColor(userAccentColor)
                     }
                 }
             }
         }
+    }
+    
+    func save() {
+        addedCameraData = Set(selectedCameras)
+        addedLensData = Set(selectedLenses)
+        addedFilmData = Set(selectedEmulsions)
+
+        presentationMode.wrappedValue.dismiss()
     }
     
     func addCamera(camera: Camera) {
@@ -187,7 +190,7 @@ struct GearSheet: View {
     }
     
     func addEmulsion(emulsion: Emulsion) {
-        let match = selectedEmulsions.filter({ $0.id == emulsion.id }).first
+        let match = addedFilmData.filter({ $0.id == emulsion.id }).first
         
         if match == nil {
             selectedEmulsions.append(emulsion)

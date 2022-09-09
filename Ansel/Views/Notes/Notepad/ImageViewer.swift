@@ -66,9 +66,11 @@ struct ZoomableScrollView<Content: View>: UIViewRepresentable {
 struct ImageViewer: View {
     var image: UIImage
     var dismiss: () -> Void
+    
+    @State private var animate: Bool = false
 
     var body: some View {
-        VStack {
+        NavigationView {
             ZoomableScrollView(
                 content: {
                     Image(uiImage: image)
@@ -76,9 +78,27 @@ struct ImageViewer: View {
                         .aspectRatio(contentMode: .fit)
                 }
             )
+            .opacity(animate ? 1 : 0)
+            .offset(y: animate ? 0 : 10)
+            .animation(.easeIn(duration: 0.2), value: animate)
+            .overlay(
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(Color(.systemGray))
+                        .frame(width: 25, height: 25)
+                        .padding(3)
+                        .background(.thickMaterial)
+                        .cornerRadius(.infinity)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, y: 4)
+                        .position(x: 20, y: 20)
+                }
+            )
         }
-        .onTapGesture {
-            dismiss()
+        .onAppear {
+            animate = true
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarHidden(true)

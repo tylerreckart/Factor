@@ -148,7 +148,11 @@ struct Notepad: View {
             )
         }
         .sheet(isPresented: $showGearSheet) {
-            GearSheet(save: saveGear)
+            GearSheet(
+                addedCameraData: $addedCameraData,
+                addedFilmData: $addedFilmData,
+                addedLensData: $addedLensData
+            )
         }
         .sheet(isPresented: $showCaptureSheet) {
             CameraCaptureView(capturedImage: $capturedImage)

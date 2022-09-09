@@ -22,23 +22,6 @@ struct CameraDataListing: View {
             Text(camera.manufacturer!)
             Text(camera.model!)
             
-//            if isEditing {
-//                Button(action: {
-//                    presentCameraAlert.toggle()
-//                }) {
-//                    Image(systemName: "minus.circle.fill")
-//                        .frame(width: 24)
-//                        .foregroundColor(Color(.systemRed))
-//                        .confirmationDialog("Remove Camera?", isPresented: $presentCameraAlert) {
-//                            Button("Remove", role: .destructive) {
-//                                removeCamera(camera)
-//                            }
-//                        } message: {
-//                            Text("Remove this camera? It may be added again later.")
-//                        }
-//                }
-//            }
-            
             Spacer()
         }
         .font(.caption)
@@ -75,23 +58,6 @@ struct CameraData: View {
                             .frame(width: 20)
                         Text(lens.manufacturer!)
                         Text("\(lens.focalLength)mm f/\(lens.maximumAperture.clean)")
-                        
-//                        if isEditing {
-//                            Button(action: {
-//                                presentLensAlert.toggle()
-//                            }) {
-//                                Image(systemName: "minus.circle.fill")
-//                                    .frame(width: 24)
-//                                    .foregroundColor(Color(.systemRed))
-//                                    .confirmationDialog("Remove Lens?", isPresented: $presentLensAlert) {
-//                                        Button("Remove", role: .destructive) {
-//                                            removeLens(lens)
-//                                        }
-//                                    } message: {
-//                                        Text("Remove this lens? It may be added again later.")
-//                                    }
-//                            }
-//                        }
 
                         Spacer()
                     }
@@ -110,23 +76,6 @@ struct CameraData: View {
                             .font(.caption)
                         Text(emulsion.name!)
                             .font(.caption)
-                        
-//                        if isEditing {
-//                            Button(action: {
-//                                presentEmulsionAlert.toggle()
-//                            }) {
-//                                Image(systemName: "minus.circle.fill")
-//                                    .frame(width: 24)
-//                                    .foregroundColor(Color(.systemRed))
-//                                    .confirmationDialog("Remove Emulsion?", isPresented: $presentEmulsionAlert) {
-//                                        Button("Remove", role: .destructive) {
-//                                            removeEmulsion(emulsion)
-//                                        }
-//                                    } message: {
-//                                        Text("Remove this emulsion? It may be added again later.")
-//                                    }
-//                            }
-//                        }
                         
                         Spacer()
                     }

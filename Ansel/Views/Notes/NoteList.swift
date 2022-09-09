@@ -222,7 +222,6 @@ struct NoteList: View {
                         .listStyle(.insetGrouped)
                         .padding(.vertical, 4)
                     }
-                    .background(Color(.systemGray6))
                     .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
                     .padding(.top, -10)
                 }
