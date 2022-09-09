@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct Subscription: View {
     @StateObject var store: Store = Store()
 
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+    
+    @State private var selectedOffer: Product?
 
     var body: some View {
         ScrollView {
@@ -69,82 +72,62 @@ struct Subscription: View {
                         Spacer()
                     }
                     HStack(spacing: 20) {
-                        VStack {
-                            VStack {
-                                Text(" ")
-                                    .font(.caption)
-                                    .foregroundColor(Color(.systemGray))
-                                Text("$0.99/mo")
-                                    .fontWeight(.medium)
-                                    .padding(.vertical, 5)
-                                Text(" ")
-                                    .font(.system(size: 12))
-                                    .foregroundColor(userAccentColor)
-                                    .padding(.bottom, 1)
-                                Text("Cancel anytime")
-                                    .font(.caption)
-                                    .foregroundColor(Color(.systemGray))
+                        ForEach(store.subscriptions) { sub in
+                            Button(action: {
+                                selectedOffer = sub
+                            }) {
+                                VStack {
+                                    VStack {
+                                        Text(sub.displayName)
+                                            .font(.caption)
+                                            .foregroundColor(Color(.systemGray))
+                                        Text("\(sub.displayPrice)/mo")
+                                            .fontWeight(.medium)
+                                            .padding(.vertical, 5)
+                                        Text("Cancel anytime")
+                                            .font(.caption)
+                                            .foregroundColor(Color(.systemGray))
+                                    }
+                                    .frame(width: 120)
+                                    .padding()
+                                    .background(.white)
+                                    .cornerRadius(11)
+                                }
+                                .padding(1)
+                                .background(selectedOffer == sub ? userAccentColor : .clear)
+                                .cornerRadius(12)
+                                .shadow(color: userAccentColor.opacity(selectedOffer == sub ? 0.2 : 0), radius: 12, x: 0, y: 10)
                             }
-                            .frame(width: 120)
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(11)
                         }
-                        .padding(1)
-                        .background(.clear)
-                        .cornerRadius(12)
-                        .shadow(color: userAccentColor.opacity(0), radius: 12, x: 0, y: 10)
-                        
-                        VStack {
-                            VStack {
-                                Text("Best Value")
-                                    .font(.caption)
-                                    .foregroundColor(Color(.systemGray))
-                                Text("$9.99/yr")
-                                    .fontWeight(.medium)
-                                    .padding(.vertical, 5)
-                                Text("Save 20%")
-                                    .font(.system(size: 12))
-                                    .foregroundColor(userAccentColor)
-                                    .padding(.bottom, 1)
-                                Text("Cancel anytime")
-                                    .font(.caption)
-                                    .foregroundColor(Color(.systemGray))
-                            }
-                            .frame(width: 120)
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(11)
-                        }
-                        .padding(1)
-                        .background(userAccentColor)
-                        .cornerRadius(12)
-                        .shadow(color: userAccentColor.opacity(0.1), radius: 12, x: 0, y: 10)
                     }
-                    .padding(.horizontal)
-                    .padding(.bottom)
+                    .padding(.bottom, 10)
 
                     VStack(spacing: 10) {
+                        
                         Button(action: {
-                            let i = 0
+                            Task {
+                                //This call displays a system prompt that asks users to authenticate with their App Store credentials.
+                                try? await buy()
+                            }
                         }) {
                             HStack {
                                 Spacer()
                                 Text("Join Now")
-                                    .fontWeight(.bold)
+//                                    .fontWeight(.bold)
                                 Spacer()
                             }
                         }
                         .padding()
-                        .foregroundColor(.white)
-                        .background(userAccentColor)
-                        .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
+                        .background(.white)
                         .cornerRadius(12)
                         .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                         
                         
                         Button(action: {
-                            let i = 0
+                            Task {
+                                //This call displays a system prompt that asks users to authenticate with their App Store credentials.
+                                try? await AppStore.sync()
+                            }
                         }) {
                             HStack {
                                 Spacer()
@@ -177,5 +160,20 @@ struct Subscription: View {
             }
         }
         .background(Color(.systemGray6))
+    }
+    
+    func buy() async {
+        do {
+            if try await store.purchase(selectedOffer!) != nil {
+                withAnimation {
+//                    isPurchased = true
+                }
+            }
+        } catch StoreError.failedVerification {
+//            errorTitle = "Your purchase could not be verified by the App Store."
+//            isShowingError = true
+        } catch {
+            print("Failed purchase: \(error)")
+        }
     }
 }

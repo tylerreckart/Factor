@@ -83,7 +83,7 @@ class Store: ObservableObject {
     @MainActor
     func requestProducts() async {
         do {
-            let keys = ["com.ansel.premium.annual"]
+            let keys = ["com.ansel.plus.yearly", "com.ansel.plus.monthly"]
             let products = try await Product.products(for: keys)
             subscriptions = products
         } catch {
