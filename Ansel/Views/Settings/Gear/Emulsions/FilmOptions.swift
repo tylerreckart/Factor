@@ -219,17 +219,6 @@ struct FilmStocks: View {
 
     @State private var showFilmSheet: Bool = false
     
-    func seed() -> Void {
-        let userDefaults = UserDefaults.standard
-        let defaultValues = ["firstRun" : true, "seeded": false]
-
-        userDefaults.register(defaults: defaultValues)
-        
-        if userDefaults.bool(forKey: "firstRun") && !userDefaults.bool(forKey: "seeded") {
-            seedEmulsions(context: managedObjectContext)
-        }
-    }
-    
     func deleteEmulsion(emulsion: Emulsion) -> Void {
         managedObjectContext.delete(emulsion)
     }
@@ -263,9 +252,6 @@ struct FilmStocks: View {
         }
         .sheet(isPresented: $showFilmSheet, onDismiss: { self.showFilmSheet = false }) {
             AddEmulsionSheet()
-        }
-        .onAppear {
-            seed()
         }
     }
 }

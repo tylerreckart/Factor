@@ -48,7 +48,7 @@ struct DeleteButton: View {
             }
         } message: {
             Text(message)
-          }
+        }
     }
 }
 
@@ -98,7 +98,11 @@ struct Notepad: View {
                 CameraData(
                     addedCameraData: $addedCameraData,
                     addedLensData: $addedLensData,
-                    addedFilmData: $addedFilmData
+                    addedFilmData: $addedFilmData,
+                    isEditing: $isEditing,
+                    removeEmulsion: removeEmulsion,
+                    removeLens: removeLens,
+                    removeCamera: removeCamera
                 )
                 
                 if selectedPhotosData.count > 0 {
@@ -113,14 +117,12 @@ struct Notepad: View {
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .cornerRadius(8)
-                                            .padding(.bottom)
                                 }
                             } else {
                                 Image(uiImage: image)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .cornerRadius(8)
-                                    .padding(.bottom)
                                     .overlay(DeleteButton(
                                         image: image,
                                         remove: removeImage,
@@ -130,21 +132,18 @@ struct Notepad: View {
                             }
                         }
                     }
-                    .padding([.leading, .trailing])
+                    .padding([.leading, .trailing, .bottom])
                 }
                 
-                CalculationData(
-                    reciprocityData: $addedReciprocityData,
-                    filterData: $addedFilterData,
-                    bellowsData: $addedBellowsData
-                )
+//                CalculationData(
+//                    reciprocityData: $addedReciprocityData,
+//                    filterData: $addedFilterData,
+//                    bellowsData: $addedBellowsData,
+//                    isEditing: $isEditing
+//                )
             }
             .padding(.bottom, -10)
 
-            if selectedImages.count == 0 {
-                Spacer()
-            }
-            
             NotepadToolbar(
                 showGearSheet: $showGearSheet,
                 showDataSheet: $showDataSheet,
@@ -161,6 +160,11 @@ struct Notepad: View {
         .overlay(
             showOverlay ? ImageViewer(image: overlayImage!, dismiss: dismissOverlay) : nil
         )
+        .onChange(of: isEditing) { newState in
+            if isEditing && focusedField == nil {
+                focusedField = .noteBody
+            }
+        }
         .onAppear {
             if note != nil {
                 noteBody = note!.body!
@@ -204,11 +208,14 @@ struct Notepad: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Image(systemName: "square.and.arrow.up")
                 Button(action: {
                     isEditing.toggle()
                 }) {
-                    Text("Edit")
+                    if isEditing {
+                        Text("Done")
+                    } else {
+                        Text("Edit")
+                    }
                 }
             }
         }
@@ -221,6 +228,18 @@ struct Notepad: View {
     
     func removeImage(image: UIImage) -> Void {
         selectedPhotosData.remove(image)
+    }
+    
+    func removeEmulsion(emulsion: Emulsion) -> Void {
+        addedFilmData.remove(emulsion)
+    }
+    
+    func removeLens(lens: Lens) -> Void {
+        addedLensData.remove(lens)
+    }
+    
+    func removeCamera(camera: Camera) -> Void {
+        addedCameraData.remove(camera)
     }
     
     func addBellowsData(data: [BellowsExtensionData]) -> Void {
@@ -339,33 +358,10 @@ struct Notepad: View {
 
         
         self.workItem = DispatchWorkItem {
-            if addedBellowsData.count > 0 {
-                newNote.bellowsData = addedBellowsData as NSSet
-            }
-            
-            if addedReciprocityData.count > 0 {
-                newNote.reciprocityData = addedReciprocityData as NSSet
-            }
-            
-            if addedFilterData.count > 0 {
-                newNote.filterData = addedFilterData as NSSet
-            }
-            
-            if selectedPhotosData.count > 0 {
-                newNote.images = coreDataObjectFromImages(images: Array(selectedPhotosData))
-            }
-            
-            if addedCameraData.count > 0 {
-                newNote.camera = addedCameraData as NSSet
-            }
-            
-            if addedLensData.count > 0 {
-                newNote.lens = addedLensData  as NSSet
-            }
-            
-            if addedFilmData.count > 0 {
-                newNote.emulsion = addedFilmData  as NSSet
-            }
+            newNote.images = coreDataObjectFromImages(images: Array(selectedPhotosData))
+            newNote.camera = addedCameraData as NSSet
+            newNote.lens = addedLensData  as NSSet
+            newNote.emulsion = addedFilmData  as NSSet
             
             saveContext()
             

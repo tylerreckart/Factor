@@ -42,13 +42,13 @@ struct NotepadToolbar: View {
                 Image(systemName: "backpack")
             }
             
-            Spacer()
+//            Spacer()
 
-            Button(action: {
-                showDataSheet.toggle()
-            }) {
-                Image(systemName: "chart.pie")
-            }
+//            Button(action: {
+//                showDataSheet.toggle()
+//            }) {
+//                Image(systemName: "chart.pie")
+//            }
         }
         .foregroundColor(.primary)
         .frame(maxWidth: .infinity)

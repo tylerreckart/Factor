@@ -62,21 +62,21 @@ struct Reciprocity: View {
         } message: { error in
             Text("Unable to process inputs. Please try again.")
         }
-        .toolbar {
-            if fetchedResults.count > 0 {
-                HStack {
-                    Button(action: {
-                        self.showingHistorySheet.toggle()
-                    }) {
-                        Image(systemName: "clock.arrow.circlepath")
-                        Text("History")
-                    }
-                }
-            }
-        }
-        .sheet(isPresented: $showingHistorySheet) {
-            ReciprocityHistorySheet()
-        }
+//        .toolbar {
+//            if fetchedResults.count > 0 {
+//                HStack {
+//                    Button(action: {
+//                        self.showingHistorySheet.toggle()
+//                    }) {
+//                        Image(systemName: "clock.arrow.circlepath")
+//                        Text("History")
+//                    }
+//                }
+//            }
+//        }
+//        .sheet(isPresented: $showingHistorySheet) {
+//            ReciprocityHistorySheet()
+//        }
     }
 
     func saveContext() {

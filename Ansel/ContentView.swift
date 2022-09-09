@@ -8,10 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+
     @Binding var url: String?
+    
+    func seed() -> Void {
+        let userDefaults = UserDefaults.standard
+        let defaultValues = ["firstRun" : true, "seeded": false]
+
+        userDefaults.register(defaults: defaultValues)
+        
+        if userDefaults.bool(forKey: "firstRun") && !userDefaults.bool(forKey: "seeded") {
+            seedEmulsions(context: managedObjectContext)
+        }
+    }
 
     var body: some View {
         Dashboard(url: url)
+            .onAppear { seed() }
     }
 }
 

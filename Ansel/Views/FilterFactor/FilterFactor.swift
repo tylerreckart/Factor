@@ -82,21 +82,21 @@ struct FilterFactor: View {
         } message: { error in
             Text("Unable to process inputs. Please try again.")
         }
-        .toolbar {
-            if fetchedResults.count > 0 {
-                HStack {
-                    Button(action: {
-                        showingHistorySheet.toggle()
-                    }) {
-                        Image(systemName: "clock.arrow.circlepath")
-                        Text("History")
-                    }
-                }
-            }
-        }
-        .sheet(isPresented: $showingHistorySheet) {
-            FilterHistorySheet()
-        }
+//        .toolbar {
+//            if fetchedResults.count > 0 {
+//                HStack {
+//                    Button(action: {
+//                        showingHistorySheet.toggle()
+//                    }) {
+//                        Image(systemName: "clock.arrow.circlepath")
+//                        Text("History")
+//                    }
+//                }
+//            }
+//        }
+//        .sheet(isPresented: $showingHistorySheet) {
+//            FilterHistorySheet()
+//        }
     }
     
     func saveContext() {

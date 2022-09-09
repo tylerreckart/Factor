@@ -108,21 +108,21 @@ struct BellowsExtension: View {
         } message: { error in
             Text("Unable to process inputs. Please try again.")
         }
-        .toolbar {
-            if fetchedResults.count > 0 {
-                HStack {
-                    Button(action: {
-                        showingHistorySheet.toggle()
-                    }) {
-                        Image(systemName: "clock.arrow.circlepath")
-                        Text("History")
-                    }
-                }
-            }
-        }
-        .sheet(isPresented: $showingHistorySheet) {
-            BellowsExtensionHistorySheet()
-        }
+//        .toolbar {
+//            if fetchedResults.count > 0 {
+//                HStack {
+//                    Button(action: {
+//                        showingHistorySheet.toggle()
+//                    }) {
+//                        Image(systemName: "clock.arrow.circlepath")
+//                        Text("History")
+//                    }
+//                }
+//            }
+//        }
+//        .sheet(isPresented: $showingHistorySheet) {
+//            BellowsExtensionHistorySheet()
+//        }
     }
     
     private func bellowsExtensionFactor() -> Double? {
