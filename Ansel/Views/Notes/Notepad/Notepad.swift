@@ -60,6 +60,7 @@ struct Notepad: View {
 
     @State private var showGearSheet: Bool = false
     @State private var showDataSheet: Bool = false
+    @State private var showCaptureSheet: Bool = false
     
     @State private var noteBody: String = ""
     
@@ -67,6 +68,7 @@ struct Notepad: View {
     
     @State private var selectedImages: [PhotosPickerItem] = []
     @State private var selectedPhotosData: Set<UIImage> = []
+    @State private var capturedImage: UIImage?
     
     @State private var addedBellowsData: Set<BellowsExtensionData> = []
     @State private var addedReciprocityData: Set<ReciprocityData> = []
@@ -134,19 +136,13 @@ struct Notepad: View {
                     }
                     .padding([.leading, .trailing, .bottom])
                 }
-                
-//                CalculationData(
-//                    reciprocityData: $addedReciprocityData,
-//                    filterData: $addedFilterData,
-//                    bellowsData: $addedBellowsData,
-//                    isEditing: $isEditing
-//                )
             }
             .padding(.bottom, -10)
 
             NotepadToolbar(
                 showGearSheet: $showGearSheet,
                 showDataSheet: $showDataSheet,
+                showCaptureSheet: $showCaptureSheet,
                 selectedImages: $selectedImages,
                 selectedPhotosData: $selectedPhotosData
             )
@@ -154,8 +150,9 @@ struct Notepad: View {
         .sheet(isPresented: $showGearSheet) {
             GearSheet(save: saveGear)
         }
-        .sheet(isPresented: $showDataSheet) {
-            DataSheet(save: saveData)
+        .sheet(isPresented: $showCaptureSheet) {
+            CameraCaptureView(capturedImage: $capturedImage)
+                .edgesIgnoringSafeArea(.bottom)
         }
         .overlay(
             showOverlay ? ImageViewer(image: overlayImage!, dismiss: dismissOverlay) : nil
@@ -163,6 +160,13 @@ struct Notepad: View {
         .onChange(of: isEditing) { newState in
             if isEditing && focusedField == nil {
                 focusedField = .noteBody
+            }
+        }
+        .onChange(of: capturedImage) { newState in
+            if newState != nil {
+                selectedPhotosData.insert(newState!)
+                // Reset the capture state
+                capturedImage = nil
             }
         }
         .onAppear {
@@ -219,6 +223,10 @@ struct Notepad: View {
                 }
             }
         }
+    }
+    
+    func captureImage(image: UIImage) -> Void {
+        selectedPhotosData.insert(image)
     }
     
     func dismissOverlay() -> Void {

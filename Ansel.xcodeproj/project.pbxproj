@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB00DEFF28CBC2850075BA02 /* CameraCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB00DEFE28CBC2850075BA02 /* CameraCaptureView.swift */; };
 		DB12682328BE43D200D08D9F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1267C628BE364900D08D9F /* WidgetKit.framework */; };
 		DB12682428BE43D200D08D9F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1267C828BE364900D08D9F /* SwiftUI.framework */; };
 		DB12682728BE43D200D08D9F /* AnselWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12682628BE43D200D08D9F /* AnselWidgets.swift */; };
@@ -113,6 +114,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DB00DEFE28CBC2850075BA02 /* CameraCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureView.swift; sourceTree = "<group>"; };
 		DB1267C628BE364900D08D9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DB1267C828BE364900D08D9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DB12682228BE43D200D08D9F /* AnselWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnselWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +227,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB00DEFD28CBC27B0075BA02 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				DB00DEFE28CBC2850075BA02 /* CameraCaptureView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		DB12682528BE43D200D08D9F /* AnselWidgets */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +459,7 @@
 		DB901B2D287CB5EE00EC04D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB00DEFD28CBC27B0075BA02 /* Camera */,
 				DB513DE528BF97AF00235E9D /* SpotMeter */,
 				DB80128928B9B28000AC7EAC /* Dashboard */,
 				DB80128828B9B27500AC7EAC /* FilterFactor */,
@@ -677,6 +688,7 @@
 				DB3EB2B628C247060017A468 /* NewLensState.swift in Sources */,
 				DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */,
 				DB93A9A128C19A3400BD7D5C /* Subscription.swift in Sources */,
+				DB00DEFF28CBC2850075BA02 /* CameraCaptureView.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,
 				DB5A4A3628BBE041006B093B /* About.swift in Sources */,
 				DB61579F28C0E12F00D485C3 /* NotepadToolbar.swift in Sources */,
@@ -944,7 +956,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;
@@ -985,7 +997,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				ENABLE_PREVIEWS = YES;

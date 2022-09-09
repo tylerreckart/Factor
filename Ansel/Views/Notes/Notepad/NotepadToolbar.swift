@@ -11,6 +11,7 @@ import PhotosUI
 struct NotepadToolbar: View {
     @Binding var showGearSheet: Bool
     @Binding var showDataSheet: Bool
+    @Binding var showCaptureSheet: Bool
 
     @Binding var selectedImages: [PhotosPickerItem]
     @Binding var selectedPhotosData: Set<UIImage>
@@ -35,20 +36,28 @@ struct NotepadToolbar: View {
             }
             
             Spacer()
+            
+            Button(action: {
+                showCaptureSheet.toggle()
+            }) {
+                Image(systemName: "camera")
+            }
+            
+            Spacer()
+            
+//            Button(action: {
+//                showDataSheet.toggle()
+//            }) {
+//                Image(systemName: "chart.pie")
+//            }
+//
+//            Spacer()
 
             Button(action: {
                 showGearSheet.toggle()
             }) {
                 Image(systemName: "backpack")
             }
-            
-//            Spacer()
-
-//            Button(action: {
-//                showDataSheet.toggle()
-//            }) {
-//                Image(systemName: "chart.pie")
-//            }
         }
         .foregroundColor(.primary)
         .frame(maxWidth: .infinity)
