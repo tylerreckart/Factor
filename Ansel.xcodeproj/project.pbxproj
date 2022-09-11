@@ -73,6 +73,7 @@
 		DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6328B64B0000186039 /* Dashboard.swift */; };
 		DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */; };
 		DBE2816A28BEC3040074FD72 /* Lenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2816928BEC3040074FD72 /* Lenses.swift */; };
+		DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4D41928CE2F2700189789 /* Terms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 		DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedResultCard.swift; sourceTree = "<group>"; };
 		DBE2816928BEC3040074FD72 /* Lenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lenses.swift; sourceTree = "<group>"; };
 		DBE4D41628CBF58400189789 /* Subscriptions.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Subscriptions.storekit; sourceTree = "<group>"; };
+		DBE4D41928CE2F2700189789 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,10 +401,10 @@
 		DB80123028B840A300AC7EAC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DBE4D41728CE2F0F00189789 /* Legal */,
 				DB1E63E828C38C1B00FFDC67 /* Customization */,
 				DB1E63E228C37DF300FFDC67 /* Gear */,
 				DBB4FA5F28B561AA00186039 /* Settings.swift */,
-				DB5A4A3328BBDAE7006B093B /* Privacy.swift */,
 				DB5A4A3528BBE041006B093B /* About.swift */,
 				DB5A4A3728BBE469006B093B /* Feedback.swift */,
 				DB93A9A028C19A3400BD7D5C /* Subscription.swift */,
@@ -499,6 +501,15 @@
 				DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		DBE4D41728CE2F0F00189789 /* Legal */ = {
+			isa = PBXGroup;
+			children = (
+				DB5A4A3328BBDAE7006B093B /* Privacy.swift */,
+				DBE4D41928CE2F2700189789 /* Terms.swift */,
+			);
+			path = Legal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -695,6 +706,7 @@
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
 				DB560C39287A6CC700CC891A /* AnselApp.swift in Sources */,
 				DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */,
+				DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */,
 				DB1E63E728C3814300FFDC67 /* Math.swift in Sources */,
 				DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */,
 				DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */,

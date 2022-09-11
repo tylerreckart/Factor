@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var store: Store = Store()
+
     @Environment(\.managedObjectContext) var managedObjectContext
 
     @Binding var url: String?
@@ -24,7 +26,7 @@ struct ContentView: View {
     }
 
     var body: some View {
-        Dashboard(url: url)
+        Dashboard(url: url, store: store)
             .onAppear { seed() }
     }
 }

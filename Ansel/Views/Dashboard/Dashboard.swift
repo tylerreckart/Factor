@@ -101,6 +101,7 @@ struct DashboardTileView<Content: View, DashboardTile: Identifiable & Equatable>
 
 struct Dashboard: View {
     var url: String?
+    var store: Store
 
     @AppStorage("userDashboardLayout") var dashboard: [String] = dashboard_tiles.map { $0.id }
 
@@ -181,7 +182,7 @@ struct Dashboard: View {
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: Settings()) {
+                        NavigationLink(destination: Settings(store: store)) {
                             Label("Settings", systemImage: "gearshape")
                         }
                     }
