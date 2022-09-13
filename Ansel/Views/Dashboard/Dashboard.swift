@@ -101,7 +101,7 @@ struct DashboardTileView<Content: View, DashboardTile: Identifiable & Equatable>
 
 struct Dashboard: View {
     var url: String?
-    var store: Store
+    var store: Store?
 
     @AppStorage("userDashboardLayout") var dashboard: [String] = dashboard_tiles.map { $0.id }
 

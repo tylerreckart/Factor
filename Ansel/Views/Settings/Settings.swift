@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Settings: View {
-    var store: Store
+    var store: Store?
 
     var body: some View {
         VStack {
@@ -25,11 +25,11 @@ struct Settings: View {
                     }
                 }
                 
-                Section {
-                    NavigationLink(destination: Subscription(store: store)) {
-                        Text("Ansel Premium")
-                    }
-                }
+//                Section {
+//                    NavigationLink(destination: Subscription(store: store)) {
+//                        Text("Ansel Premium")
+//                    }
+//                }
 
                 Section(header: Text("Customization").font(.system(size: 12))) {
                     NavigationLink(destination: ThemeSettings()) {
@@ -50,9 +50,9 @@ struct Settings: View {
                     NavigationLink(destination: Privacy()) {
                         Text("Privacy Policy")
                     }
-                    NavigationLink(destination: Terms()) {
-                        Text("Terms of Use")
-                    }
+//                    NavigationLink(destination: Terms()) {
+//                        Text("Terms of Use")
+//                    }
                     NavigationLink(destination: About()) {
                         Text("About")
                     }

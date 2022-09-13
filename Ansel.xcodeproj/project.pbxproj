@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,7 +37,6 @@
 		DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3728BBE469006B093B /* Feedback.swift */; };
 		DB5A4A3C28BD2133006B093B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5A4A3B28BD2133006B093B /* StoreKit.framework */; };
 		DB5A4A4128BD2762006B093B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A4028BD2762006B093B /* Store.swift */; };
-		DB5A4A4328BD29C5006B093B /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB5A4A4228BD29C5006B093B /* Products.plist */; };
 		DB5CB97928BE600A00DB1AED /* FilmOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CB97828BE600A00DB1AED /* FilmOptions.swift */; };
 		DB5CB97C28BE618800DB1AED /* FilmStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CB97B28BE618800DB1AED /* FilmStock.swift */; };
 		DB61579928C04C6200D485C3 /* GearSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61579828C04C6200D485C3 /* GearSheet.swift */; };
@@ -47,6 +46,7 @@
 		DB6157A128C0E16E00D485C3 /* DataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6157A028C0E16E00D485C3 /* DataSheet.swift */; };
 		DB6157A328C0E7D800D485C3 /* CalculationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6157A228C0E7D800D485C3 /* CalculationData.swift */; };
 		DB6ED6A528BEAA1200F4CE85 /* Cameras.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6ED6A428BEAA1200F4CE85 /* Cameras.swift */; };
+		DB72828D28CF7C9100305E4B /* Subscriptions.storekit in Sources */ = {isa = PBXBuildFile; fileRef = DBE4D41628CBF58400189789 /* Subscriptions.storekit */; };
 		DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80123128B840AB00AC7EAC /* AppIcon.swift */; };
 		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
 		DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */; };
@@ -74,6 +74,7 @@
 		DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */; };
 		DBE2816A28BEC3040074FD72 /* Lenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2816928BEC3040074FD72 /* Lenses.swift */; };
 		DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4D41928CE2F2700189789 /* Terms.swift */; };
+		DBEB4BBC28CE675900367D87 /* SpotMeterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEB4BBB28CE675900367D87 /* SpotMeterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,9 +151,7 @@
 		DB5A4A3728BBE469006B093B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		DB5A4A3B28BD2133006B093B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DB5A4A4028BD2762006B093B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		DB5A4A4228BD29C5006B093B /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		DB5A4A4428BD3372006B093B /* Terms.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Terms.md; sourceTree = "<group>"; };
-		DB5CB97628BE49C000DB1AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB5CB97828BE600A00DB1AED /* FilmOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmOptions.swift; sourceTree = "<group>"; };
 		DB5CB97B28BE618800DB1AED /* FilmStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStock.swift; sourceTree = "<group>"; };
 		DB61579828C04C6200D485C3 /* GearSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GearSheet.swift; sourceTree = "<group>"; };
@@ -162,6 +161,8 @@
 		DB6157A028C0E16E00D485C3 /* DataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSheet.swift; sourceTree = "<group>"; };
 		DB6157A228C0E7D800D485C3 /* CalculationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationData.swift; sourceTree = "<group>"; };
 		DB6ED6A428BEAA1200F4CE85 /* Cameras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cameras.swift; sourceTree = "<group>"; };
+		DB72829028CFB3D200305E4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB72829128CFC09300305E4B /* Subscriptions.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = Subscriptions.storekit; path = Ansel/Subscriptions.storekit; sourceTree = "<group>"; };
 		DB80123128B840AB00AC7EAC /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 		DBE2816928BEC3040074FD72 /* Lenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lenses.swift; sourceTree = "<group>"; };
 		DBE4D41628CBF58400189789 /* Subscriptions.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Subscriptions.storekit; sourceTree = "<group>"; };
 		DBE4D41928CE2F2700189789 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
+		DBEB4BBB28CE675900367D87 /* SpotMeterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMeterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 		DB560C2C287A6CC700CC891A = {
 			isa = PBXGroup;
 			children = (
+				DB72829128CFC09300305E4B /* Subscriptions.storekit */,
 				DB5A4A4428BD3372006B093B /* Terms.md */,
 				DB5A4A3228BBD987006B093B /* Privacy.md */,
 				DBB4FA5728AD748600186039 /* README.md */,
@@ -355,6 +358,8 @@
 		DB560C37287A6CC700CC891A /* Ansel */ = {
 			isa = PBXGroup;
 			children = (
+				DB72829028CFB3D200305E4B /* Info.plist */,
+				DBEB4BBA28CE674D00367D87 /* Classes */,
 				DB513DE428BEFA6800235E9D /* Utils */,
 				DB5CB97A28BE617A00DB1AED /* Models */,
 				DBB4FA5628AD739A00186039 /* Components */,
@@ -363,8 +368,6 @@
 				DB560C3A287A6CC700CC891A /* ContentView.swift */,
 				DB560C41287A6CCA00CC891A /* Persistence.swift */,
 				DB5A4A4028BD2762006B093B /* Store.swift */,
-				DB5A4A4228BD29C5006B093B /* Products.plist */,
-				DB5CB97628BE49C000DB1AED /* Info.plist */,
 				DB560C43287A6CCA00CC891A /* Lumen.xcdatamodeld */,
 				DBE4D41628CBF58400189789 /* Subscriptions.storekit */,
 				DB560C3C287A6CCA00CC891A /* Assets.xcassets */,
@@ -512,6 +515,14 @@
 			path = Legal;
 			sourceTree = "<group>";
 		};
+		DBEB4BBA28CE674D00367D87 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DBEB4BBB28CE675900367D87 /* SpotMeterController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -614,7 +625,7 @@
 				};
 			};
 			buildConfigurationList = DB560C30287A6CC700CC891A /* Build configuration list for PBXProject "Ansel" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -648,7 +659,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB560C3D287A6CCA00CC891A /* Assets.xcassets in Resources */,
-				DB5A4A4328BD29C5006B093B /* Products.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +691,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB72828D28CF7C9100305E4B /* Subscriptions.storekit in Sources */,
 				DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */,
 				DBE2816A28BEC3040074FD72 /* Lenses.swift in Sources */,
 				DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */,
@@ -715,6 +726,7 @@
 				DBB4FA5128AD4A8500186039 /* Utils.swift in Sources */,
 				DB61579928C04C6200D485C3 /* GearSheet.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
+				DBEB4BBC28CE675900367D87 /* SpotMeterController.swift in Sources */,
 				DB6ED6A528BEAA1200F4CE85 /* Cameras.swift in Sources */,
 				DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */,
 				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
@@ -971,11 +983,14 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
+				ENABLE_BITCODE = YES;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = /Users/tylerreckart/dev/Ansel/Ansel/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ansel/Info.plist;
+				"INFOPLIST_FILE[sdk=iphoneos*]" = "";
 				INFOPLIST_KEY_CFBundleDisplayName = Ansel;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Ansel needs to access your device's camera in order to take photos and light measurements.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1012,11 +1027,14 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
+				ENABLE_BITCODE = YES;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = /Users/tylerreckart/dev/Ansel/Ansel/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ansel/Info.plist;
+				"INFOPLIST_FILE[sdk=iphoneos*]" = "";
 				INFOPLIST_KEY_CFBundleDisplayName = Ansel;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Ansel needs to access your device's camera in order to take photos and light measurements.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

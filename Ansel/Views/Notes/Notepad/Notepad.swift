@@ -84,6 +84,7 @@ struct Notepad: View {
 
     @State private var workItem: DispatchWorkItem?
     
+    @State private var showSpotMeterSheet: Bool = false
     @State private var showOverlay: Bool = false
     @State private var overlayImage: UIImage?
 
@@ -143,6 +144,7 @@ struct Notepad: View {
                 showGearSheet: $showGearSheet,
                 showDataSheet: $showDataSheet,
                 showCaptureSheet: $showCaptureSheet,
+                showSpotMeterSheet: $showSpotMeterSheet,
                 selectedImages: $selectedImages,
                 selectedPhotosData: $selectedPhotosData
             )
@@ -157,6 +159,9 @@ struct Notepad: View {
         .sheet(isPresented: $showCaptureSheet) {
             CameraCaptureView(capturedImage: $capturedImage)
                 .edgesIgnoringSafeArea(.bottom)
+        }
+        .sheet(isPresented: $showSpotMeterSheet) {
+            SpotMeter()
         }
         .overlay(
             showOverlay ? ImageViewer(image: overlayImage!, dismiss: dismissOverlay) : nil

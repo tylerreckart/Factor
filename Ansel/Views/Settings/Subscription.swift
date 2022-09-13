@@ -62,13 +62,11 @@ struct Pitch: View {
     @Binding var selectedOffer: Product?
 
     var body: some View {
-        VStack {
-            VStack {
-                Text("Help show your support and fund the development of new features with an optional premium subscription.")
-                    .padding(.horizontal)
-                    .padding(.bottom)
-            }
-            
+        VStack(alignment: .leading) {
+            Text("Help show your support and fund the development of new features with an optional premium subscription.")
+                .padding(.bottom)
+                .padding(.horizontal)
+
             VStack {
                 VStack(alignment: .leading) {
                     Text("Early Access to New Features")
@@ -89,21 +87,23 @@ struct Pitch: View {
             .padding(.horizontal)
             .padding(.bottom)
             
-            VStack(alignment: .center) {
-                HStack {
-                    Spacer()
-                    Text("Choose a Plan")
-                        .font(.system(size: 18))
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                HStack(spacing: 20) {
-                    ForEach(store.subscriptions) { sub in
-                        SubscriptionTile(sub: sub, selectedOffer: $selectedOffer)
+            if !store.subscriptions.isEmpty {
+                VStack(alignment: .center) {
+                    HStack {
+                        Spacer()
+                        Text("Choose a Plan")
+                            .font(.system(size: 18))
+                            .fontWeight(.bold)
+                        Spacer()
                     }
+                    HStack(spacing: 20) {
+                        ForEach(store.subscriptions) { sub in
+                            SubscriptionTile(sub: sub, selectedOffer: $selectedOffer)
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 10)
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 10)
             }
         }
     }
@@ -126,13 +126,13 @@ struct BuyButton: View {
                     .fontWeight(.bold)
                 Spacer()
             }
+            .foregroundColor(Color(.white))
+            .padding()
+            .background(userAccentColor)
+            .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
+            .cornerRadius(12)
+            .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
         }
-        .foregroundColor(Color(.white))
-        .padding()
-        .background(userAccentColor)
-        .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
-        .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
     }
 }
 
@@ -180,24 +180,26 @@ struct Subscription: View {
                 }
 
                 VStack(spacing: 10) {
-                    if !hasPurchased {
-                        BuyButton(buy: buy)
-                    } else {
-                        Button(action: {
-                            Task {
-                                showManageSubscriptions.toggle()
+                    if !store.subscriptions.isEmpty {
+                        if !hasPurchased {
+                            BuyButton(buy: buy)
+                        } else {
+                            Button(action: {
+                                Task {
+                                    showManageSubscriptions.toggle()
+                                }
+                            }) {
+                                HStack {
+                                    Spacer()
+                                    Text("Change or Cancel Subscription")
+                                    Spacer()
+                                }
                             }
-                        }) {
-                            HStack {
-                                Spacer()
-                                Text("Change or Cancel Subscription")
-                                Spacer()
-                            }
+                            .padding()
+                            .background(.white)
+                            .cornerRadius(12)
+                            .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                         }
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(12)
-                        .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                     }
                     
                     
@@ -282,6 +284,9 @@ struct Subscription: View {
     
     func buy() async {
         do {
+            print(store)
+            print(selectedOffer)
+            print(store.subscriptions)
             if try await store.purchase(selectedOffer!) != nil {
                 withAnimation {
                     hasPurchased = true

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SpotMeter: View {
     var body: some View {
-        Text("Hello, world!")
+        SpotMeterViewController()
+           .edgesIgnoringSafeArea(.all)
     }
 }

@@ -31,16 +31,7 @@ class Store: ObservableObject {
     
     var updateListenerTask: Task<Void, Error>? = nil
 
-    private let productIdToString: [String: String]
-
     init() {
-        if let path = Bundle.main.path(forResource: "Products", ofType: "plist"),
-        let plist = FileManager.default.contents(atPath: path) {
-            productIdToString = (try? PropertyListSerialization.propertyList(from: plist, format: nil) as? [String: String]) ?? [:]
-        } else {
-            productIdToString = [:]
-        }
-
         //Initialize empty products, and then do a product request asynchronously to fill them in.
         subscriptions = []
 
@@ -85,6 +76,7 @@ class Store: ObservableObject {
         do {
             let keys = ["com.ansel.plus.yearly", "com.ansel.plus.monthly"]
             let products = try await Product.products(for: keys)
+            print(products)
             subscriptions = products
         } catch {
             print("Failed product request from the App Store server: \(error)")
@@ -163,21 +155,7 @@ class Store: ObservableObject {
         subscriptionGroupStatus = try? await subscriptions.first?.subscription?.status.first?.state
     }
 
-    func label(for productId: String) -> String {
-        return productIdToString[productId]!
-    }
-
     func sortByPrice(_ products: [Product]) -> [Product] {
         products.sorted(by: { return $0.price < $1.price })
-    }
-
-    //Get a subscription's level of service using the product ID.
-    func tier(for productId: String) -> SubscriptionTier {
-        switch productId {
-            case "premium_annual":
-                return .premium
-            default:
-                return .none
-        }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var store: Store = Store()
+//    @StateObject var store: Store = Store()
 
     @Environment(\.managedObjectContext) var managedObjectContext
 
@@ -26,7 +26,7 @@ struct ContentView: View {
     }
 
     var body: some View {
-        Dashboard(url: url, store: store)
+        Dashboard(url: url, store: nil)
             .onAppear { seed() }
     }
 }

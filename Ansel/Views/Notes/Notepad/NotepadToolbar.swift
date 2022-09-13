@@ -12,6 +12,7 @@ struct NotepadToolbar: View {
     @Binding var showGearSheet: Bool
     @Binding var showDataSheet: Bool
     @Binding var showCaptureSheet: Bool
+    @Binding var showSpotMeterSheet: Bool
 
     @Binding var selectedImages: [PhotosPickerItem]
     @Binding var selectedPhotosData: Set<UIImage>
@@ -46,11 +47,11 @@ struct NotepadToolbar: View {
             Spacer()
             
 //            Button(action: {
-//                showDataSheet.toggle()
+//                showSpotMeterSheet.toggle()
 //            }) {
-//                Image(systemName: "chart.pie")
+//                Image(systemName: "camera.metering.spot")
 //            }
-//
+
 //            Spacer()
 
             Button(action: {
