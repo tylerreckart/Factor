@@ -8,6 +8,15 @@
 import Foundation
 import SwiftUI
 
+struct ResignKeyboardOnDragGesture: ViewModifier {
+    var gesture = DragGesture().onChanged{_ in
+        UIApplication.shared.endEditing(true)
+    }
+    func body(content: Content) -> some View {
+        content.gesture(gesture)
+    }
+}
+
 public struct PlaceholderStyle: ViewModifier {
     @Binding var text: String
     @Binding var focused: Bool
