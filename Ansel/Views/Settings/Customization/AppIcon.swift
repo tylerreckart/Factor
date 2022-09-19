@@ -1,6 +1,6 @@
 //
 //  Theme.swift
-//  Ansel
+//  Aspen
 //
 //  Created by Tyler Reckart on 8/25/22.
 //
@@ -58,7 +58,7 @@ struct AppIconSettings: View {
         VStack {
             List {
                 Section(header: Text("Standard").font(.system(size: 12))) {
-                    AppIcon(icon: "Ansel", currentIcon: $currentIcon)
+                    AppIcon(icon: "Aspen", currentIcon: $currentIcon)
                 }
                 
                 Section(header: Text("Colorway").font(.system(size: 12))) {
@@ -80,7 +80,7 @@ struct AppIconSettings: View {
                 }
             }
             .onAppear {
-                currentIcon = appIcon ?? "Ansel"
+                currentIcon = appIcon ?? "Aspen"
             }
         }
     }

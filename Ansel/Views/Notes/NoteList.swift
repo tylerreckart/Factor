@@ -1,6 +1,6 @@
 //
 //  NoteList.swift
-//  Ansel
+//  Aspen
 //
 //  Created by Tyler Reckart on 8/27/22.
 //
@@ -18,28 +18,31 @@ struct SearchBar: View {
                 Image(systemName: "magnifyingglass")
 
                 TextField("Search", text: $searchText, onEditingChanged: { isEditing in
-                    showCancelButton = true
-                }, onCommit: {
-                    print("onCommit")
+                    withAnimation {
+                        showCancelButton = true
+                    }
                 }).foregroundColor(.primary)
+                
+                Spacer()
             }
             .foregroundColor(.secondary)
-            .padding(10)
-            .background(Color(.systemGray5))
-            .cornerRadius(10.0)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal)
+            .padding(.vertical, 10)
+            .background(.background)
+            .cornerRadius(8)
 
             if showCancelButton  {
                 Button("Cancel") {
-                    UIApplication.shared.endEditing(true)
-                    searchText = ""
-                    showCancelButton = false
+                    withAnimation {
+                        UIApplication.shared.endEditing(true)
+                        searchText = ""
+                        showCancelButton = false
+                    }
                 }
                 .foregroundColor(.accentColor)
             }
         }
-        .padding(.horizontal)
-        .padding(.bottom, 10)
-        .background(.thickMaterial)
     }
 }
 
@@ -57,51 +60,69 @@ struct NoteListItem: View {
 
     var body: some View {
         if note.body != nil {
-            if !isEditing {
+            HStack {
+                if isEditing {
+                    if !selectedNotes.contains(note.id) {
+                        Image(systemName: "circle")
+                            .foregroundColor(.accentColor)
+                    } else {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.accentColor)
+                    }
+                }
+
                 let str = note.body!
                 
-                NavigationLink(destination: Notepad(note: note)) {
-                    VStack(alignment: .leading) {
-                        Text(str.count > 80 ? str.prefix(80) + "..." : str)
-                            .foregroundColor(.primary)
-                            .padding(.bottom, 1)
-                        
-                        Text(formatDate(date: note.createdAt!))
-                            .foregroundColor(Color(.systemGray))
-                            .font(.system(size: 14))
-                        
-                    }
-                }
-            } else {
-                Button(action: {
-                    if !selectedNotes.contains(note.id) {
-                        selectedNotes.append(note.id)
+                HStack(alignment: .center) {
+                    if !isEditing {
+                        NavigationLink(destination: Notepad(note: note)) {
+                            VStack(alignment: .leading) {
+                                Text(str.count > 72 ? str.prefix(72) + "..." : str)
+                                    .foregroundColor(.primary)
+                                    .padding(.bottom, 1)
+                                    .multilineTextAlignment(.leading)
+                                
+                                Text(formatDate(date: note.createdAt!))
+                                    .foregroundColor(Color(.systemGray))
+                                    .font(.system(size: 14))
+                                
+                            }
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(Color(.systemGray5))
+                                .font(.system(size: 14, weight: .bold))
+                        }
                     } else {
-                        selectedNotes = selectedNotes.filter { $0 != note.id }
-                    }
-                }) {
-                    HStack {
-                        if !selectedNotes.contains(note.id) {
-                            Image(systemName: "circle")
-                                .foregroundColor(.accentColor)
-                        } else {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.accentColor)
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            let str = note.body!
+                        Button(action: {
+                            if !selectedNotes.contains(note.id) {
+                                selectedNotes.append(note.id)
+                            } else {
+                                selectedNotes = selectedNotes.filter { $0 != note.id }
+                            }
+                        }) {
+                            VStack(alignment: .leading) {
+                                let str = note.body!
+                                
+                                Text(str.count > 72 ? str.prefix(72) + "..." : str)
+                                    .foregroundColor(.primary)
+                                    .padding(.bottom, 1)
+                                    .multilineTextAlignment(.leading)
+                                
+                                Text(formatDate(date: note.createdAt!))
+                                    .foregroundColor(Color(.systemGray))
+                                    .font(.system(size: 14))
+                            }
                             
-                            Text(str.count > 80 ? str.prefix(80) + "..." : str)
-                                .foregroundColor(.primary)
-                                .padding(.bottom, 1)
-                            
-                            Text(formatDate(date: note.createdAt!))
-                                .foregroundColor(Color(.systemGray))
-                                .font(.system(size: 14))
+                            Spacer()
                         }
                     }
                 }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(.background)
+                .cornerRadius(8)
             }
         }
     }
@@ -123,21 +144,27 @@ struct NoteListToolbar: View {
                         deleteNotes()
                     }
                     
-                    self.isEditing.toggle()
+                    withAnimation {
+                        self.isEditing.toggle()
+                    }
                 }) {
                     Text("Delete")
                 }
                 .foregroundColor(Color(.systemRed))
             } else if isEditing && selectedNotes.count == 0 {
                 Button(action: {
-                    self.isEditing.toggle()
+                    withAnimation {
+                        self.isEditing.toggle()
+                    }
                 }) {
                     Text("Cancel")
                 }
                 .foregroundColor(Color(.systemGray))
             } else {
                 Button(action: {
-                    self.isEditing.toggle()
+                    withAnimation {
+                        self.isEditing.toggle()
+                    }
                 }) {
                     Text("Edit")
                 }
@@ -187,8 +214,6 @@ struct NoteList: View {
     var body: some View {
         ZStack {
             VStack {
-                SearchBar(searchText: $searchText)
-                
                 if results.count == 0 {
                     VStack {
                         Spacer()
@@ -203,27 +228,35 @@ struct NoteList: View {
                 }
 
                 if results.count > 0 {
-                    List {
-                        ForEach(filterBySearchText(notes: results), id: \.self) { group in
+                    ScrollView {
+                        SearchBar(searchText: $searchText)
+                            .padding(.horizontal)
+                            .padding(.bottom)
+
+                        let notes = filterBySearchText(notes: results)
+
+                        ForEach(notes, id: \.self) { group in
                             let month = group.isEmpty ? "" : getMonth(date: group[0].createdAt!)
                             
                             Section(header:
-                                        Text(month)
-                                .textCase(.none)
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
-                                .foregroundColor(.primary)
+                                HStack {
+                                    Text(month)
+                                        .textCase(.none)
+                                        .font(.system(size: 18))
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.primary)
+                                        .padding(.leading)
+                                    Spacer()
+                                }
                             ) {
                                 ForEach(group, id: \.self) { r in
                                     NoteListItem(note: r, isEditing: $isEditing, selectedNotes: $selectedNotes)
                                 }
                             }
+                            .padding(.horizontal)
                         }
-                        .listStyle(.insetGrouped)
-                        .padding(.vertical, 4)
                     }
-                    .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
-                    .padding(.top, -10)
+                    .background(Color(.systemGray6))
                 }
             }
             
@@ -299,10 +332,14 @@ struct NoteList: View {
         var filteredNotes: [Note] = []
 
         filteredNotes = notes.filter {
-            searchText.isEmpty ? true : $0.body!.contains(searchText)
+            searchText.isEmpty ? true : $0.body!.lowercased().contains(searchText.lowercased())
         }
-
-        return groupByMonth(notes: filteredNotes).reversed()
+        
+        if filteredNotes.count > 0 {
+            return groupByMonth(notes: filteredNotes).reversed()
+        }
+        
+        return []
     }
     
     private func deleteNote(note: Note){

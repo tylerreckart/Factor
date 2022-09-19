@@ -1,6 +1,6 @@
 //
-//  AnselApp.swift
-//  Ansel
+//  AspenApp.swift
+//  Aspen
 //
 //  Created by Tyler Reckart on 7/9/22.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct AnselApp: App {
+struct AspenApp: App {
     @AppStorage("useDarkMode") var useDarkMode: Bool?
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
@@ -23,7 +23,7 @@ struct AnselApp: App {
                 .preferredColorScheme(useDarkMode == true ? .dark : nil)
                 .accentColor(userAccentColor)
                 .onOpenURL { incoming in
-                    guard incoming.scheme == "Ansel" else { return }
+                    guard incoming.scheme == "Aspen" else { return }
                     url = incoming.absoluteString
                 }
         }

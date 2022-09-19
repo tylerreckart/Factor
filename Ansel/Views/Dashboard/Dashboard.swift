@@ -1,6 +1,6 @@
 //
 //  Dashboard.swift
-//  Ansel
+//  Aspen
 //
 //  Created by Tyler Reckart on 8/24/22.
 //
@@ -199,7 +199,7 @@ struct Dashboard: View {
                         .border(width: 0.5, edges: [.bottom], color: Color(.systemGray4))
                         .position(x: screenWidth / 2, y: -50)
 
-                    Image("ansel.fill")
+                    Image("aspen.fill")
                         .font(.system(size: 22))
                         .foregroundColor(Color(.systemGray4))
                         .position(x: screenWidth / 2, y: -22)

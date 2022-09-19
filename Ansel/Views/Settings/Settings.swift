@@ -1,6 +1,6 @@
 //
 //  SettingsView.swift
-//  Ansel
+//  Aspen
 //
 //  Created by Tyler Reckart on 8/23/22.
 //
@@ -27,7 +27,7 @@ struct Settings: View {
                 
 //                Section {
 //                    NavigationLink(destination: Subscription(store: store)) {
-//                        Text("Ansel Premium")
+//                        Text("Aspen Premium")
 //                    }
 //                }
 

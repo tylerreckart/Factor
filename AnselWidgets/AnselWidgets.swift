@@ -1,6 +1,6 @@
 //
-//  AnselWidgets.swift
-//  AnselWidgets
+//  AspenWidgets.swift
+//  AspenWidgets
 //
 //  Created by Tyler Reckart on 8/30/22.
 //
@@ -39,7 +39,7 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
 }
 
-struct AnselWidgetEntryView : View {
+struct AspenWidgetEntryView : View {
     var entry: Provider.Entry
     let image: String
     let label: String
@@ -73,16 +73,16 @@ struct NotesWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            AnselWidgetEntryView(
+            AspenWidgetEntryView(
                 entry: entry,
                 image: "bookmark.circle.fill",
                 label: "Notes",
                 background: Color(.systemYellow),
-                url: "Ansel://notes"
+                url: "Aspen://notes"
             )
         }
-        .configurationDisplayName("Ansel Notebook")
-        .description("Access the Ansel notebook directly from your home screen.")
+        .configurationDisplayName("Aspen Notebook")
+        .description("Access the Aspen notebook directly from your home screen.")
         .supportedFamilies([.systemSmall])
     }
 }
@@ -92,16 +92,16 @@ struct ReciprocityWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            AnselWidgetEntryView(
+            AspenWidgetEntryView(
                 entry: entry,
                 image: "moon.stars.circle.fill",
                 label: "Reciprocity",
                 background: Color(.systemPurple),
-                url: "Ansel://reciprocityFactor"
+                url: "Aspen://reciprocityFactor"
             )
         }
         .configurationDisplayName("Recirprocity Factor")
-        .description("Access the Ansel reciprocity calculator directly from your home screen.")
+        .description("Access the Aspen reciprocity calculator directly from your home screen.")
         .supportedFamilies([.systemSmall])
     }
 }
@@ -111,16 +111,16 @@ struct FilterWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            AnselWidgetEntryView(
+            AspenWidgetEntryView(
                 entry: entry,
                 image: "cloud.circle.fill",
                 label: "Filter Factor",
                 background: Color(.systemGreen),
-                url: "Ansel://filterFactor"
+                url: "Aspen://filterFactor"
             )
         }
         .configurationDisplayName("Filter Factor")
-        .description("Access the Ansel filter factor calculator directly from your home screen.")
+        .description("Access the Aspen filter factor calculator directly from your home screen.")
         .supportedFamilies([.systemSmall])
     }
 }
@@ -130,22 +130,22 @@ struct BellowsWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            AnselWidgetEntryView(
+            AspenWidgetEntryView(
                 entry: entry,
                 image: "arrow.up.backward.and.arrow.down.forward.circle.fill",
                 label: "Bellows Extension Factor",
                 background: Color(.systemBlue),
-                url: "Ansel://bellowsExtension"
+                url: "Aspen://bellowsExtension"
             )
         }
         .configurationDisplayName("Bellows Extension Factor")
-        .description("Access the Ansel filter factor calculator directly from your home screen.")
+        .description("Access the Aspen filter factor calculator directly from your home screen.")
         .supportedFamilies([.systemSmall])
     }
 }
 
 @main
-struct AnselWidgets: WidgetBundle {
+struct AspenWidgets: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
         NotesWidget()

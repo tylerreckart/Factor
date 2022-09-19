@@ -1,6 +1,6 @@
 //
 //  Terms.swift
-//  Ansel
+//  Aspen
 //
 //  Created by Tyler Reckart on 9/11/22.
 //
@@ -20,7 +20,7 @@ struct Terms: View {
                     Text("This site and the mobile applications and services available in connection with this site and mobile application (the “App”) are made available to you by Haptic Software, LLC (“Haptic”, “We”) subject to these Terms of Service, including those set forth in the Privacy Policy (the “Terms”). By accessing, using or downloading any materials from the App, you agree to follow and be bound by the Terms, which may be updated by us from time to time without notice to you. You can review the most current version of the Terms at any time here. We and third party providers may make improvements and/or changes in the products, services, mobile applications, features, programs, and prices described in this App at any time without notice. Certain provisions of the Terms may be supplemented or superseded by expressly designated legal notices or terms located on particular pages at this App. The App is not intended for and is not designed to attract children under 13 years of age. If you do not agree with the Terms, please do not use this App. BY CONTINUING TO USE THE APP, YOU ARE INDICATING YOUR AGREEMENT TO THE TERMS AND ALL REVISIONS THEREOF.")
                         .padding(.bottom)
                     
-                    Text("If you choose to buy an Ansel Plus subscription, payment will be charged to your Apple ID account at the confirmation of purchase. The subscription automatically renews unless it is canceled at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel your subscriptions by going to your account settings on the App Store after purchase.")
+                    Text("If you choose to buy an Aspen Plus subscription, payment will be charged to your Apple ID account at the confirmation of purchase. The subscription automatically renews unless it is canceled at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage and cancel your subscriptions by going to your account settings on the App Store after purchase.")
                         .padding(.bottom)
                     
                     Text("All purchases are final. Haptic cannot issue refunds for purchases charged to your Apple ID.")

@@ -1,6 +1,6 @@
 //
 //  Subscription.swift
-//  Ansel
+//  Aspen
 //
 //  Created by Tyler Reckart on 9/1/22.
 //
@@ -47,7 +47,7 @@ struct SubscriptionTile: View {
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
         }
         .onAppear {
-            if selectedOffer == nil && sub.id == "com.ansel.plus.yearly" {
+            if selectedOffer == nil && sub.id == "com.Aspen.plus.yearly" {
                 selectedOffer = sub
             }
         }
@@ -153,7 +153,7 @@ struct Subscription: View {
             VStack(alignment: .leading) {
                 VStack {
                     HStack(alignment: .top) {
-                        Text("Ansel")
+                        Text("Aspen")
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(.trailing, -5)
@@ -173,7 +173,7 @@ struct Subscription: View {
                     Pitch(store: store, selectedOffer: $selectedOffer)
                 } else {
                     VStack {
-                        Text("Thank you for supporting Ansel as a premium subscriber. Your contributions help fund new features and cover the costs of development.")
+                        Text("Thank you for supporting Aspen as a premium subscriber. Your contributions help fund new features and cover the costs of development.")
                             .padding(.bottom)
                     }
                     .padding(.horizontal)

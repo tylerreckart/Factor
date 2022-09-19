@@ -1,6 +1,6 @@
 //
 //  Constants.swift
-//  Ansel
+//  Aspen
 //
 //  Created by Tyler Reckart on 8/18/22.
 //
@@ -16,7 +16,7 @@ let dashboard_tiles = [
         icon: "bookmark.circle.fill",
         background: Color(.systemYellow),
         destination: AnyView(Notes()),
-        url: "Ansel://notes"
+        url: "Aspen://notes"
     ),
     DashboardTile(
         key: "reciprocity_factor",
@@ -24,7 +24,7 @@ let dashboard_tiles = [
         icon: "moon.stars.circle.fill",
         background: Color(.systemPurple),
         destination: AnyView(Reciprocity()),
-        url: "Ansel://reciprocityFactor"
+        url: "Aspen://reciprocityFactor"
 
     ),
     DashboardTile(
@@ -33,7 +33,7 @@ let dashboard_tiles = [
         icon: "arrow.up.backward.and.arrow.down.forward.circle.fill",
         background: Color(.systemBlue),
         destination: AnyView(BellowsExtension()),
-        url: "Ansel://bellowsExtension"
+        url: "Aspen://bellowsExtension"
 
     ),
     DashboardTile(
@@ -42,7 +42,7 @@ let dashboard_tiles = [
         icon: "cloud.circle.fill",
         background: Color(.systemGreen),
         destination: AnyView(FilterFactor()),
-        url: "Ansel://filterFactor"
+        url: "Aspen://filterFactor"
 
     ),
 ]
