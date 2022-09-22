@@ -14,9 +14,3 @@ struct Notes: View {
             .navigationBarTitleDisplayMode(.inline)
     }
 }
-
-struct Notes_Previews: PreviewProvider {
-    static var previews: some View {
-        Notes()
-    }
-}

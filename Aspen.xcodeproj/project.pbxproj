@@ -74,6 +74,11 @@
 		DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6328B64B0000186039 /* Dashboard.swift */; };
 		DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */; };
 		DBE2816A28BEC3040074FD72 /* Lenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2816928BEC3040074FD72 /* Lenses.swift */; };
+		DBE2ECEC28DBE5C700F0ABD1 /* NoteListContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2ECEB28DBE5C700F0ABD1 /* NoteListContainer.swift */; };
+		DBE2ECEE28DBE5D600F0ABD1 /* NoteListToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2ECED28DBE5D600F0ABD1 /* NoteListToolbar.swift */; };
+		DBE2ECF028DBE5E400F0ABD1 /* NoteListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2ECEF28DBE5E400F0ABD1 /* NoteListItem.swift */; };
+		DBE2ECF228DBE5FB00F0ABD1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2ECF128DBE5FB00F0ABD1 /* SearchBar.swift */; };
+		DBE2ECF428DBE64C00F0ABD1 /* NoteGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE2ECF328DBE64C00F0ABD1 /* NoteGroup.swift */; };
 		DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4D41928CE2F2700189789 /* Terms.swift */; };
 		DBEB4BBC28CE675900367D87 /* SpotMeterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEB4BBB28CE675900367D87 /* SpotMeterController.swift */; };
 /* End PBXBuildFile section */
@@ -192,6 +197,11 @@
 		DBB4FA6328B64B0000186039 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedResultCard.swift; sourceTree = "<group>"; };
 		DBE2816928BEC3040074FD72 /* Lenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lenses.swift; sourceTree = "<group>"; };
+		DBE2ECEB28DBE5C700F0ABD1 /* NoteListContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListContainer.swift; sourceTree = "<group>"; };
+		DBE2ECED28DBE5D600F0ABD1 /* NoteListToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListToolbar.swift; sourceTree = "<group>"; };
+		DBE2ECEF28DBE5E400F0ABD1 /* NoteListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListItem.swift; sourceTree = "<group>"; };
+		DBE2ECF128DBE5FB00F0ABD1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		DBE2ECF328DBE64C00F0ABD1 /* NoteGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteGroup.swift; sourceTree = "<group>"; };
 		DBE4D41628CBF58400189789 /* Subscriptions.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Subscriptions.storekit; sourceTree = "<group>"; };
 		DBE4D41928CE2F2700189789 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
 		DBEB4BBB28CE675900367D87 /* SpotMeterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMeterController.swift; sourceTree = "<group>"; };
@@ -428,9 +438,9 @@
 		DB80128428B9ADA800AC7EAC /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				DBE2ECEA28DBE5BD00F0ABD1 /* NoteList */,
 				DB3E7C1628C43CA500518182 /* Notepad */,
 				DB901B48287DBF7300EC04D7 /* Notes.swift */,
-				DB80128E28BA593000AC7EAC /* NoteList.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -505,6 +515,19 @@
 				DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		DBE2ECEA28DBE5BD00F0ABD1 /* NoteList */ = {
+			isa = PBXGroup;
+			children = (
+				DB80128E28BA593000AC7EAC /* NoteList.swift */,
+				DBE2ECEB28DBE5C700F0ABD1 /* NoteListContainer.swift */,
+				DBE2ECED28DBE5D600F0ABD1 /* NoteListToolbar.swift */,
+				DBE2ECEF28DBE5E400F0ABD1 /* NoteListItem.swift */,
+				DBE2ECF128DBE5FB00F0ABD1 /* SearchBar.swift */,
+				DBE2ECF328DBE64C00F0ABD1 /* NoteGroup.swift */,
+			);
+			path = NoteList;
 			sourceTree = "<group>";
 		};
 		DBE4D41728CE2F0F00189789 /* Legal */ = {
@@ -705,7 +728,9 @@
 				DB5A4A3428BBDAE7006B093B /* Privacy.swift in Sources */,
 				DB1DBF9B28B7E1AC00F2FE07 /* FilterForm.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
+				DBE2ECF428DBE64C00F0ABD1 /* NoteGroup.swift in Sources */,
 				DB61579D28C0E10A00D485C3 /* CameraData.swift in Sources */,
+				DBE2ECF228DBE5FB00F0ABD1 /* SearchBar.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
 				DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */,
 				DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */,
@@ -715,6 +740,7 @@
 				DB00DEFF28CBC2850075BA02 /* CameraCaptureView.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,
 				DB5A4A3628BBE041006B093B /* About.swift in Sources */,
+				DBE2ECEE28DBE5D600F0ABD1 /* NoteListToolbar.swift in Sources */,
 				DB61579F28C0E12F00D485C3 /* NotepadToolbar.swift in Sources */,
 				DB72829328D0B64800305E4B /* ReciprocityDropdownOption.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
@@ -743,11 +769,13 @@
 				DB80123228B840AB00AC7EAC /* AppIcon.swift in Sources */,
 				DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
+				DBE2ECEC28DBE5C700F0ABD1 /* NoteListContainer.swift in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,
 				DB6157A128C0E16E00D485C3 /* DataSheet.swift in Sources */,
 				DB5A4A4128BD2762006B093B /* Store.swift in Sources */,
 				DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */,
+				DBE2ECF028DBE5E400F0ABD1 /* NoteListItem.swift in Sources */,
 				DB901B49287DBF7300EC04D7 /* Notes.swift in Sources */,
 				DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */,
 				DBB4FA6028B561AA00186039 /* Settings.swift in Sources */,
