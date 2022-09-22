@@ -36,7 +36,7 @@ struct About: View {
                     HStack {
                         Spacer()
                         VStack {
-                            Text("Aspen 1.2 (3)")
+                            Text("Aspen 1.2 (4)")
                             Text("© 2022 Haptic Software, LLC")
                             Text("Made in South Carolina")
                         }
