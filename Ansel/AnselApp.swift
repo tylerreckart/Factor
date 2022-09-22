@@ -20,7 +20,7 @@ struct AspenApp: App {
         WindowGroup {
             ContentView(url: $url)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .preferredColorScheme(useDarkMode == true ? .dark : nil)
+                .preferredColorScheme(useDarkMode == true ? .dark : .light)
                 .accentColor(userAccentColor)
                 .onOpenURL { incoming in
                     guard incoming.scheme == "Aspen" else { return }

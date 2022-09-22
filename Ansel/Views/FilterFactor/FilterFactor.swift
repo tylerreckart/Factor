@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct FilterFactor: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @FetchRequest(
@@ -43,7 +44,7 @@ struct FilterFactor: View {
                 )
             }
             .padding([.leading, .trailing, .bottom])
-            .background(.background)
+            .background(useDarkMode ? Color(.systemGray6) : .white)
             .cornerRadius(18)
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
             .padding([.leading, .trailing, .bottom])
@@ -70,7 +71,7 @@ struct FilterFactor: View {
                 .padding([.leading, .trailing, .bottom])
             }
         }
-        .background(Color(.systemGray6))
+        .background(useDarkMode ? Color(.black) : Color(.systemGray6))
         .navigationTitle("Filter Factor")
         .navigationBarTitleDisplayMode(.inline)
         .alert(isPresented: $presentError, error: ValidationError.NaN) {_ in

@@ -182,6 +182,7 @@ struct Notepad: View {
             if note != nil {
                 noteBody = note!.body!
                 focusedField = nil
+                print(imagesFromCoreData(object: note!.images)!)
                 
                 if note!.images != nil {
                     selectedPhotosData = imagesFromCoreData(object: note!.images)!
@@ -221,13 +222,19 @@ struct Notepad: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: {
-                    isEditing.toggle()
-                }) {
-                    if isEditing {
-                        Text("Done")
-                    } else {
-                        Text("Edit")
+                if !showOverlay {
+                    Button(action: {
+                        isEditing.toggle()
+                        
+                        if !isEditing {
+                            focusedField = nil
+                        }
+                    }) {
+                        if isEditing {
+                            Text("Done")
+                        } else {
+                            Text("Edit")
+                        }
                     }
                 }
             }

@@ -62,6 +62,7 @@ struct ToggleButton: View {
 }
 
 struct PriorityModeToggle: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
     @Binding var priorityMode: PriorityMode
@@ -102,7 +103,7 @@ struct PriorityModeToggle: View {
                 }
             }
             .padding(4)
-            .background(Color(.systemGray6))
+            .background(useDarkMode ? Color(.systemGray5) : Color(.systemGray6))
             .cornerRadius(8)
         }
         .padding(.bottom, 10)

@@ -10,6 +10,7 @@ import SwiftUI
 import UIKit
 
 struct BellowsExtension: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @FetchRequest(
@@ -58,7 +59,7 @@ struct BellowsExtension: View {
                 )
             }
             .padding()
-            .background(.background)
+            .background(useDarkMode ? Color(.systemGray6) : .white)
             .cornerRadius(18)
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
             .padding([.leading, .trailing, .bottom])
@@ -95,7 +96,7 @@ struct BellowsExtension: View {
                 .padding([.leading, .trailing, .bottom])
             }
         }
-        .background(Color(.systemGray6))
+        .background(useDarkMode ? Color(.black) : Color(.systemGray6))
         .navigationTitle("Bellows Extension")
         .navigationBarTitleDisplayMode(.inline)
         .foregroundColor(.white)
@@ -124,8 +125,28 @@ struct BellowsExtension: View {
         }
     }
     
+    private func noCompensation(_ factor: Double) {
+        if priorityMode == .shutter {
+            compensatedAperture = "\(aperture)"
+        } else {
+            compensatedShutter = "\(shutterSpeed)"
+        }
+
+        extensionFactor = "\(Int(factor))"
+        calculatedFactor = true
+        
+        save()
+    }
+    
     private func calculate() {
         let factor = bellowsExtensionFactor()
+        
+        // If the compensation factor is less than 2, not enough light is lost
+        // to warrant additional exposure time. Return the original inputs.
+        if factor != nil && factor! < 2 {
+            noCompensation(factor!)
+            return
+        }
         
         if factor != nil {
             if priorityMode == .shutter {
@@ -177,7 +198,12 @@ struct BellowsExtension: View {
                     }
                 } else {
                     do {
-                        let asDouble = try convertToDouble(aperture)
+                        var asDouble: Double?
+                        if priorityMode == .shutter {
+                            asDouble = try convertToDouble(aperture)
+                        } else {
+                            asDouble = try convertToDouble(shutterSpeed)
+                        }
                         let adjustedShutter: Int = Int(factor! * asDouble!)
                         
                         compensatedShutter = "\(adjustedShutter)"

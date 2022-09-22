@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Reciprocity: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @FetchRequest(
@@ -34,7 +35,7 @@ struct Reciprocity: View {
                 selected: $selected
             )
                 .padding([.leading, .trailing, .bottom])
-                .background(.background)
+                .background(useDarkMode ? Color(.systemGray6) : .white)
                 .cornerRadius(18)
                 .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
                 .padding([.leading, .trailing, .bottom])
@@ -50,7 +51,7 @@ struct Reciprocity: View {
                 .padding([.leading, .trailing, .bottom])
             }
         }
-        .background(Color(.systemGray6))
+        .background(useDarkMode ? Color(.black): Color(.systemGray6))
         .navigationTitle("Reciprocity Factor")
         .navigationBarTitleDisplayMode(.inline)
         .alert(isPresented: $presentError, error: ValidationError.NaN) {_ in

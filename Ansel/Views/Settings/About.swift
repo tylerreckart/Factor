@@ -20,7 +20,7 @@ struct About: View {
                                 .foregroundColor(Color(.systemGray4))
                                 .padding(.bottom, 1)
                             
-                            Text("Aspen 1.1")
+                            Text("Aspen 1.2")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .padding(.bottom)
@@ -36,7 +36,7 @@ struct About: View {
                     HStack {
                         Spacer()
                         VStack {
-                            Text("Aspen 1.1 (1)")
+                            Text("Aspen 1.2 (3)")
                             Text("© 2022 Haptic Software, LLC")
                             Text("Made in South Carolina")
                         }

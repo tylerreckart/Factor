@@ -31,12 +31,12 @@ struct CalculateButton: View {
                 )
                 .padding(14)
                 .frame(maxWidth: .infinity)
-                .background(isDisabled ? Color(.systemGray6) : .accentColor)
+                .background(isDisabled ? useDarkMode ? Color(.systemGray5) : Color(.systemGray6) : .accentColor)
                 .overlay(
                     LinearGradient(colors: [
                         !useDarkMode && !isDisabled
                             ? .white.opacity(0.2)
-                            : .white.opacity(0.05), .clear
+                            : .clear, .clear
                     ], startPoint: .top, endPoint: .bottom)
                 )
                 .cornerRadius(4)

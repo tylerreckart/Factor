@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct NoteGroup: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
+
     var group: [Note]
     var month: String
     
@@ -41,7 +43,7 @@ struct NoteGroup: View {
                     if index != (group.count - 1) {
                         Divider()
                             .overlay(Color(.systemGray4))
-                            .overlay(HStack { Color(.white).frame(maxWidth: 15); Spacer() })
+                            .overlay(HStack { Color(useDarkMode ? .systemGray6 : .white).frame(maxWidth: 15); Spacer() })
                     }
                 }
             }

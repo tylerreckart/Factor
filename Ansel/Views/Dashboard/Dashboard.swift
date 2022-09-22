@@ -100,6 +100,8 @@ struct DashboardTileView<Content: View, DashboardTile: Identifiable & Equatable>
 }
 
 struct Dashboard: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
+
     var url: String?
     var store: Store?
 
@@ -147,23 +149,21 @@ struct Dashboard: View {
         return NavigationView {
             ZStack {
                 VStack {
-                    ScrollView {
-                        DashboardTileView(tiles: $layout, draggingTile: $draggingTile) { tile in
-                            LinkedNavigationTile(
-                                tile: tile,
-                                isDisabled: false,
-                                draggingTile: $draggingTile,
-                                isEditing: $isEditing,
-                                removeTile: removeTile,
-                                url: url ?? "",
-                                shouldNavigate: false
-                            )
-                        } moveAction: { from, to in
-                            moveTile(from, to)
-                        }
-                        .padding()
-                        .padding(.top, 10)
+                    DashboardTileView(tiles: $layout, draggingTile: $draggingTile) { tile in
+                        LinkedNavigationTile(
+                            tile: tile,
+                            isDisabled: false,
+                            draggingTile: $draggingTile,
+                            isEditing: $isEditing,
+                            removeTile: removeTile,
+                            url: url ?? "",
+                            shouldNavigate: false
+                        )
+                    } moveAction: { from, to in
+                        moveTile(from, to)
                     }
+                    .padding()
+                    .padding(.top, 10)
                     
                     Spacer()
                     
@@ -187,18 +187,12 @@ struct Dashboard: View {
                         }
                     }
                 }
-                .background(Color(.systemGray6))
+                .background(useDarkMode ? Color(.black) : Color(.systemGray6))
                 .sheet(isPresented: $showTileSheet) {
                     TileSheet(addTile: addTile)
                 }
                 
                 ZStack {
-                    Color(.clear)
-                        .frame(maxHeight: 115)
-                        .background(.ultraThickMaterial)
-                        .border(width: 0.5, edges: [.bottom], color: Color(.systemGray4))
-                        .position(x: screenWidth / 2, y: -50)
-
                     Image("aspen.fill")
                         .font(.system(size: 22))
                         .foregroundColor(Color(.systemGray4))
