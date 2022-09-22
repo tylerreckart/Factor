@@ -10,7 +10,7 @@
 		DB00DEFF28CBC2850075BA02 /* CameraCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB00DEFE28CBC2850075BA02 /* CameraCaptureView.swift */; };
 		DB12682328BE43D200D08D9F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1267C628BE364900D08D9F /* WidgetKit.framework */; };
 		DB12682428BE43D200D08D9F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1267C828BE364900D08D9F /* SwiftUI.framework */; };
-		DB12682728BE43D200D08D9F /* AnselWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12682628BE43D200D08D9F /* AnselWidgets.swift */; };
+		DB12682728BE43D200D08D9F /* AspenWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12682628BE43D200D08D9F /* AspenWidgets.swift */; };
 		DB12682928BE43D300D08D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB12682828BE43D300D08D9F /* Assets.xcassets */; };
 		DB12682D28BE43D300D08D9F /* AspenWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DB12682228BE43D200D08D9F /* AspenWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB1DBF9728B7E0AA00F2FE07 /* DashboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9628B7E0AA00F2FE07 /* DashboardToolbar.swift */; };
@@ -126,7 +126,7 @@
 		DB1267C628BE364900D08D9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DB1267C828BE364900D08D9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DB12682228BE43D200D08D9F /* AspenWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AspenWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB12682628BE43D200D08D9F /* AnselWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnselWidgets.swift; sourceTree = "<group>"; };
+		DB12682628BE43D200D08D9F /* AspenWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspenWidgets.swift; sourceTree = "<group>"; };
 		DB12682828BE43D300D08D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB12682A28BE43D300D08D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB1DBF9628B7E0AA00F2FE07 /* DashboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardToolbar.swift; sourceTree = "<group>"; };
@@ -250,14 +250,14 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
-		DB12682528BE43D200D08D9F /* AnselWidgets */ = {
+		DB12682528BE43D200D08D9F /* AspenWidgets */ = {
 			isa = PBXGroup;
 			children = (
-				DB12682628BE43D200D08D9F /* AnselWidgets.swift */,
+				DB12682628BE43D200D08D9F /* AspenWidgets.swift */,
 				DB12682828BE43D300D08D9F /* Assets.xcassets */,
 				DB12682A28BE43D300D08D9F /* Info.plist */,
 			);
-			path = AnselWidgets;
+			path = AspenWidgets;
 			sourceTree = "<group>";
 		};
 		DB1E63E228C37DF300FFDC67 /* Gear */ = {
@@ -343,10 +343,10 @@
 				DB5A4A4428BD3372006B093B /* Terms.md */,
 				DB5A4A3228BBD987006B093B /* Privacy.md */,
 				DBB4FA5728AD748600186039 /* README.md */,
-				DB560C37287A6CC700CC891A /* Ansel */,
-				DB560C4D287A6CCA00CC891A /* AnselTests */,
-				DB560C57287A6CCA00CC891A /* AnselUITests */,
-				DB12682528BE43D200D08D9F /* AnselWidgets */,
+				DB560C37287A6CC700CC891A /* Aspen */,
+				DB560C4D287A6CCA00CC891A /* AspenTests */,
+				DB560C57287A6CCA00CC891A /* AspenUITests */,
+				DB12682528BE43D200D08D9F /* AspenWidgets */,
 				DB560C36287A6CC700CC891A /* Products */,
 				DB901B4C287DC13500EC04D7 /* Frameworks */,
 			);
@@ -363,7 +363,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB560C37287A6CC700CC891A /* Ansel */ = {
+		DB560C37287A6CC700CC891A /* Aspen */ = {
 			isa = PBXGroup;
 			children = (
 				DBEB4BBA28CE674D00367D87 /* Classes */,
@@ -380,24 +380,24 @@
 				DB560C3C287A6CCA00CC891A /* Assets.xcassets */,
 				DB723FD328D3EB5800CDB148 /* Info.plist */,
 			);
-			path = Ansel;
+			path = Aspen;
 			sourceTree = "<group>";
 		};
-		DB560C4D287A6CCA00CC891A /* AnselTests */ = {
+		DB560C4D287A6CCA00CC891A /* AspenTests */ = {
 			isa = PBXGroup;
 			children = (
 				DB560C4E287A6CCA00CC891A /* LumenTests.swift */,
 			);
-			path = AnselTests;
+			path = AspenTests;
 			sourceTree = "<group>";
 		};
-		DB560C57287A6CCA00CC891A /* AnselUITests */ = {
+		DB560C57287A6CCA00CC891A /* AspenUITests */ = {
 			isa = PBXGroup;
 			children = (
 				DB560C58287A6CCA00CC891A /* LumenUITests.swift */,
 				DB560C5A287A6CCA00CC891A /* LumenUITestsLaunchTests.swift */,
 			);
-			path = AnselUITests;
+			path = AspenUITests;
 			sourceTree = "<group>";
 		};
 		DB5CB97A28BE617A00DB1AED /* Models */ = {
@@ -707,7 +707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB12682728BE43D200D08D9F /* AnselWidgets.swift in Sources */,
+				DB12682728BE43D200D08D9F /* AspenWidgets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,8 +831,8 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnselWidgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AnselWidgets;
+				INFOPLIST_FILE = AspenWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AspenWidgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -860,8 +860,8 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 78FCYG6ZD9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AnselWidgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AnselWidgets;
+				INFOPLIST_FILE = AspenWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AspenWidgets;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
