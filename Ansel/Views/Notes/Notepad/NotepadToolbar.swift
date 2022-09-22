@@ -44,15 +44,15 @@ struct NotepadToolbar: View {
                 Image(systemName: "camera")
             }
             
-            Spacer()
-            
+//            Spacer()
+//            
 //            Button(action: {
 //                showSpotMeterSheet.toggle()
 //            }) {
 //                Image(systemName: "camera.metering.spot")
 //            }
 
-//            Spacer()
+            Spacer()
 
             Button(action: {
                 showGearSheet.toggle()

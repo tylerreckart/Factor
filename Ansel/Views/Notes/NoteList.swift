@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SearchBar: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
+
     @Binding var searchText: String
     
     @State private var showCancelButton: Bool = false
@@ -29,7 +31,7 @@ struct SearchBar: View {
             .frame(maxWidth: .infinity)
             .padding(.horizontal)
             .padding(.vertical, 10)
-            .background(.background)
+            .background(useDarkMode ? Color(.systemGray6) : .white)
             .cornerRadius(8)
 
             if showCancelButton  {
@@ -47,10 +49,16 @@ struct SearchBar: View {
 }
 
 struct NoteListItem: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
+
     var note: Note
 
     @Binding var isEditing: Bool
     @Binding var selectedNotes: [ObjectIdentifier]
+    
+    var isFirst: Bool
+    var isLast: Bool
+    var isOnly: Bool
     
     func formatDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
@@ -61,40 +69,10 @@ struct NoteListItem: View {
     var body: some View {
         if note.body != nil {
             HStack {
-                if isEditing {
-                    if !selectedNotes.contains(note.id) {
-                        Image(systemName: "circle")
-                            .foregroundColor(.accentColor)
-                    } else {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.accentColor)
-                    }
-                }
-
                 let str = note.body!
                 
                 HStack(alignment: .center) {
-                    if !isEditing {
-                        NavigationLink(destination: Notepad(note: note)) {
-                            VStack(alignment: .leading) {
-                                Text(str.count > 72 ? str.prefix(72) + "..." : str)
-                                    .foregroundColor(.primary)
-                                    .padding(.bottom, 1)
-                                    .multilineTextAlignment(.leading)
-                                
-                                Text(formatDate(date: note.createdAt!))
-                                    .foregroundColor(Color(.systemGray))
-                                    .font(.system(size: 14))
-                                
-                            }
-
-                            Spacer()
-
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(Color(.systemGray5))
-                                .font(.system(size: 14, weight: .bold))
-                        }
-                    } else {
+                    if isEditing {
                         Button(action: {
                             if !selectedNotes.contains(note.id) {
                                 selectedNotes.append(note.id)
@@ -102,27 +80,53 @@ struct NoteListItem: View {
                                 selectedNotes = selectedNotes.filter { $0 != note.id }
                             }
                         }) {
-                            VStack(alignment: .leading) {
-                                let str = note.body!
-                                
-                                Text(str.count > 72 ? str.prefix(72) + "..." : str)
-                                    .foregroundColor(.primary)
-                                    .padding(.bottom, 1)
-                                    .multilineTextAlignment(.leading)
-                                
-                                Text(formatDate(date: note.createdAt!))
-                                    .foregroundColor(Color(.systemGray))
-                                    .font(.system(size: 14))
+                            if !selectedNotes.contains(note.id) {
+                                Image(systemName: "circle")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.accentColor)
+                            } else {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.accentColor)
                             }
+                        }
+                    }
+
+                    NavigationLink(destination: Notepad(note: note)) {
+                        VStack(alignment: .leading) {
+                            Text(str.count > 72 ? str.prefix(72) + "..." : str)
+                                .foregroundColor(.primary)
+                                .padding(.bottom, 1)
+                                .multilineTextAlignment(.leading)
                             
-                            Spacer()
+                            Text(formatDate(date: note.createdAt!))
+                                .foregroundColor(Color(.systemGray))
+                                .font(.system(size: 14))
+                            
+                        }
+
+                        Spacer()
+
+                        if !isEditing {
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(Color(.systemGray5))
+                                .font(.system(size: 14, weight: .bold))
                         }
                     }
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(.background)
-                .cornerRadius(8)
+                .background(useDarkMode ? Color(.systemGray6) : .white)
+                .cornerRadius(8, corners: [
+                    isOnly
+                        ? [.topLeft, .topRight, .bottomLeft, .bottomRight]
+                        : isFirst
+                            ? [.topLeft, .topRight]
+                            : isLast
+                                ? [.bottomLeft, .bottomRight]
+                                : []
+                    ]
+                )
             }
         }
     }
@@ -166,7 +170,7 @@ struct NoteListToolbar: View {
                         self.isEditing.toggle()
                     }
                 }) {
-                    Text("Edit")
+                    Text("Select Notes")
                 }
                 .foregroundColor(.accentColor)
             }
@@ -174,20 +178,57 @@ struct NoteListToolbar: View {
     }
 }
 
-struct NoteList: View {
+struct NoteGroup: View {
+    var group: [Note]
+    var month: String
+    
+    @Binding var isEditing: Bool
+    @Binding var selectedNotes: [ObjectIdentifier]
+
+    var body: some View {
+        Section(header:
+            HStack {
+                Text(month)
+                    .textCase(.none)
+                    .font(.system(size: 18))
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .padding(.leading)
+                Spacer()
+            }
+        ) {
+            VStack(spacing: 0) {
+                ForEach(Array(group.enumerated()), id: \.element) { index, element in
+                    NoteListItem(
+                        note: element,
+                        isEditing: $isEditing,
+                        selectedNotes: $selectedNotes,
+                        isFirst: index == 0,
+                        isLast: index == (group.count - 1),
+                        isOnly: group.count == 1
+                    )
+                    
+                    if index != (group.count - 1) {
+                        Divider()
+                            .overlay(Color(.systemGray4))
+                            .overlay(HStack { Color(.white).frame(maxWidth: 15); Spacer() })
+                    }
+                }
+            }
+        }
+        .padding(.horizontal)
+    }
+}
+
+struct NoteListContainer: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
+    
+    var results: FetchedResults<Note>
 
     @State private var searchText = ""
     @State private var localResults: [Note] = []
     @State private var isEditing: Bool = false
-    
-    @FetchRequest(
-      entity: Note.entity(),
-      sortDescriptors: [
-        NSSortDescriptor(keyPath: \Note.createdAt, ascending: false)
-      ]
-    ) var results: FetchedResults<Note>
-    
     @State private var selectedNotes: [ObjectIdentifier] = []
     
     func deleteNotes() {
@@ -212,86 +253,33 @@ struct NoteList: View {
     }
 
     var body: some View {
-        ZStack {
-            VStack {
-                if results.count == 0 {
-                    VStack {
-                        Spacer()
-                        Text("Add your first note to get started")
-                            .font(.system(size: 14))
-                            .foregroundColor(Color(.systemGray))
-                        Spacer()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background(Color(.systemGray6))
-                    .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
-                }
+        if results.count > 0 {
+            ScrollView {
+                SearchBar(searchText: $searchText)
+                    .padding(.horizontal)
+                    .padding(.bottom)
 
-                if results.count > 0 {
-                    ScrollView {
-                        SearchBar(searchText: $searchText)
-                            .padding(.horizontal)
-                            .padding(.bottom)
+                let notes = filterBySearchText(notes: results)
 
-                        let notes = filterBySearchText(notes: results)
-
-                        ForEach(notes, id: \.self) { group in
-                            let month = group.isEmpty ? "" : getMonth(date: group[0].createdAt!)
-                            
-                            Section(header:
-                                HStack {
-                                    Text(month)
-                                        .textCase(.none)
-                                        .font(.system(size: 18))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.primary)
-                                        .padding(.leading)
-                                    Spacer()
-                                }
-                            ) {
-                                ForEach(group, id: \.self) { r in
-                                    NoteListItem(note: r, isEditing: $isEditing, selectedNotes: $selectedNotes)
-                                }
-                            }
-                            .padding(.horizontal)
-                        }
-                    }
-                    .background(Color(.systemGray6))
+                ForEach(notes, id: \.self) { group in
+                    let month = group.isEmpty ? "" : getMonth(date: group[0].createdAt!)
+                    
+                    NoteGroup(group: group, month: month, isEditing: $isEditing, selectedNotes: $selectedNotes)
                 }
             }
-            
-            VStack {
-                Spacer()
-                HStack(alignment: .center) {
-                    Spacer()
-                    if results.count > 0 {
-                        Text("\(results.count) \(results.count == 1 ? "Note" : "Notes")")
-                            .font(.caption)
-                            .foregroundColor(.primary)
-                            .padding(.top, 5)
-                            .padding(.leading, 20)
-                        Spacer()
-                    }
-
-                    NavigationLink(destination: Notepad()) {
-                        Image(systemName: "square.and.pencil")
-                            .font(.system(size: 20))
-                    }
+            .background(useDarkMode ? .black : Color(.systemGray6))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NoteListToolbar(
+                        results: results,
+                        isEditing: $isEditing,
+                        selectedNotes: $selectedNotes,
+                        deleteNotes: deleteNotes
+                    )
                 }
-                .padding()
-                .background(.ultraThickMaterial)
-                .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
             }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NoteListToolbar(
-                    results: results,
-                    isEditing: $isEditing,
-                    selectedNotes: $selectedNotes,
-                    deleteNotes: deleteNotes
-                )
-            }
+        } else {
+            Text("Add your first note to get started.")
         }
     }
     
@@ -348,6 +336,51 @@ struct NoteList: View {
             try managedObjectContext.save()
         }catch{
             print(error)
+        }
+    }
+}
+
+struct NoteListBottomToolbar: View {
+    var count: Int
+
+    var body: some View {
+        VStack {
+            Spacer()
+            HStack(alignment: .center) {
+                Spacer()
+                if count > 0 {
+                    Text("\(count) \(count == 1 ? "Note" : "Notes")")
+                        .font(.caption)
+                        .foregroundColor(.primary)
+                        .padding(.top, 5)
+                        .padding(.leading, 20)
+                    Spacer()
+                }
+
+                NavigationLink(destination: Notepad()) {
+                    Image(systemName: "square.and.pencil")
+                        .font(.system(size: 20))
+                }
+            }
+            .padding()
+            .background(.thickMaterial)
+            .border(width: 0.5, edges: [.top], color: Color(.systemGray4))
+        }
+    }
+}
+
+struct NoteList: View {
+    @FetchRequest(
+      entity: Note.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \Note.createdAt, ascending: false)
+      ]
+    ) var results: FetchedResults<Note>
+
+    var body: some View {
+        ZStack {
+            NoteListContainer(results: results)
+            NoteListBottomToolbar(count: results.count)
         }
     }
 }
