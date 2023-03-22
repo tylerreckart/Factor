@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @StateObject var store: Store = Store()
-
     @Environment(\.managedObjectContext) var managedObjectContext
-
-    @Binding var url: String?
     
     func seed() -> Void {
         let userDefaults = UserDefaults.standard
@@ -26,8 +22,7 @@ struct ContentView: View {
     }
 
     var body: some View {
-        Dashboard(url: url, store: nil)
-            .onAppear { seed() }
+        Dashboard().onAppear { seed() }
     }
 }
 

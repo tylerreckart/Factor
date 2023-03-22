@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct Settings: View {
-    var store: Store?
-
     var body: some View {
         VStack {
             List {

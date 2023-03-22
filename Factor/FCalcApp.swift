@@ -9,23 +9,17 @@ import SwiftUI
 
 @main
 struct FactorApp: App {
+    let persistenceController = PersistenceController.shared
+
     @AppStorage("useDarkMode") var useDarkMode: Bool?
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
-    let persistenceController = PersistenceController.shared
-    
-    @State private var url: String?
-
     var body: some Scene {
         WindowGroup {
-            ContentView(url: $url)
+            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .preferredColorScheme(useDarkMode == true ? .dark : .light)
                 .accentColor(userAccentColor)
-                .onOpenURL { incoming in
-                    guard incoming.scheme == "Factor" else { return }
-                    url = incoming.absoluteString
-                }
         }
     }
 }

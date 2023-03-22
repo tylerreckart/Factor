@@ -23,7 +23,6 @@
 		DB5A4A3428BBDAE7006B093B /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3328BBDAE7006B093B /* Privacy.swift */; };
 		DB5A4A3628BBE041006B093B /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3528BBE041006B093B /* About.swift */; };
 		DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A3728BBE469006B093B /* Feedback.swift */; };
-		DB5A4A4128BD2762006B093B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5A4A4028BD2762006B093B /* Store.swift */; };
 		DB5CB97928BE600A00DB1AED /* FilmOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CB97828BE600A00DB1AED /* FilmOptions.swift */; };
 		DB5CB97C28BE618800DB1AED /* FilmStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CB97B28BE618800DB1AED /* FilmStock.swift */; };
 		DB72829328D0B64800305E4B /* ReciprocityDropdownOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72829228D0B64800305E4B /* ReciprocityDropdownOption.swift */; };
@@ -73,7 +72,6 @@
 		DB5A4A3528BBE041006B093B /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		DB5A4A3728BBE469006B093B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		DB5A4A3B28BD2133006B093B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		DB5A4A4028BD2762006B093B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DB5A4A4428BD3372006B093B /* Terms.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Terms.md; sourceTree = "<group>"; };
 		DB5CB97828BE600A00DB1AED /* FilmOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmOptions.swift; sourceTree = "<group>"; };
 		DB5CB97B28BE618800DB1AED /* FilmStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStock.swift; sourceTree = "<group>"; };
@@ -181,9 +179,7 @@
 				DBB4FA5628AD739A00186039 /* Components */,
 				DB901B2D287CB5EE00EC04D7 /* Views */,
 				DB560C38287A6CC700CC891A /* FCalcApp.swift */,
-				DB560C3A287A6CC700CC891A /* ContentView.swift */,
 				DB560C41287A6CCA00CC891A /* Persistence.swift */,
-				DB5A4A4028BD2762006B093B /* Store.swift */,
 				DB560C43287A6CCA00CC891A /* Lumen.xcdatamodeld */,
 				DB560C3C287A6CCA00CC891A /* Assets.xcassets */,
 				DB723FD328D3EB5800CDB148 /* Info.plist */,
@@ -254,6 +250,7 @@
 		DB901B2D287CB5EE00EC04D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB560C3A287A6CC700CC891A /* ContentView.swift */,
 				DB80128928B9B28000AC7EAC /* Dashboard */,
 				DB80128828B9B27500AC7EAC /* FilterFactor */,
 				DB80128728B9B26B00AC7EAC /* Reciprocity */,
@@ -415,7 +412,6 @@
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,
-				DB5A4A4128BD2762006B093B /* Store.swift in Sources */,
 				DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */,
 				DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */,
 				DBB4FA6028B561AA00186039 /* Settings.swift in Sources */,

@@ -26,7 +26,7 @@ struct SimpleTile: View {
                     .font(.system(size: 16, weight: .medium))
                 Spacer()
             }
-            .frame(maxWidth: .infinity, maxHeight: 80, alignment: .topLeading)
+            .frame(width: .infinity, height: 80, alignment: .topLeading)
             .padding()
             .foregroundColor(isDisabled ? Color(.systemGray) : .white)
             .background(overrideDefaultColors && !isDisabled ? userAccentColor : isDisabled ? Color(.systemGray4) : tile.background)
@@ -40,37 +40,10 @@ struct SimpleTile: View {
 struct LinkedNavigationTile: View {
     var tile: DashboardTile
     var isDisabled: Bool = false
-    
-    var url: String
-    
-    @State private var shouldNavigate: Bool = false
-    
-    var changeNavState: Bool = false
-    
-    init(
-        tile: DashboardTile,
-        isDisabled: Bool,
-        url: String,
-        shouldNavigate: Bool
-    ) {
-        self.tile = tile
-        self.isDisabled = isDisabled
-        self.url = url
-        self.shouldNavigate = shouldNavigate
-        
-        if url == tile.url {
-            changeNavState = true
-        } else {
-            self.shouldNavigate = shouldNavigate
-        }
-    }
 
     var body: some View {
-        NavigationLink(destination: AnyView(tile.destination), isActive: $shouldNavigate) {
+        NavigationLink(destination: AnyView(tile.destination)) {
             SimpleTile(tile: tile)
-        }
-        .onChange(of: changeNavState) { newState in
-            shouldNavigate = newState
         }
     }
 }
