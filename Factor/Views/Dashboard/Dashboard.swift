@@ -6,9 +6,155 @@
 //
 
 import SwiftUI
+import MapKit
+
+struct IdentifiablePlace: Identifiable {
+    let id: UUID
+    let location: CLLocationCoordinate2D
+    init(id: UUID = UUID(), lat: Double, long: Double) {
+        self.id = id
+        self.location = CLLocationCoordinate2D(
+            latitude: lat,
+            longitude: long)
+    }
+}
+
+struct ActionDialog: View {
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+    @ObservedObject var locationManager: LocationManager = LocationManager()
+
+    var toggleDialog: () -> ()
+    @Binding var showDialog: Bool
+    
+    @State private var showDialogBody: Bool = false
+    @State private var showOverlay: Bool = false
+    @State private var locationAllowed: Bool = false
+    
+    @State private var place: IdentifiablePlace = IdentifiablePlace(lat: 37.334_900, long: 122.009_020)
+    @State private var region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 37.334_900,
+                                           longitude: -122.009_020),
+            latitudinalMeters: 750,
+            longitudinalMeters: 750
+        )
+    
+    @State private var noteText: String = ""
+
+    var body: some View {
+        ZStack {
+            if (showOverlay) {
+                Color.black.opacity(0.2)
+                    .transition(.opacity)
+                    .onTapGesture {
+                        toggleDialog()
+                    }
+            }
+            
+            if (showDialogBody) {
+                VStack {
+                    Spacer()
+                    VStack {
+                        VStack {
+                            Text(Date().formatted(.dateTime))
+                                .bold()
+
+                            Map(coordinateRegion: $region, annotationItems: [place]) { place in
+                                    MapMarker(coordinate: place.location, tint: userAccentColor)
+                                }
+                                .frame(maxHeight: 120)
+                                .cornerRadius(8)
+                            
+                            HStack {
+                                VStack {
+                                    Text("Film Stock")
+                                        .textCase(.uppercase)
+                                        .font(.system(size: 12, weight: .regular))
+                                        .padding(.horizontal)
+                                }
+                                
+                                Spacer()
+
+                                VStack {
+                                    Text("Push/Pull")
+                                        .textCase(.uppercase)
+                                        .font(.system(size: 12, weight: .regular))
+                                        .padding(.horizontal)
+                                }
+                            }
+                            
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text("Notes")
+                                    .textCase(.uppercase)
+                                    .font(.system(size: 12, weight: .regular))
+                                    .padding(.horizontal)
+                                
+                                TextField("Add your thoughts...", text: $noteText)
+                                    .font(.system(size: 14))
+                                    .padding()
+                                    .frame(height: 60)
+                                    .background(.regularMaterial)
+                                    .cornerRadius(8)
+                            }
+                        }
+                        .padding()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(.regularMaterial)
+                    .cornerRadius(16)
+                    .shadow(color: .black.opacity(0.1), radius: 12, y: 6)
+                    .padding(.horizontal)
+                    
+                    Spacer()
+                }
+                .transition(.scale(scale: 0.4).combined(with: .opacity))
+            }
+        }
+        .edgesIgnoringSafeArea(.all)
+        .zIndex(1)
+        .onChange(of: showDialog) { newState in
+            if (locationManager.authorizationStatus == .authorizedWhenInUse) {
+                withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.4, blendDuration: 1)) {
+                    self.showDialogBody = newState
+                }
+                
+                withAnimation {
+                    self.showOverlay = newState
+                }
+                
+                let lat = locationManager.location?.coordinate.latitude ?? 37.334_900
+                let lon = locationManager.location?.coordinate.longitude ?? -122.009_020
+                
+                self.region = MKCoordinateRegion(
+                        center: CLLocationCoordinate2D(
+                            latitude: lat,
+                            longitude: lon
+                        ),
+                        latitudinalMeters: 750,
+                        longitudinalMeters: 750
+                    )
+                
+                self.place = IdentifiablePlace(lat: lat, long: lon)
+            } else {
+                requestLocationAuthorization()
+            }
+        }
+    }
+    
+    func requestLocationAuthorization() {
+        do {
+            try locationManager.start()
+        }
+        catch {
+            // handle the lack of authorization, e.g. by
+            // locationProvider.requestAuthorization()
+        }
+    }
+}
 
 struct ActionButton: View {
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
+    
+    var action: () -> ()
 
     var body: some View {
         VStack {
@@ -17,7 +163,7 @@ struct ActionButton: View {
             HStack {
                 Spacer()
     
-                Button(action: {}) {
+                Button(action: action) {
                     Image(systemName: "pencil")
                         .font(.system(size: 24, weight: .semibold, design: .rounded))
                         .foregroundColor(.white)
@@ -37,10 +183,8 @@ struct ActionButton: View {
 struct Dashboard: View {
     @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
     @AppStorage("useDarkMode") var useDarkMode: Bool = false
-    
-    @State private var layout: [DashboardTile] = []
 
-    let screenWidth = UIScreen.main.bounds.width
+    @State private var showActionDialog: Bool = false
 
     var body: some View {
         return NavigationView {
@@ -106,7 +250,8 @@ struct Dashboard: View {
                     .padding(.horizontal)
                 }
                 
-                ActionButton()
+                ActionButton(action: { self.showActionDialog.toggle() })
+                ActionDialog(toggleDialog: { self.showActionDialog.toggle() }, showDialog: $showActionDialog)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

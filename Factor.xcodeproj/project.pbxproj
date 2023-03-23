@@ -11,11 +11,11 @@
 		DB1DBF9B28B7E1AC00F2FE07 /* FilterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */; };
 		DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */; };
 		DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */; };
-		DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */; };
 		DB1E63E128C37DC300FFDC67 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E028C37DC300FFDC67 /* Validation.swift */; };
 		DB1E63E728C3814300FFDC67 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E628C3814300FFDC67 /* Math.swift */; };
+		DB30EFC829CC8CFE00659984 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB30EFC729CC8CFE00659984 /* LocationManager.swift */; };
 		DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */; };
-		DB560C39287A6CC700CC891A /* FCalcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* FCalcApp.swift */; };
+		DB560C39287A6CC700CC891A /* FactorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* FactorApp.swift */; };
 		DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C3A287A6CC700CC891A /* ContentView.swift */; };
 		DB560C3D287A6CCA00CC891A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB560C3C287A6CCA00CC891A /* Assets.xcassets */; };
 		DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C41287A6CCA00CC891A /* Persistence.swift */; };
@@ -47,7 +47,6 @@
 		DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6328B64B0000186039 /* Dashboard.swift */; };
 		DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */; };
 		DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4D41928CE2F2700189789 /* Terms.swift */; };
-		DBEB4BBC28CE675900367D87 /* SpotMeterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEB4BBB28CE675900367D87 /* SpotMeterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,12 +56,12 @@
 		DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterForm.swift; sourceTree = "<group>"; };
 		DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtensionHistorySheet.swift; sourceTree = "<group>"; };
 		DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityHistorySheet.swift; sourceTree = "<group>"; };
-		DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileSheet.swift; sourceTree = "<group>"; };
 		DB1E63E028C37DC300FFDC67 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		DB1E63E628C3814300FFDC67 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		DB30EFC729CC8CFE00659984 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataCard.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Factor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Factor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB560C38287A6CC700CC891A /* FCalcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCalcApp.swift; sourceTree = "<group>"; };
+		DB560C38287A6CC700CC891A /* FactorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorApp.swift; sourceTree = "<group>"; };
 		DB560C3A287A6CC700CC891A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB560C3C287A6CCA00CC891A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB560C41287A6CCA00CC891A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 		DBB4FA6328B64B0000186039 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedResultCard.swift; sourceTree = "<group>"; };
 		DBE4D41928CE2F2700189789 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
-		DBEB4BBB28CE675900367D87 /* SpotMeterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMeterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +176,7 @@
 				DB5CB97A28BE617A00DB1AED /* Models */,
 				DBB4FA5628AD739A00186039 /* Components */,
 				DB901B2D287CB5EE00EC04D7 /* Views */,
-				DB560C38287A6CC700CC891A /* FCalcApp.swift */,
+				DB560C38287A6CC700CC891A /* FactorApp.swift */,
 				DB560C41287A6CCA00CC891A /* Persistence.swift */,
 				DB560C43287A6CCA00CC891A /* Lumen.xcdatamodeld */,
 				DB560C3C287A6CCA00CC891A /* Assets.xcassets */,
@@ -241,7 +239,6 @@
 		DB80128928B9B28000AC7EAC /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				DB1DBFA028B7E33C00F2FE07 /* TileSheet.swift */,
 				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
 			);
 			path = Dashboard;
@@ -301,7 +298,7 @@
 		DBEB4BBA28CE674D00367D87 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DBEB4BBB28CE675900367D87 /* SpotMeterController.swift */,
+				DB30EFC729CC8CFE00659984 /* LocationManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -386,20 +383,19 @@
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
 				DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */,
-				DB1DBFA128B7E33C00F2FE07 /* TileSheet.swift in Sources */,
 				DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,
 				DB5A4A3628BBE041006B093B /* About.swift in Sources */,
 				DB72829328D0B64800305E4B /* ReciprocityDropdownOption.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
-				DB560C39287A6CC700CC891A /* FCalcApp.swift in Sources */,
+				DB560C39287A6CC700CC891A /* FactorApp.swift in Sources */,
 				DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */,
 				DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */,
 				DB1E63E728C3814300FFDC67 /* Math.swift in Sources */,
 				DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */,
 				DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
-				DBEB4BBC28CE675900367D87 /* SpotMeterController.swift in Sources */,
+				DB30EFC829CC8CFE00659984 /* LocationManager.swift in Sources */,
 				DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */,
 				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
@@ -568,7 +564,9 @@
 				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = Factor;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Aspen needs to access your device's camera in order to take photos and light measurements.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Factor would like to use your location for use in the exposure log.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Factor would like to use your location for use in the exposure log. Factor will never request your location data in the background.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -611,7 +609,9 @@
 				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = Factor;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Aspen needs to access your device's camera in order to take photos and light measurements.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Factor would like to use your location for use in the exposure log.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Factor would like to use your location for use in the exposure log. Factor will never request your location data in the background.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

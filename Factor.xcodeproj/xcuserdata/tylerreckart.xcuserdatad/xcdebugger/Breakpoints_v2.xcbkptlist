@@ -132,5 +132,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4ED6437-759A-423F-9527-08281979B88B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Factor/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "requestAuthorization(authorizationRequestType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4ED6437-759A-423F-9527-08281979B88B - b049ee54f37234fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 0 of Factor.LocationManager.requestAuthorization(authorizationRequestType: __C.CLAuthorizationStatus) -&gt; ()"
+                  moduleName = "Factor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tylerreckart/Dev/Factor/Factor/Classes/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "8">
+               </Location>
+               <Location
+                  uuid = "D4ED6437-759A-423F-9527-08281979B88B - d00df5b9da045979"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Factor.LocationManager.requestAuthorization(authorizationRequestType: __C.CLAuthorizationStatus) -&gt; ()"
+                  moduleName = "Factor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tylerreckart/Dev/Factor/Factor/Classes/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DD11C452-71FC-47A8-8108-B85FB8F9B6CE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Factor/Classes/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "requestAuthorization(authorizationRequestType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
