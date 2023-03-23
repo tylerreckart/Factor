@@ -54,9 +54,12 @@ struct ActionDialog: View {
                 VStack {
                     Spacer()
                     VStack {
-                        VStack {
-                            Text(Date().formatted(.dateTime))
-                                .bold()
+                        VStack(spacing: 20) {
+                            HStack(spacing: 2) {
+                                Image(systemName: "clock")
+                                Text(Date().formatted(.dateTime))
+                            }
+                            .bold()
 
                             Map(coordinateRegion: $region, annotationItems: [place]) { place in
                                     MapMarker(coordinate: place.location, tint: userAccentColor)
@@ -64,35 +67,84 @@ struct ActionDialog: View {
                                 .frame(maxHeight: 120)
                                 .cornerRadius(8)
                             
-                            HStack {
-                                VStack {
-                                    Text("Film Stock")
-                                        .textCase(.uppercase)
-                                        .font(.system(size: 12, weight: .regular))
-                                        .padding(.horizontal)
+                            VStack {
+                                HStack(alignment: .center, spacing: 10) {
+                                    HStack(spacing: 2) {
+                                        Image(systemName: "film")
+                                            .foregroundColor(userAccentColor)
+                                        Text("Film Stock")
+                                            .textCase(.uppercase)
+                                    }
+                                    .font(.system(size: 12, weight: .bold))
+                                    
+                                    Spacer()
+                                    
+                                    Button(action: {}) {
+                                        HStack {
+                                            Text("Delta 100")
+                                                .bold()
+                                                .frame(minWidth: 60)
+                                                .font(.system(size: 14, weight: .bold))
+                                            Image(systemName: "chevron.down")
+                                                .bold()
+                                                .font(.system(size: 12))
+                                        }
+                                        .padding(.leading, 15)
+                                        .padding(.trailing, 15)
+                                        .padding(.vertical, 10)
+                                        .foregroundColor(.primary)
+                                        .frame(height: 40)
+                                        .background(.regularMaterial)
+                                        .cornerRadius(6)
+                                    }
                                 }
-                                
-                                Spacer()
 
-                                VStack {
-                                    Text("Push/Pull")
-                                        .textCase(.uppercase)
-                                        .font(.system(size: 12, weight: .regular))
-                                        .padding(.horizontal)
+                                HStack(alignment: .center, spacing: 10) {
+                                    HStack(spacing: 2) {
+                                        Image(systemName: "plus.forwardslash.minus")
+                                            .foregroundColor(userAccentColor)
+                                        Text("Push/Pull")
+                                            .textCase(.uppercase)
+                                    }
+                                    .font(.system(size: 12, weight: .bold))
+                                    
+                                    Spacer()
+                                    
+                                    Button(action: {}) {
+                                        HStack {
+                                            Text("+1")
+                                                .bold()
+                                                .frame(minWidth: 30)
+                                                .font(.system(size: 14, weight: .bold))
+                                            Image(systemName: "chevron.down")
+                                                .bold()
+                                                .font(.system(size: 12))
+                                        }
+                                        .padding(.leading, 15)
+                                        .padding(.trailing, 15)
+                                        .padding(.vertical, 10)
+                                        .frame(height: 40)
+                                        .foregroundColor(.primary)
+                                        .background(.regularMaterial)
+                                        .cornerRadius(6)
+                                    }
                                 }
                             }
                             
-                            VStack(alignment: .leading, spacing: 5) {
-                                Text("Notes")
-                                    .textCase(.uppercase)
-                                    .font(.system(size: 12, weight: .regular))
-                                    .padding(.horizontal)
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack(spacing: 2) {
+                                    Image(systemName: "note.text")
+                                        .foregroundColor(userAccentColor)
+                                    Text("Notes")
+                                        .textCase(.uppercase)
+                                }
+                                .font(.system(size: 12, weight: .bold))
                                 
                                 TextField("Add your thoughts...", text: $noteText)
                                     .font(.system(size: 14))
                                     .padding()
                                     .frame(height: 60)
-                                    .background(.regularMaterial)
+                                    .background(.ultraThickMaterial)
                                     .cornerRadius(8)
                             }
                         }
@@ -110,11 +162,17 @@ struct ActionDialog: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .zIndex(1)
+        .zIndex(2)
         .onChange(of: showDialog) { newState in
             if (locationManager.authorizationStatus == .authorizedWhenInUse) {
-                withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.4, blendDuration: 1)) {
-                    self.showDialogBody = newState
+                if (newState == true) {
+                    withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.4, blendDuration: 1)) {
+                        self.showDialogBody = newState
+                    }
+                } else {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        self.showDialogBody = newState
+                    }
                 }
                 
                 withAnimation {
@@ -262,11 +320,16 @@ struct Dashboard: View {
                         Text("Factor")
                             .font(.system(size: 18, weight: .bold))
                     }
+                    .zIndex(1)
+                    .opacity(self.showActionDialog ? 0.7 : 1)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: Settings()) {
                         Label("Settings", systemImage: "gearshape")
                     }
+                    .zIndex(1)
+                    .opacity(self.showActionDialog ? 0.7 : 1)
+                    .disabled(self.showActionDialog)
                 }
             }
             .background(useDarkMode ? Color(.black) : Color(.systemGray6))
