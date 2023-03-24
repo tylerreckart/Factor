@@ -31,7 +31,7 @@ struct FilterForm: View {
     }
     
     var body: some View {
-        VStack(spacing: 15) {
+        VStack(spacing: 20) {
             VStack(spacing: 10) {
                 VStack {
                     PriorityModeToggle(

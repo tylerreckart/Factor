@@ -46,7 +46,7 @@ struct ToggleButton: View {
                 .fontWeight(.bold)
         }
         .foregroundColor(
-            self.priorityMode == target ? .white : .white
+            self.priorityMode == target ? .white : .gray
         )
         .padding(12)
         .frame(maxWidth: .infinity)
@@ -56,7 +56,7 @@ struct ToggleButton: View {
                  : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom)
         )
         .cornerRadius(5)
-        .shadow(color: .black.opacity(0.1), radius: 3)
+        .shadow(color: .black.opacity(self.priorityMode == target ? 0.1 : 0), radius: 3)
     }
 }
 
@@ -104,7 +104,7 @@ struct PriorityModeToggle: View {
                 }
             }
             .padding(4)
-            .background(useDarkMode ? Color(.systemGray5) : Color(.systemGray4))
+            .background(.thinMaterial)
             .cornerRadius(8)
         }
         .padding(.bottom, 10)

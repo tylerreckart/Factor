@@ -22,7 +22,7 @@ struct Dialog<Content: View, CalculatedContent: View>: View {
     var body: some View {
         ZStack {
             if (showOverlay) {
-                Color.black.opacity(0.1)
+                Color.black.opacity(0.2)
                     .transition(.opacity)
                     .onTapGesture {
                         withAnimation {
@@ -33,7 +33,6 @@ struct Dialog<Content: View, CalculatedContent: View>: View {
             }
             
             VStack(spacing: 20) {
-                Spacer()
                 if (showDialog) {
                     content
                         .frame(maxWidth: .infinity)
@@ -59,6 +58,7 @@ struct Dialog<Content: View, CalculatedContent: View>: View {
                 
                 Spacer()
             }
+            .padding(.top, 16)
         }
         .onChange(of: open) { newState in
             if (newState == true) {
@@ -86,7 +86,6 @@ struct Dialog<Content: View, CalculatedContent: View>: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.all)
-        .zIndex(2)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }

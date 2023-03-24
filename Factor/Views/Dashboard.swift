@@ -251,15 +251,12 @@ struct Dashboard: View {
                             .font(.system(size: 18, weight: .bold))
                     }
                     .zIndex(1)
-                    .opacity(self.showActionDialog ? 0.7 : 1)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: Settings()) {
                         Label("Settings", systemImage: "gearshape")
                     }
                     .zIndex(1)
-                    .opacity(self.showActionDialog ? 0.7 : 1)
-                    .disabled(self.showActionDialog)
                 }
             }
             .background(useDarkMode ? Color(.black) : Color(.systemGray6))
