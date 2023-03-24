@@ -20,7 +20,7 @@ struct FormInput: View {
             self.focused = edit
         })
         .padding(.horizontal)
-        .frame(height: 55, alignment: .leading)
+        .frame(height: 55, alignment: .center)
         .foregroundColor(.primary)
     }
 }

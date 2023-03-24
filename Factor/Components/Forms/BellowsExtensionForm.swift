@@ -20,8 +20,10 @@ struct BellowsExtensionForm: View {
     @Binding var shutterSpeed: String
     @Binding var focalLength: String
     @Binding var bellowsDraw: String
+    @Binding var calculatedFactor: Bool
 
     var calculate: () -> Void
+    var reset: () -> Void
     
     @FocusState private var focusedField: BellowsExtensionFormField?
     
@@ -31,47 +33,83 @@ struct BellowsExtensionForm: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             VStack {
-                VStack(spacing: 0) {
+                PriorityModeToggle(
+                    priorityMode: $priorityMode,
+                    aperture: $aperture,
+                    shutterSpeed:$shutterSpeed,
+                    calculatedFactor: $calculatedFactor,
+                    reset: reset
+                )
+                
+                VStack(spacing: 15) {
                     if self.priorityMode == .shutter {
-                        FormInput(text: $aperture, placeholder: "Aperture")
-                            .background(.background)
-                            .focused($focusedField, equals: .aperture)
-                            .cornerRadius(3, corners: [.topLeft, .topRight])
+                        VStack(alignment: .center) {
+                            Text("Aperture")
+                                .font(.system(size: 12, weight: .bold))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .foregroundColor(.primary)
+                                .padding(.horizontal)
+                                .padding(.bottom, 0)
+                            FormInput(text: $aperture, placeholder: "5.6")
+                                .background(.background)
+                                .focused($focusedField, equals: .aperture)
+                                .cornerRadius(8)
+                        }
                     }
                     
                     if self.priorityMode == .aperture {
-                        FormInput(text: $shutterSpeed, placeholder: "Shutter Speed")
-                            .background(.background)
-                            .focused($focusedField, equals: .shutter)
-                            .cornerRadius(3, corners: [.topLeft, .topRight])
+                        VStack(alignment: .center) {
+                            Text("Shutter Speed")
+                                .font(.system(size: 12, weight: .bold))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .foregroundColor(.primary)
+                                .padding(.horizontal)
+                                .padding(.bottom, 0)
+                            FormInput(text: $shutterSpeed, placeholder: "1/250")
+                                .background(.background)
+                                .focused($focusedField, equals: .shutter)
+                                .cornerRadius(8)
+                        }
                     }
                     
-                    FormInput(text: $focalLength, placeholder: "Focal Length (mm)")
-                        .background(.background)
-                        .focused($focusedField, equals: .focalLength)
-                        .keyboardType(.numberPad)
-                        .border(width: 1, edges: [.top], color: Color(.systemGray5))
-                        .zIndex(2)
-                    
-                    FormInput(text: $bellowsDraw, placeholder: "Bellows Draw (mm)")
-                        .background(.background)
-                        .focused($focusedField, equals: .bellowsDraw)
-                        .keyboardType(.numberPad)
-                        .border(width: 1, edges: [.top], color: Color(.systemGray5))
-                        .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
+                    HStack(spacing: 20) {
+                        VStack(alignment: .center) {
+                            Text("Focal Length (mm)")
+                                .font(.system(size: 12, weight: .bold))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .foregroundColor(.primary)
+                                .padding(.horizontal)
+                                .padding(.bottom, 0)
+                            FormInput(text: $focalLength, placeholder: "90")
+                                .background(.background)
+                                .focused($focusedField, equals: .focalLength)
+                                .keyboardType(.numberPad)
+                                .cornerRadius(8)
+                        }
+                        
+                        VStack(alignment: .center) {
+                            Text("Bellows Draw (mm)")
+                                .font(.system(size: 12, weight: .bold))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .foregroundColor(.primary)
+                                .padding(.horizontal)
+                                .padding(.bottom, 0)
+                            FormInput(text: $bellowsDraw, placeholder: "360")
+                                .background(.background)
+                                .focused($focusedField, equals: .bellowsDraw)
+                                .keyboardType(.numberPad)
+                                .cornerRadius(8)
+                        }
+                    }
                 }
-                .padding(1)
-                .background(Color(.systemGray5))
-                .cornerRadius(4)
-                
-                CalculateButton(
-                    calculate: calculateWithFocus,
-                    isDisabled: self.priorityMode == .aperture ? (self.shutterSpeed.count == 0 || self.focalLength.count == 0 || self.bellowsDraw.count == 0) : (self.aperture.count == 0 || self.focalLength.count == 0 || self.bellowsDraw.count == 0)
-                )
-                .padding(.top, 5)
             }
+                
+            CalculateButton(
+                calculate: calculateWithFocus,
+                isDisabled: self.priorityMode == .aperture ? (self.shutterSpeed.count == 0 || self.focalLength.count == 0 || self.bellowsDraw.count == 0) : (self.aperture.count == 0 || self.focalLength.count == 0 || self.bellowsDraw.count == 0)
+            )
         }
     }
 }

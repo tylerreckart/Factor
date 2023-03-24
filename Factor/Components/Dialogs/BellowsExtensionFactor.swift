@@ -12,13 +12,8 @@ import UIKit
 struct BellowsExtension: View {
     @AppStorage("useDarkMode") var useDarkMode: Bool = false
     @Environment(\.managedObjectContext) var managedObjectContext
-    
-    @FetchRequest(
-      entity: BellowsExtensionData.entity(),
-      sortDescriptors: [
-        NSSortDescriptor(keyPath: \BellowsExtensionData.timestamp, ascending: false)
-      ]
-    ) var fetchedResults: FetchedResults<BellowsExtensionData>
+
+    @Binding var open: Bool
 
     @State private var priorityMode: PriorityMode = .aperture
 
@@ -34,37 +29,23 @@ struct BellowsExtension: View {
     @State private var compensatedAperture: String = ""
     @State private var compensatedShutter: String = ""
     
-    @State private var showingHistorySheet: Bool = false
-    
     @State private var presentError: Bool = false
-
+    
     var body: some View {
-        ScrollView {
-            VStack {
-                PriorityModeToggle(
-                    priorityMode: $priorityMode,
-                    aperture: $aperture,
-                    shutterSpeed:$shutterSpeed,
-                    calculatedFactor: $calculatedFactor,
-                    reset: reset
-                )
-
+        Dialog(
+            content: {
                 BellowsExtensionForm(
                     priorityMode: $priorityMode,
                     aperture: $aperture,
                     shutterSpeed: $shutterSpeed,
                     focalLength: $focalLength,
                     bellowsDraw: $bellowsDraw,
-                    calculate: calculate
+                    calculatedFactor: $calculatedFactor,
+                    calculate: calculate,
+                    reset: reset
                 )
-            }
-            .padding()
-            .background(useDarkMode ? Color(.systemGray6) : .white)
-            .cornerRadius(12)
-            .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-            .padding([.leading, .trailing, .bottom])
-
-            if calculatedFactor == true {
+            },
+            calculatedContent: {
                 HStack(spacing: 20) {
                     CalculatedResultCard(
                         label: "Bellows extension factor",
@@ -91,22 +72,10 @@ struct BellowsExtension: View {
                         )
                     }
                 }
-                .padding([.leading, .trailing, .bottom])
-            }
-        }
-        .background(useDarkMode ? Color(.black) : Color(.systemGray6))
-        .navigationTitle("Bellows Extension")
-        .navigationBarTitleDisplayMode(.inline)
-        .foregroundColor(.white)
-        .alert(isPresented: $presentError, error: ValidationError.NaN) {_ in
-            Button(action: {
-                presentError = false
-            }) {
-                Text("Ok")
-            }
-        } message: { error in
-            Text("Unable to process inputs. Please try again.")
-        }
+            },
+            open: $open,
+            calculated: $calculatedFactor
+        )
     }
     
     private func bellowsExtensionFactor() -> Double? {

@@ -174,6 +174,7 @@ struct Dashboard: View {
 
     @State private var showActionDialog: Bool = false
     @State private var showFilterDialog: Bool = false
+    @State private var showBellowsDialog: Bool = false
 
     var body: some View {
         return NavigationView {
@@ -202,7 +203,7 @@ struct Dashboard: View {
                             }())
                         }
                         
-                        Button(action: { self.showFilterDialog.toggle() }) {
+                        Button(action: { self.showBellowsDialog.toggle() }) {
                             SimpleTile(tile: {
                                 DashboardTile(
                                     key: "bellows_extension_factor",
@@ -240,6 +241,7 @@ struct Dashboard: View {
                 ActionButton(action: { self.showActionDialog.toggle() })
                 ActionDialog(toggleDialog: { self.showActionDialog.toggle() }, showDialog: $showActionDialog)
                 FilterFactor(open: $showFilterDialog)
+                BellowsExtension(open: $showBellowsDialog)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
