@@ -39,14 +39,13 @@
 		DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5228AD72F700186039 /* FilterFactor.swift */; };
 		DBB4FA5928AF211800186039 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5828AF211800186039 /* Constants.swift */; };
 		DBB4FA6028B561AA00186039 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA5F28B561AA00186039 /* Settings.swift */; };
-		DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6128B64A2700186039 /* NavigationTile.swift */; };
+		DBB4FA6228B64A2700186039 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6128B64A2700186039 /* Tile.swift */; };
 		DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4FA6328B64B0000186039 /* Dashboard.swift */; };
-		DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */; };
+		DBD3BF3628B7B92C00E104BF /* ResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD3BF3528B7B92C00E104BF /* ResultCard.swift */; };
 		DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE4D41928CE2F2700189789 /* Terms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DB1267C628BE364900D08D9F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DB1267C828BE364900D08D9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DB1DBF9828B7E18000F2FE07 /* ReciprocityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityForm.swift; sourceTree = "<group>"; };
 		DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterForm.swift; sourceTree = "<group>"; };
@@ -65,7 +64,6 @@
 		DB5A4A3328BBDAE7006B093B /* Privacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
 		DB5A4A3528BBE041006B093B /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		DB5A4A3728BBE469006B093B /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
-		DB5A4A3B28BD2133006B093B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DB5A4A4428BD3372006B093B /* Terms.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Terms.md; sourceTree = "<group>"; };
 		DB5CB97828BE600A00DB1AED /* FilmOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmOptions.swift; sourceTree = "<group>"; };
 		DB5CB97B28BE618800DB1AED /* FilmStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStock.swift; sourceTree = "<group>"; };
@@ -82,14 +80,13 @@
 		DB901B3C287CB99500EC04D7 /* BellowsExtensionFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtensionFactor.swift; sourceTree = "<group>"; };
 		DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityFactor.swift; sourceTree = "<group>"; };
 		DB901B40287D047600EC04D7 /* CalculateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateButton.swift; sourceTree = "<group>"; };
-		DB901B4D287DC13500EC04D7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DBB4FA5228AD72F700186039 /* FilterFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFactor.swift; sourceTree = "<group>"; };
 		DBB4FA5728AD748600186039 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DBB4FA5828AF211800186039 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBB4FA5F28B561AA00186039 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		DBB4FA6128B64A2700186039 /* NavigationTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTile.swift; sourceTree = "<group>"; };
+		DBB4FA6128B64A2700186039 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		DBB4FA6328B64B0000186039 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
-		DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatedResultCard.swift; sourceTree = "<group>"; };
+		DBD3BF3528B7B92C00E104BF /* ResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCard.swift; sourceTree = "<group>"; };
 		DBE4D41928CE2F2700189789 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +141,7 @@
 		DB269C2429CDDA2C004FD387 /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
+				DB269C1E29CDD765004FD387 /* Dialog.swift */,
 				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
 				DB901B3C287CB99500EC04D7 /* BellowsExtensionFactor.swift */,
 			);
@@ -246,9 +244,6 @@
 		DB901B4C287DC13500EC04D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DB5A4A3B28BD2133006B093B /* StoreKit.framework */,
-				DB901B4D287DC13500EC04D7 /* CloudKit.framework */,
-				DB1267C628BE364900D08D9F /* WidgetKit.framework */,
 				DB1267C828BE364900D08D9F /* SwiftUI.framework */,
 			);
 			name = Frameworks;
@@ -257,11 +252,10 @@
 		DBB4FA5628AD739A00186039 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DB269C2429CDDA2C004FD387 /* Dialogs */,
-				DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */,
-				DBB4FA6128B64A2700186039 /* NavigationTile.swift */,
 				DB269C2229CDD918004FD387 /* Forms */,
-				DB269C1E29CDD765004FD387 /* Dialog.swift */,
+				DB269C2429CDDA2C004FD387 /* Dialogs */,
+				DBD3BF3528B7B92C00E104BF /* ResultCard.swift */,
+				DBB4FA6128B64A2700186039 /* Tile.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -352,8 +346,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBD3BF3628B7B92C00E104BF /* CalculatedResultCard.swift in Sources */,
-				DBB4FA6228B64A2700186039 /* NavigationTile.swift in Sources */,
+				DBD3BF3628B7B92C00E104BF /* ResultCard.swift in Sources */,
+				DBB4FA6228B64A2700186039 /* Tile.swift in Sources */,
 				DB72829728D0B66800305E4B /* DashboardTile.swift in Sources */,
 				DB1E63E128C37DC300FFDC67 /* Validation.swift in Sources */,
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,

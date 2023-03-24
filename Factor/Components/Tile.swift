@@ -26,7 +26,7 @@ struct SimpleTile: View {
                     .font(.system(size: 16, weight: .medium))
                 Spacer()
             }
-            .frame(width: .infinity, height: 80, alignment: .topLeading)
+            .frame(height: 80, alignment: .topLeading)
             .padding()
             .foregroundColor(isDisabled ? Color(.systemGray) : .white)
             .background(overrideDefaultColors && !isDisabled ? userAccentColor : isDisabled ? Color(.systemGray4) : tile.background)
