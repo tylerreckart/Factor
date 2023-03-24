@@ -14,6 +14,8 @@
 		DB269C1F29CDD765004FD387 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C1E29CDD765004FD387 /* Dialog.swift */; };
 		DB269C2129CDD8EA004FD387 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C2029CDD8EA004FD387 /* Place.swift */; };
 		DB269C2629CE08EC004FD387 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C2529CE08EC004FD387 /* WebView.swift */; };
+		DB269C2829CE0F5D004FD387 /* ActionDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C2729CE0F5D004FD387 /* ActionDialog.swift */; };
+		DB269C2A29CE0F84004FD387 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C2929CE0F84004FD387 /* ActionButton.swift */; };
 		DB30EFC829CC8CFE00659984 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB30EFC729CC8CFE00659984 /* LocationManager.swift */; };
 		DB560C39287A6CC700CC891A /* FactorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* FactorApp.swift */; };
 		DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C3A287A6CC700CC891A /* ContentView.swift */; };
@@ -55,6 +57,8 @@
 		DB269C1E29CDD765004FD387 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		DB269C2029CDD8EA004FD387 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		DB269C2529CE08EC004FD387 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		DB269C2729CE0F5D004FD387 /* ActionDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDialog.swift; sourceTree = "<group>"; };
+		DB269C2929CE0F84004FD387 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		DB30EFC729CC8CFE00659984 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Factor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Factor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C38287A6CC700CC891A /* FactorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorApp.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
 				DB901B3C287CB99500EC04D7 /* BellowsExtensionFactor.swift */,
 				DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */,
+				DB269C2729CE0F5D004FD387 /* ActionDialog.swift */,
 			);
 			path = Dialogs;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				DBD3BF3528B7B92C00E104BF /* ResultCard.swift */,
 				DBB4FA6128B64A2700186039 /* Tile.swift */,
 				DB269C2529CE08EC004FD387 /* WebView.swift */,
+				DB269C2929CE0F84004FD387 /* ActionButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 				DB5A4A3628BBE041006B093B /* About.swift in Sources */,
 				DB72829328D0B64800305E4B /* ReciprocityDropdownOption.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
+				DB269C2829CE0F5D004FD387 /* ActionDialog.swift in Sources */,
 				DB560C39287A6CC700CC891A /* FactorApp.swift in Sources */,
 				DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */,
 				DB1E63E728C3814300FFDC67 /* Math.swift in Sources */,
@@ -369,6 +376,7 @@
 				DB269C2129CDD8EA004FD387 /* Place.swift in Sources */,
 				DB901B3D287CB99500EC04D7 /* BellowsExtensionFactor.swift in Sources */,
 				DBB4FA5928AF211800186039 /* Constants.swift in Sources */,
+				DB269C2A29CE0F84004FD387 /* ActionButton.swift in Sources */,
 				DB269C1F29CDD765004FD387 /* Dialog.swift in Sources */,
 				DB5CB97C28BE618800DB1AED /* FilmStock.swift in Sources */,
 				DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */,
@@ -543,7 +551,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -588,7 +596,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
