@@ -13,6 +13,7 @@
 		DB1E63E728C3814300FFDC67 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E628C3814300FFDC67 /* Math.swift */; };
 		DB269C1F29CDD765004FD387 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C1E29CDD765004FD387 /* Dialog.swift */; };
 		DB269C2129CDD8EA004FD387 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C2029CDD8EA004FD387 /* Place.swift */; };
+		DB269C2629CE08EC004FD387 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C2529CE08EC004FD387 /* WebView.swift */; };
 		DB30EFC829CC8CFE00659984 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB30EFC729CC8CFE00659984 /* LocationManager.swift */; };
 		DB560C39287A6CC700CC891A /* FactorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* FactorApp.swift */; };
 		DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C3A287A6CC700CC891A /* ContentView.swift */; };
@@ -53,6 +54,7 @@
 		DB1E63E628C3814300FFDC67 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		DB269C1E29CDD765004FD387 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		DB269C2029CDD8EA004FD387 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		DB269C2529CE08EC004FD387 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		DB30EFC729CC8CFE00659984 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Factor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Factor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C38287A6CC700CC891A /* FactorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorApp.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				DB269C2429CDDA2C004FD387 /* Dialogs */,
 				DBD3BF3528B7B92C00E104BF /* ResultCard.swift */,
 				DBB4FA6128B64A2700186039 /* Tile.swift */,
+				DB269C2529CE08EC004FD387 /* WebView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
+				DB269C2629CE08EC004FD387 /* WebView.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,
 				DBB4FA6028B561AA00186039 /* Settings.swift in Sources */,
 			);

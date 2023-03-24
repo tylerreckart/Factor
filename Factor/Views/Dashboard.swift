@@ -124,7 +124,6 @@ struct ActionDialog: View {
                         .cornerRadius(8)
                 }
             }
-            .padding()
         }, calculatedContent: { EmptyView() }, open: $showDialog, calculated: $calculated)
     }
     
