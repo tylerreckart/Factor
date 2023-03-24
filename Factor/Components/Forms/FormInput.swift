@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct FormInput: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
+
     @Binding var text: String
 
     var placeholder: String
@@ -22,6 +24,7 @@ struct FormInput: View {
         .padding(.horizontal)
         .frame(height: 55, alignment: .center)
         .foregroundColor(.primary)
+        .background(!useDarkMode ? .white : Color(.systemGray6))
     }
 }
 

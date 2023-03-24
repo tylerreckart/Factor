@@ -104,7 +104,7 @@ struct PriorityModeToggle: View {
                 }
             }
             .padding(4)
-            .background(.thinMaterial)
+            .background(Color(.systemGray5))
             .cornerRadius(8)
         }
         .padding(.bottom, 10)

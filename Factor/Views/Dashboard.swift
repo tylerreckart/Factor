@@ -173,6 +173,7 @@ struct Dashboard: View {
     @AppStorage("useDarkMode") var useDarkMode: Bool = false
 
     @State private var showActionDialog: Bool = false
+    @State private var showReciprocityDialog: Bool = false
     @State private var showFilterDialog: Bool = false
     @State private var showBellowsDialog: Bool = false
 
@@ -181,7 +182,7 @@ struct Dashboard: View {
             ZStack {
                 ScrollView {
                     VStack(spacing: 20) {
-                        Button(action: { self.showFilterDialog.toggle() }) {
+                        Button(action: { self.showReciprocityDialog.toggle() }) {
                             SimpleTile(tile: {
                                 DashboardTile(
                                     key: "reciprocity_factor",
@@ -240,6 +241,7 @@ struct Dashboard: View {
                 
                 ActionButton(action: { self.showActionDialog.toggle() })
                 ActionDialog(toggleDialog: { self.showActionDialog.toggle() }, showDialog: $showActionDialog)
+                Reciprocity(open: $showReciprocityDialog)
                 FilterFactor(open: $showFilterDialog)
                 BellowsExtension(open: $showBellowsDialog)
             }
@@ -261,7 +263,7 @@ struct Dashboard: View {
                     .zIndex(1)
                 }
             }
-            .background(useDarkMode ? Color(.black) : Color(.systemGray6))
+            .background(Color(.systemGray6))
             .edgesIgnoringSafeArea(.bottom)
         }
     }

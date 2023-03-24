@@ -144,6 +144,7 @@
 				DB269C1E29CDD765004FD387 /* Dialog.swift */,
 				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
 				DB901B3C287CB99500EC04D7 /* BellowsExtensionFactor.swift */,
+				DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */,
 			);
 			path = Dialogs;
 			sourceTree = "<group>";
@@ -222,20 +223,11 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		DB80128728B9B26B00AC7EAC /* Reciprocity */ = {
-			isa = PBXGroup;
-			children = (
-				DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */,
-			);
-			path = Reciprocity;
-			sourceTree = "<group>";
-		};
 		DB901B2D287CB5EE00EC04D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DB560C3A287A6CC700CC891A /* ContentView.swift */,
 				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
-				DB80128728B9B26B00AC7EAC /* Reciprocity */,
 				DB80123028B840A300AC7EAC /* Settings */,
 			);
 			path = Views;

@@ -13,6 +13,8 @@ enum FilterFormField: Hashable {
 }
 
 struct FilterForm: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
+
     @Binding var priorityMode: PriorityMode
     @Binding var shutterSpeed: String
     @Binding var aperture: String
@@ -67,7 +69,7 @@ struct FilterForm: View {
                                 .foregroundColor(.primary)
                                 .padding(.horizontal)
                                 .frame(height: 55)
-                                .background(.background)
+                                .background(useDarkMode ? Color(.systemGray6) : .white)
                                 .cornerRadius(8)
                             }
                         }

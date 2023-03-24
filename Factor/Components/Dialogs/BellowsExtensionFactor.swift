@@ -101,8 +101,6 @@ struct BellowsExtension: View {
 
         extensionFactor = "\(Int(factor))"
         calculatedFactor = true
-        
-        save()
     }
     
     private func calculate() {
@@ -183,31 +181,7 @@ struct BellowsExtension: View {
             
             extensionFactor = "\(Int(factor!))"
             calculatedFactor = true
-            
-            save()
         }
-    }
-    
-    func saveContext() {
-      do {
-        try managedObjectContext.save()
-      } catch {
-        print("Error saving managed object context: \(error)")
-      }
-    }
-    
-    func save() {
-        let newExtensionData = BellowsExtensionData(context: managedObjectContext)
-        newExtensionData.aperture = aperture
-        newExtensionData.shutterSpeed = shutterSpeed
-        newExtensionData.bellowsDraw = bellowsDraw
-        newExtensionData.focalLength = focalLength
-        newExtensionData.compensatedAperture = compensatedAperture
-        newExtensionData.compensatedShutter = compensatedShutter
-        newExtensionData.bellowsExtensionFactor = extensionFactor
-        newExtensionData.timestamp = Date()
-
-        saveContext()
     }
     
     private func reset() {

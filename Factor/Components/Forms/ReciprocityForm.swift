@@ -12,6 +12,8 @@ enum ReciprocityFormField: Hashable {
 }
 
 struct ReciprocityForm: View {
+    @AppStorage("useDarkMode") var useDarkMode: Bool = false
+
     @FetchRequest(
       entity: Emulsion.entity(),
       sortDescriptors: [
@@ -35,68 +37,67 @@ struct ReciprocityForm: View {
     }
     
     var body: some View {
-        VStack {
-            VStack(spacing: -1) {
-                VStack {
-                    HStack {
-                        Text("Film Stock")
-                            .font(.system(.caption))
-                            .frame(height: 55, alignment: .leading)
-                            .foregroundColor(.gray)
-                            .padding([.leading, .trailing])
-                            .background(Color(.systemGray6))
-                            .border(width: 1, edges: [.trailing], color: Color(.systemGray5))
-                        
-                        Button(action: {
-                            showEmulsionPicker.toggle()
-                        }) {
-                            HStack {
-                                Spacer()
-                                Menu {
-                                    ForEach(emulsions, id: \.self) { emulsion in
-                                        Button(action: {
-                                            selected = emulsion
-                                        }) {
-                                            Text(emulsion.name!)
-                                        }
-                                    }
-                                } label: {
-                                    if selected == nil {
-                                        Spacer()
-                                        Text("Select an Emulsion")
-                                            .foregroundColor(.accentColor)
-                                        Spacer()
-                                    } else {
-                                        let option = selected!
-                                        
-                                        HStack {
-                                            Spacer()
-                                            Text("\(option.manufacturer!) \(option.name!)")
-                                            Spacer()
-                                        }
-                                        .foregroundColor(.accentColor)
+        VStack(spacing: 20) {
+            HStack(spacing: 20) {
+                VStack(alignment: .center) {
+                    Text("Film Stock")
+                        .font(.system(size: 12, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(.primary)
+                        .padding(.horizontal)
+                        .padding(.bottom, 0)
+                    Button(action: {
+                        showEmulsionPicker.toggle()
+                    }) {
+                        HStack {
+                            Spacer()
+                            Menu {
+                                ForEach(emulsions, id: \.self) { emulsion in
+                                    Button(action: {
+                                        selected = emulsion
+                                    }) {
+                                        Text(emulsion.name!)
                                     }
                                 }
+                            } label: {
+                                if selected == nil {
+                                    Text("Emulsion")
+                                        .padding(.horizontal)
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                } else {
+                                    let option = selected!
+                                    
+                                    HStack {
+                                        Text(option.name ?? "")
+                                            .padding(.horizontal)
+                                        Spacer()
+                                    }
+                                    .foregroundColor(.primary)
+                                }
                             }
-                            .frame(height: 55, alignment: .trailing)
-                            .background(.background)
                         }
+                        .frame(height: 55, alignment: .trailing)
+                        .background(useDarkMode ? Color(.systemGray6) : .white)
+                        .cornerRadius(8)
                     }
                 }
-                .cornerRadius(3, corners: [.topLeft, .topRight])
                 
-                FormInput(text: $shutterSpeed, placeholder: "Shutter Speed (seconds)")
-                    .background(.background)
-                    .border(width: 1, edges: [.top], color: Color(.systemGray5))
-                    .focused($focusedField, equals: .shutter)
-                    .cornerRadius(3, corners: [.bottomLeft, .bottomRight])
+                VStack {
+                    Text("Shutter Speed")
+                        .font(.system(size: 12, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .foregroundColor(.primary)
+                        .padding(.horizontal)
+                        .padding(.bottom, 0)
+                    FormInput(text: $shutterSpeed, placeholder: "3 seconds")
+                        .background(.background)
+                        .focused($focusedField, equals: .shutter)
+                        .cornerRadius(8)
+                }
             }
-            .padding(1)
-            .background(Color(.systemGray5))
-            .cornerRadius(4)
 
             CalculateButton(calculate: calculateWithFocus, isDisabled: self.shutterSpeed.count == 0)
-                .padding(.top, 5)
         }
     }
 }

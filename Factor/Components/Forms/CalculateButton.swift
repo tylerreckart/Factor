@@ -32,7 +32,7 @@ struct CalculateButton: View {
                     )
                     .padding(14)
                     .frame(maxWidth: .infinity)
-                    .background(.thinMaterial)
+                    .background(Color(.systemGray5))
                     .cornerRadius(8)
             } else {
                 Text("Calculate")
