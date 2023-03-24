@@ -46,9 +46,7 @@ struct ToggleButton: View {
                 .fontWeight(.bold)
         }
         .foregroundColor(
-            self.priorityMode == target
-                ? .white
-                : Color(.systemGray)
+            self.priorityMode == target ? .white : .white
         )
         .padding(12)
         .frame(maxWidth: .infinity)
@@ -57,7 +55,8 @@ struct ToggleButton: View {
                  ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom)
                  : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom)
         )
-        .cornerRadius(4)
+        .cornerRadius(5)
+        .shadow(color: .black.opacity(0.1), radius: 3)
     }
 }
 
@@ -74,10 +73,12 @@ struct PriorityModeToggle: View {
 
     var body: some View {
         VStack {
-            Text("Priority Mode")
-                .font(.system(.caption))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.gray)
+            Text("Exposure Priority Mode")
+                .font(.system(size: 12, weight: .bold))
+                .frame(maxWidth: .infinity, alignment: .center)
+                .foregroundColor(.primary)
+                .padding(.horizontal)
+                .padding(.bottom, 0)
 
             VStack {
                 HStack {
@@ -103,7 +104,7 @@ struct PriorityModeToggle: View {
                 }
             }
             .padding(4)
-            .background(useDarkMode ? Color(.systemGray5) : Color(.systemGray6))
+            .background(useDarkMode ? Color(.systemGray5) : Color(.systemGray4))
             .cornerRadius(8)
         }
         .padding(.bottom, 10)

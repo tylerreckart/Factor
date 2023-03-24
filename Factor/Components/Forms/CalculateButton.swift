@@ -27,11 +27,11 @@ struct CalculateButton: View {
                 .font(.system(.body))
                 .fontWeight(.bold)
                 .foregroundColor(
-                    !isDisabled ? .white : Color(.systemGray3)
+                    !isDisabled ? .white : Color(.systemGray)
                 )
                 .padding(14)
                 .frame(maxWidth: .infinity)
-                .background(isDisabled ? useDarkMode ? Color(.systemGray5) : Color(.systemGray6) : .accentColor)
+                .background(isDisabled ? useDarkMode ? Color(.systemGray5) : Color(.systemGray4) : .accentColor)
                 .overlay(
                     LinearGradient(colors: [
                         !useDarkMode && !isDisabled
@@ -39,7 +39,7 @@ struct CalculateButton: View {
                             : .clear, .clear
                     ], startPoint: .top, endPoint: .bottom)
                 )
-                .cornerRadius(4)
+                .cornerRadius(8)
         }
     }
 }

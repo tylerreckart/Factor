@@ -36,14 +36,3 @@ struct SimpleTile: View {
         }
     }
 }
-
-struct LinkedNavigationTile: View {
-    var tile: DashboardTile
-    var isDisabled: Bool = false
-
-    var body: some View {
-        NavigationLink(destination: AnyView(tile.destination)) {
-            SimpleTile(tile: tile)
-        }
-    }
-}

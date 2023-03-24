@@ -41,7 +41,7 @@ struct CalculatedResultCard: View {
             .padding()
             .background(overrideDefaultColors ? .accentColor : background)
             .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
-            .cornerRadius(18)
+            .cornerRadius(8)
             .offset(y: ypos)
             .animation(.easeInOut(duration: 0.5 + delay), value: ypos)
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)

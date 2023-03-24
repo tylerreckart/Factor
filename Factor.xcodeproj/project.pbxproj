@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9828B7E18000F2FE07 /* ReciprocityForm.swift */; };
 		DB1DBF9B28B7E1AC00F2FE07 /* FilterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */; };
-		DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */; };
-		DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */; };
 		DB1E63E128C37DC300FFDC67 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E028C37DC300FFDC67 /* Validation.swift */; };
 		DB1E63E728C3814300FFDC67 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1E63E628C3814300FFDC67 /* Math.swift */; };
+		DB269C1F29CDD765004FD387 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C1E29CDD765004FD387 /* Dialog.swift */; };
+		DB269C2129CDD8EA004FD387 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269C2029CDD8EA004FD387 /* Place.swift */; };
 		DB30EFC829CC8CFE00659984 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB30EFC729CC8CFE00659984 /* LocationManager.swift */; };
-		DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */; };
 		DB560C39287A6CC700CC891A /* FactorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C38287A6CC700CC891A /* FactorApp.swift */; };
 		DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB560C3A287A6CC700CC891A /* ContentView.swift */; };
 		DB560C3D287A6CCA00CC891A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB560C3C287A6CCA00CC891A /* Assets.xcassets */; };
@@ -29,9 +28,6 @@
 		DB72829528D0B65700305E4B /* FilterDropdownOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72829428D0B65700305E4B /* FilterDropdownOption.swift */; };
 		DB72829728D0B66800305E4B /* DashboardTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72829628D0B66800305E4B /* DashboardTile.swift */; };
 		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
-		DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */; };
-		DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80128128B9A98A00AC7EAC /* BellowsDataCard.swift */; };
-		DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80129028BAB5DD00AC7EAC /* ReciprocityDataCard.swift */; };
 		DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B2F287CB60E00EC04D7 /* Extensions.swift */; };
 		DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B31287CB62700EC04D7 /* Modifiers.swift */; };
 		DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B36287CB6F800EC04D7 /* FormInput.swift */; };
@@ -54,12 +50,11 @@
 		DB1267C828BE364900D08D9F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DB1DBF9828B7E18000F2FE07 /* ReciprocityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityForm.swift; sourceTree = "<group>"; };
 		DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterForm.swift; sourceTree = "<group>"; };
-		DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsExtensionHistorySheet.swift; sourceTree = "<group>"; };
-		DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityHistorySheet.swift; sourceTree = "<group>"; };
 		DB1E63E028C37DC300FFDC67 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		DB1E63E628C3814300FFDC67 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		DB269C1E29CDD765004FD387 /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		DB269C2029CDD8EA004FD387 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		DB30EFC729CC8CFE00659984 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataCard.swift; sourceTree = "<group>"; };
 		DB560C35287A6CC700CC891A /* Factor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Factor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB560C38287A6CC700CC891A /* FactorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorApp.swift; sourceTree = "<group>"; };
 		DB560C3A287A6CC700CC891A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,9 +74,6 @@
 		DB72829428D0B65700305E4B /* FilterDropdownOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDropdownOption.swift; sourceTree = "<group>"; };
 		DB72829628D0B66800305E4B /* DashboardTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTile.swift; sourceTree = "<group>"; };
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterHistorySheet.swift; sourceTree = "<group>"; };
-		DB80128128B9A98A00AC7EAC /* BellowsDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellowsDataCard.swift; sourceTree = "<group>"; };
-		DB80129028BAB5DD00AC7EAC /* ReciprocityDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityDataCard.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB901B31287CB62700EC04D7 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		DB901B36287CB6F800EC04D7 /* FormInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInput.swift; sourceTree = "<group>"; };
@@ -134,6 +126,27 @@
 				DB80127D28B8532D00AC7EAC /* Theme.swift */,
 			);
 			path = Customization;
+			sourceTree = "<group>";
+		};
+		DB269C2229CDD918004FD387 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				DB901B36287CB6F800EC04D7 /* FormInput.swift */,
+				DB901B3A287CB86100EC04D7 /* PriorityModeToggle.swift */,
+				DB901B38287CB75A00EC04D7 /* BellowsExtensionForm.swift */,
+				DB1DBF9828B7E18000F2FE07 /* ReciprocityForm.swift */,
+				DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */,
+				DB901B40287D047600EC04D7 /* CalculateButton.swift */,
+			);
+			path = Forms;
+			sourceTree = "<group>";
+		};
+		DB269C2429CDDA2C004FD387 /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
+			);
+			path = Dialogs;
 			sourceTree = "<group>";
 		};
 		DB513DE428BEFA6800235E9D /* Utils */ = {
@@ -192,6 +205,7 @@
 				DB72829228D0B64800305E4B /* ReciprocityDropdownOption.swift */,
 				DB72829428D0B65700305E4B /* FilterDropdownOption.swift */,
 				DB72829628D0B66800305E4B /* DashboardTile.swift */,
+				DB269C2029CDD8EA004FD387 /* Place.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				DB901B3C287CB99500EC04D7 /* BellowsExtensionFactor.swift */,
-				DB1DBF9C28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift */,
 			);
 			path = BellowsExtension;
 			sourceTree = "<group>";
@@ -222,34 +235,15 @@
 			isa = PBXGroup;
 			children = (
 				DB901B3E287D03E800EC04D7 /* ReciprocityFactor.swift */,
-				DB1DBF9E28B7E27600F2FE07 /* ReciprocityHistorySheet.swift */,
 			);
 			path = Reciprocity;
-			sourceTree = "<group>";
-		};
-		DB80128828B9B27500AC7EAC /* FilterFactor */ = {
-			isa = PBXGroup;
-			children = (
-				DBB4FA5228AD72F700186039 /* FilterFactor.swift */,
-				DB80127F28B9076900AC7EAC /* FilterHistorySheet.swift */,
-			);
-			path = FilterFactor;
-			sourceTree = "<group>";
-		};
-		DB80128928B9B28000AC7EAC /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
-			);
-			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		DB901B2D287CB5EE00EC04D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DB560C3A287A6CC700CC891A /* ContentView.swift */,
-				DB80128928B9B28000AC7EAC /* Dashboard */,
-				DB80128828B9B27500AC7EAC /* FilterFactor */,
+				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
 				DB80128728B9B26B00AC7EAC /* Reciprocity */,
 				DB80128328B9AC5600AC7EAC /* BellowsExtension */,
 				DB80123028B840A300AC7EAC /* Settings */,
@@ -271,17 +265,11 @@
 		DBB4FA5628AD739A00186039 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DB901B36287CB6F800EC04D7 /* FormInput.swift */,
-				DB901B3A287CB86100EC04D7 /* PriorityModeToggle.swift */,
-				DB901B38287CB75A00EC04D7 /* BellowsExtensionForm.swift */,
-				DB1DBF9828B7E18000F2FE07 /* ReciprocityForm.swift */,
-				DB1DBF9A28B7E1AC00F2FE07 /* FilterForm.swift */,
-				DB901B40287D047600EC04D7 /* CalculateButton.swift */,
+				DB269C2429CDDA2C004FD387 /* Dialogs */,
 				DBD3BF3528B7B92C00E104BF /* CalculatedResultCard.swift */,
 				DBB4FA6128B64A2700186039 /* NavigationTile.swift */,
-				DB80128128B9A98A00AC7EAC /* BellowsDataCard.swift */,
-				DB80129028BAB5DD00AC7EAC /* ReciprocityDataCard.swift */,
-				DB3C5DE228BADB0E003852FA /* FilterDataCard.swift */,
+				DB269C2229CDD918004FD387 /* Forms */,
+				DB269C1E29CDD765004FD387 /* Dialog.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -382,34 +370,30 @@
 				DB1DBF9B28B7E1AC00F2FE07 /* FilterForm.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
-				DB3C5DE328BADB0E003852FA /* FilterDataCard.swift in Sources */,
-				DB80128228B9A98A00AC7EAC /* BellowsDataCard.swift in Sources */,
 				DB1DBF9928B7E18000F2FE07 /* ReciprocityForm.swift in Sources */,
 				DB5A4A3628BBE041006B093B /* About.swift in Sources */,
 				DB72829328D0B64800305E4B /* ReciprocityDropdownOption.swift in Sources */,
 				DB560C3B287A6CC700CC891A /* ContentView.swift in Sources */,
 				DB560C39287A6CC700CC891A /* FactorApp.swift in Sources */,
-				DB1DBF9D28B7E24E00F2FE07 /* BellowsExtensionHistorySheet.swift in Sources */,
 				DBE4D41A28CE2F2700189789 /* Terms.swift in Sources */,
 				DB1E63E728C3814300FFDC67 /* Math.swift in Sources */,
 				DB901B41287D047600EC04D7 /* CalculateButton.swift in Sources */,
 				DBB4FA6428B64B0000186039 /* Dashboard.swift in Sources */,
 				DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */,
 				DB30EFC829CC8CFE00659984 /* LocationManager.swift in Sources */,
-				DB80129128BAB5DD00AC7EAC /* ReciprocityDataCard.swift in Sources */,
 				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
 				DB72829528D0B65700305E4B /* FilterDropdownOption.swift in Sources */,
 				DB5CB97928BE600A00DB1AED /* FilmOptions.swift in Sources */,
+				DB269C2129CDD8EA004FD387 /* Place.swift in Sources */,
 				DB901B3D287CB99500EC04D7 /* BellowsExtensionFactor.swift in Sources */,
 				DBB4FA5928AF211800186039 /* Constants.swift in Sources */,
+				DB269C1F29CDD765004FD387 /* Dialog.swift in Sources */,
 				DB5CB97C28BE618800DB1AED /* FilmStock.swift in Sources */,
 				DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */,
 				DB560C45287A6CCA00CC891A /* Lumen.xcdatamodeld in Sources */,
 				DB901B39287CB75A00EC04D7 /* BellowsExtensionForm.swift in Sources */,
 				DBB4FA5328AD72F700186039 /* FilterFactor.swift in Sources */,
-				DB80128028B9076900AC7EAC /* FilterHistorySheet.swift in Sources */,
-				DB1DBF9F28B7E27600F2FE07 /* ReciprocityHistorySheet.swift in Sources */,
 				DBB4FA6028B561AA00186039 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
