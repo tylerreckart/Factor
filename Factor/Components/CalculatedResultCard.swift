@@ -15,10 +15,6 @@ struct CalculatedResultCard: View {
     var result: String
     var background: Color
     var foreground: Color = .white
-    
-    @State var ypos: CGFloat = 1000
-    
-    var delay: CGFloat = 0
 
     var body: some View {
         VStack {
@@ -41,13 +37,8 @@ struct CalculatedResultCard: View {
             .padding()
             .background(overrideDefaultColors ? .accentColor : background)
             .overlay(LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom))
-            .cornerRadius(8)
-            .offset(y: ypos)
-            .animation(.easeInOut(duration: 0.5 + delay), value: ypos)
+            .cornerRadius(16)
             .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-        }
-        .onAppear {
-            ypos = 0 // Trigger the animation to start
         }
     }
 }

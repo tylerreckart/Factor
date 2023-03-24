@@ -26,6 +26,7 @@ struct ActionDialog: View {
         )
     
     @State private var noteText: String = ""
+    @State private var calculated: Bool = false
 
     var body: some View {
         Dialog(content: {
@@ -124,7 +125,7 @@ struct ActionDialog: View {
                 }
             }
             .padding()
-        }, open: $showDialog)
+        }, calculatedContent: { EmptyView() }, open: $showDialog, calculated: $calculated)
     }
     
     func requestLocationAuthorization() {
@@ -190,29 +191,27 @@ struct Dashboard: View {
                             }())
                         }
                         
-//                        LinkedNavigationTile(
-//                            tile: DashboardTile(
-//                                key: "filter_factor",
-//                                label: "Filter Factor",
-//                                icon: "camera.filters",
-//                                background: Color(.systemPink),
-//                                destination: AnyView(FilterFactor())
-//                            ),
-//                            isDisabled: false
-//                        )
+                        Button(action: { self.showFilterDialog.toggle() }) {
+                            SimpleTile(tile: {
+                                DashboardTile(
+                                    key: "filter_factor",
+                                    label: "Filter Factor",
+                                    icon: "camera.filters",
+                                    background: Color(.systemPink)
+                                )
+                            }())
+                        }
                         
-//                        LinkedNavigationTile(
-//                            tile: DashboardTile(
-//                                key: "bellows_extension_factor",
-//                                label: "Bellows Extension Factor",
-//                                icon: "arrow.up.backward.and.arrow.down.forward.circle.fill",
-//                                background: Color(.systemBlue),
-//                                destination: AnyView(BellowsExtension())
-//                            ),
-//                            isDisabled: false
-//                        )
-                        
-                        Spacer()
+                        Button(action: { self.showFilterDialog.toggle() }) {
+                            SimpleTile(tile: {
+                                DashboardTile(
+                                    key: "bellows_extension_factor",
+                                    label: "Bellows Extension Factor",
+                                    icon: "arrow.up.backward.and.arrow.down.forward.circle.fill",
+                                    background: Color(.systemBlue)
+                                )
+                            }())
+                        }
                     }
                     .padding([.horizontal, .top])
                     
@@ -235,7 +234,7 @@ struct Dashboard: View {
                             .background(Color(.systemGray5))
                             .cornerRadius(16)
                     }
-                    .padding(.horizontal)
+                    .padding([.horizontal, .top])
                 }
                 
                 ActionButton(action: { self.showActionDialog.toggle() })

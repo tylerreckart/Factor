@@ -8,38 +8,56 @@
 import Foundation
 import SwiftUI
 
-struct Dialog<Content: View>: View {
+struct Dialog<Content: View, CalculatedContent: View>: View {
     @ViewBuilder var content: Content
+    @ViewBuilder var calculatedContent: CalculatedContent
 
     @Binding var open: Bool
+    @Binding var calculated: Bool
     
     @State private var showOverlay: Bool = false
     @State private var showDialog: Bool = false
+    @State private var showCalculatedContent: Bool = false
     
     var body: some View {
         ZStack {
             if (showOverlay) {
-                Color.black.opacity(0.2)
+                Color.black.opacity(0.1)
                     .transition(.opacity)
                     .onTapGesture {
                         withAnimation {
                             self.open.toggle()
+                            self.calculated = false
                         }
                     }
             }
             
-            if (showDialog) {
-                VStack {
-                    Spacer()
+            VStack(spacing: 20) {
+                Spacer()
+                if (showDialog) {
                     content
                         .frame(maxWidth: .infinity)
+                        .padding()
                         .background(.regularMaterial)
                         .cornerRadius(16)
                         .shadow(color: .black.opacity(0.1), radius: 12, y: 6)
                         .padding(.horizontal)
-                    Spacer()
+                        .transition(.scale(scale: 0.4).combined(with: .opacity))
                 }
-                .transition(.scale(scale: 0.4).combined(with: .opacity))
+                
+                if (showCalculatedContent) {
+                    calculatedContent
+                        .shadow(color: .black.opacity(0.1), radius: 12, y: 6)
+                        .padding(.horizontal)
+                        .transition(
+                            .asymmetric(
+                                insertion: .push(from: .bottom),
+                                removal: .push(from: .top)
+                           )
+                        )
+                }
+                
+                Spacer()
             }
         }
         .onChange(of: open) { newState in
@@ -55,6 +73,17 @@ struct Dialog<Content: View>: View {
             
             withAnimation {
                 self.showOverlay = newState
+            }
+        }
+        .onChange(of: calculated) { newState in
+            if (newState == true) {
+                withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.4, blendDuration: 1)) {
+                    self.showCalculatedContent = newState
+                }
+            } else {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    self.showCalculatedContent = newState
+                }
             }
         }
         .edgesIgnoringSafeArea(.all)

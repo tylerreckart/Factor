@@ -26,53 +26,29 @@ struct FilterFactor: View {
     @State private var presentError: Bool = false
 
     var body: some View {
-        Dialog(content: {
-            VStack {
-                VStack {
-                    FilterForm(
-                        priorityMode: $priorityMode,
-                        shutterSpeed: $shutterSpeed,
-                        aperture: $aperture,
-                        calculatedFactor: $calculatedFactor,
-                        calculate: calculate,
-                        reset: reset,
-                        selected: $selected
-                    )
-                    .padding()
-                }
-                
-                if compensatedShutter > 0 {
-                    CalculatedResultCard(
-                        label: "Adjusted shutter speed (seconds)",
-                        icon: "clock.circle.fill",
-                        result: "\(compensatedShutter.clean) seconds",
-                        background: Color(.systemPurple)
-                    )
-                    .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-                    .padding([.leading, .trailing, .bottom])
-                }
-                
-                if compensatedAperture > 0 {
-                    CalculatedResultCard(
-                        label: "Adjusted aperture",
-                        icon: "f.cursive.circle.fill",
-                        result: "f/\(compensatedAperture.clean)",
-                        background: Color(.systemGreen)
-                    )
-                    .shadow(color: Color.black.opacity(0.05), radius: 12, x: 0, y: 10)
-                    .padding([.leading, .trailing, .bottom])
-                }
-            }
-            .alert(isPresented: $presentError, error: ValidationError.NaN) {_ in
-                Button(action: {
-                    presentError = false
-                }) {
-                    Text("Ok")
-                }
-            } message: { error in
-                Text("Unable to process inputs. Please try again.")
-            }
-        }, open: $open)
+        Dialog(
+            content: {
+                FilterForm(
+                    priorityMode: $priorityMode,
+                    shutterSpeed: $shutterSpeed,
+                    aperture: $aperture,
+                    calculatedFactor: $calculatedFactor,
+                    calculate: calculate,
+                    reset: reset,
+                    selected: $selected
+                )
+            },
+            calculatedContent: {
+                CalculatedResultCard(
+                    label: compensatedShutter > 0 ? "Adjusted shutter speed (seconds)" : "Adjusted aperture",
+                    icon: compensatedShutter > 0 ? "clock.circle.fill" : "f.cursive.circle.fill",
+                    result: compensatedShutter > 0 ? "\(compensatedShutter.clean) seconds" : "f/\(compensatedAperture.clean)",
+                    background: compensatedShutter > 0 ? Color(.systemPurple) : Color(.systemGreen)
+                )
+            },
+            open: $open,
+            calculated: $calculatedFactor
+        )
     }
     
     func saveContext() {
