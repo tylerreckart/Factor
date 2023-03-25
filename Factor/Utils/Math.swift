@@ -54,3 +54,25 @@ func closestValue(_ arr: [Double], _ el: Double) -> Double {
     
     return result
 }
+
+func convertShutterSpeedStrToDouble(_ shutterSpeed: String) -> Double {
+    let delimiter: Character = "/"
+    
+    if shutterSpeed.contains(delimiter) {
+        let arr = shutterSpeed.split(separator: delimiter)
+        
+        let numerator = Double((arr[0])) ?? 0
+        let denominator = Double((arr[1])) ?? 0
+        
+        return numerator / denominator
+    } else {
+        return Double(shutterSpeed) ?? 0
+    }
+}
+
+func convertDecimalShutterSpeedToFraction(_ shutterSpeed: Double) -> String {
+    let denominator = round(1 / shutterSpeed)
+    
+    return "1/\(Int(denominator))"
+}
+
