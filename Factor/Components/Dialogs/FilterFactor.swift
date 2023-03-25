@@ -39,12 +39,21 @@ struct FilterFactor: View {
                 )
             },
             calculatedContent: {
-                CalculatedResultCard(
-                    label: compensatedShutter.count > 0 ? "Adjusted shutter speed (seconds)" : "Adjusted aperture",
-                    icon: compensatedShutter.count > 0 ? "clock.circle.fill" : "f.cursive.circle.fill",
-                    result: compensatedShutter.count > 0 ? "\(compensatedShutter) seconds" : "f/\(compensatedAperture.clean)",
-                    background: compensatedShutter.count > 0 ? Color(.systemPurple) : Color(.systemGreen)
-                )
+                if (self.calculatedFactor && compensatedShutter.count > 0) {
+                    CalculatedResultCard(
+                        label: "Adjusted Shutter Speed",
+                        icon: "clock.circle.fill",
+                        result: "\(compensatedShutter) seconds",
+                        background: Color(.systemPurple)
+                    )
+                } else {
+                    CalculatedResultCard(
+                        label: "Adjusted Aperture",
+                        icon: "f.cursive.circle.fill",
+                        result: "f/\(compensatedAperture.clean)",
+                        background: Color(.systemGreen)
+                    )
+                }
             },
             open: $open,
             calculated: $calculatedFactor
@@ -52,36 +61,41 @@ struct FilterFactor: View {
     }
     
     private func calculate() {
-        let adjustment = pow(2, selected)
-
         do {
             if priorityMode == .aperture {
+                let adjustment = pow(2, selected)
                 let as_double = convertShutterSpeedStrToDouble(shutterSpeed)
                 let adjusted_speed = as_double * adjustment
                 
                 if (adjusted_speed >= 1) {
-                    compensatedShutter = String(adjusted_speed.clean)
+                    compensatedShutter = String(Int(adjusted_speed))
                 } else {
                     compensatedShutter = convertDecimalShutterSpeedToFraction(adjusted_speed)
                 }
             }
             
             if priorityMode == .shutter {
-                let as_double = try convertToDouble(aperture)!
-                let adjusted_aperture = as_double * adjustment
-                
-                compensatedAperture = closestValue(f_stops, adjusted_aperture)
+                let as_double = Double(aperture) ?? 0
+                let closest_defined_aperture = closestValue(f_stops, as_double)
+                let index = f_stops.firstIndex(of: closest_defined_aperture)
+
+                if (index != nil) {
+                    let targetIndex = index! + Int(selected)
+                    let adjusted_aperture = f_stops[targetIndex]
+                    compensatedAperture = adjusted_aperture
+                }
             }
             
             calculatedFactor = true
-        } catch {
-            presentError = true
         }
     }
     
     private func reset() {
         calculatedFactor = false
-        compensatedAperture = 0
-        compensatedShutter = ""
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            compensatedAperture = 0
+            compensatedShutter = ""
+        }
     }
 }
