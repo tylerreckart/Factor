@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>colors</key>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/tylerreckart/Dev/Factor/Factor/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACColorNameAccentColor</string>
+			<key>relativePath</key>
+			<string>./AccentColor.colorset</string>
+			<key>swiftSymbol</key>
+			<string>accent</string>
+		</dict>
+	</array>
+	<key>images</key>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/tylerreckart/Dev/Factor/Factor/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameHapticLogo</string>
+			<key>relativePath</key>
+			<string>./HapticLogo.imageset</string>
+			<key>swiftSymbol</key>
+			<string>hapticLogo</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/tylerreckart/Dev/Factor/Factor/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameProfilePhoto</string>
+			<key>relativePath</key>
+			<string>./ProfilePhoto.imageset</string>
+			<key>swiftSymbol</key>
+			<string>profilePhoto</string>
+		</dict>
+	</array>
+	<key>symbols</key>
+	<array/>
+</dict>
+</plist>

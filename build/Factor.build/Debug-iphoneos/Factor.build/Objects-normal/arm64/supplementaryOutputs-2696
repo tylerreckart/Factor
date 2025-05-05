@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Customization/Theme.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.o"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.swiftdeps"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.d"
+"/Users/tylerreckart/Dev/Factor/Factor/Models/FilmStock.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/BellowsExtensionFactor.swift":
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.o"
+"/Users/tylerreckart/Dev/Factor/Factor/Utils/Constants.swift":
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.swiftconstvalues"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.o"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.dia"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/ActionButton.swift":
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ActionButton.o"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ActionButton.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ActionButton.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ActionButton.d"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ActionButton.dia"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/Dialog.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.o"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.dia"

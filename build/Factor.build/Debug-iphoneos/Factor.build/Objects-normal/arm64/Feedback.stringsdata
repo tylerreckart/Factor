@@ -1,0 +1,48 @@
+{
+  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Feedback.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Send Feedback",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 32
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hi, I'm [Tyler](https://reckart.blog). I run [Haptic Software](https://haptic.software) and develop Factor without employees or outside funding. The quality and user experience of this app is extremely important to me. Whether you'd like to report issues to me directly or request new features, feedback is always welcome:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 15
+        }
+      },
+      {
+        "comment": "",
+        "key": "[info@haptic.software](mailto:info@haptic.software)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 18
+        }
+      },
+      {
+        "comment": "",
+        "key": "I try to read every message, but can't respond to them all.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "Thank you for your feedback and understanding.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 25
+        }
+      }
+    ]
+  },
+  "version": 1
+}

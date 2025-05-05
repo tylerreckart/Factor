@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/FormInput.swift":
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.dia"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.o"
+"/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Gear/Emulsions/FilmOptions.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/Factor/Models/Place.swift":
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.dia"
+"/Users/tylerreckart/Dev/Factor/Factor/Models/FilterDropdownOption.swift":
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.o"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.dia"
+"/Users/tylerreckart/Dev/Factor/Factor/Classes/LightMeterEngine.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.d"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.o"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/Factor/Views/CameraPreview.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.dia"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.o"

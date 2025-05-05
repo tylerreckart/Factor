@@ -24,7 +24,7 @@ struct FormInput: View {
         .padding(.horizontal)
         .frame(height: 55, alignment: .center)
         .foregroundColor(.primary)
-        .background(!useDarkMode ? .white : Color(.systemGray6))
+        .background(Color(.systemGray6))
     }
 }
 

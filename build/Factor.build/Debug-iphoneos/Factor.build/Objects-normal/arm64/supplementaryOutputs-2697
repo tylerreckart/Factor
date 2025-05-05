@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/BellowsExtensionData+CoreDataClass.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.dia"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.swiftconstvalues"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/FilterFactor.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/BellowsExtensionForm.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.o"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.d"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/WebView.swift":
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/WebView.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/WebView.swiftdeps"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/WebView.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/WebView.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/WebView.o"
+"/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Settings.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.o"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.swiftconstvalues"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/BellowsExtensionData+CoreDataProperties.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.dia"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.swiftdeps"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.o"

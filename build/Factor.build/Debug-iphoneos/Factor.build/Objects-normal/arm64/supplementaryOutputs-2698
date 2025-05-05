@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/FilterData+CoreDataProperties.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Emulsion+CoreDataClass.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.dia"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.o"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.swiftdeps"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.swiftconstvalues"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Camera+CoreDataProperties.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.o"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.dia"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Emulsion+CoreDataProperties.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/FilterData+CoreDataClass.swift":
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.o"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.swiftdeps"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.d"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.dia"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Camera+CoreDataClass.swift":
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.o"

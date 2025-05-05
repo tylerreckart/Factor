@@ -1,0 +1,88 @@
+{
+  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/LightMeterView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Light Meter",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 79
+        }
+      },
+      {
+        "comment": "",
+        "key": "Starting Camera...",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tap to take a new light measurement",
+        "location": {
+          "startingColumn": 56,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tap to measure the current light",
+        "location": {
+          "startingColumn": 96,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "Capture",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 115
+        }
+      },
+      {
+        "comment": "",
+        "key": "Captured Scene:",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "Target ISO:",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "Target ISO",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 158
+        }
+      },
+      {
+        "comment": "",
+        "key": "Target Aperture:",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 171
+        }
+      },
+      {
+        "comment": "",
+        "key": "Target Aperture",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 174
+        }
+      }
+    ]
+  },
+  "version": 1
+}

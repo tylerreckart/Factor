@@ -13,7 +13,7 @@ func incrementReviewCounter() -> Void {
     var count = UserDefaults.standard.integer(forKey: "sessionCount")
     count += 1
     UserDefaults.standard.set(count, forKey: "sessionCount")
-    print("player session logged: \(count)")
+    print("user session logged: \(count)")
 
     // Keep track of the most recent app version that prompts the user for a review.
     let lastVersionPromptedForReview = UserDefaults.standard.string(forKey: "lastReviewedVersion")

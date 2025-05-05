@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Lens+CoreDataProperties.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.swiftdeps"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.o"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.dia"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/LoggedExposure+CoreDataClass.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.dia"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.swiftdeps"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.d"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Note+CoreDataClass.swift":
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.swiftdeps"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.swiftconstvalues"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.o"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.dia"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/LoggedExposure+CoreDataProperties.swift":
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.dia"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.swiftconstvalues"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.o"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Note+CoreDataProperties.swift":
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.swiftdeps"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.dia"
+"/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Lens+CoreDataClass.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.swiftdeps"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.d"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.dia"

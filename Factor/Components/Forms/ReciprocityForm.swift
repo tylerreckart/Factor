@@ -78,7 +78,7 @@ struct ReciprocityForm: View {
                             }
                         }
                         .frame(height: 55, alignment: .trailing)
-                        .background(useDarkMode ? Color(.systemGray6) : .white)
+                        .background(Color(.systemGray6))
                         .cornerRadius(8)
                     }
                 }

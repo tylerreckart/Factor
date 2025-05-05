@@ -69,7 +69,7 @@ struct FilterForm: View {
                                 .foregroundColor(.primary)
                                 .padding(.horizontal)
                                 .frame(height: 55)
-                                .background(useDarkMode ? Color(.systemGray6) : .white)
+                                .background(Color(.systemGray6))
                                 .cornerRadius(8)
                             }
                         }

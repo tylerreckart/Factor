@@ -1,0 +1,24 @@
+{
+  "source": "/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/CalculateButton.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Calculate",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 27
+        }
+      },
+      {
+        "comment": "",
+        "key": "Calculate",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 38
+        }
+      }
+    ]
+  },
+  "version": 1
+}

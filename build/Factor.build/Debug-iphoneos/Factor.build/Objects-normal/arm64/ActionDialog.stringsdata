@@ -1,0 +1,56 @@
+{
+  "source": "/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/ActionDialog.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Film Stock",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delta 100",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 60
+        }
+      },
+      {
+        "comment": "",
+        "key": "Push/Pull",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 82
+        }
+      },
+      {
+        "comment": "",
+        "key": "+1",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 91
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add your thoughts...",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 119
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 114
+        }
+      }
+    ]
+  },
+  "version": 1
+}

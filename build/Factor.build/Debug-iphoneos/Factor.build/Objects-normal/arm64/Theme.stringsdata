@@ -1,0 +1,40 @@
+{
+  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Customization/Theme.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Overrides",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Accent Color",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "Always Use Dark Theme",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "Override Default Colors",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 59
+        }
+      }
+    ]
+  },
+  "version": 1
+}

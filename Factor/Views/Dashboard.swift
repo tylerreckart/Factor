@@ -15,12 +15,24 @@ struct Dashboard: View {
     @State private var showReciprocityDialog: Bool = false
     @State private var showFilterDialog: Bool = false
     @State private var showBellowsDialog: Bool = false
+    @State private var showLightMeter: Bool = false
 
     var body: some View {
         return NavigationView {
             ZStack {
                 ScrollView {
                     VStack(spacing: 20) {
+                        Button(action: { self.showLightMeter.toggle() }) {
+                            SimpleTile(tile: {
+                                DashboardTile(
+                                    key: "light_meter",
+                                    label: "Light Meter",
+                                    icon: "sun.horizon",
+                                    background: Color(.systemOrange)
+                                )
+                            }())
+                        }
+    
                         Button(action: { self.showReciprocityDialog.toggle() }) {
                             SimpleTile(tile: {
                                 DashboardTile(
@@ -104,6 +116,9 @@ struct Dashboard: View {
             }
             .background(Color(.systemGray6))
             .edgesIgnoringSafeArea(.bottom)
+            .sheet(isPresented: $showLightMeter) {
+                LightMeterView()
+            }
         }
     }
 }

@@ -37,10 +37,10 @@ struct Dialog<Content: View, CalculatedContent: View>: View {
                     content
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(.thickMaterial)
+                        .background(Color(.systemBackground))
                         .cornerRadius(16)
                         .shadow(color: .black.opacity(0.1), radius: 12, y: 6)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 10)
                         .transition(.scale(scale: 0.4).combined(with: .opacity))
                 }
                 

@@ -30,6 +30,9 @@
 		DB72829328D0B64800305E4B /* ReciprocityDropdownOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72829228D0B64800305E4B /* ReciprocityDropdownOption.swift */; };
 		DB72829528D0B65700305E4B /* FilterDropdownOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72829428D0B65700305E4B /* FilterDropdownOption.swift */; };
 		DB72829728D0B66800305E4B /* DashboardTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB72829628D0B66800305E4B /* DashboardTile.swift */; };
+		DB7C87182DC8E3DD007CA6EE /* LightMeterEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7C87172DC8E3DA007CA6EE /* LightMeterEngine.swift */; };
+		DB7C871A2DC8E3FE007CA6EE /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7C87192DC8E3FB007CA6EE /* CameraPreview.swift */; };
+		DB7C871C2DC8E413007CA6EE /* LightMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7C871B2DC8E411007CA6EE /* LightMeterView.swift */; };
 		DB80127E28B8532D00AC7EAC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB80127D28B8532D00AC7EAC /* Theme.swift */; };
 		DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B2F287CB60E00EC04D7 /* Extensions.swift */; };
 		DB901B32287CB62700EC04D7 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB901B31287CB62700EC04D7 /* Modifiers.swift */; };
@@ -77,6 +80,9 @@
 		DB72829228D0B64800305E4B /* ReciprocityDropdownOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciprocityDropdownOption.swift; sourceTree = "<group>"; };
 		DB72829428D0B65700305E4B /* FilterDropdownOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDropdownOption.swift; sourceTree = "<group>"; };
 		DB72829628D0B66800305E4B /* DashboardTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTile.swift; sourceTree = "<group>"; };
+		DB7C87172DC8E3DA007CA6EE /* LightMeterEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightMeterEngine.swift; sourceTree = "<group>"; };
+		DB7C87192DC8E3FB007CA6EE /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		DB7C871B2DC8E411007CA6EE /* LightMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightMeterView.swift; sourceTree = "<group>"; };
 		DB80127D28B8532D00AC7EAC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB901B2F287CB60E00EC04D7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB901B31287CB62700EC04D7 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -233,6 +239,8 @@
 		DB901B2D287CB5EE00EC04D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB7C871B2DC8E411007CA6EE /* LightMeterView.swift */,
+				DB7C87192DC8E3FB007CA6EE /* CameraPreview.swift */,
 				DB560C3A287A6CC700CC891A /* ContentView.swift */,
 				DBB4FA6328B64B0000186039 /* Dashboard.swift */,
 				DB80123028B840A300AC7EAC /* Settings */,
@@ -273,6 +281,7 @@
 		DBEB4BBA28CE674D00367D87 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DB7C87172DC8E3DA007CA6EE /* LightMeterEngine.swift */,
 				DB30EFC729CC8CFE00659984 /* LocationManager.swift */,
 			);
 			path = Classes;
@@ -354,6 +363,7 @@
 				DB901B30287CB60E00EC04D7 /* Extensions.swift in Sources */,
 				DB901B3F287D03E800EC04D7 /* ReciprocityFactor.swift in Sources */,
 				DB5A4A3428BBDAE7006B093B /* Privacy.swift in Sources */,
+				DB7C871C2DC8E413007CA6EE /* LightMeterView.swift in Sources */,
 				DB1DBF9B28B7E1AC00F2FE07 /* FilterForm.swift in Sources */,
 				DB560C42287A6CCA00CC891A /* Persistence.swift in Sources */,
 				DB901B3B287CB86100EC04D7 /* PriorityModeToggle.swift in Sources */,
@@ -371,6 +381,8 @@
 				DB30EFC829CC8CFE00659984 /* LocationManager.swift in Sources */,
 				DB5A4A3828BBE469006B093B /* Feedback.swift in Sources */,
 				DB901B37287CB6F800EC04D7 /* FormInput.swift in Sources */,
+				DB7C87182DC8E3DD007CA6EE /* LightMeterEngine.swift in Sources */,
+				DB7C871A2DC8E3FE007CA6EE /* CameraPreview.swift in Sources */,
 				DB72829528D0B65700305E4B /* FilterDropdownOption.swift in Sources */,
 				DB5CB97928BE600A00DB1AED /* FilmOptions.swift in Sources */,
 				DB269C2129CDD8EA004FD387 /* Place.swift in Sources */,
@@ -551,13 +563,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -596,13 +609,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Haptic-Software.Ansel.iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
