@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalculateButton: View {
     @AppStorage("useDarkMode") var useDarkMode: Bool = false
+    @AppStorage("userAccentColor") var userAccentColor: Color = .accentColor
 
     var calculate: () -> Void
     var isDisabled: Bool = false
@@ -41,7 +42,7 @@ struct CalculateButton: View {
                     .foregroundColor(.white)
                     .padding(14)
                     .frame(maxWidth: .infinity)
-                    .background(Color(.systemBlue))
+                    .background(userAccentColor)
                     .overlay(
                         LinearGradient(colors: [
                             !useDarkMode

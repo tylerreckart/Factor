@@ -12,10 +12,10 @@ struct Feedback: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("Hi, I'm [Tyler](https://reckart.blog). I run [Haptic Software](https://haptic.software) and develop Factor without employees or outside funding. The quality and user experience of this app is extremely important to me. Whether you'd like to report issues to me directly or request new features, feedback is always welcome:")
+                    Text("Hi, I'm [Tyler](https://tylers.world). I run [Haptic Software](https://haptic.software) and develop Factor without employees or outside funding. The quality and user experience of this app is extremely important to me. Whether you'd like to report issues to me directly or request new features, feedback is always welcome:")
                         .padding(.bottom)
                     
-                    Text("[info@haptic.software](mailto:info@haptic.software)")
+                    Text("[support@haptic.software](mailto:support@haptic.software)")
                         .padding(.bottom)
                     
                     Text("I try to read every message, but can't respond to them all.")

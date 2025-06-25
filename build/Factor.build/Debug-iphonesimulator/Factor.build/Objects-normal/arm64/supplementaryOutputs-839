@@ -1,0 +1,18 @@
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/FormInput.swift":
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.d"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.dia"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/Factor/Classes/LightMeterEngine.swift":
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.o"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.dia"
+"/Users/tylerreckart/Dev/Factor/Factor/Views/CameraPreview.swift":
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.d"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.swiftconstvalues"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.o"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.dia"

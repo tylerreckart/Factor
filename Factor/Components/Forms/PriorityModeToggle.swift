@@ -55,7 +55,7 @@ struct ToggleButton: View {
                  ? LinearGradient(colors: [.white.opacity(0.2), .clear], startPoint: .top, endPoint: .bottom)
                  : LinearGradient(colors: [.clear, .clear], startPoint: .top, endPoint: .bottom)
         )
-        .cornerRadius(5)
+        .clipShape(Capsule())
         .shadow(color: .black.opacity(self.priorityMode == target ? 0.1 : 0), radius: 3)
     }
 }
@@ -105,7 +105,7 @@ struct PriorityModeToggle: View {
             }
             .padding(4)
             .background(Color(.systemGray6))
-            .cornerRadius(8)
+            .clipShape(Capsule())
         }
         .padding(.bottom, 10)
     }

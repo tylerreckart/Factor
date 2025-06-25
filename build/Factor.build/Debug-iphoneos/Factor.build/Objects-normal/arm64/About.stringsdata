@@ -1,5 +1,5 @@
 {
-  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/About.swift",
+  "source": "/Users/tylerreckart/Haptic/Factor/Factor/Views/Settings/About.swift",
   "tables": {
     "Localizable": [
       {
@@ -7,95 +7,63 @@
         "key": "Factor %@",
         "location": {
           "startingColumn": 22,
-          "startingLine": 29
+          "startingLine": 25
         }
       },
       {
         "comment": "",
-        "key": "Hi, I'm Tyler. I run Haptic, the development studio behind Factor, as a one-person shop without employees or outside funding.\n\nThis app would not be possible without the love and support of my family and our two dogs.",
+        "key": "Hi, I'm Tyler. I run Haptic Software, the development studio behind Factor, as a one-person shop without employees or outside funding.\n\nThis app would not be possible without the love and support of my wife, our kids, and our dog.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 31
+          "startingLine": 27
         }
       },
       {
         "comment": "",
-        "key": "© 2023 Haptic Software LLC. Factor %@",
+        "key": "© 2025 Haptic Software LLC",
         "location": {
           "startingColumn": 22,
-          "startingLine": 122
+          "startingLine": 90
         }
       },
       {
         "comment": "",
-        "key": "Follow Us",
+        "key": "Rate Factor on the App Store",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "Albums: Your Music Catalog",
         "location": {
           "startingColumn": 38,
-          "startingLine": 37
+          "startingLine": 59
         }
       },
       {
         "comment": "",
-        "key": "Haptic",
+        "key": "Solar: Sun Tracker & UV Forecast",
         "location": {
-          "startingColumn": 42,
-          "startingLine": 55
+          "startingColumn": 38,
+          "startingLine": 67
         }
       },
       {
         "comment": "",
-        "key": "Company News and Updates",
+        "key": "Our Apps",
         "location": {
-          "startingColumn": 42,
-          "startingLine": 56
-        }
-      },
-      {
-        "comment": "",
-        "key": "Factor",
-        "location": {
-          "startingColumn": 42,
+          "startingColumn": 30,
           "startingLine": 78
-        }
-      },
-      {
-        "comment": "",
-        "key": "App Updates and Feedback",
-        "location": {
-          "startingColumn": 42,
-          "startingLine": 79
-        }
-      },
-      {
-        "comment": "",
-        "key": "Tyler Reckart",
-        "location": {
-          "startingColumn": 42,
-          "startingLine": 96
-        }
-      },
-      {
-        "comment": "",
-        "key": "Developer",
-        "location": {
-          "startingColumn": 42,
-          "startingLine": 97
-        }
-      },
-      {
-        "comment": "",
-        "key": "Rate Spindown on the App Store",
-        "location": {
-          "startingColumn": 34,
-          "startingLine": 112
         }
       },
       {
         "comment": "",
         "key": "About",
         "location": {
-          "startingColumn": 26,
-          "startingLine": 150
+          "startingColumn": 30,
+          "startingLine": 107
         }
       }
     ]

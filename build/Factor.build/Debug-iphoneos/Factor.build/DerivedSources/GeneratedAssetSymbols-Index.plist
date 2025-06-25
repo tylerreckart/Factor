@@ -3,39 +3,38 @@
 <plist version="1.0">
 <dict>
 	<key>colors</key>
-	<array>
-		<dict>
-			<key>catalogPath</key>
-			<string>/Users/tylerreckart/Dev/Factor/Factor/Assets.xcassets</string>
-			<key>objcSymbol</key>
-			<string>ACColorNameAccentColor</string>
-			<key>relativePath</key>
-			<string>./AccentColor.colorset</string>
-			<key>swiftSymbol</key>
-			<string>accent</string>
-		</dict>
-	</array>
+	<array/>
 	<key>images</key>
 	<array>
 		<dict>
 			<key>catalogPath</key>
-			<string>/Users/tylerreckart/Dev/Factor/Factor/Assets.xcassets</string>
+			<string>/Users/tylerreckart/Haptic/Factor/Factor/Assets.xcassets</string>
 			<key>objcSymbol</key>
-			<string>ACImageNameHapticLogo</string>
+			<string>ACImageNameAlbumsAppIcon</string>
 			<key>relativePath</key>
-			<string>./HapticLogo.imageset</string>
+			<string>./AlbumsAppIcon.imageset</string>
 			<key>swiftSymbol</key>
-			<string>hapticLogo</string>
+			<string>albumsAppIcon</string>
 		</dict>
 		<dict>
 			<key>catalogPath</key>
-			<string>/Users/tylerreckart/Dev/Factor/Factor/Assets.xcassets</string>
+			<string>/Users/tylerreckart/Haptic/Factor/Factor/Assets.xcassets</string>
 			<key>objcSymbol</key>
-			<string>ACImageNameProfilePhoto</string>
+			<string>ACImageNameDisplayAppIcon</string>
 			<key>relativePath</key>
-			<string>./ProfilePhoto.imageset</string>
+			<string>./DisplayAppIcon.imageset</string>
 			<key>swiftSymbol</key>
-			<string>profilePhoto</string>
+			<string>displayAppIcon</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/tylerreckart/Haptic/Factor/Factor/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameSolarAppIcon</string>
+			<key>relativePath</key>
+			<string>./SolarAppIcon.imageset</string>
+			<key>swiftSymbol</key>
+			<string>solarAppIcon</string>
 		</dict>
 	</array>
 	<key>symbols</key>

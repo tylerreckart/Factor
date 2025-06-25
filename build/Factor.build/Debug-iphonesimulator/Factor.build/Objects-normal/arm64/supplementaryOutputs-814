@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Dev/Factor/Factor/Views/LightMeterView.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.o"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/Factor/Persistence.swift":
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.swiftdeps"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.dia"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.o"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/PriorityModeToggle.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.d"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.o"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.dia"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.swiftdeps"
+"/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Legal/Privacy.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.dia"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.d"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.swiftdeps"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.o"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/FilterForm.swift":
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.swiftdeps"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.o"
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.dia"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.d"
+"/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/ReciprocityForm.swift":
+  diagnostics: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.dia"
+  object: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.o"
+  swift-dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.swiftdeps"
+  const-values: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.d"

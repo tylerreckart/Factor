@@ -22,76 +22,36 @@ struct Dashboard: View {
             ZStack {
                 ScrollView {
                     VStack(spacing: 20) {
-                        Button(action: { self.showLightMeter.toggle() }) {
-                            SimpleTile(tile: {
-                                DashboardTile(
-                                    key: "light_meter",
-                                    label: "Light Meter",
-                                    icon: "sun.horizon",
-                                    background: Color(.systemOrange)
-                                )
-                            }())
-                        }
-    
-                        Button(action: { self.showReciprocityDialog.toggle() }) {
-                            SimpleTile(tile: {
-                                DashboardTile(
-                                    key: "reciprocity_factor",
-                                    label: "Reciprocity Factor",
-                                    icon: "stopwatch",
-                                    background: Color(.systemPurple)
-                                )
-                            }())
+                        HStack(spacing: 20) {
+                            Button(action: { self.showLightMeter.toggle() }) {
+                                Tile(title: "Light Meter", iconName: "sun.horizon", color: Color(.systemYellow))
+                            }
+                            
+                            Button(action: { self.showReciprocityDialog.toggle() }) {
+                                Tile(title: "Reciprocity Failure", iconName: "stopwatch", color: Color(.systemGreen))
+                            }
                         }
                         
-                        Button(action: { self.showFilterDialog.toggle() }) {
-                            SimpleTile(tile: {
-                                DashboardTile(
-                                    key: "filter_factor",
-                                    label: "Filter Factor",
-                                    icon: "camera.filters",
-                                    background: Color(.systemPink)
-                                )
-                            }())
+                        HStack (spacing: 20) {
+                            Button(action: { self.showFilterDialog.toggle() }) {
+                                Tile(title: "Filter factor", iconName: "camera.filters", color: Color(.systemBlue))
+                            }
+                            
+                            Button(action: { self.showBellowsDialog.toggle() }) {
+                                Tile(title: "Bellows Extension Factor", iconName: "arrow.up.backward.and.arrow.down.forward.circle.fill", color: Color(.systemPurple))                            }
                         }
                         
-                        Button(action: { self.showBellowsDialog.toggle() }) {
-                            SimpleTile(tile: {
-                                DashboardTile(
-                                    key: "bellows_extension_factor",
-                                    label: "Bellows Extension Factor",
-                                    icon: "arrow.up.backward.and.arrow.down.forward.circle.fill",
-                                    background: Color(.systemBlue)
-                                )
-                            }())
+                        HStack(spacing: 20) {
+                            NavigationLink(destination: Settings()) {
+                                Tile(title: "Settings", iconName: "gear", color: Color(.systemGray))
+                            }
+                            Color.clear
                         }
                     }
                     .padding([.horizontal, .top])
-                    
-//                    VStack(spacing: 20) {
-//                        HStack {
-//                            Text("Exposure Log")
-//                                .font(.system(size: 16, weight: .bold))
-//                            Spacer()
-//                        }
-//                        .padding(.horizontal)
-//                        .padding(.bottom, -10)
-//
-//                        Text("Logged exposures will appear here.")
-//                            .font(.system(size: 16, weight: .regular))
-//                            .foregroundColor(Color.gray)
-//                            .italic()
-//                            .padding()
-//                            .padding(.vertical, 15)
-//                            .frame(maxWidth: .infinity)
-//                            .background(Color(.systemGray5))
-//                            .cornerRadius(16)
-//                    }
-//                    .padding([.horizontal, .top])
                 }
                 
-//                ActionButton(action: { self.showActionDialog.toggle() })
-//                ActionDialog(toggleDialog: { self.showActionDialog.toggle() }, showDialog: $showActionDialog)
+                // ActionDialog(toggleDialog: { self.showActionDialog.toggle() }, showDialog: $showActionDialog)
                 Reciprocity(open: $showReciprocityDialog)
                 FilterFactor(open: $showFilterDialog)
                 BellowsExtension(open: $showBellowsDialog)
@@ -100,20 +60,16 @@ struct Dashboard: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack {
                         Image(systemName: "camera.filters")
-                            .font(.system(size: 18, weight: .medium))
+                            .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.accentColor)
                         Text("Factor")
                             .font(.system(size: 18, weight: .bold))
                     }
                     .zIndex(1)
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: Settings()) {
-                        Label("Settings", systemImage: "gearshape")
-                    }
-                    .zIndex(1)
+                    Spacer()
                 }
             }
+            .toolbarBackground(Color(.systemBackground), for: .navigationBar)
             .background(Color(.systemGray6))
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $showLightMeter) {

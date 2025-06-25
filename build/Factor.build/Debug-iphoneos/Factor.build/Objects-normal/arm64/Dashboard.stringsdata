@@ -1,5 +1,5 @@
 {
-  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/Dashboard.swift",
+  "source": "/Users/tylerreckart/Haptic/Factor/Factor/Views/Dashboard.swift",
   "tables": {
     "Localizable": [
       {
@@ -7,15 +7,7 @@
         "key": "Factor",
         "location": {
           "startingColumn": 30,
-          "startingLine": 105
-        }
-      },
-      {
-        "comment": "",
-        "key": "Settings",
-        "location": {
-          "startingColumn": 31,
-          "startingLine": 112
+          "startingLine": 65
         }
       }
     ]

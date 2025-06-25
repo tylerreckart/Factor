@@ -2,7 +2,7 @@
 //  BellowsExtensionData+CoreDataProperties.swift
 //  
 //
-//  Created by Tyler Reckart on 5/5/25.
+//  Created by Tyler Reckart on 6/25/25.
 //
 //  This file was automatically generated and should not be edited.
 //

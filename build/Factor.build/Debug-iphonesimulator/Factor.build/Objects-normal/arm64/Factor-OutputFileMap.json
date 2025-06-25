@@ -1,0 +1,588 @@
+{
+  "" : {
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Factor-master.dia",
+    "emit-module-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Factor-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Factor-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Factor-master.swiftdeps"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Classes/LightMeterEngine.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterEngine~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Classes/LocationManager.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LocationManager.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LocationManager.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LocationManager.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LocationManager.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LocationManager.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LocationManager.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LocationManager.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LocationManager~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/ActionDialog.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ActionDialog.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ActionDialog.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ActionDialog.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ActionDialog.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ActionDialog.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ActionDialog.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ActionDialog.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ActionDialog~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/BellowsExtensionFactor.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionFactor~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/Dialog.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dialog.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dialog.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dialog.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dialog.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dialog.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dialog.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dialog.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dialog~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/FilterFactor.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterFactor.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterFactor.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterFactor.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterFactor.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterFactor.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterFactor.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterFactor.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterFactor~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Dialogs/ReciprocityFactor.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityFactor.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityFactor.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityFactor.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityFactor.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityFactor.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityFactor.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityFactor.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityFactor~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/BellowsExtensionForm.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionForm.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionForm.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionForm.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionForm.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionForm.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionForm.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionForm.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionForm~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/CalculateButton.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CalculateButton.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CalculateButton.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CalculateButton.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CalculateButton.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CalculateButton.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CalculateButton.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CalculateButton.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CalculateButton~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/FilterForm.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterForm~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/FormInput.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FormInput~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/PriorityModeToggle.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/PriorityModeToggle~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/ReciprocityForm.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityForm~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/ResultCard.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ResultCard.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ResultCard.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ResultCard.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ResultCard.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ResultCard.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ResultCard.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ResultCard.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ResultCard~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Components/Tile.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Tile.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Tile.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Tile.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Tile.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Tile.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Tile.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Tile.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Tile~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/FactorApp.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FactorApp.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FactorApp.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FactorApp.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FactorApp.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FactorApp.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FactorApp.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FactorApp.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FactorApp~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Models/DashboardTile.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/DashboardTile.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/DashboardTile.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/DashboardTile.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/DashboardTile.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/DashboardTile.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/DashboardTile.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/DashboardTile.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/DashboardTile~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Models/FilmStock.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmStock.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmStock.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmStock.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmStock.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmStock.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmStock.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmStock.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmStock~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Models/FilterDropdownOption.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterDropdownOption.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterDropdownOption.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterDropdownOption.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterDropdownOption.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterDropdownOption.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterDropdownOption.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterDropdownOption.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterDropdownOption~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Models/Place.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Place.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Place.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Place.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Place.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Place.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Place.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Place.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Place~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Models/ReciprocityDropdownOption.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityDropdownOption.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityDropdownOption.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityDropdownOption.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityDropdownOption.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityDropdownOption.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityDropdownOption.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityDropdownOption.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityDropdownOption~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Persistence.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Persistence~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Utils/Constants.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Constants.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Constants.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Constants.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Constants.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Constants.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Constants.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Constants.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Constants~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Utils/Extensions.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Extensions.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Extensions.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Extensions.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Extensions.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Extensions.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Extensions.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Extensions.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Extensions~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Utils/Math.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Math.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Math.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Math.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Math.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Math.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Math.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Math.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Math~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Utils/Modifiers.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Modifiers.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Modifiers.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Modifiers.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Modifiers.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Modifiers.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Modifiers.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Modifiers.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Modifiers~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Utils/Validation.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Validation.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Validation.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Validation.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Validation.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Validation.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Validation.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Validation.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Validation~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/CameraPreview.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/CameraPreview~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/ContentView.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/Dashboard.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dashboard.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dashboard.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dashboard.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dashboard.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dashboard.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dashboard.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dashboard.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Dashboard~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/LightMeterView.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LightMeterView~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/About.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/About.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/About.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/About.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/About.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/About.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/About.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/About.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/About~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Customization/Theme.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Theme.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Theme.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Theme.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Theme.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Theme.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Theme.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Theme.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Theme~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Feedback.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Feedback.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Feedback.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Feedback.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Feedback.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Feedback.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Feedback.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Feedback.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Feedback~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Gear/Emulsions/FilmOptions.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmOptions.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmOptions.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmOptions.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmOptions.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmOptions.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmOptions.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmOptions.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilmOptions~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Legal/Privacy.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Privacy~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Legal/Terms.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Terms.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Terms.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Terms.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Terms.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Terms.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Terms.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Terms.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Terms~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Settings.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Settings.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Settings.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Settings.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Settings.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Settings.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Settings.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Settings.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Settings~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/BellowsExtensionData+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/BellowsExtensionData+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Camera+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Camera+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Emulsion+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Emulsion+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Emulsion+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/FilterData+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/FilterData+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/FilterData+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Lens+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Lens+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lens+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/LoggedExposure+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/LoggedExposure+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Lumen+CoreDataModel.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lumen+CoreDataModel.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lumen+CoreDataModel.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lumen+CoreDataModel.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lumen+CoreDataModel.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lumen+CoreDataModel.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lumen+CoreDataModel.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lumen+CoreDataModel.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Lumen+CoreDataModel~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Note+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Note+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/Note+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/ReciprocityData+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/ReciprocityData+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/ReciprocityOption+CoreDataClass.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataClass.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataClass.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataClass.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataClass.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataClass.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/CoreDataGenerated/Lumen/ReciprocityOption+CoreDataProperties.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataProperties.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataProperties.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataProperties.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/ReciprocityOption+CoreDataProperties~partial.swiftmodule"
+  },
+  "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/tylerreckart/Dev/Factor/build/Factor.build/Debug-iphonesimulator/Factor.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

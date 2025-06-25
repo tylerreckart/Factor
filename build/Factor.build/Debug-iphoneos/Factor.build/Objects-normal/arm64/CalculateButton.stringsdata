@@ -1,5 +1,5 @@
 {
-  "source": "/Users/tylerreckart/Dev/Factor/Factor/Components/Forms/CalculateButton.swift",
+  "source": "/Users/tylerreckart/Haptic/Factor/Factor/Components/Forms/CalculateButton.swift",
   "tables": {
     "Localizable": [
       {
@@ -7,7 +7,7 @@
         "key": "Calculate",
         "location": {
           "startingColumn": 22,
-          "startingLine": 27
+          "startingLine": 28
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "Calculate",
         "location": {
           "startingColumn": 22,
-          "startingLine": 38
+          "startingLine": 39
         }
       }
     ]

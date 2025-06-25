@@ -1,61 +1,77 @@
 {
-  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/LightMeterView.swift",
+  "source": "/Users/tylerreckart/Haptic/Factor/Factor/Views/LightMeterView.swift",
   "tables": {
     "Localizable": [
-      {
-        "comment": "",
-        "key": "Light Meter",
-        "location": {
-          "startingColumn": 26,
-          "startingLine": 79
-        }
-      },
       {
         "comment": "",
         "key": "Starting Camera...",
         "location": {
           "startingColumn": 30,
-          "startingLine": 58
+          "startingLine": 41
         }
       },
       {
         "comment": "",
         "key": "Tap to take a new light measurement",
         "location": {
-          "startingColumn": 56,
-          "startingLine": 126
+          "startingColumn": 52,
+          "startingLine": 108
         }
       },
       {
         "comment": "",
         "key": "Tap to measure the current light",
         "location": {
-          "startingColumn": 96,
-          "startingLine": 126
+          "startingColumn": 92,
+          "startingLine": 108
         }
       },
       {
         "comment": "",
         "key": "Capture",
         "location": {
-          "startingColumn": 26,
-          "startingLine": 115
+          "startingColumn": 22,
+          "startingLine": 96
         }
       },
       {
         "comment": "",
-        "key": "Captured Scene:",
+        "key": "Last Reading",
         "location": {
-          "startingColumn": 18,
+          "startingColumn": 38,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "Meter Ready",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scene EV: %@",
+        "location": {
+          "startingColumn": 26,
           "startingLine": 135
         }
       },
       {
         "comment": "",
-        "key": "Target ISO:",
+        "key": "Point camera and tap Capture.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 145
+        }
+      },
+      {
+        "comment": "",
+        "key": "Target ISO",
         "location": {
           "startingColumn": 23,
-          "startingLine": 155
+          "startingLine": 160
         }
       },
       {
@@ -63,15 +79,15 @@
         "key": "Target ISO",
         "location": {
           "startingColumn": 25,
-          "startingLine": 158
+          "startingLine": 163
         }
       },
       {
         "comment": "",
-        "key": "Target Aperture:",
+        "key": "Target Aperture",
         "location": {
           "startingColumn": 23,
-          "startingLine": 171
+          "startingLine": 174
         }
       },
       {
@@ -79,7 +95,7 @@
         "key": "Target Aperture",
         "location": {
           "startingColumn": 25,
-          "startingLine": 174
+          "startingLine": 177
         }
       }
     ]

@@ -24,6 +24,7 @@ struct Dialog<Content: View, CalculatedContent: View>: View {
             if (showOverlay) {
                 Color.black.opacity(0.2)
                     .transition(.opacity)
+                    .edgesIgnoringSafeArea(.all)
                     .onTapGesture {
                         withAnimation {
                             self.open.toggle()
@@ -41,13 +42,14 @@ struct Dialog<Content: View, CalculatedContent: View>: View {
                         .cornerRadius(16)
                         .shadow(color: .black.opacity(0.1), radius: 12, y: 6)
                         .padding(.horizontal, 10)
+                        .padding(.top, 80)
                         .transition(.scale(scale: 0.4).combined(with: .opacity))
                 }
                 
                 if (showCalculatedContent) {
                     calculatedContent
                         .shadow(color: .black.opacity(0.1), radius: 12, y: 6)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 10)
                         .transition(
                             .asymmetric(
                                 insertion: .push(from: .bottom),
@@ -86,6 +88,6 @@ struct Dialog<Content: View, CalculatedContent: View>: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .edgesIgnoringSafeArea(.all)
     }
 }

@@ -1,5 +1,5 @@
 {
-  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Feedback.swift",
+  "source": "/Users/tylerreckart/Haptic/Factor/Factor/Views/Settings/Feedback.swift",
   "tables": {
     "Localizable": [
       {
@@ -12,7 +12,7 @@
       },
       {
         "comment": "",
-        "key": "Hi, I'm [Tyler](https://reckart.blog). I run [Haptic Software](https://haptic.software) and develop Factor without employees or outside funding. The quality and user experience of this app is extremely important to me. Whether you'd like to report issues to me directly or request new features, feedback is always welcome:",
+        "key": "Hi, I'm [Tyler](https://tylers.world). I run [Haptic Software](https://haptic.software) and develop Factor without employees or outside funding. The quality and user experience of this app is extremely important to me. Whether you'd like to report issues to me directly or request new features, feedback is always welcome:",
         "location": {
           "startingColumn": 26,
           "startingLine": 15
@@ -20,7 +20,7 @@
       },
       {
         "comment": "",
-        "key": "[info@haptic.software](mailto:info@haptic.software)",
+        "key": "[support@haptic.software](mailto:support@haptic.software)",
         "location": {
           "startingColumn": 26,
           "startingLine": 18

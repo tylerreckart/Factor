@@ -6,16 +6,13 @@
 #define AC_SWIFT_PRIVATE
 #endif
 
-/// The resource bundle ID.
-static NSString * const ACBundleID AC_SWIFT_PRIVATE = @"Haptic-Software.Ansel.iOS";
+/// The "AlbumsAppIcon" asset catalog image resource.
+static NSString * const ACImageNameAlbumsAppIcon AC_SWIFT_PRIVATE = @"AlbumsAppIcon";
 
-/// The "AccentColor" asset catalog color resource.
-static NSString * const ACColorNameAccentColor AC_SWIFT_PRIVATE = @"AccentColor";
+/// The "DisplayAppIcon" asset catalog image resource.
+static NSString * const ACImageNameDisplayAppIcon AC_SWIFT_PRIVATE = @"DisplayAppIcon";
 
-/// The "HapticLogo" asset catalog image resource.
-static NSString * const ACImageNameHapticLogo AC_SWIFT_PRIVATE = @"HapticLogo";
-
-/// The "ProfilePhoto" asset catalog image resource.
-static NSString * const ACImageNameProfilePhoto AC_SWIFT_PRIVATE = @"ProfilePhoto";
+/// The "SolarAppIcon" asset catalog image resource.
+static NSString * const ACImageNameSolarAppIcon AC_SWIFT_PRIVATE = @"SolarAppIcon";
 
 #undef AC_SWIFT_PRIVATE

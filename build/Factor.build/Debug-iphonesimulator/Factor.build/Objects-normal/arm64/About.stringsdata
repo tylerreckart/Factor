@@ -1,0 +1,48 @@
+{
+  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/About.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Factor %@",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hi, I'm Tyler. I run Haptic, the development studio behind Factor, as a one-person shop without employees or outside funding.\n\nThis app would not be possible without the love and support of my family and our two dogs.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "© 2025 Haptic Software LLC.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Rate Factor on the App Store",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "About",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 71
+        }
+      }
+    ]
+  },
+  "version": 1
+}

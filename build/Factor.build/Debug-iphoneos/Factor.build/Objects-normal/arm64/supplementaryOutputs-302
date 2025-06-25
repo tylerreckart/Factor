@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Haptic/Factor/Factor/Models/FilterDropdownOption.swift":
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.o"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.swiftdeps"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.dia"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterDropdownOption.d"
+"/Users/tylerreckart/Haptic/Factor/Factor/Classes/LightMeterEngine.swift":
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.dia"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.d"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.swiftdeps"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LightMeterEngine.o"
+"/Users/tylerreckart/Haptic/Factor/Factor/Views/CameraPreview.swift":
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.swiftdeps"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.dia"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/CameraPreview.o"
+"/Users/tylerreckart/Haptic/Factor/Factor/Components/Forms/FormInput.swift":
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.d"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.dia"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FormInput.o"
+"/Users/tylerreckart/Haptic/Factor/Factor/Views/Settings/Gear/Emulsions/FilmOptions.swift":
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.dia"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmOptions.o"
+"/Users/tylerreckart/Haptic/Factor/Factor/Models/Place.swift":
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.o"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.dia"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.swiftdeps"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.d"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Place.swiftconstvalues"

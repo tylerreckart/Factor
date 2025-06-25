@@ -11,117 +11,85 @@ import StoreKit
 
 struct AboutContent: View {
     let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-
-    @State private var showHapticSheet: Bool = false
-    @State private var showSpindownSheet: Bool = false
-    @State private var showDeveloperSheet: Bool = false
     
     let icon = UIApplication.shared.icon
 
     var body: some View {
         VStack {
             VStack(spacing: 20) {
-                Image(systemName: "camera.filters")
-                    .font(.system(size: 64, weight: .regular))
-                    .foregroundColor(.accentColor)
-                    .shadow(color: .black.opacity(0.1), radius: 2, y: 2)
-                    .padding(.top, 20)
+                Image("DisplayAppIcon")
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .padding(.top, 60)
                 Text("Factor \(version)")
                     .font(.system(size: 24, weight: .bold))
-                Text("Hi, I'm Tyler. I run Haptic, the development studio behind Factor, as a one-person shop without employees or outside funding.\n\nThis app would not be possible without the love and support of my family and our two dogs.")
+                Text("Hi, I'm Tyler. I run Haptic Software, the development studio behind Factor, as a one-person shop without employees or outside funding.\n\nThis app would not be possible without the love and support of my wife, our kids, and our dog.")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                 
-                List {
-                    Section(header:
-                                Text("Follow Us")
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundColor(Color(.systemGray))
-                    ) {
-                        Button(action: {
-                            self.showHapticSheet.toggle()
-                        }) {
-                            HStack(alignment: .center) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.black)
-                                        .frame(width: 30, height: 30)
-                                    Image("HapticLogo")
-                                        .resizable()
-                                        .frame(width: 18, height: 18)
-                                }
-                                
-                                VStack(alignment: .leading) {
-                                    Text("Haptic")
-                                    Text("Company News and Updates")
-                                        .font(.caption)
-                                }
-                            }
-                            .frame(height: 40)
+                Button(action: {
+                    if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                        SKStoreReviewController.requestReview(in: scene)
+                    }
+                }) {
+                    HStack {
+                        ZStack {
+                            Rectangle().fill(Color(.systemBlue)).frame(width: 32, height: 32).cornerRadius(10)
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.white)
+                                .fontWeight(.semibold)
+                                .symbolRenderingMode(.hierarchical)
                         }
-                        
-                        
-                        Button(action: {
-                            self.showSpindownSheet.toggle()
-                        }) {
-                            HStack(alignment: .center) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.blue)
-                                        .frame(width: 30, height: 30)
-                                    Image(systemName: "camera.filters")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 15, weight: .bold))
-                                }
-                                
-                                VStack(alignment: .leading) {
-                                    Text("Factor")
-                                    Text("App Updates and Feedback")
-                                        .font(.caption)
-                                }
+                        Text("Rate Factor on the App Store")
+                        Spacer()
+                    }
+                }
+                .foregroundColor(.primary)
+                .padding()
+                .background(Color(.systemBackground))
+                .cornerRadius(16)
+                .padding(.horizontal)
+                
+                Section {
+                    VStack {
+                        Link(destination: URL(string: "itms-apps://itunes.apple.com/app/id/6745360976")!) {
+                            HStack {
+                                Image("AlbumsAppIcon").resizable().frame(width: 32, height: 32).cornerRadius(10)
+                                Text("Albums: Your Music Catalog")
+                                Spacer()
                             }
-                            .frame(height: 40)
                         }
-                        
-                        Button(action: {
-                            self.showDeveloperSheet.toggle()
-                        }) {
-                            HStack(alignment: .center) {
-                                Image("ProfilePhoto")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .cornerRadius(15)
-                                
-                                VStack(alignment: .leading) {
-                                    Text("Tyler Reckart")
-                                    Text("Developer")
-                                        .font(.caption)
-                                }
+                        Divider().padding(.vertical, 5)
+                        Link(destination: URL(string: "itms-apps://itunes.apple.com/app/id/6745826724")!) {
+                            HStack {
+                                Image("SolarAppIcon").resizable().frame(width: 32, height: 32).cornerRadius(10)
+                                Text("Solar: Sun Tracker & UV Forecast")
+                                Spacer()
                             }
-                            .frame(height: 40)
                         }
                     }
                     .foregroundColor(.primary)
-                    
-                    Section {
-                        Button(action: {
-                            if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-                                SKStoreReviewController.requestReview(in: scene)
-                            }
-                        }) {
-                            Text("Rate Spindown on the App Store")
-                        }
+                    .padding()
+                    .background(Color(.systemBackground))
+                    .cornerRadius(16)
+                } header: {
+                    HStack {
+                        Text("Our Apps")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(Color(.systemGray))
+                            .textCase(nil)
+                        
+                        Spacer()
                     }
-                    .foregroundColor(.accentColor)
+                    .padding(.horizontal, 15)
+                    .padding(.top)
                 }
-                .frame(height: 325)
-                .scrollContentBackground(.hidden)
-                .scrollDisabled(true)
-                .listStyle(InsetGroupedListStyle())
+                .padding(.horizontal)
                 
-                Text("© 2023 Haptic Software LLC. Factor \(version)")
+                Text("© 2025 Haptic Software LLC")
                     .font(.system(size: 12))
-                    .padding(.bottom)
+                    .padding(.vertical)
                     .foregroundColor(Color(.systemGray))
                     .multilineTextAlignment(.center)
             }
@@ -129,26 +97,15 @@ struct AboutContent: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
         .background(Color(.systemGray6))
-        .sheet(isPresented: $showHapticSheet) {
-            WebView(url: URL(string: "https://mastodon.social/@haptic")!)
-        }
-        .sheet(isPresented: $showSpindownSheet) {
-            WebView(url: URL(string: "https://mastodon.social/@factor")!)
-        }
-        .sheet(isPresented: $showDeveloperSheet) {
-            WebView(url: URL(string: "https://mastodon.social/@tyler")!)
-        }
     }
 }
 
 struct About: View {
     var body: some View {
-        NavigationView {
-            AboutContent()
-                .background(Color(.systemGray6))
-        }
-        .navigationTitle("About")
-        .navigationBarTitleDisplayMode(.inline)
+        AboutContent()
+            .background(Color(.systemGray6))
+            .navigationTitle("About")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

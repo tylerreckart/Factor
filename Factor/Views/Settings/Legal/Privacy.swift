@@ -35,7 +35,7 @@ struct Privacy: View {
                         .fontWeight(.bold)
                         .padding([.top, .bottom])
                     
-                    Text("If you have any questions about this Privacy Policy, feel free to contact us at [info@haptic.software](mailto:info@haptic.software).")
+                    Text("If you have any questions about this Privacy Policy, feel free to contact us at [support@haptic.software](mailto:support@haptic.software).")
                     
                     Spacer()
                 }

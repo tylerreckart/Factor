@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Haptic/Factor/Factor/Views/Settings/Customization/Theme.swift":
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.d"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.swiftdeps"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.dia"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Theme.o"
+"/Users/tylerreckart/Haptic/Factor/Factor/Utils/Constants.swift":
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.swiftdeps"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.o"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Constants.dia"
+"/Users/tylerreckart/Haptic/Factor/Factor/Components/Forms/BellowsExtensionForm.swift":
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.dia"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.d"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.swiftdeps"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionForm.o"
+"/Users/tylerreckart/Haptic/Factor/Factor/Components/Dialogs/Dialog.swift":
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.dia"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.swiftdeps"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.o"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Dialog.d"
+"/Users/tylerreckart/Haptic/Factor/Factor/Models/FilmStock.swift":
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.o"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.dia"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.d"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.swiftdeps"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilmStock.swiftconstvalues"
+"/Users/tylerreckart/Haptic/Factor/Factor/Components/Dialogs/BellowsExtensionFactor.swift":
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.dia"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.o"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionFactor.swiftdeps"

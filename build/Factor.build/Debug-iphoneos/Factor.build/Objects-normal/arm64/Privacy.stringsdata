@@ -1,5 +1,5 @@
 {
-  "source": "/Users/tylerreckart/Dev/Factor/Factor/Views/Settings/Legal/Privacy.swift",
+  "source": "/Users/tylerreckart/Haptic/Factor/Factor/Views/Settings/Legal/Privacy.swift",
   "tables": {
     "Localizable": [
       {
@@ -68,7 +68,7 @@
       },
       {
         "comment": "",
-        "key": "If you have any questions about this Privacy Policy, feel free to contact us at [info@haptic.software](mailto:info@haptic.software).",
+        "key": "If you have any questions about this Privacy Policy, feel free to contact us at [support@haptic.software](mailto:support@haptic.software).",
         "location": {
           "startingColumn": 26,
           "startingLine": 38

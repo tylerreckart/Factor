@@ -1,0 +1,30 @@
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/LoggedExposure+CoreDataProperties.swift":
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.dia"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.swiftdeps"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataProperties.o"
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Note+CoreDataProperties.swift":
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.o"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.swiftconstvalues"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.dia"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataProperties.swiftdeps"
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/LoggedExposure+CoreDataClass.swift":
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.o"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.dia"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.swiftdeps"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/LoggedExposure+CoreDataClass.swiftconstvalues"
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/ReciprocityData+CoreDataClass.swift":
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.o"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/ReciprocityData+CoreDataClass.dia"
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Note+CoreDataClass.swift":
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.d"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.swiftconstvalues"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.o"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.dia"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Note+CoreDataClass.swiftdeps"

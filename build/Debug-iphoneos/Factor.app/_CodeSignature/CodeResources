@@ -6,23 +6,27 @@
 	<dict>
 		<key>AppIcon60x60@2x.png</key>
 		<data>
-		RCbDsBgYTIy8zY8EPF2dX6+Xjw4=
+		QDYUdrcsNgnl6BTaGvKpUVAvNy0=
+		</data>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<data>
+		A3u9i8nwurxAqwvnhZwsRixF7JM=
 		</data>
 		<key>Assets.car</key>
 		<data>
-		H/2YqGWzQg+UW1eNgU/X/SzMFX4=
+		8mKZtkbb2y76QSGEvJiJftNJbWM=
 		</data>
 		<key>Factor.debug.dylib</key>
 		<data>
-		5Wcs98fppjWPfSp6A7gZsPWN8sc=
+		EWKX5U+0/3f5Xk+rDvO8PmjCulA=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ojZQZDP/wvmDvpsV8DBtaCHaAL4=
+		r9p34TaXP+AR+TaosRvY1Jihx98=
 		</data>
 		<key>Lumen.momd/Lumen.mom</key>
 		<data>
-		rulVQzA6RugdsviUMCyFdY8Hxto=
+		X20/SnDtWu7e1uqV3OrAsWC8E0M=
 		</data>
 		<key>Lumen.momd/Lumen.omo</key>
 		<data>
@@ -38,7 +42,7 @@
 		</data>
 		<key>__preview.dylib</key>
 		<data>
-		F2rNA5vfVcmfC6w0JHllVi1RtrM=
+		O485NmGeBtgrNMJXJBzeNaYvBos=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -51,28 +55,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jMprdG7ynHklp95BHJKw7aincPwrzIVEoEp8ECV+ZTE=
+			q36GBrfzXuD4dKeo1a/GaSxmqBz76RfReoLB/LPoVwk=
+			</data>
+		</dict>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			wVaC+U8FBBk/huavvBqcFE9qmYSuGT+0Ykm/NcylqbM=
 			</data>
 		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KNm/9+wzj9fQwZMF++O7J1Wye4/wvEYq69JUCAQ91IQ=
+			zOyVlIXdJ6XlqU8gyYHNbqvd5LtJ1CN0bZEoyPxByAc=
 			</data>
 		</dict>
 		<key>Factor.debug.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hH5oJm6K/vmI1Bw9yAR2sxjh75zNzx0pWyYEf75hYyM=
+			oZ9l1jWsIalWf45wfW2errjZ1jpMdbd56P++pu8lY4c=
 			</data>
 		</dict>
 		<key>Lumen.momd/Lumen.mom</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eTf4qcjj+P1B12p1uWtycefkqgBqmHG98lRP47sEvLU=
+			Z5HfvR/huIixGuywt7BPQo6noTOufOCPbUP418KeoEs=
 			</data>
 		</dict>
 		<key>Lumen.momd/Lumen.omo</key>
@@ -93,7 +104,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jc9OV5+kjfW9381y7kc7q3IHPXkHC/XUBsAWhaQ0S2Q=
+			hNhPtRx55vv076H5PvpawmzqucTX+VFmgHKhhSCYTcE=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>

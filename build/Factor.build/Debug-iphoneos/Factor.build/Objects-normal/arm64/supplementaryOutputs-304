@@ -1,0 +1,36 @@
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/BellowsExtensionData+CoreDataClass.swift":
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.d"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.swiftdeps"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.swiftconstvalues"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.o"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataClass.dia"
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Camera+CoreDataClass.swift":
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.dia"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.o"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.d"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataClass.swiftconstvalues"
+"/Users/tylerreckart/Haptic/Factor/Factor/Components/Dialogs/FilterFactor.swift":
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.o"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.dia"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/FilterFactor.d"
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/BellowsExtensionData+CoreDataProperties.swift":
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.dia"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/BellowsExtensionData+CoreDataProperties.o"
+"/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/DerivedSources/CoreDataGenerated/Lumen/Camera+CoreDataProperties.swift":
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.d"
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.o"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.swiftconstvalues"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Camera+CoreDataProperties.dia"
+"/Users/tylerreckart/Haptic/Factor/Factor/Views/Settings/Settings.swift":
+  object: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.o"
+  const-values: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.swiftconstvalues"
+  dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.d"
+  swift-dependencies: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.swiftdeps"
+  diagnostics: "/Users/tylerreckart/Haptic/Factor/build/Factor.build/Debug-iphoneos/Factor.build/Objects-normal/arm64/Settings.dia"

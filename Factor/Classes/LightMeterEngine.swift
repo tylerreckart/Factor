@@ -3,6 +3,7 @@
 //  Factor
 //
 //  Created by Tyler Reckart on 5/5/25.
+//  Refactored on 5/23/25 for KVO handling and state consistency.
 //
 
 import AVFoundation
@@ -11,22 +12,33 @@ import SwiftUI
 
 class LightMeterEngine: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
 
+    // MARK: - Published Properties
     @Published var isReady: Bool = false
-
     @Published var shutterSpeed: Double = 0
     @Published var iso: Float = 0
     @Published var aperture: Float = 0
     @Published var calculatedEV: Double = 0 // Exposure Value
 
+    // MARK: - AVFoundation Components
     public var captureSession: AVCaptureSession?
-    public var videoPreviewLayer: AVCaptureVideoPreviewLayer? // For displaying preview
+    public var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     public var captureDevice: AVCaptureDevice?
     
-    // --- Observer state ---
+    // MARK: - Internal State
+    private var _currentShutterSpeed: Double = 0
+    private var _currentISO: Float = 0
+    private var _currentAperture: Float = 0 // Store the actual lens aperture from device
+
+    // MARK: - Observer State
     private var isObservingExposureDuration = false
     private var isObservingISO = false
     private var isObservingLensAperture = false
 
+    // MARK: - Debounce Mechanism
+    private var debounceTimer: DispatchWorkItem?
+    private let debounceInterval: TimeInterval = 0.1 // 100ms debounce
+
+    // MARK: - Initialization
     override init() {
         super.init()
         checkPermissionsAndSetup()
@@ -42,24 +54,29 @@ class LightMeterEngine: NSObject, ObservableObject, AVCapturePhotoCaptureDelegat
                     DispatchQueue.main.async {
                         self?.setupCaptureSession()
                     }
+                } else {
+                    print("Factor_Debug: Camera access not granted.")
+                    // Optionally, update a state to inform UI about permission denial
                 }
             }
         default:
-            // Handle denied or restricted state
-            print("Camera access denied or restricted.")
+            print("Factor_Debug: Camera access denied or restricted.")
+            // Optionally, update a state to inform UI
             return
         }
     }
 
     private func setupCaptureSession() {
         captureSession = AVCaptureSession()
-        guard let session = captureSession else { return }
+        guard let session = captureSession else {
+            print("Factor_Debug: Failed to create capture session.")
+            return
+        }
 
-        session.sessionPreset = .photo // Use a preset appropriate for metering
+        session.sessionPreset = .photo
 
-        // Get the default back camera
         guard let device = AVCaptureDevice.default(for: .video) else {
-            print("Failed to get camera device.")
+            print("Factor_Debug: Failed to get default camera device.")
             return
         }
         self.captureDevice = device
@@ -68,224 +85,246 @@ class LightMeterEngine: NSObject, ObservableObject, AVCapturePhotoCaptureDelegat
             let input = try AVCaptureDeviceInput(device: device)
             if session.canAddInput(input) {
                 session.addInput(input)
+            } else {
+                print("Factor_Debug: Cannot add input to session.")
+                return
             }
 
-            // --- Method 1: Observe device properties (Simpler for basic values) ---
-            // Start observing changes to exposure properties AFTER session starts running
-            // See startSession() method below.
-
-            // --- Method 2: Use Video Data Output (More complex, allows analyzing frames) ---
-            // let videoOutput = AVCaptureVideoDataOutput()
-            // videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
-            // if session.canAddOutput(videoOutput) {
-            //     session.addOutput(videoOutput)
-            // }
-            // -----------------------------------------------------------------------
-
-
-            // Setup preview layer (optional but recommended for user feedback)
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
             videoPreviewLayer?.videoGravity = .resizeAspectFill
 
-
         } catch {
-            print("Error setting up camera input: \(error)")
+            print("Factor_Debug: Error setting up camera input: \(error)")
             return
         }
     }
 
-    // Call this from your SwiftUI view's onAppear
+    // MARK: - Session Control
     func startSession() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-             guard let self = self, let session = self.captureSession, !session.isRunning else { return }
-
-             // --- Ensure captureDevice exists before adding observers ---
-             guard let device = self.captureDevice else {
-                print("Error: Capture device is nil, cannot add observers.")
-                // Start session even if observers can't be added, preview might still work
-                session.startRunning()
+            guard let self = self, let session = self.captureSession, !session.isRunning else { return }
+            guard let device = self.captureDevice else {
+                print("Factor_Debug: Capture device is nil, cannot start session or add observers.")
                 return
-             }
-             // ---------------------------------------------------------
+            }
+            
+            print("Factor_Debug: Starting capture session...")
+            session.startRunning()
+            print("Factor_Debug: Capture session started.")
 
-             session.startRunning()
-
-             // --- Add Observers After Starting & Check Success ---
-             // Using try? to safely attempt adding observers. KVO addObserver doesn't throw Swift errors,
-             // but it's good practice to be cautious with device availability.
-             // Ensure these are added *after* startRunning and only if device exists.
-
-             device.addObserver(self, forKeyPath: "exposureDuration", options: .new, context: nil)
-             self.isObservingExposureDuration = true // Assume success if no crash
-
-             device.addObserver(self, forKeyPath: "ISO", options: .new, context: nil)
-             self.isObservingISO = true // Assume success
-
-             device.addObserver(self, forKeyPath: "lensAperture", options: .new, context: nil)
-             self.isObservingLensAperture = true // Assume success
-             // --------------------------------------------------
+            // Attempt to get initial fixed lens aperture
+            // This is important as lensAperture KVO might not fire if it's fixed.
+            let initialAperture = device.lensAperture
+            if initialAperture > 0 && !initialAperture.isNaN && !initialAperture.isInfinite {
+                self._currentAperture = initialAperture
+                print("Factor_Debug: Initial lens aperture read: \(initialAperture)")
+            } else {
+                print("Factor_Debug: Could not read a valid initial lens aperture.")
+            }
+            
+            // Add observers after session is running
+            self.addObservers(to: device)
+            
+            // Initial state update after attempting to read aperture and potentially starting observers
+            self.scheduleStateUpdate()
         }
     }
 
     func stopSession() {
-        // --- Remove Observers Before Stopping ONLY IF Added ---
-        // Check flags before removing each observer
-         if let device = captureDevice { // Ensure device exists
-             if isObservingExposureDuration {
-                device.removeObserver(self, forKeyPath: "exposureDuration")
-                isObservingExposureDuration = false
-             }
-             if isObservingISO {
-                device.removeObserver(self, forKeyPath: "ISO")
-                isObservingISO = false
-             }
-             if isObservingLensAperture {
-                device.removeObserver(self, forKeyPath: "lensAperture")
-                isObservingLensAperture = false
-             }
-         }
-         // --------------------------------------------------
-
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-             guard let self = self, let session = self.captureSession, session.isRunning else { return }
-             session.stopRunning()
+            guard let self = self, let session = self.captureSession, session.isRunning else { return }
+            
+            print("Factor_Debug: Stopping capture session...")
+            // Remove observers before stopping the session
+            if let device = self.captureDevice {
+                self.removeObservers(from: device)
+            }
+            
+            session.stopRunning()
+            print("Factor_Debug: Capture session stopped.")
+
+            // Reset state when session stops
+            DispatchQueue.main.async {
+                self.isReady = false
+                self.calculatedEV = 0
+                // Optionally reset shutterSpeed, iso, aperture to 0 if desired
+                // self.shutterSpeed = 0
+                // self.iso = 0
+                // self.aperture = 0 // Or keep last known aperture
+            }
         }
     }
 
-     // KVO method to handle property changes
+    // MARK: - KVO Observation
+    private func addObservers(to device: AVCaptureDevice) {
+        // Ensure not adding observers multiple times
+        if !isObservingExposureDuration {
+            device.addObserver(self, forKeyPath: #keyPath(AVCaptureDevice.exposureDuration), options: .new, context: nil)
+            isObservingExposureDuration = true
+            print("Factor_Debug: Added observer for exposureDuration.")
+        }
+        if !isObservingISO {
+            device.addObserver(self, forKeyPath: #keyPath(AVCaptureDevice.iso), options: .new, context: nil)
+            isObservingISO = true
+            print("Factor_Debug: Added observer for ISO.")
+        }
+        if !isObservingLensAperture {
+            // Note: lensAperture is often fixed on iPhones. KVO might not fire often.
+            device.addObserver(self, forKeyPath: #keyPath(AVCaptureDevice.lensAperture), options: .new, context: nil)
+            isObservingLensAperture = true
+            print("Factor_Debug: Added observer for lensAperture.")
+        }
+    }
+
+    private func removeObservers(from device: AVCaptureDevice) {
+        if isObservingExposureDuration {
+            device.removeObserver(self, forKeyPath: #keyPath(AVCaptureDevice.exposureDuration), context: nil)
+            isObservingExposureDuration = false
+            print("Factor_Debug: Removed observer for exposureDuration.")
+        }
+        if isObservingISO {
+            device.removeObserver(self, forKeyPath: #keyPath(AVCaptureDevice.iso), context: nil)
+            isObservingISO = false
+            print("Factor_Debug: Removed observer for ISO.")
+        }
+        if isObservingLensAperture {
+            device.removeObserver(self, forKeyPath: #keyPath(AVCaptureDevice.lensAperture), context: nil)
+            isObservingLensAperture = false
+            print("Factor_Debug: Removed observer for lensAperture.")
+        }
+    }
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        print("Factor_Debug: observeValue called for keyPath: \(keyPath ?? "nil")") // DEBUG
-
         guard let device = object as? AVCaptureDevice else {
-           print("Factor_Debug: observeValue guard failed - object is not AVCaptureDevice") // DEBUG
-           return
+            print("Factor_Debug: KVO - object is not AVCaptureDevice or is nil.")
+            return
         }
 
-        // Read current values immediately off the KVO thread
-        var localShutter = self.shutterSpeed
-        var localISO = self.iso
-        var localAperture = self.aperture // Read current state
-        var valueChanged = false
+        var needsStateUpdate = false
 
-        if keyPath == "exposureDuration" {
+        switch keyPath {
+        case #keyPath(AVCaptureDevice.exposureDuration):
             let durationSeconds = CMTimeGetSeconds(device.exposureDuration)
-            print("Factor_Debug: exposureDuration received. Value: \(durationSeconds)") // DEBUG
-            // Check against current @Published value for change detection might be better here
-            if !durationSeconds.isNaN && !durationSeconds.isInfinite && self.shutterSpeed != durationSeconds {
-                 localShutter = durationSeconds
-                 valueChanged = true
-                 print("Factor_Debug: exposureDuration is NEW.") // DEBUG
+            if !durationSeconds.isNaN && !durationSeconds.isInfinite && durationSeconds > 0 {
+                if _currentShutterSpeed != durationSeconds {
+                    _currentShutterSpeed = durationSeconds
+                    needsStateUpdate = true
+                    print("Factor_Debug: KVO - Internal Shutter updated: \(_currentShutterSpeed)")
+                }
             }
-        } else if keyPath == "ISO" {
+        case #keyPath(AVCaptureDevice.iso):
             let newISO = device.iso
-             print("Factor_Debug: ISO received. Value: \(newISO)") // DEBUG
-            if !newISO.isNaN && !newISO.isInfinite && self.iso != newISO {
-                localISO = newISO
-                valueChanged = true
-                print("Factor_Debug: ISO is NEW.") // DEBUG
+            if !newISO.isNaN && !newISO.isInfinite && newISO > 0 {
+                if _currentISO != newISO {
+                    _currentISO = newISO
+                    needsStateUpdate = true
+                    print("Factor_Debug: KVO - Internal ISO updated: \(_currentISO)")
+                }
             }
-        } else if keyPath == "lensAperture" {
-             let newAperture = device.lensAperture
-             print("Factor_Debug: lensAperture received. Value: \(newAperture)") // DEBUG
-             // We might receive 0 or a fixed value. Update only if it's > 0 and different.
-             if !newAperture.isNaN && !newAperture.isInfinite && newAperture > 0 && self.aperture != newAperture {
-                 localAperture = newAperture
-                 valueChanged = true // Only flag change if it's a valid, new aperture
-                 print("Factor_Debug: lensAperture is NEW and VALID (>0).") // DEBUG
-             } else if newAperture <= 0 && self.aperture != 0 {
-                 // If device reports 0 but we had a valid aperture before, maybe don't update?
-                 // Or update localAperture to reflect the 0? Let's reflect it locally.
-                 localAperture = newAperture // Reflect the 0 or invalid value locally
-                 valueChanged = true // Consider this a change
-                 print("Factor_Debug: lensAperture is NEW but INVALID (<=0).") // DEBUG
-             }
+        case #keyPath(AVCaptureDevice.lensAperture):
+            let newAperture = device.lensAperture
+            // lensAperture can be fixed, so update if it's valid and different, or if our internal one is still 0
+            if !newAperture.isNaN && !newAperture.isInfinite && newAperture > 0 {
+                if _currentAperture != newAperture {
+                    _currentAperture = newAperture
+                    needsStateUpdate = true
+                    print("Factor_Debug: KVO - Internal Aperture updated: \(_currentAperture)")
+                }
+            }
+        default:
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+            return // Exit if keyPath is not one we handle
         }
 
-        // --- Determine Readiness based ONLY on Shutter and ISO ---
-        let partialReady = localShutter > 0 && localISO > 0
-        print("Factor_Debug: Partial Readiness check (Shutter & ISO > 0): \(partialReady)") // DEBUG
-
-        // Dispatch updates to main thread
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-
-            // --- Update @Published properties ---
-            if valueChanged {
-                self.shutterSpeed = localShutter
-                self.iso = localISO
-                // Update aperture regardless of validity now, rely on checks below
-                self.aperture = localAperture
-                print("Factor_Debug: Updated @Published vars on main thread: S=\(self.shutterSpeed), I=\(self.iso), A=\(self.aperture)") // DEBUG
-            }
-
-            // --- Set isReady based on Shutter & ISO ---
-            // Set ready as soon as Shutter and ISO are valid, even if aperture isn't yet.
-            // The UI can then decide what to display based on aperture's validity.
-            if partialReady && !self.isReady {
-                self.isReady = true
-                print("Factor_Debug: Setting isReady = true on main thread (Shutter & ISO OK).") // DEBUG
-            }
-
-            // --- Calculate EV only if ALL components are valid ---
-            // Check the updated @Published properties on the main thread
-            if self.shutterSpeed > 0 && self.iso > 0 && self.aperture > 0 {
-                 self.calculateEV()
-                 print("Factor_Debug: Calculated EV = \(self.calculatedEV)") // DEBUG
-            } else if valueChanged { // Reset EV if any component became invalid
-                 self.calculatedEV = 0
-                 print("Factor_Debug: Reset EV to 0 because a component is invalid.") // DEBUG
-            }
+        if needsStateUpdate {
+            scheduleStateUpdate()
         }
     }
+    
+    // MARK: - State Update Logic
+    private func scheduleStateUpdate() {
+        // Cancel any existing debounced task
+        debounceTimer?.cancel()
 
-
-     // Function to expose the preview layer to SwiftUI
-     func getPreviewLayer() -> AVCaptureVideoPreviewLayer? {
-         return videoPreviewLayer
-     }
-
-
-    // Calculation for EV
-    private func calculateEV() {
-        // EV = log2(N^2 / t) - log2(S / 100)
-        // Where N = aperture, t = shutter speed (seconds), S = ISO
-        let evPart1 = log2(Double(aperture * aperture) / shutterSpeed)
-        let evPart2 = log2(Double(iso / 100.0))
-        self.calculatedEV = evPart1 - evPart2
+        // Create a new work item
+        let task = DispatchWorkItem { [weak self] in
+            self?.processSensorDataAndUpdatePublishedState()
+        }
+        debounceTimer = task
+        
+        // Schedule the task
+        DispatchQueue.main.asyncAfter(deadline: .now() + debounceInterval, execute: task)
     }
 
-    // Calculate suggested shutter speed for a *target* ISO (using current EV)
-    func calculateSuggestedShutter(targetISO: Float, targetAperture: Float? = nil) -> Double {
-        // Use the currently calculated EV
-         let N = targetAperture ?? self.aperture // Use target aperture if provided, else current
-         guard N > 0 else { return 0 }
+    private func processSensorDataAndUpdatePublishedState() {
+        // This method is now guaranteed to be called on the main thread due to scheduleStateUpdate
+        
+        let newShutter = self._currentShutterSpeed
+        let newISO = self._currentISO
+        let newAperture = self._currentAperture // This should be the actual lens aperture
 
-         // EV = log2(N^2 / t) - log2(S / 100)
-         // Rearrange for t: log2(t) = log2(N^2) - EV - log2(S / 100)
-         let log2t = log2(Double(N * N)) - calculatedEV - log2(Double(targetISO / 100.0))
+        // Determine overall readiness
+        let allComponentsValid = newShutter > 0 && newISO > 0 && newAperture > 0
+        
+        // Update @Published properties
+        self.shutterSpeed = newShutter
+        self.iso = newISO
+        self.aperture = newAperture // Publish the actual lens aperture
 
-        // t = 2 ^ log2(t)
-        let t = pow(2.0, log2t)
-        return t // suggested shutter speed in seconds
+        if allComponentsValid {
+            // Calculate EV using the now consistent internal values
+            let evPart1 = log2(Double(newAperture * newAperture) / newShutter)
+            let evPart2 = log2(Double(newISO / 100.0))
+            let newEV = evPart1 - evPart2
+
+            if !newEV.isNaN && !newEV.isInfinite {
+                self.calculatedEV = newEV
+            } else {
+                self.calculatedEV = 0 // EV calculation resulted in invalid number
+            }
+            
+            if !self.isReady { // Only print if state changes
+                 print("Factor_Debug: State Update - Meter is NOW READY. S=\(newShutter), I=\(newISO), A=\(newAperture), EV=\(self.calculatedEV)")
+            }
+            self.isReady = true
+        } else {
+            self.calculatedEV = 0
+            if self.isReady { // Only print if state changes
+                print("Factor_Debug: State Update - Meter is NOT READY. S=\(newShutter), I=\(newISO), A=\(newAperture)")
+            }
+            self.isReady = false
+        }
+        
+        // More detailed log of published state
+        // print("Factor_Debug: Published State: Ready=\(self.isReady), S=\(self.shutterSpeed), I=\(self.iso), A=\(self.aperture), EV=\(self.calculatedEV)")
     }
 
+    // MARK: - Utility Functions
+    func getPreviewLayer() -> AVCaptureVideoPreviewLayer? {
+        return videoPreviewLayer
+    }
 
-    // Deinit to ensure observers are removed if object is destroyed
+    // MARK: - Deinitialization
     deinit {
-        if let device = captureDevice {
-            if isObservingExposureDuration {
-               device.removeObserver(self, forKeyPath: "exposureDuration")
-            }
-            if isObservingISO {
-               device.removeObserver(self, forKeyPath: "ISO")
-            }
-            if isObservingLensAperture {
-               device.removeObserver(self, forKeyPath: "lensAperture")
-            }
+        // Cancel any pending debounced task
+        debounceTimer?.cancel()
+        
+        // Ensure observers are removed
+        if let device = captureDevice, sessionIsRunning() { // Check if session is running to avoid issues
+             // It's safer to remove observers only if the session was running or they were definitely added.
+             // The stopSession() method should handle observer removal more reliably.
+             // However, as a fallback:
+            removeObservers(from: device)
         }
-         if let session = captureSession, session.isRunning {
-             session.stopRunning()
-         }
-       print("LightMeterEngine deinitialized")
-   }
+        
+        // Ensure session is stopped
+        if let session = captureSession, session.isRunning {
+            session.stopRunning()
+        }
+        print("Factor_Debug: LightMeterEngine deinitialized.")
+    }
+    
+    private func sessionIsRunning() -> Bool {
+        return captureSession?.isRunning ?? false
+    }
 }

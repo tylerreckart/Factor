@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "FCalc@1024.jpg",
+      "filename" : "factor.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,6 +13,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "factor_dark.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -24,6 +25,7 @@
           "value" : "tinted"
         }
       ],
+      "filename" : "factor_tinted.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

@@ -54,11 +54,6 @@ struct ThemeSettings: View {
                     Text("Always Use Dark Theme")
                 }
                 .toggleStyle(SwitchToggleStyle(tint: userAccentColor))
-                
-                Toggle(isOn: $overrideDefaultColors) {
-                    Text("Override Default Colors")
-                }
-                .toggleStyle(SwitchToggleStyle(tint: userAccentColor))
             }
             
             Section(header: Text("Accent Color").font(.system(size: 12))) {

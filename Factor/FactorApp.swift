@@ -20,6 +20,7 @@ struct FactorApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .preferredColorScheme(useDarkMode == true ? .dark : .light)
                 .accentColor(userAccentColor)
+                .fontDesign(.rounded)
         }
     }
 }
