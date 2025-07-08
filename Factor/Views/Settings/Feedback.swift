@@ -12,24 +12,26 @@ struct Feedback: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
-                    Text("Hi, I'm [Tyler](https://tylers.world). I run [Haptic Software](https://haptic.software) and develop Factor without employees or outside funding. The quality and user experience of this app is extremely important to me. Whether you'd like to report issues to me directly or request new features, feedback is always welcome:")
+                    Text("Factor is an open-source project developed by the community. We welcome feedback, bug reports, and feature requests. Here's how you can contribute:")
                         .padding(.bottom)
                     
-                    Text("[support@haptic.software](mailto:support@haptic.software)")
+                    Text("**GitHub Issues**: [Report bugs and request features](https://github.com/yourusername/factor/issues)")
                         .padding(.bottom)
                     
-                    Text("I try to read every message, but can't respond to them all.")
-                        .fontWeight(.bold)
+                    Text("**Pull Requests**: [Contribute code improvements](https://github.com/yourusername/factor/pulls)")
                         .padding(.bottom)
                     
-                    Text("Thank you for your feedback and understanding.")
+                    Text("**Discussions**: [Join community discussions](https://github.com/yourusername/factor/discussions)")
+                        .padding(.bottom)
+                    
+                    Text("Thank you for helping make Factor better for everyone!")
 
                     Spacer()
                 }
                 .padding()
             }
         }
-        .navigationTitle("Send Feedback")
+        .navigationTitle("Contribute")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

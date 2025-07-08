@@ -24,7 +24,7 @@ struct AboutContent: View {
                     .padding(.top, 60)
                 Text("Factor \(version)")
                     .font(.system(size: 24, weight: .bold))
-                Text("Hi, I'm Tyler. I run Haptic Software, the development studio behind Factor, as a one-person shop without employees or outside funding.\n\nThis app would not be possible without the love and support of my wife, our kids, and our dog.")
+                Text("Factor is an open-source photography app designed for film photographers who need precise exposure calculations under challenging conditions.\n\nBuilt with SwiftUI for iOS, Factor combines a real-time light meter with sophisticated calculators for common exposure problems.")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                 
@@ -53,18 +53,22 @@ struct AboutContent: View {
                 
                 Section {
                     VStack {
-                        Link(destination: URL(string: "itms-apps://itunes.apple.com/app/id/6745360976")!) {
+                        Link(destination: URL(string: "https://github.com/yourusername/factor")!) {
                             HStack {
-                                Image("AlbumsAppIcon").resizable().frame(width: 32, height: 32).cornerRadius(10)
-                                Text("Albums: Your Music Catalog")
+                                Image(systemName: "chevron.left.forwardslash.chevron.right")
+                                    .foregroundColor(.blue)
+                                    .frame(width: 32, height: 32)
+                                Text("View Source Code")
                                 Spacer()
                             }
                         }
                         Divider().padding(.vertical, 5)
-                        Link(destination: URL(string: "itms-apps://itunes.apple.com/app/id/6745826724")!) {
+                        Link(destination: URL(string: "https://github.com/yourusername/factor/issues")!) {
                             HStack {
-                                Image("SolarAppIcon").resizable().frame(width: 32, height: 32).cornerRadius(10)
-                                Text("Solar: Sun Tracker & UV Forecast")
+                                Image(systemName: "exclamationmark.triangle")
+                                    .foregroundColor(.orange)
+                                    .frame(width: 32, height: 32)
+                                Text("Report Issues")
                                 Spacer()
                             }
                         }
@@ -75,7 +79,7 @@ struct AboutContent: View {
                     .cornerRadius(16)
                 } header: {
                     HStack {
-                        Text("Our Apps")
+                        Text("Open Source")
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(Color(.systemGray))
                             .textCase(nil)
@@ -87,7 +91,7 @@ struct AboutContent: View {
                 }
                 .padding(.horizontal)
                 
-                Text("© 2025 Haptic Software LLC")
+                Text("© 2025 Factor Contributors")
                     .font(.system(size: 12))
                     .padding(.vertical)
                     .foregroundColor(Color(.systemGray))

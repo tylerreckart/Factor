@@ -12,7 +12,7 @@
       },
       {
         "comment": "",
-        "key": "Hi, I'm Tyler. I run Haptic Software, the development studio behind Factor, as a one-person shop without employees or outside funding.\n\nThis app would not be possible without the love and support of my wife, our kids, and our dog.",
+        "key": "Factor is an open-source photography app designed for film photographers who need precise exposure calculations under challenging conditions.\n\nBuilt with SwiftUI for iOS, Factor combines a real-time light meter with sophisticated calculators for common exposure problems.",
         "location": {
           "startingColumn": 22,
           "startingLine": 27
@@ -20,10 +20,10 @@
       },
       {
         "comment": "",
-        "key": "© 2025 Haptic Software LLC",
+        "key": "© 2025 Factor Contributors",
         "location": {
           "startingColumn": 22,
-          "startingLine": 90
+          "startingLine": 94
         }
       },
       {
@@ -36,26 +36,26 @@
       },
       {
         "comment": "",
-        "key": "Albums: Your Music Catalog",
+        "key": "View Source Code",
         "location": {
           "startingColumn": 38,
-          "startingLine": 59
+          "startingLine": 61
         }
       },
       {
         "comment": "",
-        "key": "Solar: Sun Tracker & UV Forecast",
+        "key": "Report Issues",
         "location": {
           "startingColumn": 38,
-          "startingLine": 67
+          "startingLine": 71
         }
       },
       {
         "comment": "",
-        "key": "Our Apps",
+        "key": "Open Source",
         "location": {
           "startingColumn": 30,
-          "startingLine": 78
+          "startingLine": 82
         }
       },
       {
@@ -63,7 +63,7 @@
         "key": "About",
         "location": {
           "startingColumn": 30,
-          "startingLine": 107
+          "startingLine": 111
         }
       }
     ]

@@ -2,7 +2,7 @@
 //  Dashboard.swift
 //  Factor
 //
-//  Created by Tyler Reckart on 8/24/22.
+//  Created by the Factor Contributors.
 //
 
 import SwiftUI

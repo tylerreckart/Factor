@@ -66,12 +66,10 @@ struct LightMeterView: View {
             .background(Color.black)
             .edgesIgnoringSafeArea(.bottom)
             .onAppear {
-                print("LightMeterView appeared. Starting session.")
                 isReadingCaptured = false
                 meterEngine.startSession()
             }
             .onDisappear {
-                print("LightMeterView disappeared. Stopping session.")
                 meterEngine.stopSession()
             }
             .animation(.easeInOut(duration: 0.3), value: isReadingCaptured)
@@ -190,7 +188,6 @@ struct LightMeterView: View {
     // (No changes to captureReading or calculateSuggestedShutter)
     func captureReading() {
         guard meterEngine.isReady, meterEngine.shutterSpeed > 0 else {
-            print("Factor_Debug: Capture failed - meter engine not ready or shutter speed invalid.")
             return
         }
 
@@ -201,7 +198,6 @@ struct LightMeterView: View {
 
         if meterEngine.calculatedEV != 0 {
             calculatedSceneEV = meterEngine.calculatedEV
-            print("Factor_Debug: Using engine's calculated EV: \(calculatedSceneEV)")
         }
         else if measuredShutter > 0 && measuredOrTargetISO > 0 && apertureToUse > 0 {
             let evPart1 = log2(Double(apertureToUse * apertureToUse) / measuredShutter)
@@ -209,12 +205,8 @@ struct LightMeterView: View {
             calculatedSceneEV = evPart1 - evPart2
              if calculatedSceneEV.isNaN || calculatedSceneEV.isInfinite {
                  calculatedSceneEV = 0
-                 print("Factor_Debug: Fallback EV calculation resulted in NaN or Infinite.")
-             } else {
-                print("Factor_Debug: Engine EV unavailable. Calculated fallback EV: \(calculatedSceneEV)")
              }
         } else {
-            print("Factor_Debug: Cannot calculate EV - insufficient data (S=\(measuredShutter), I=\(measuredOrTargetISO), A=\(apertureToUse)).")
         }
 
         if calculatedSceneEV != 0 {
@@ -227,7 +219,6 @@ struct LightMeterView: View {
             capturedAperture = apertureToUse
             capturedSceneEV = calculatedSceneEV
             isReadingCaptured = true
-            print("Factor_Debug: Reading captured. EV=\(capturedSceneEV), Target ISO=\(capturedISO), Target A=\(capturedAperture), Suggested S=\(nearestStandardShutter) (Raw: \(suggestedShutterRaw))")
         } else {
             isReadingCaptured = false
             capturedShutterSpeed = 0
@@ -235,7 +226,6 @@ struct LightMeterView: View {
             capturedISO = 0
             capturedAperture = 0
             capturedSceneEV = 0
-            print("Factor_Debug: Failed to capture a valid reading.")
         }
     }
 

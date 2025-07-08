@@ -2,7 +2,7 @@
 //  FactorApp.swift
 //  Factor
 //
-//  Created by Tyler Reckart on 7/9/22.
+//  Created by the Factor Contributors.
 //
 
 import SwiftUI

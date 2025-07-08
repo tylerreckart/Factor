@@ -4,15 +4,15 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "Send Feedback",
+        "key": "Contribute",
         "location": {
           "startingColumn": 26,
-          "startingLine": 32
+          "startingLine": 34
         }
       },
       {
         "comment": "",
-        "key": "Hi, I'm [Tyler](https://tylers.world). I run [Haptic Software](https://haptic.software) and develop Factor without employees or outside funding. The quality and user experience of this app is extremely important to me. Whether you'd like to report issues to me directly or request new features, feedback is always welcome:",
+        "key": "Factor is an open-source project developed by the community. We welcome feedback, bug reports, and feature requests. Here's how you can contribute:",
         "location": {
           "startingColumn": 26,
           "startingLine": 15
@@ -20,7 +20,7 @@
       },
       {
         "comment": "",
-        "key": "[support@haptic.software](mailto:support@haptic.software)",
+        "key": "**GitHub Issues**: [Report bugs and request features](https://github.com/yourusername/factor/issues)",
         "location": {
           "startingColumn": 26,
           "startingLine": 18
@@ -28,7 +28,7 @@
       },
       {
         "comment": "",
-        "key": "I try to read every message, but can't respond to them all.",
+        "key": "**Pull Requests**: [Contribute code improvements](https://github.com/yourusername/factor/pulls)",
         "location": {
           "startingColumn": 26,
           "startingLine": 21
@@ -36,10 +36,18 @@
       },
       {
         "comment": "",
-        "key": "Thank you for your feedback and understanding.",
+        "key": "**Discussions**: [Join community discussions](https://github.com/yourusername/factor/discussions)",
         "location": {
           "startingColumn": 26,
-          "startingLine": 25
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "Thank you for helping make Factor better for everyone!",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 27
         }
       }
     ]
