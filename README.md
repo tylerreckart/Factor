@@ -67,7 +67,7 @@ Factor is a specialized iOS app designed for film photographers who need precise
 ### From Source
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/factor.git
+   git clone https://github.com/tylerreckart/factor.git
    ```
 
 2. Open `Factor.xcodeproj` in Xcode
@@ -127,40 +127,12 @@ The app includes a comprehensive database of popular film stocks:
 
 Each film includes specific reciprocity factors and threshold values for accurate long exposure calculations.
 
-## Contributing
-
-We welcome contributions! Please feel free to submit issues, feature requests, or pull requests.
-
-### Development Setup
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly on iOS devices
-5. Submit a pull request
-
-### Code Style
-- Follow Swift style guidelines
-- Use SwiftUI for new UI components
-- Include comprehensive documentation
-- Test camera functionality on real devices
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## Acknowledgments
 
 - Built for the film photography community
 - Inspired by the need for accurate exposure calculations in analog photography
 - Special thanks to contributors and beta testers
-
-## Support
-
-If you encounter any issues or have questions:
-- Open an issue on GitHub
-- Check the documentation
-- Contact the development team
-
----
-
-**Factor** - Making film photography calculations simple and accurate.
